@@ -8,9 +8,10 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { contactFormSchema, submitContactForm } from '@/app/actions';
+import { submitContactForm } from '@/app/actions';
 import { useState, useTransition } from 'react';
 import { Loader2, Mail, MapPin, Phone } from 'lucide-react';
+import { contactFormSchema } from '@/lib/schemas';
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 

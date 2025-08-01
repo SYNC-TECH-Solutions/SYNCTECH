@@ -11,11 +11,11 @@ export function About() {
             <Card className="overflow-hidden">
                 <Image
                     src="https://placehold.co/800x600.png"
-                    alt="SYNC TECH team collaboration"
+                    alt="Abstract technology illustration"
                     width={800}
                     height={600}
                     className="w-full h-auto object-cover transition-transform hover:scale-105"
-                    data-ai-hint="team collaboration"
+                    data-ai-hint="abstract technology"
                 />
             </Card>
           </div>

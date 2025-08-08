@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { DarkModeToggle } from '@/components/dark-mode-toggle';
 import { Logo } from '../logo';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
@@ -61,7 +60,6 @@ export function Header() {
         </Link>
         <div className="hidden md:flex items-center gap-4">
           <NavLinks />
-          <DarkModeToggle />
         </div>
         <div className="md:hidden">
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
@@ -76,7 +74,6 @@ export function Header() {
                   <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
                     <Logo />
                   </Link>
-                  <DarkModeToggle />
                 </div>
                 <NavLinks className="flex-col items-start gap-6 text-lg" />
                 <div className="mt-auto">

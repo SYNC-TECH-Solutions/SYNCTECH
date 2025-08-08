@@ -20,8 +20,8 @@ const config = {
     },
     extend: {
       fontFamily: {
-        body: ['Geist Sans', ...fontFamily.sans],
-        headline: ['Geist Sans', ...fontFamily.sans],
+        sans: ["var(--font-geist-sans)", ...fontFamily.sans],
+        mono: ["var(--font-geist-mono)", ...fontFamily.mono],
       },
       colors: {
         border: 'hsl(var(--border))',

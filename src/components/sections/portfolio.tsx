@@ -9,7 +9,7 @@ const projects = [
   {
     title: "Project Alpha",
     description: "An e-commerce platform for a fashion startup, featuring a custom CMS and integrated payment gateway.",
-    image: "https://placehold.co/600x400.png",
+    image: "https://placehold.co/600x400/000000/FFFFFF.png",
     imageHint: "ecommerce fashion",
     techStack: ["Next.js", "TypeScript", "Stripe", "Firebase"],
     results: "Achieved a 40% increase in online sales and a 25% improvement in site performance.",
@@ -18,7 +18,7 @@ const projects = [
   {
     title: "Project Beta",
     description: "An AI-powered analytics dashboard for a marketing agency to track campaign performance in real-time.",
-    image: "https://placehold.co/600x400.png",
+    image: "https://placehold.co/600x400/000000/FFFFFF.png",
     imageHint: "analytics dashboard",
     techStack: ["React", "Node.js", "Chart.js", "Google Cloud"],
     results: "Reduced reporting time by 60% and provided actionable insights that boosted client ROI by 15%.",
@@ -27,7 +27,7 @@ const projects = [
   {
     title: "Project Gamma",
     description: "A cross-platform mobile app for a fitness company, offering personalized workout plans and progress tracking.",
-    image: "https://placehold.co/600x400.png",
+    image: "https://placehold.co/600x400/000000/FFFFFF.png",
     imageHint: "fitness app",
     techStack: ["React Native", "GraphQL", "PostgreSQL", "AWS"],
     results: "Reached 50,000+ downloads in the first three months with a 4.8-star app store rating.",
@@ -47,7 +47,7 @@ export function Portfolio() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <Card key={project.title} className="flex flex-col overflow-hidden hover:scale-[1.02] transition-transform duration-300">
+            <Card key={project.title} className="flex flex-col overflow-hidden hover:scale-[1.02] transition-transform duration-300 bg-background">
               <div className="aspect-video overflow-hidden">
                 <Image
                   src={project.image}

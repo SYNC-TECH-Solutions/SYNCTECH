@@ -7,21 +7,21 @@ const testimonials = [
     name: "Sarah L.",
     title: "CEO of FashionForward",
     quote: "SYNC TECH transformed our e-commerce presence. Their expertise in web development and dedication to our project was outstanding. We saw a significant increase in sales and customer engagement.",
-    avatar: "https://placehold.co/100x100.png",
+    avatar: "https://placehold.co/100x100/000000/FFFFFF.png",
     avatarHint: "woman portrait"
   },
   {
     name: "Michael B.",
     title: "Marketing Director at Creative Co.",
     quote: "The AI-powered dashboard they built for us is a game-changer. It's intuitive, powerful, and has saved us countless hours on reporting. The team was professional and a pleasure to work with.",
-    avatar: "https://placehold.co/100x100.png",
+    avatar: "https://placehold.co/100x100/000000/FFFFFF.png",
     avatarHint: "man portrait"
   },
   {
     name: "Jessica T.",
     title: "Founder of FitLife",
     quote: "From concept to launch, SYNC TECH was the perfect partner for our mobile app. They understood our vision and delivered a product that has exceeded all our expectations. Highly recommended!",
-    avatar: "https://placehold.co/100x100.png",
+    avatar: "https://placehold.co/100x100/000000/FFFFFF.png",
     avatarHint: "woman smiling"
   },
 ];
@@ -47,7 +47,7 @@ export function Testimonials() {
             {testimonials.map((testimonial, index) => (
               <CarouselItem key={index} className="md:basis-1/2">
                 <div className="p-1">
-                  <Card>
+                  <Card className="bg-background">
                     <CardContent className="flex flex-col items-center text-center p-6">
                       <p className="text-muted-foreground italic mb-6">"{testimonial.quote}"</p>
                       <div className="flex items-center">

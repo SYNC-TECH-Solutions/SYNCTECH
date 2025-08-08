@@ -4,13 +4,13 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export function About() {
   return (
-    <section id="about" className="py-20 md:py-28 bg-secondary">
+    <section id="about" className="py-20 md:py-28 bg-background">
       <div className="container">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="relative">
+          <div className="relative order-last md:order-first">
             <Card className="overflow-hidden">
                 <Image
-                    src="https://placehold.co/800x600.png"
+                    src="https://placehold.co/800x600/000000/FFFFFF.png"
                     alt="Team of developers collaborating"
                     width={800}
                     height={600}
@@ -24,7 +24,7 @@ export function About() {
             <p className="text-muted-foreground mb-6">
               Founded in the heart of Dublin's thriving tech scene, SYNC TECH is driven by a simple mission: to empower businesses with transformative technology. We bridge the gap between complex innovation and practical application, ensuring our clients not only keep pace with the future but lead it.
             </p>
-            <div className="space-y-4">
+            <div className="space-y-4 text-left">
               <div className="flex items-start gap-4">
                 <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
                 <div>

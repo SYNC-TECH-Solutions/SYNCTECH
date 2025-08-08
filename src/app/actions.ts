@@ -17,6 +17,15 @@ export async function submitContactForm(values: ContactFormValues) {
     // Here you would typically handle the validated data,
     // e.g., send an email, save to a database.
     console.log("Form submitted successfully:", values);
+    
+    // Simulate sending email
+    console.log(`Simulating sending email to sherazhussainofficial1@gmail.com from hello@synctech.ie`);
+    console.log(`Email content:`, {
+      from: values.email,
+      name: values.name,
+      message: values.message,
+    });
+
 
     return { success: true, message: "Thank you for your message! We'll get back to you soon." };
   } catch (error) {

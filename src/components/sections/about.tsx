@@ -19,7 +19,7 @@ export function About() {
                 />
             </Card>
           </div>
-          <div>
+          <div className="text-center md:text-left">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">About SYNC TECH</h2>
             <p className="text-muted-foreground mb-6">
               Founded in the heart of Dublin's thriving tech scene, SYNC TECH is driven by a simple mission: to empower businesses with transformative technology. We bridge the gap between complex innovation and practical application, ensuring our clients not only keep pace with the future but lead it.

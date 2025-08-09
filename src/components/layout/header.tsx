@@ -9,11 +9,11 @@ import { Logo } from '../logo';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const navItems = [
-  { href: '/about', label: 'About' },
-  { href: '/services', label: 'Services' },
-  { href: '/portfolio', label: 'Portfolio' },
-  { href: '/testimonials', label: 'Testimonials' },
-  { href: '/contact', label: 'Contact' },
+  { href: '#about', label: 'About' },
+  { href: '#services', label: 'Services' },
+  { href: '#portfolio', label: 'Portfolio' },
+  { href: '#testimonials', label: 'Testimonials' },
+  { href: '#contact', label: 'Contact' },
 ];
 
 export function Header() {
@@ -78,7 +78,7 @@ export function Header() {
                 <NavLinks className="flex-col items-start gap-6 text-lg" />
                 <div className="mt-auto">
                   <Button asChild className="w-full">
-                    <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link>
+                    <Link href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link>
                   </Button>
                 </div>
               </div>

@@ -1,0 +1,10 @@
+
+# See https://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+#
+# A robot should not visit the URLs below.
+# User-agent: *
+# Disallow: /
+User-agent: *
+Allow: /
+
+Sitemap: https://synctech.ie/sitemap.xml

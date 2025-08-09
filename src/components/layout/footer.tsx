@@ -4,10 +4,10 @@ import { Button } from '../ui/button';
 import { Github, Linkedin, Twitter } from 'lucide-react';
 
 const navItems = [
-  { href: '#about', label: 'About' },
-  { href: '#services', label: 'Services' },
-  { href: '#portfolio', label: 'Portfolio' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/about', label: 'About' },
+  { href: '/services', label: 'Services' },
+  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 export function Footer() {

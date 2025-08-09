@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 const projects = [
@@ -35,7 +35,7 @@ const projects = [
   },
 ];
 
-export function Portfolio() {
+export default function PortfolioPage() {
   return (
     <section id="portfolio" className="py-20 md:py-28 bg-secondary">
       <div className="container">

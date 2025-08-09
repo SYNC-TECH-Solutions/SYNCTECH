@@ -15,7 +15,7 @@ import { contactFormSchema } from '@/lib/schemas';
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
-export function Contact() {
+export default function ContactPage() {
   const { toast } = useToast();
   const [isPending, startTransition] = useTransition();
 

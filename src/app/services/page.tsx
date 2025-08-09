@@ -34,7 +34,7 @@ const services = [
   },
 ];
 
-export function Services() {
+export default function ServicesPage() {
   return (
     <section id="services" className="py-20 md:py-28">
       <div className="container">

@@ -23,7 +23,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable} dark`}>
-      <head/>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
       <body className={cn('font-sans antialiased min-h-screen flex flex-col')}>
           <Header />
           <main className="flex-grow">{children}</main>

@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { CheckCircle } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 
-export function About() {
+export default function AboutPage() {
   return (
     <section id="about" className="py-20 md:py-28 bg-background">
       <div className="container">
@@ -10,7 +10,7 @@ export function About() {
           <div className="relative order-last md:order-first">
             <Card className="overflow-hidden">
                 <Image
-                    src="/dublinsync.png"
+                    src="/about-image.png"
                     alt="A stylized image representing technology and innovation in Dublin"
                     width={800}
                     height={600}

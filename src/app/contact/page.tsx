@@ -1,3 +1,4 @@
+
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -12,12 +13,19 @@ import { submitContactForm } from '@/app/actions';
 import { useState, useTransition } from 'react';
 import { Loader2, Mail, MapPin, Phone } from 'lucide-react';
 import { contactFormSchema } from '@/lib/schemas';
+import { useInView } from 'react-intersection-observer';
+import { cn } from '@/lib/utils';
+
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 export default function ContactPage() {
   const { toast } = useToast();
   const [isPending, startTransition] = useTransition();
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -48,7 +56,14 @@ export default function ContactPage() {
   }
 
   return (
-    <section id="contact" className="py-20 md:py-28 bg-secondary">
+    <section 
+      id="contact" 
+      ref={ref}
+      className={cn(
+        "py-20 md:py-28 bg-secondary transition-opacity duration-1000 ease-in-out",
+        inView ? "opacity-100" : "opacity-0"
+      )}
+    >
       <div className="container">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold">Get in Touch</h2>

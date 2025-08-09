@@ -1,16 +1,33 @@
+
+'use client';
+
 import Image from "next/image";
 import { CheckCircle } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { useInView } from "react-intersection-observer";
+import { cn } from "@/lib/utils";
 
 export default function AboutPage() {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
-    <section id="about" className="py-20 md:py-28 bg-background">
+    <section 
+      id="about" 
+      ref={ref}
+      className={cn(
+        "py-20 md:py-28 bg-background transition-opacity duration-1000 ease-in-out",
+        inView ? "opacity-100" : "opacity-0"
+      )}
+    >
       <div className="container">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative order-last md:order-first">
             <Card className="overflow-hidden">
                 <Image
-                    src="/about-image.png"
+                    src="/dublinsync.png"
                     alt="A stylized image representing technology and innovation in Dublin"
                     width={800}
                     height={600}

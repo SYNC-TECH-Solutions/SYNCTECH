@@ -1,3 +1,6 @@
+
+'use client';
+
 import { Hero } from '@/components/sections/hero';
 import AboutPage from './about/page';
 import ServicesPage from './services/page';

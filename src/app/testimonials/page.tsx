@@ -1,6 +1,11 @@
+
+'use client';
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { useInView } from "react-intersection-observer";
+import { cn } from "@/lib/utils";
 
 const testimonials = [
   {
@@ -27,8 +32,20 @@ const testimonials = [
 ];
 
 export default function TestimonialsPage() {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
-    <section id="testimonials" className="py-20 md:py-28">
+    <section 
+      id="testimonials"
+      ref={ref}
+      className={cn(
+        "py-20 md:py-28 transition-opacity duration-1000 ease-in-out",
+        inView ? "opacity-100" : "opacity-0"
+      )}
+    >
       <div className="container">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold">What Our Clients Say</h2>

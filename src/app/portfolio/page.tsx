@@ -1,9 +1,14 @@
+
+'use client';
+
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useInView } from "react-intersection-observer";
+import { cn } from "@/lib/utils";
 
 const projects = [
   {
@@ -36,8 +41,20 @@ const projects = [
 ];
 
 export default function PortfolioPage() {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
-    <section id="portfolio" className="py-20 md:py-28 bg-secondary">
+    <section 
+      id="portfolio" 
+      ref={ref}
+      className={cn(
+        "py-20 md:py-28 bg-secondary transition-opacity duration-1000 ease-in-out",
+        inView ? "opacity-100" : "opacity-0"
+      )}
+    >
       <div className="container">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold">Our Portfolio</h2>
@@ -46,8 +63,15 @@ export default function PortfolioPage() {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <Card key={project.title} className="flex flex-col overflow-hidden hover:scale-[1.02] transition-transform duration-300 bg-background">
+          {projects.map((project, index) => (
+            <Card 
+              key={project.title} 
+              className={cn(
+                "flex flex-col overflow-hidden hover:scale-[1.02] transition-transform duration-300 bg-background transform transition-all ease-in-out",
+                inView ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+              )}
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
               <div className="aspect-video overflow-hidden">
                 <Image
                   src={project.image}

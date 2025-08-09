@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import './globals.css';
 import { cn } from '@/lib/utils';
@@ -7,7 +8,6 @@ import { Toaster } from '@/components/ui/toaster';
 import { FloatingCta } from '@/components/floating-cta';
 import { Analytics } from '@/components/analytics';
 import { Inter } from 'next/font/google';
-import { Chatbot } from '@/components/chatbot';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -33,7 +33,6 @@ export default function RootLayout({
           <Footer />
           <Toaster />
           <FloatingCta />
-          <Chatbot />
           <Analytics />
       </body>
     </html>

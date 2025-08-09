@@ -22,9 +22,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} dark`}>
       <head/>
-      <body className={cn('font-sans antialiased min-h-screen flex flex-col', 'dark')}>
+      <body className={cn('font-sans antialiased min-h-screen flex flex-col')}>
           <Header />
           <main className="flex-grow">{children}</main>
           <Footer />

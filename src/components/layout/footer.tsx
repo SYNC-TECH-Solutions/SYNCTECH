@@ -4,10 +4,10 @@ import { Button } from '../ui/button';
 import { Github, Linkedin, Twitter } from 'lucide-react';
 
 const navItems = [
-  { href: '#about', label: 'About' },
-  { href: '#services', label: 'Services' },
-  { href: '#portfolio', label: 'Portfolio' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/#about', label: 'About' },
+  { href: '/#services', label: 'Services' },
+  { href: '/#portfolio', label: 'Portfolio' },
+  { href: '/#contact', label: 'Contact' },
 ];
 
 export function Footer() {
@@ -17,7 +17,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="flex flex-col gap-4">
             <Logo />
-            <p className="text-sm">Synchronizing Innovation with Technology</p>
+            <p className="text-sm">High-Impact Technology Solutions That Respect Your Budget</p>
             <p className="text-sm">Dublin, Ireland</p>
             <a href="mailto:hello@synctech.ie" className="text-sm hover:text-primary transition-colors">
               hello@synctech.ie
@@ -47,6 +47,21 @@ export function Footer() {
                 <li>SEO</li>
               </ul>
             </div>
+             <div>
+              <h3 className="font-semibold mb-4">Legal</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/privacy-policy" className="text-sm hover:text-primary transition-colors">
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/terms-and-conditions" className="text-sm hover:text-primary transition-colors">
+                    Terms & Conditions
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
           <div className="flex flex-col gap-4">
             <h3 className="font-semibold">Follow Us</h3>
@@ -64,7 +79,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 border-t pt-8 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} SYNC TECH. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} SYNC TECH. All rights reserved. | <Link href="/privacy-policy" className="hover:text-primary">Privacy Policy</Link> | <Link href="/terms-and-conditions" className="hover:text-primary">Terms & Conditions</Link></p>
         </div>
       </div>
     </footer>

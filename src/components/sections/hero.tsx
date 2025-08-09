@@ -10,19 +10,19 @@ export function Hero() {
 
       <div className="container text-center">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground">
-          Synchronizing Innovation
+          SYNC TECH: High-Impact
           <br />
-          with <span className="text-primary">Technology</span>
+          Technology Solutions That <span className="text-primary">Respect Your Budget</span>
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
           High-Impact Technology Solutions That Respect Your Budget.
         </p>
         <div className="mt-8 flex justify-center gap-4">
           <Button asChild size="lg">
-            <Link href="#contact">Get in Touch</Link>
+            <Link href="/#contact">Get in Touch</Link>
           </Button>
           <Button asChild variant="outline" size="lg">
-            <Link href="#services">Our Services</Link>
+            <Link href="/#services">Our Services</Link>
           </Button>
         </div>
       </div>

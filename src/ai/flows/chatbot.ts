@@ -40,24 +40,16 @@ const chatFlow = ai.defineFlow(
   async (input) => {
     const { history, message } = input;
     
-    const prompt = `You are a friendly and helpful AI assistant for SYNC TECH, a tech company in Dublin, Ireland. Your goal is to answer user questions, provide information about our services (Web Development, AI Automation, Cybersecurity, etc.), and encourage them to get in touch via the contact form.
+    const systemPrompt = `You are a friendly and helpful AI assistant for SYNC TECH, a tech company in Dublin, Ireland. Your goal is to answer user questions, provide information about our services (Web Development, AI Automation, Cybersecurity, etc.), and encourage them to get in touch via the contact form.
 
-    Keep your responses concise, professional, and helpful.
-
-    Conversation History:
-    {{#each history}}
-    - {{role}}: {{content}}
-    {{/each}}
-    
-    New User Message:
-    - user: {{{message}}}
-
-    Your Response:
-    `;
+Keep your responses concise, professional, and helpful.`;
 
     const llmResponse = await ai.generate({
-      prompt: prompt,
-      history: history.map(h => ({ role: h.role, content: h.content })),
+      prompt: message,
+      history: [
+        { role: 'system', content: systemPrompt },
+        ...history,
+      ],
       model: 'googleai/gemini-2.0-flash',
     });
 

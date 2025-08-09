@@ -10,7 +10,7 @@ export function About() {
           <div className="relative order-last md:order-first">
             <Card className="overflow-hidden">
                 <Image
-                    src="/dublinsync.png"
+                    src="/about-image.png"
                     alt="A stylized image representing technology and innovation in Dublin"
                     width={800}
                     height={600}
@@ -21,7 +21,7 @@ export function About() {
           <div className="text-center md:text-left">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">About SYNC TECH</h2>
             <p className="text-muted-foreground mb-6">
-              Founded in the heart of Dublin's thriving tech scene, SYNC TECH is driven by a simple mission: to empower businesses with transformative technology. We bridge the gap between complex innovation and practical application, ensuring our clients not only keep pace with the future but lead it.
+              Welcome to SYNC TECH, a leading tech company in Dublin, Ireland, dedicated to providing top-tier solutions in Web Development, AI Automation, and Cybersecurity. Founded by Sheraz Hussain in May 2024, SYNC TECH was born from a passion for making cutting-edge technology both accessible and affordable. We are on a mission to empower businesses of all sizes by bridging the gap between complex innovation and real-world application, ensuring our clients don’t just keep up with the future—they lead it.
             </p>
             <div className="space-y-4">
               <div className="flex items-start gap-4">

@@ -18,7 +18,7 @@ const projects = [
   {
     title: "GoExploree Real Estate App",
     description: "A cross-platform real estate mobile app for a local student accommodation service, enabling 30+ prospective tenants to browse and schedule viewings.",
-    image: "/goexploree.png",
+    image: "/goexploree.jpg",
     imageHint: "mobile app interface",
     techStack: ["Ionic", "Angular", "Capacitor", "Firebase", "PostgreSQL", "Google Maps API"],
     results: "Successfully enabled 30+ prospective tenants to browse properties and schedule viewings, streamlining the rental process.",

@@ -2,6 +2,7 @@
 
 import type { z } from "zod";
 import { validateContactForm, type ValidateContactFormInput } from "@/ai/flows/validate-contact-form";
+import { chat, type ChatInput } from "@/ai/flows/chatbot";
 import type { contactFormSchema } from "@/lib/schemas";
 
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
@@ -31,5 +32,15 @@ export async function submitContactForm(values: ContactFormValues) {
   } catch (error) {
     console.error("Error submitting contact form:", error);
     return { success: false, message: "An unexpected error occurred. Please try again later." };
+  }
+}
+
+export async function sendMessageToChatbot(input: ChatInput) {
+  try {
+    const result = await chat(input);
+    return { success: true, message: result.response };
+  } catch (error) {
+    console.error("Error in chatbot:", error);
+    return { success: false, message: "Sorry, I'm having trouble connecting right now. Please try again later." };
   }
 }

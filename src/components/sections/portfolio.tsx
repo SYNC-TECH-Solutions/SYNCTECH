@@ -7,31 +7,31 @@ import { ArrowRight } from "lucide-react";
 
 const projects = [
   {
-    title: "Project Alpha",
-    description: "An e-commerce platform for a fashion startup, featuring a custom CMS and integrated payment gateway.",
-    image: "https://placehold.co/600x400/000000/FFFFFF.png",
-    imageHint: "ecommerce fashion",
-    techStack: ["Next.js", "TypeScript", "Stripe", "Firebase"],
-    results: "Achieved a 40% increase in online sales and a 25% improvement in site performance.",
+    title: "Luxe Threads E-commerce",
+    description: "Launched and managed an online fashion brand on WordPress/WooCommerce with custom HTML/CSS, integrating Stripe and PayPal for seamless checkout.",
+    image: "https://placehold.co/600x400.png",
+    imageHint: "fashion website",
+    techStack: ["WordPress", "WooCommerce", "Stripe", "PayPal", "SEO"],
+    results: "Increased organic traffic by 50% and lifted conversion rates by 25%, with an estimated pre-revenue of approximately €18,750 per month.",
     liveUrl: "#",
   },
   {
-    title: "Project Beta",
-    description: "An AI-powered analytics dashboard for a marketing agency to track campaign performance in real-time.",
-    image: "https://placehold.co/600x400/000000/FFFFFF.png",
-    imageHint: "analytics dashboard",
-    techStack: ["React", "Node.js", "Chart.js", "Google Cloud"],
-    results: "Reduced reporting time by 60% and provided actionable insights that boosted client ROI by 15%.",
-    liveUrl: "#",
+    title: "GoExploree Real Estate App",
+    description: "A cross-platform real estate mobile app for a local student accommodation service, enabling 30+ prospective tenants to browse and schedule viewings.",
+    image: "https://placehold.co/600x400.png",
+    imageHint: "mobile app interface",
+    techStack: ["Ionic", "Angular", "Capacitor", "Firebase", "PostgreSQL"],
+    results: "Successfully enabled 30+ prospective tenants to browse properties and schedule viewings, streamlining the rental process.",
+    liveUrl: "https://github.com/SherazHussain546/GoExploree",
   },
   {
-    title: "Project Gamma",
-    description: "A cross-platform mobile app for a fitness company, offering personalized workout plans and progress tracking.",
-    image: "https://placehold.co/600x400/000000/FFFFFF.png",
-    imageHint: "fitness app",
-    techStack: ["React Native", "GraphQL", "PostgreSQL", "AWS"],
-    results: "Reached 50,000+ downloads in the first three months with a 4.8-star app store rating.",
-    liveUrl: "#",
+    title: "Atlantic Hotel Website",
+    description: "Led the redesign and development of the Atlantic Hotel website, creating a user-friendly interface and a custom booking management system.",
+    image: "https://placehold.co/600x400.png",
+    imageHint: "hotel booking system",
+    techStack: ["Booking.com API", "Airbnb API", "OpenTable API", "React"],
+    results: "Integrated major booking platforms, resulting in a 67% increase in revenue and improved operational efficiency for hotel staff.",
+    liveUrl: "http://www.atlantichotel.ie",
   },
 ];
 
@@ -73,7 +73,9 @@ export function Portfolio() {
               </CardContent>
               <CardFooter>
                  <Button variant="outline" asChild className="w-full">
-                    <Link href={project.liveUrl}>View Project <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                    <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                        View Project <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
                  </Button>
               </CardFooter>
             </Card>

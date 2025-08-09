@@ -9,7 +9,7 @@ const projects = [
   {
     title: "Luxe Threads E-commerce",
     description: "Launched and managed an online fashion brand on WordPress/WooCommerce with custom HTML/CSS, integrating Stripe and PayPal for seamless checkout. Executed SEO and Google Ads campaigns that increased organic traffic by 50% and lifted conversion rates by 25%.",
-    image: "/project-luxe-threads.png",
+    image: "/luxethreads.png",
     imageHint: "fashion website",
     techStack: ["WordPress", "WooCommerce", "Stripe", "PayPal", "SEO", "Google Ads"],
     results: "Increased organic traffic by 50% and lifted conversion rates by 25%, with an estimated pre-revenue of approximately €18,750 per month.",
@@ -18,7 +18,7 @@ const projects = [
   {
     title: "GoExploree Real Estate App",
     description: "A cross-platform real estate mobile app for a local student accommodation service, enabling 30+ prospective tenants to browse and schedule viewings.",
-    image: "/project-goexploree.png",
+    image: "/goexploree.png",
     imageHint: "mobile app interface",
     techStack: ["Ionic", "Angular", "Capacitor", "Firebase", "PostgreSQL", "Google Maps API"],
     results: "Successfully enabled 30+ prospective tenants to browse properties and schedule viewings, streamlining the rental process.",
@@ -27,7 +27,7 @@ const projects = [
   {
     title: "Atlantic Hotel Website",
     description: "Led the redesign and development of the Atlantic Hotel website, creating a user-friendly interface and a custom booking management system.",
-    image: "/project-atlantic-hotel.png",
+    image: "/atlantichotel.png",
     imageHint: "hotel booking system",
     techStack: ["Booking.com API", "Airbnb API", "OpenTable API", "React"],
     results: "Integrated major booking platforms, resulting in a 67% increase in revenue and improved operational efficiency for hotel staff.",

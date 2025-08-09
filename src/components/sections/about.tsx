@@ -11,11 +11,10 @@ export function About() {
             <Card className="overflow-hidden">
                 <Image
                     src="/about-image.png"
-                    alt="Team of developers collaborating"
+                    alt="A stylized image representing technology and innovation in Dublin"
                     width={800}
                     height={600}
                     className="w-full h-auto object-cover transition-transform hover:scale-105"
-                    data-ai-hint="Dublin bridge"
                 />
             </Card>
           </div>

@@ -10,12 +10,12 @@ export function Hero() {
 
       <div className="container text-center">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground">
-          SYNC TECH: High-Impact
+          Synchronizing Your Business
           <br />
-          Technology Solutions That <span className="text-primary">Respect Your Budget</span>
+          with the <span className="text-primary">Future of Technology.</span>
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
-          High-Impact Technology Solutions That Respect Your Budget.
+          We deliver high-impact technology solutions that bridge the gap between complex innovation and real-world application.
         </p>
         <div className="mt-8 flex justify-center gap-4">
           <Button asChild size="lg">

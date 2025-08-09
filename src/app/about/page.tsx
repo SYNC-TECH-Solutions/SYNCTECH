@@ -27,10 +27,11 @@ export default function AboutPage() {
           <div className="relative order-last md:order-first">
             <Card className="overflow-hidden">
                 <Image
-                    src="/dublinsync.png"
+                    src="https://placehold.co/800x600.png"
                     alt="A stylized image representing technology and innovation in Dublin"
                     width={800}
                     height={600}
+                    data-ai-hint="technology innovation"
                     className="w-full h-auto object-cover transition-transform hover:scale-105"
                 />
             </Card>

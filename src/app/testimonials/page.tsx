@@ -12,21 +12,21 @@ const testimonials = [
     name: "Sarah L.",
     title: "CEO of FashionForward",
     quote: "SYNC TECH transformed our e-commerce presence. Their expertise in web development and dedication to our project was outstanding. We saw a significant increase in sales and customer engagement.",
-    avatar: "/testimonial-sarah.png",
+    avatar: "https://placehold.co/100x100.png",
     avatarHint: "woman portrait"
   },
   {
     name: "Michael B.",
     title: "Marketing Director at Creative Co.",
     quote: "The AI-powered dashboard they built for us is a game-changer. It's intuitive, powerful, and has saved us countless hours on reporting. The team was professional and a pleasure to work with.",
-    avatar: "/testimonial-michael.png",
+    avatar: "https://placehold.co/100x100.png",
     avatarHint: "man portrait"
   },
   {
     name: "Jessica T.",
     title: "Founder of FitLife",
     quote: "From concept to launch, SYNC TECH was the perfect partner for our mobile app. They understood our vision and delivered a product that has exceeded all our expectations. Highly recommended!",
-    avatar: "/testimonial-jessica.png",
+    avatar: "https://placehold.co/100x100.png",
     avatarHint: "woman smiling"
   },
 ];

@@ -7,25 +7,25 @@ import { ArrowRight } from "lucide-react";
 
 const projects = [
   {
-    title: "Luxe Threads E-commerce",
+    title: "E-COMMERCE MANAGER | LUXE THREADS",
     description: "Launched and managed an online fashion brand on WordPress/WooCommerce with custom HTML/CSS, integrating Stripe and PayPal for seamless checkout. Executed SEO and Google Ads campaigns that increased organic traffic by 50% and lifted conversion rates by 25%.",
     image: "/luxethreads.png",
     imageHint: "fashion website",
     techStack: ["WordPress", "WooCommerce", "Stripe", "PayPal", "SEO", "Google Ads"],
-    results: "Increased organic traffic by 50% and lifted conversion rates by 25%, with an estimated pre-revenue of approximately €18,750 per month.",
+    results: "Estimated a pre-revenue of approximately €18,750 per month from Google Ads based on 15,000 monthly visitors, a 2.5% conversion rate, and a €75 average order value.",
     liveUrl: "#",
   },
   {
-    title: "GoExploree Real Estate App",
-    description: "A cross-platform real estate mobile app for a local student accommodation service, enabling 30+ prospective tenants to browse and schedule viewings.",
-    image: "/goexploree.jpg",
+    title: "GoExploree – Real Estate Mobile App",
+    description: "Developed a cross-platform real estate mobile app for a local student accommodation service, enabling 30+ prospective tenants to browse and schedule viewings.",
+    image: "/goexploree.png",
     imageHint: "mobile app interface",
     techStack: ["Ionic", "Angular", "Capacitor", "Firebase", "PostgreSQL", "Google Maps API"],
     results: "Successfully enabled 30+ prospective tenants to browse properties and schedule viewings, streamlining the rental process.",
     liveUrl: "https://github.com/SherazHussain546/GoExploree",
   },
   {
-    title: "Atlantic Hotel Website",
+    title: "ATLANTIC HOTEL - Live Project",
     description: "Led the redesign and development of the Atlantic Hotel website, creating a user-friendly interface and a custom booking management system.",
     image: "/atlantichotel.png",
     imageHint: "hotel booking system",

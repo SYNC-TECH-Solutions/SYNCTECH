@@ -1,8 +1,7 @@
 
 import { createClient } from '@supabase/supabase-js';
-import 'dotenv/config';
 
-// These variables are loaded from your .env file
+// These variables are loaded from your .env file by Next.js
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_SECRET_KEY;
 

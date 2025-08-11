@@ -2,29 +2,42 @@
 'use server';
 
 import type { z } from 'zod';
-import type { contactFormSchema } from '@/lib/schemas';
-
-// This is a placeholder implementation to prevent server crashes.
-// The form data is not currently being saved anywhere.
+import { contactFormSchema } from '@/lib/schemas';
+import { validateContactForm } from '@/ai/flows/validate-contact-form';
+import { db } from '@/lib/firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 export async function submitContactForm(values: ContactFormValues) {
-  console.log('Contact form submitted with values:', values);
-  
-  // Simulate a successful submission without any external calls.
   try {
-    // This block is for demonstration. In a real scenario, you would
-    // interact with your backend or a third-party service here.
-    if (!values.name || !values.email || !values.message) {
-       throw new Error("Invalid form data.");
-    }
+    const validationResult = await validateContactForm(values);
 
-    return { success: true, message: "Thank you for your message! We've received it and will get back to you soon." };
+    if (!validationResult.isValid) {
+      return { 
+        success: false, 
+        message: `Submission failed: ${validationResult.reason || 'Invalid content'}. Please revise your message.` 
+      };
+    }
+    
+    await addDoc(collection(db, "messages"), {
+      name: values.name,
+      email: values.email,
+      message: values.message,
+      createdAt: serverTimestamp(),
+    });
+
+    return { 
+      success: true, 
+      message: "Thank you for your message! We've received it and will get back to you soon." 
+    };
 
   } catch (error) {
-    console.error("Error submitting contact form:", error);
+    console.error("Error in submitContactForm:", error);
     const errorMessage = error instanceof Error ? error.message : "An unknown error occurred.";
-    return { success: false, message: `An unexpected error occurred: ${errorMessage}. Please try again later.` };
+    return { 
+      success: false, 
+      message: `An unexpected server error occurred: ${errorMessage}. Please try again later.` 
+    };
   }
 }

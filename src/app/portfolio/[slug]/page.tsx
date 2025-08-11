@@ -44,13 +44,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
+export function generateStaticParams() {
   return projects.map((project) => ({
     slug: project.slug,
   }));
 }
 
-export default function ProjectCaseStudyPage({ params }: PageProps) {
+export default function ProjectCaseStudyPage({ params }: { params: { slug: string } }) {
   const project = getProjectBySlug(params.slug);
 
   if (!project) {

@@ -72,7 +72,7 @@ export default function PrivacyPolicyPage() {
                         </p>
                         <ul className="list-disc list-inside text-muted-foreground space-y-1 pl-4">
                             <li><strong>Email Delivery:</strong> We use Resend to send emails from our contact form.</li>
-                            <li><strong>Hosting and Security:</strong> We use Firebase for hosting, security (App Check), and analytics.</li>
+                            <li><strong>AI Validation:</strong> We use Google AI to validate form submissions for security.</li>
                             <li><strong>Legal Requirements:</strong> We may disclose your information if required to do so by law or in the good faith belief that such action is necessary to comply with a legal obligation, protect and defend our rights or property, or protect the personal safety of users of the Site or the public.</li>
                         </ul>
                     </div>

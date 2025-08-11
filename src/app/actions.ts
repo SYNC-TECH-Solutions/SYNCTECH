@@ -1,3 +1,4 @@
+
 'use server';
 
 import type { z } from 'zod';
@@ -13,11 +14,8 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const supportEmail = 'hello@synctech.ie';
 
 export async function submitContactForm(values: ContactFormValues) {
-  console.log('Contact form submission received for:', values.email);
-
   try {
     // 1. Validate the form content with AI
-    console.log('Validating form content with AI...');
     const validation = await validateContactForm(values);
 
     if (!validation.isValid) {
@@ -27,8 +25,6 @@ export async function submitContactForm(values: ContactFormValues) {
         message: "Your message was flagged as suspicious. Please try rephrasing or email us directly." 
       };
     }
-
-    console.log('AI validation successful. Sending email...');
 
     // 2. Send the email using Resend
     const { data, error } = await resend.emails.send({
@@ -51,7 +47,6 @@ export async function submitContactForm(values: ContactFormValues) {
       };
     }
 
-    console.log('Email sent successfully, ID:', data?.id);
     return { 
       success: true, 
       message: "Thank you for your message! We'll get back to you shortly." 

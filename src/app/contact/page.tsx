@@ -141,7 +141,7 @@ export default function ContactPage() {
                       <FormItem>
                         <FormLabel>Your Message</FormLabel>
                         <FormControl>
-                          <Textarea placeholder="Tell us about your project and your budget..." className="min-h-[150px]" {...field} />
+                          <Textarea placeholder="Tell us about your project, goals, and budget..." className="min-h-[150px]" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>

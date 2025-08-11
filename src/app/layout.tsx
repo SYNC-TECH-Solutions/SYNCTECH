@@ -64,7 +64,6 @@ const jsonLd = {
   '@type': 'Corporation',
   name: siteConfig.name,
   url: siteConfig.url,
-  logo: `${siteConfig.url}/logo.png`,
   contactPoint: {
     '@type': 'ContactPoint',
     telephone: '+353-83-068-2026',
@@ -72,7 +71,12 @@ const jsonLd = {
     areaServed: 'IE',
     availableLanguage: 'en'
   },
-  sameAs: [],
+  sameAs: [
+    'https://www.linkedin.com/company/synctechie/',
+    'https://www.instagram.com/synctech.ie',
+    'https://www.facebook.com/share/19LP52QsnN/',
+    'https://github.com/SherazHussain546'
+  ],
 };
 
 

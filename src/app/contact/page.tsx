@@ -48,7 +48,7 @@ export default function ContactPage() {
       } else {
         toast({
           title: 'Submission Failed',
-          description: "Due to some reason we cannot send your message. Kindly contact us at hello@synctech.ie",
+          description: result.message || "An unknown error occurred. Please email us directly at hello@synctech.ie",
           variant: 'destructive',
         });
       }

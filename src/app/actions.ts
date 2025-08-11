@@ -22,7 +22,7 @@ export async function submitContactForm(values: ContactFormValues) {
 
     // 2. Send the email notification
     const { data, error: emailError } = await resend.emails.send({
-      from: 'SYNC TECH Contact Form <noreply@synctech.ie>',
+      from: 'Acme <onboarding@resend.dev>',
       to: 'synctechire@gmail.com',
       subject: 'New Message from SYNC TECH Website',
       reply_to: values.email,

@@ -5,11 +5,17 @@ import type { z } from "zod";
 import { Resend } from "resend";
 import type { contactFormSchema } from "@/lib/schemas";
 import { ContactFormEmail } from "@/components/emails/contact-form-email";
+import { validateContactForm } from "@/ai/flows/validate-contact-form";
 
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 export async function submitContactForm(values: ContactFormValues) {
   try {
+    const validationResult = await validateContactForm(values);
+    if (!validationResult.isValid) {
+      return { success: false, message: validationResult.reason || "Your message was flagged as invalid." };
+    }
+    
     const resend = new Resend(process.env.RESEND_API_KEY);
     
     const emailComponent = ContactFormEmail({ 

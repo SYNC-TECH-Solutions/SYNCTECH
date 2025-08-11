@@ -5,29 +5,21 @@ import type { z } from "zod";
 import type { contactFormSchema } from "@/lib/schemas";
 import { db } from "@/lib/firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-import { validateContactForm } from "@/ai/flows/validate-contact-form";
 
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 export async function submitContactForm(values: ContactFormValues) {
   try {
-    const aiValidation = await validateContactForm(values);
-    if (!aiValidation.isValid) {
-      return { success: false, message: `Validation failed: ${aiValidation.reason}` };
-    }
-
     // Add a new document with a generated id.
     await addDoc(collection(db, "messages"), {
-      name: values.name,
-      email: values.email,
-      message: values.message,
+      ...values,
       createdAt: serverTimestamp(),
     });
 
     return { success: true, message: "Thank you for your message! We've received it and will get back to you soon." };
+
   } catch (error) {
     console.error("Error submitting contact form:", error);
-    // Ensure a structured error is always returned.
     const errorMessage = error instanceof Error ? error.message : "An unknown error occurred.";
     return { success: false, message: `An unexpected error occurred: ${errorMessage}. Please try again later.` };
   }

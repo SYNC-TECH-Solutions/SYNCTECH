@@ -3,7 +3,6 @@
 
 import type { z } from 'zod';
 import { contactFormSchema } from '@/lib/schemas';
-import { validateContactForm } from '@/ai/flows/validate-contact-form';
 import { db } from '@/lib/firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
@@ -11,19 +10,9 @@ export type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 export async function submitContactForm(values: ContactFormValues) {
   try {
-    const validationResult = await validateContactForm(values);
-
-    if (!validationResult.isValid) {
-      return { 
-        success: false, 
-        message: `Submission failed: ${validationResult.reason || 'Invalid content'}. Please revise your message.` 
-      };
-    }
     
     await addDoc(collection(db, "messages"), {
-      name: values.name,
-      email: values.email,
-      message: values.message,
+      ...values,
       createdAt: serverTimestamp(),
     });
 

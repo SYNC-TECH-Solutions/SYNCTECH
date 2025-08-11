@@ -18,16 +18,21 @@ This project is built with a modern, robust, and scalable technology stack:
 -   **Form Management:** [React Hook Form](https://react-hook-form.com/) & [Zod](https://zod.dev/)
 -   **Email Delivery:** [Resend](https://resend.com/)
 -   **Analytics:** [Google Analytics](https://analytics.google.com/)
--   **Deployment:** [Firebase Hosting](https://firebase.google.com/docs/hosting) (Recommended for free hosting of private repositories)
+-   **Deployment:** Firebase Hosting, Cloudflare Pages, or any Node.js compatible platform.
 
-## Why Host on Firebase?
+## Free Hosting for Private Repositories
 
-For developers looking for a free and powerful hosting solution, especially for private repositories, Firebase Hosting is the ideal choice for this project.
+For developers looking for a free and powerful hosting solution, especially for private repositories, both **Firebase Hosting** and **Cloudflare Pages** are ideal choices.
 
--   **Free for Private Repos:** Unlike other platforms that charge for private repository builds, Firebase allows you to connect and deploy from a private GitHub repo at no cost.
--   **Integrated Ecosystem:** Since the project already uses Firebase services like Firestore, hosting here keeps your entire backend and frontend in one managed platform.
--   **High Performance:** Firebase Hosting serves your content from a global CDN, ensuring fast load times for your users worldwide.
--   **Generous Free Tier:** The free "Spark Plan" provides ample storage, data transfer, and custom domain support to get your site live without any initial investment.
+### Why Firebase Hosting?
+-   **Free for Private Repos:** Firebase allows you to connect and deploy from a private GitHub repo at no cost.
+-   **Integrated Ecosystem:** Since the project can use Firebase services, hosting here keeps your entire backend and frontend in one managed platform.
+-   **High Performance:** Firebase Hosting serves your content from a global CDN, ensuring fast load times.
+
+### Why Cloudflare Pages?
+-   **Generous Free Plan:** Like Firebase, Cloudflare Pages offers a free tier that supports private repositories with unlimited sites and bandwidth.
+-   **World-Class Performance:** Deploys your application to Cloudflare's extensive global network, which is known for its speed and security.
+-   **Simple Git-Based Workflow:** Easy to set up continuous deployment from your GitHub repository.
 
 ## Key Features
 
@@ -47,7 +52,7 @@ Follow these instructions to get a local copy of the project up and running for 
 
 -   [Node.js](https://nodejs.org/en/) (version 20.x or later recommended)
 -   [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
--   [Firebase CLI](https://firebase.google.com/docs/cli) (for deployment)
+-   [Firebase CLI](https://firebase.google.com/docs/cli) (for deployment to Firebase)
 
 ### Installation
 
@@ -70,7 +75,7 @@ Follow these instructions to get a local copy of the project up and running for 
     Now, open the `.env` file and add your secret keys:
 
     ```env
-    # Firebase project configuration keys
+    # Firebase project configuration keys (if using Firebase services)
     NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
     NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_auth_domain
     NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
@@ -85,31 +90,9 @@ Follow these instructions to get a local copy of the project up and running for 
 
     **Note:** You will also need to have Application Default Credentials set up for Google Cloud for the Genkit AI features to work locally. Follow the [Google Cloud authentication guide](https://cloud.google.com/docs/authentication/provide-credentials-adc) for instructions.
 
-## Deployment to Firebase Hosting
+## Deployment
 
-1.  **Install the Firebase CLI:**
-    ```bash
-    npm install -g firebase-tools
-    ```
-2.  **Login to Firebase:**
-    ```bash
-    firebase login
-    ```
-3.  **Initialize Firebase in your project:**
-    ```bash
-    firebase init hosting
-    ```
-    When prompted, select "Use an existing project" and choose your Firebase project. Configure it to use `out` as the public directory (as this is a Next.js static export). You can overwrite any existing files.
-4.  **Build your project:**
-    ```bash
-    npm run build
-    ```
-5.  **Deploy:**
-    ```bash
-    firebase deploy --only hosting
-    ```
-    For continuous deployment from your private GitHub repository, follow the [Firebase guide to connect to GitHub](https://firebase.google.com/docs/hosting/github-integration).
-
+You can deploy this Next.js application to any hosting provider that supports Node.js. For a seamless, free experience with private repositories, we recommend either **Firebase Hosting** or **Cloudflare Pages**. Both offer continuous deployment from GitHub.
 
 ## Available Scripts
 

@@ -18,7 +18,7 @@ This project is built with a modern, robust, and scalable technology stack:
 -   **Form Management:** [React Hook Form](https://react-hook-form.com/) & [Zod](https://zod.dev/)
 -   **Email Delivery:** [Resend](https://resend.com/)
 -   **Analytics:** [Google Analytics](https://analytics.google.com/)
--   **Deployment:** Firebase App Hosting (or any Node.js compatible platform)
+-   **Deployment:** Firebase Hosting, Cloudflare Pages, or any Node.js compatible platform.
 
 ## Key Features
 
@@ -29,6 +29,21 @@ This project is built with a modern, robust, and scalable technology stack:
 -   **In-Depth Portfolio Case Studies:** A dynamic portfolio system where each project has its own detailed case study page.
 -   **SEO Optimized:** Built-in metadata generation for all pages, including blog posts and portfolio items, plus an automatically generated `sitemap.xml`.
 -   **Comprehensive Legal Pages:** Includes templates for Privacy Policy, Terms & Conditions, and an Accessibility Statement.
+
+## Free Hosting for Private Repositories
+
+For developers looking for a free and powerful hosting solution, especially for private repositories, both **Firebase Hosting** and **Cloudflare Pages** are ideal choices.
+
+### Why Firebase Hosting?
+-   **Free for Private Repos:** Firebase allows you to connect and deploy from a private GitHub repo at no cost.
+-   **Integrated Ecosystem:** Since the project can use Firebase services, hosting here keeps your entire backend and frontend in one managed platform.
+-   **High Performance:** Firebase Hosting serves your content from a global CDN, ensuring fast load times.
+
+### Why Cloudflare Pages?
+-   **Generous Free Plan:** Like Firebase, Cloudflare Pages offers a free tier that supports private repositories with unlimited sites and bandwidth.
+-   **World-Class Performance:** Deploys your application to Cloudflare's extensive global network, which is known for its speed and security.
+-   **Simple Git-Based Workflow:** Easy to set up continuous deployment from your GitHub repository.
+
 
 ## Getting Started
 

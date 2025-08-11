@@ -11,7 +11,6 @@ export type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 export async function submitContactForm(values: ContactFormValues) {
   try {
-    // Optional: AI validation can be re-enabled if API keys are configured
     const aiValidation = await validateContactForm(values);
     if (!aiValidation.isValid) {
       return { success: false, message: `Validation failed: ${aiValidation.reason}` };

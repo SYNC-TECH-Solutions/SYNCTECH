@@ -8,6 +8,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { FloatingCta } from '@/components/floating-cta';
 import { Analytics } from '@/components/analytics';
 import { Inter } from 'next/font/google';
+import { firebaseApp } from '@/lib/firebase'; // Import to initialize Firebase
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_IE',
-    url: siteConfig.url,
+    url: site.config.url,
     title: siteConfig.title,
     description: siteConfig.description,
     siteName: siteConfig.name,

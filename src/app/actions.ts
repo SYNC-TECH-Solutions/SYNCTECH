@@ -8,11 +8,9 @@ import { ContactFormEmail } from "@/components/emails/contact-form-email";
 
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function submitContactForm(values: ContactFormValues) {
   try {
-    // Since AI validation was causing issues, we now directly proceed to sending the email.
+    const resend = new Resend(process.env.RESEND_API_KEY);
     
     const { data, error: emailError } = await resend.emails.send({
       from: 'Acme <onboarding@resend.dev>',

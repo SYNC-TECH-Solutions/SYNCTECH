@@ -25,11 +25,11 @@ export async function submitContactForm(values: ContactFormValues) {
       to: 'synctechire@gmail.com',
       subject: 'New Message from SYNC TECH Website',
       reply_to: values.email,
-      react: ContactFormEmail({ 
-        name: values.name,
-        email: values.email,
-        message: values.message 
-      }),
+      react: <ContactFormEmail 
+        name={values.name}
+        email={values.email}
+        message={values.message} 
+      />,
     });
 
     if (emailError) {

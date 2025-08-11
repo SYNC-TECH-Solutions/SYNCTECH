@@ -1,5 +1,6 @@
 
 import { createClient } from '@supabase/supabase-js';
+import 'dotenv/config';
 
 // These variables are loaded from your .env file
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;

@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { Logo } from '../logo';
 import { Button } from '../ui/button';
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import { Github, Linkedin, Instagram, Facebook } from 'lucide-react';
 
 const navItems = [
   { href: '/about', label: 'About' },
@@ -73,13 +73,16 @@ export function Footer() {
             <h3 className="font-semibold">Follow Us</h3>
             <div className="flex gap-2">
               <Button variant="outline" size="icon" asChild>
-                <a href="#" aria-label="Twitter"><Twitter className="h-4 w-4" /></a>
+                <a href="https://www.linkedin.com/company/synctechie/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><Linkedin className="h-4 w-4" /></a>
+              </Button>
+               <Button variant="outline" size="icon" asChild>
+                <a href="https://www.instagram.com/synctech.ie" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><Instagram className="h-4 w-4" /></a>
+              </Button>
+               <Button variant="outline" size="icon" asChild>
+                <a href="https://www.facebook.com/share/19LP52QsnN/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><Facebook className="h-4 w-4" /></a>
               </Button>
               <Button variant="outline" size="icon" asChild>
-                <a href="#" aria-label="LinkedIn"><Linkedin className="h-4 w-4" /></a>
-              </Button>
-              <Button variant="outline" size="icon" asChild>
-                <a href="#" aria-label="GitHub"><Github className="h-4 w-4" /></a>
+                <a href="https://github.com/SherazHussain546" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><Github className="h-4 w-4" /></a>
               </Button>
             </div>
           </div>

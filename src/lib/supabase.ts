@@ -4,18 +4,18 @@ const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_KEY;
 
 if (!supabaseUrl || supabaseUrl.includes('YOUR_SUPABASE_URL')) {
-  throw new Error("Supabase URL is not defined or is still a placeholder. Please check your .env.local file.");
+  throw new Error("Supabase URL is not defined or is still a placeholder. Please check your .env file.");
 }
 
 try {
   new URL(supabaseUrl);
 } catch (error) {
-  throw new Error(`The Supabase URL in your .env.local file is not a valid URL: ${supabaseUrl}`);
+  throw new Error(`The Supabase URL in your .env file is not a valid URL: ${supabaseUrl}`);
 }
 
 
 if (!supabaseKey || supabaseKey.includes('YOUR_SUPABASE_SECRET_KEY')) {
-  throw new Error("Supabase key is not defined or is still a placeholder. Please check your .env.local file.");
+  throw new Error("Supabase key is not defined or is still a placeholder. Please check your .env file.");
 }
 
 // Create a single, server-side Supabase client

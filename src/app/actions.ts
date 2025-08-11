@@ -3,7 +3,6 @@
 
 import type { z } from "zod";
 import { Resend } from "resend";
-import { validateContactForm, type ValidateContactFormInput } from "@/ai/flows/validate-contact-form";
 import type { contactFormSchema } from "@/lib/schemas";
 import { ContactFormEmail } from "@/components/emails/contact-form-email";
 
@@ -13,14 +12,8 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function submitContactForm(values: ContactFormValues) {
   try {
-    // 1. Validate the form content with AI
-    const aiValidationResult = await validateContactForm(values as ValidateContactFormInput);
+    // Since AI validation was causing issues, we now directly proceed to sending the email.
     
-    if (!aiValidationResult.isValid) {
-      return { success: false, message: aiValidationResult.reason || "Your submission was flagged as invalid. Please review and try again." };
-    }
-
-    // 2. Send the email notification
     const { data, error: emailError } = await resend.emails.send({
       from: 'Acme <onboarding@resend.dev>',
       to: 'synctechire@gmail.com',

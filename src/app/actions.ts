@@ -3,14 +3,13 @@
 
 import type { z } from "zod";
 import type { contactFormSchema } from "@/lib/schemas";
-import { db } from "@/lib/firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 export async function submitContactForm(values: ContactFormValues) {
   try {
-    // Add a new document with a generated id.
     await addDoc(collection(db, "messages"), {
       ...values,
       createdAt: serverTimestamp(),

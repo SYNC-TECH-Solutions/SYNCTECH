@@ -17,8 +17,8 @@ const nextConfig: NextConfig = {
     serverActions: {
       bodySizeLimit: '2mb',
     },
-    serverComponentsExternalPackages: ['resend'],
   },
+  serverExternalPackages: ['resend'],
 };
 
 export default nextConfig;

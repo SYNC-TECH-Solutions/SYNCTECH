@@ -18,7 +18,6 @@ This project is built with a modern, robust, and scalable technology stack:
 -   **Form Management:** [React Hook Form](https://react-hook-form.com/) & [Zod](https://zod.dev/)
 -   **Email Delivery:** [Resend](https://resend.com/)
 -   **Analytics:** [Google Analytics](https://analytics.google.com/)
--   **Deployment:** Firebase Hosting, Cloudflare Pages, or any Node.js compatible platform.
 
 ## Key Features
 
@@ -53,6 +52,7 @@ Follow these instructions to get a local copy of the project up and running for 
 
 -   [Node.js](https://nodejs.org/en/) (version 20.x or later recommended)
 -   [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+-   [Firebase CLI](https://firebase.google.com/docs/cli) (required for deploying to Firebase Hosting)
 
 ### Installation
 
@@ -93,6 +93,36 @@ In the project directory, you can run the following commands:
 -   `npm start`: Starts a production server for the built application.
 -   `npm run lint`: Lints the project files for errors.
 -   `npm run typecheck`: Runs the TypeScript compiler to check for type errors.
+
+## Deployment
+
+You can deploy this Next.js application to any hosting provider that supports Node.js. For a seamless, free experience with private repositories, we recommend either Firebase Hosting or Cloudflare Pages.
+
+### Build Command
+
+To create a production-ready build of your app, run:
+```bash
+npm run build
+```
+
+### Deploying with Firebase Hosting
+
+1.  Make sure you have the Firebase CLI installed (`npm install -g firebase-tools`).
+2.  Initialize Firebase in your project: `firebase init hosting`. Follow the prompts, selecting your project and configuring the public directory as `.next`.
+3.  Deploy your site by running:
+    ```bash
+    firebase deploy
+    ```
+
+### Deploying with Cloudflare Pages
+
+1.  Push your code to your private GitHub repository.
+2.  In the Cloudflare dashboard, create a new Pages project and connect it to your repository.
+3.  Configure the build settings:
+    -   **Build command:** `npm run build`
+    -   **Build output directory:** `.next`
+4.  Cloudflare will automatically build and deploy your site. Future deployments are triggered automatically on every `git push`.
+
 
 ## Project Structure Overview
 

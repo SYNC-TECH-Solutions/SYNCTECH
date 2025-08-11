@@ -4,11 +4,10 @@ import './globals.css';
 import { cn } from '@/lib/utils';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
-import { Toaster } from '@/components/ui/toaster';
-import { FloatingCta } from '@/components/floating-cta';
 import { Analytics } from '@/components/analytics';
 import { Inter } from 'next/font/google';
 import { firebaseApp } from '@/lib/firebase'; // Import to initialize Firebase
+import { Providers } from '@/components/providers';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -64,6 +63,7 @@ const jsonLd = {
   '@type': 'Corporation',
   name: siteConfig.name,
   url: siteConfig.url,
+  logo: `${siteConfig.url}/logo.png`,
   contactPoint: {
     '@type': 'ContactPoint',
     telephone: '+353-83-068-2026',
@@ -94,12 +94,12 @@ export default function RootLayout({
         />
       </head>
       <body className={cn('font-sans antialiased min-h-screen flex flex-col')}>
+        <Providers>
           <Header />
           <main className="flex-grow">{children}</main>
           <Footer />
-          <Toaster />
-          <FloatingCta />
           <Analytics />
+        </Providers>
       </body>
     </html>
   );

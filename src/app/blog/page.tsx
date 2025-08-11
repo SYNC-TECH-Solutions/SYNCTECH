@@ -57,7 +57,7 @@ export default function BlogPage() {
               </Link>
               <CardHeader>
                 <CardTitle>
-                  <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                  <Link href={`/blog/${post.slug}`} className="text-primary hover:underline">{post.title}</Link>
                 </CardTitle>
                 <CardDescription>{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</CardDescription>
               </CardHeader>

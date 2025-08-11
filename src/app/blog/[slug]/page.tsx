@@ -4,6 +4,9 @@ import { getPostBySlug, posts } from '@/lib/posts';
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
 import type { Metadata } from 'next';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { ArrowLeft } from 'lucide-react';
 
 type Props = {
   params: { slug: string };
@@ -56,6 +59,14 @@ export default function BlogPostPage({ params }: Props) {
   return (
     <article className="py-20 md:py-28">
       <div className="container max-w-4xl">
+        <div className="mb-8">
+            <Button asChild variant="outline">
+                <Link href="/blog">
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Back to Blog
+                </Link>
+            </Button>
+        </div>
         <header className="mb-12 text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">{post.title}</h1>
           <p className="text-muted-foreground">

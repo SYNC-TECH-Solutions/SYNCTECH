@@ -7,7 +7,7 @@ import type { Metadata } from 'next';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ArrowRight, CheckCircle } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CheckCircle } from 'lucide-react';
 
 type Props = {
   params: { slug: string };
@@ -60,6 +60,14 @@ export default function ProjectCaseStudyPage({ params }: Props) {
   return (
     <article className="py-20 md:py-28 bg-secondary">
       <div className="container max-w-5xl">
+         <div className="mb-8">
+            <Button asChild variant="outline" className="bg-card">
+                <Link href="/portfolio">
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Back to Portfolio
+                </Link>
+            </Button>
+        </div>
         <header className="mb-12 text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">{project.title}</h1>
           <p className="text-muted-foreground max-w-3xl mx-auto text-lg">

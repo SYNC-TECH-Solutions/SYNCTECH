@@ -12,8 +12,7 @@ type Props = {
   params: { slug: string };
 };
 
-export async function generateMetadata({ params: awaitedParams }: Props): Promise<Metadata> {
-  const params = await awaitedParams;
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getPostBySlug(params.slug);
 
   if (!post) {
@@ -50,8 +49,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function BlogPostPage({ params: awaitedParams }: Props) {
-  const params = await awaitedParams;
+export default function BlogPostPage({ params }: Props) {
   const post = getPostBySlug(params.slug);
 
   if (!post) {

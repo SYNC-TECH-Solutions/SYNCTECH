@@ -18,7 +18,9 @@ export async function submitContactForm(values: ContactFormValues) {
 
     // Add a new document with a generated id.
     await addDoc(collection(db, "messages"), {
-      ...values,
+      name: values.name,
+      email: values.email,
+      message: values.message,
       createdAt: serverTimestamp(),
     });
 

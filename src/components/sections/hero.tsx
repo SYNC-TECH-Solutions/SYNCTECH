@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
@@ -10,19 +11,19 @@ export function Hero() {
 
       <div className="container text-center">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground">
-          Synchronizing Your Business
+          Premium Tech Solutions 
           <br />
-          with the <span className="text-primary">Future of Technology.</span>
+          at <span className="text-primary">Competitive Prices.</span>
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
-          We deliver high-impact technology solutions that bridge the gap between complex innovation and real-world application.
+          We deliver top-quality web development, AI, and cybersecurity services that respect your budget without compromising on quality.
         </p>
         <div className="mt-8 flex justify-center gap-4">
           <Button asChild size="lg">
-            <Link href="/#contact">Get in Touch</Link>
+            <Link href="/contact">Get a Free Quote</Link>
           </Button>
           <Button asChild variant="outline" size="lg">
-            <Link href="/#services">Our Services</Link>
+            <Link href="/services">Explore Services</Link>
           </Button>
         </div>
       </div>

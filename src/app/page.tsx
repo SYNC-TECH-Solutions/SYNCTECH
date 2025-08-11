@@ -2,21 +2,22 @@
 'use client';
 
 import { Hero } from '@/components/sections/hero';
-import AboutPage from './about/page';
-import ServicesPage from './services/page';
-import PortfolioPage from './portfolio/page';
-import TestimonialsPage from './testimonials/page';
-import ContactPage from './contact/page';
+import AboutSection from '@/components/sections/about-section';
+import ServicesSection from '@/components/sections/services-section';
+import PortfolioSection from '@/components/sections/portfolio-section';
+import TestimonialsSection from '@/components/sections/testimonials-section';
+import ContactSection from '@/components/sections/contact-section';
+
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <AboutPage />
-      <ServicesPage />
-      <PortfolioPage />
-      <TestimonialsPage />
-      <ContactPage />
+      <AboutSection />
+      <ServicesSection />
+      <PortfolioSection />
+      <TestimonialsSection />
+      <ContactSection />
     </>
   );
 }

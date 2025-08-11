@@ -66,9 +66,9 @@ export default function ContactPage() {
     >
       <div className="container">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold">Get in Touch</h2>
-          <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
-            Have a project in mind or just want to say hello? We'd love to hear from you.
+          <h1 className="text-4xl md:text-5xl font-bold">Get in Touch</h1>
+          <p className="mt-4 max-w-2xl mx-auto text-muted-foreground text-lg">
+            Have a project in mind or just want to discuss possibilities? We'd love to hear from you. Let's build something great together.
           </p>
         </div>
         <div className="grid md:grid-cols-2 gap-12">
@@ -105,6 +105,7 @@ export default function ContactPage() {
                 </div>
             </div>
             <div className="bg-card p-8 rounded-lg shadow-sm">
+              <h3 className="text-2xl font-bold mb-6">Send Us a Message</h3>
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                   <FormField
@@ -138,9 +139,9 @@ export default function ContactPage() {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Message</FormLabel>
+                        <FormLabel>Your Message</FormLabel>
                         <FormControl>
-                          <Textarea placeholder="Tell us about your project..." className="min-h-[150px]" {...field} />
+                          <Textarea placeholder="Tell us about your project and your budget..." className="min-h-[150px]" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>

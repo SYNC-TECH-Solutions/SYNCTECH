@@ -1,13 +1,14 @@
+
 import Link from 'next/link';
 import { Logo } from '../logo';
 import { Button } from '../ui/button';
 import { Github, Linkedin, Twitter } from 'lucide-react';
 
 const navItems = [
-  { href: '/#about', label: 'About' },
-  { href: '/#services', label: 'Services' },
-  { href: '/#portfolio', label: 'Portfolio' },
-  { href: '/#contact', label: 'Contact' },
+  { href: '/about', label: 'About' },
+  { href: '/services', label: 'Services' },
+  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 export function Footer() {
@@ -17,7 +18,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="flex flex-col gap-4">
             <Logo />
-            <p className="text-sm">High-Impact Technology Solutions That Respect Your Budget</p>
+            <p className="text-sm">Premium Tech Solutions at Competitive Prices.</p>
             <p className="text-sm">Dublin, Ireland</p>
             <a href="mailto:hello@synctech.ie" className="text-sm hover:text-primary transition-colors">
               hello@synctech.ie
@@ -58,6 +59,11 @@ export function Footer() {
                 <li>
                   <Link href="/terms-and-conditions" className="text-sm hover:text-primary transition-colors">
                     Terms & Conditions
+                  </Link>
+                </li>
+                 <li>
+                  <Link href="/accessibility-statement" className="text-sm hover:text-primary transition-colors">
+                    Accessibility
                   </Link>
                 </li>
               </ul>

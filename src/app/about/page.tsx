@@ -23,6 +23,12 @@ export default function AboutPage() {
       )}
     >
       <div className="container">
+        <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold">About SYNC TECH</h1>
+            <p className="mt-4 max-w-3xl mx-auto text-muted-foreground text-lg">
+                Delivering Unmatched Quality and Value in Every Project.
+            </p>
+        </div>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative order-last md:order-first">
             <Card className="overflow-hidden">
@@ -37,7 +43,7 @@ export default function AboutPage() {
             </Card>
           </div>
           <div className="text-center md:text-left">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">About SYNC TECH</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Story</h2>
             <p className="text-muted-foreground mb-6">
               Welcome to SYNC TECH, a leading tech company in Dublin, Ireland, dedicated to providing top-tier solutions in Web Development, AI Automation, and Cybersecurity. Founded by Sheraz Hussain in May 2024, SYNC TECH was born from a passion for making cutting-edge technology both accessible and affordable. We are on a mission to empower businesses of all sizes by bridging the gap between complex innovation and real-world application, ensuring our clients don’t just keep up with the future—they lead it.
             </p>
@@ -46,14 +52,14 @@ export default function AboutPage() {
                 <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold">Our Mission</h3>
-                  <p className="text-muted-foreground text-sm">To deliver bespoke, high-impact technology solutions that drive growth, efficiency, and competitive advantage for our partners.</p>
+                  <p className="text-muted-foreground text-sm">To deliver bespoke, high-impact technology solutions that drive growth, efficiency, and competitive advantage for our partners, offering the best quality at the most competitive price.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold">Our Value</h3>
-                  <p className="text-muted-foreground text-sm">We combine deep technical expertise with a collaborative, client-centric approach, turning ambitious ideas into robust, scalable realities.</p>
+                  <p className="text-muted-foreground text-sm">We combine deep technical expertise with a collaborative, client-centric approach, turning ambitious ideas into robust, scalable realities without breaking the bank.</p>
                 </div>
               </div>
             </div>

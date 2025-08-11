@@ -14,8 +14,8 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const siteConfig = {
   name: 'SYNC TECH',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://synctech.ie',
-  title: 'SYNC TECH: High-Impact Technology Solutions That Respect Your Budget',
-  description: 'SYNC TECH is a premier tech company in Dublin, Ireland, offering bespoke Web Development, AI Automation, Cybersecurity, and more. We deliver high-impact solutions that respect your budget.',
+  title: 'SYNC TECH: Premium Tech Solutions at Competitive Prices',
+  description: 'SYNC TECH delivers top-quality web development, AI automation, and cybersecurity services in Dublin, Ireland, ensuring the best value and quality for your investment.',
   ogImage: 'https://placehold.co/1200x630.png'
 };
 
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  keywords: ['tech company Dublin', 'web development', 'ai automation', 'cloud hosting', 'cybersecurity', 'mobile apps', 'seo', 'affordable tech solutions'],
+  keywords: ['affordable tech solutions', 'quality web development', 'best price tech company Dublin', 'ai automation', 'cloud hosting', 'cybersecurity', 'mobile apps', 'seo'],
   authors: [{ name: 'Sheraz Hussain', url: siteConfig.url }],
   creator: 'Sheraz Hussain',
   
@@ -68,6 +68,8 @@ const jsonLd = {
     '@type': 'ContactPoint',
     telephone: '+353-83-068-2026',
     contactType: 'customer service',
+    areaServed: 'IE',
+    availableLanguage: 'en'
   },
   sameAs: [],
 };

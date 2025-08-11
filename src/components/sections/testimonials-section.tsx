@@ -11,27 +11,27 @@ const testimonials = [
   {
     name: "Sarah L.",
     title: "CEO of FashionForward",
-    quote: "SYNC TECH transformed our e-commerce presence. Their expertise in web development and dedication to our project was outstanding. We saw a significant increase in sales and customer engagement, all within our budget.",
+    quote: "SYNC TECH delivered a stunning website that exceeded our expectations, all within our budget. Their commitment to quality and value is unmatched.",
     avatar: "https://placehold.co/100x100.png",
     avatarHint: "woman portrait"
   },
   {
     name: "Michael B.",
-    title: "Marketing Director at Creative Co.",
-    quote: "The AI-powered dashboard they built for us is a game-changer. It's intuitive, powerful, and has saved us countless hours on reporting. The value we got for the price was incredible. Highly recommend.",
+    title: "Director at Creative Co.",
+    quote: "The team provided a high-end AI solution at a fraction of the cost of other agencies. The ROI has been phenomenal. Highly recommended for their quality and affordability.",
     avatar: "https://placehold.co/100x100.png",
     avatarHint: "man portrait"
   },
   {
     name: "Jessica T.",
     title: "Founder of FitLife",
-    quote: "From concept to launch, SYNC TECH was the perfect partner for our mobile app. They delivered a high-quality product that exceeded our expectations without exceeding our budget. A truly professional team.",
+    quote: "They built our mobile app on time and on budget, with a level of quality we didn't think was possible at this price point. A fantastic partner to work with.",
     avatar: "https://placehold.co/100x100.png",
     avatarHint: "woman smiling"
   },
 ];
 
-export default function TestimonialsPage() {
+export default function TestimonialsSection() {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -42,15 +42,15 @@ export default function TestimonialsPage() {
       id="testimonials"
       ref={ref}
       className={cn(
-        "py-20 md:py-28 transition-opacity duration-1000 ease-in-out",
+        "py-20 md:py-28 bg-secondary transition-opacity duration-1000 ease-in-out",
         inView ? "opacity-100" : "opacity-0"
       )}
     >
       <div className="container">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold">What Our Clients Say</h2>
+          <h2 className="text-3xl md:text-4xl font-bold">Client Success Stories</h2>
           <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
-            Real stories from businesses we've helped to succeed, demonstrating our commitment to quality and value.
+            Hear from businesses who have experienced the SYNC TECH difference: top-tier results and exceptional value.
           </p>
         </div>
         <Carousel

@@ -20,7 +20,7 @@ export function FloatingCta() {
             className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-lg"
             aria-label="Contact Us"
           >
-            <Link href="/#contact">
+            <Link href="/contact">
               <Mail className="h-6 w-6" />
             </Link>
           </Button>

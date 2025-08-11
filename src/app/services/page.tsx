@@ -5,37 +5,39 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Code, Bot, Cloud, Shield, Smartphone, TrendingUp } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const services = [
   {
     icon: <Code className="w-8 h-8 text-primary" />,
     title: "Web Development",
-    description: "Crafting responsive, high-performance websites and applications tailored to your business needs.",
+    description: "Crafting responsive, high-performance websites and applications tailored to your business needs, ensuring quality at an affordable price.",
   },
   {
     icon: <Bot className="w-8 h-8 text-primary" />,
     title: "AI Automation",
-    description: "Leveraging artificial intelligence to automate processes, enhance efficiency, and unlock new capabilities.",
+    description: "Leveraging artificial intelligence to automate processes, enhance efficiency, and unlock new capabilities for the best value.",
   },
   {
     icon: <Cloud className="w-8 h-8 text-primary" />,
     title: "Cloud Hosting",
-    description: "Providing secure, scalable, and reliable cloud hosting solutions to keep your services online 24/7.",
+    description: "Providing secure, scalable, and reliable cloud hosting solutions to keep your services online 24/7, with cost-effective plans.",
   },
   {
     icon: <Shield className="w-8 h-8 text-primary" />,
     title: "Cybersecurity",
-    description: "Protecting your digital assets with advanced security protocols, threat detection, and risk management.",
+    description: "Protecting your digital assets with advanced security protocols, threat detection, and risk management at a competitive price.",
   },
   {
     icon: <Smartphone className="w-8 h-8 text-primary" />,
     title: "Mobile Apps",
-    description: "Building intuitive and engaging mobile applications for both iOS and Android platforms.",
+    description: "Building intuitive and engaging mobile applications for both iOS and Android platforms, focusing on quality and affordability.",
   },
   {
     icon: <TrendingUp className="w-8 h-8 text-primary" />,
     title: "SEO",
-    description: "Optimizing your online presence to increase visibility, attract more traffic, and improve search engine rankings.",
+    description: "Optimizing your online presence to increase visibility, attract more traffic, and improve search engine rankings for maximum ROI.",
   },
 ];
 
@@ -56,9 +58,9 @@ export default function ServicesPage() {
     >
       <div className="container">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold">Our Services</h2>
-          <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
-            We offer a comprehensive suite of technology services to propel your business forward.
+          <h1 className="text-4xl md:text-5xl font-bold">Our Services</h1>
+          <p className="mt-4 max-w-2xl mx-auto text-muted-foreground text-lg">
+            We offer a comprehensive suite of technology services to propel your business forward, delivering exceptional quality at an unmatched price.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -66,7 +68,7 @@ export default function ServicesPage() {
             <Card 
               key={service.title} 
               className={cn(
-                "text-center p-6 hover:shadow-lg transition-shadow duration-300 transform transition-all ease-in-out",
+                "text-center p-6 hover:shadow-lg transition-shadow duration-300 transform transition-all ease-in-out flex flex-col",
                 inView ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
               )}
               style={{ transitionDelay: `${index * 100}ms` }}
@@ -75,11 +77,16 @@ export default function ServicesPage() {
                 {service.icon}
                 <CardTitle className="mt-4">{service.title}</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex-grow">
                 <p className="text-muted-foreground">{service.description}</p>
               </CardContent>
             </Card>
           ))}
+        </div>
+        <div className="text-center mt-12">
+            <Button asChild size="lg">
+                <Link href="/contact">Get Your Custom Quote</Link>
+            </Button>
         </div>
       </div>
     </section>

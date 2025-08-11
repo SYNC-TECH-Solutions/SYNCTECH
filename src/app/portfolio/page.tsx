@@ -57,9 +57,9 @@ export default function PortfolioPage() {
     >
       <div className="container">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold">Our Portfolio</h2>
-          <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
-            A glimpse into the successful solutions we've delivered for our clients.
+          <h1 className="text-4xl md:text-5xl font-bold">Our Work</h1>
+          <p className="mt-4 max-w-2xl mx-auto text-muted-foreground text-lg">
+            We deliver high-quality results that speak for themselves. Here’s a look at the value we’ve created for our clients.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

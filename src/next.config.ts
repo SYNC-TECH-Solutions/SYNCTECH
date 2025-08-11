@@ -17,6 +17,9 @@ const nextConfig: NextConfig = {
     serverActions: {
       bodySizeLimit: '2mb',
     },
+    allowedDevOrigins: [
+      'https://9000-firebase-studio-1754065355666.cluster-fbfjltn375c6wqxlhoehbz44sk.cloudworkstations.dev',
+    ]
   },
   serverExternalPackages: ['resend'],
 };

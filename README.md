@@ -1,5 +1,89 @@
-# Firebase Studio
+# SYNC TECH - Official Website
 
-This is a NextJS starter in Firebase Studio.
+This is the official website for SYNC TECH, a modern, feature-rich web application built with Next.js and TypeScript. Developed by Sheraz Hussain, this project showcases a professional online presence for a technology solutions provider, complete with a blog, a project portfolio, and integrated AI capabilities.
 
-To get started, take a look at src/app/page.tsx.
+## Author
+
+- **Sheraz Hussain**
+
+## Tech Stack
+
+This project is built with a modern, robust, and scalable technology stack:
+
+-   **Framework:** [Next.js 15](https://nextjs.org/) (with App Router)
+-   **Language:** [TypeScript](https://www.typescriptlang.org/)
+-   **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+-   **UI Components:** [ShadCN UI](https://ui.shadcn.com/)
+-   **AI Integration:** [Google AI - Genkit](https://firebase.google.com/docs/genkit)
+-   **Form Management:** [React Hook Form](https://react-hook-form.com/) & [Zod](https://zod.dev/)
+-   **Email Delivery:** [Resend](https://resend.com/)
+-   **Analytics:** [Google Analytics](https://analytics.google.com/)
+-   **Deployment:** Firebase App Hosting (or any Node.js compatible platform)
+
+## Key Features
+
+-   **Fully Responsive Design:** A seamless experience across desktops, tablets, and mobile devices.
+-   **AI-Powered Blog Generator:** An internal admin tool at `/admin` that uses Genkit to generate draft blog posts from a topic and keywords, streamlining content creation.
+-   **AI-Validated Contact Form:** A secure contact form that uses an AI flow to validate submissions for spam or malicious content before sending an email.
+-   **Dynamic Blog System:** A complete blog with individual post pages, automatically generating static pages for optimal performance and SEO.
+-   **In-Depth Portfolio Case Studies:** A dynamic portfolio system where each project has its own detailed case study page.
+-   **SEO Optimized:** Built-in metadata generation for all pages, including blog posts and portfolio items, plus an automatically generated `sitemap.xml`.
+-   **Comprehensive Legal Pages:** Includes templates for Privacy Policy, Terms & Conditions, and an Accessibility Statement.
+
+## Getting Started
+
+Follow these instructions to get a local copy of the project up and running for development and testing purposes.
+
+### Prerequisites
+
+-   [Node.js](https://nodejs.org/en/) (version 20.x or later recommended)
+-   [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+
+### Installation
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/your-repository-name.git
+    cd your-repository-name
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Set up environment variables:**
+    Create a new file named `.env` in the root of the project by copying the example file:
+    ```bash
+    cp .env.example .env
+    ```
+    Now, open the `.env` file and add your secret keys:
+
+    ```env
+    # Resend API Key for sending emails from the contact form
+    RESEND_API_KEY=your_resend_api_key
+
+    # Google Analytics Tracking ID
+    NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+    ```
+
+    **Note:** You will also need to have Application Default Credentials set up for Google Cloud for the Genkit AI features to work locally. Follow the [Google Cloud authentication guide](https://cloud.google.com/docs/authentication/provide-credentials-adc) for instructions.
+
+## Available Scripts
+
+In the project directory, you can run the following commands:
+
+-   `npm run dev`: Starts the Next.js development server on `http://localhost:9002`.
+-   `npm run build`: Builds the application for production.
+-   `npm start`: Starts a production server for the built application.
+-   `npm run lint`: Lints the project files for errors.
+-   `npm run typecheck`: Runs the TypeScript compiler to check for type errors.
+
+## Project Structure Overview
+
+-   `src/app/`: Contains all the routes and pages of the application (using the App Router).
+-   `src/components/`: Shared React components used across the application.
+-   `src/lib/`: Utility functions, data sources (`posts.ts`, `projects.ts`), and schemas.
+-   `src/ai/`: Contains all the Genkit AI flows and configuration.
+
+For a more detailed guide on how to manage the content of this website, please see the `WIKI.md` file.

@@ -13,7 +13,8 @@ type Props = {
   params: { slug: string };
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params: awaitedParams }: Props): Promise<Metadata> {
+  const params = await awaitedParams;
   const project = getProjectBySlug(params.slug);
 
   if (!project) {
@@ -50,7 +51,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ProjectCaseStudyPage({ params }: Props) {
+export default async function ProjectCaseStudyPage({ params: awaitedParams }: Props) {
+  const params = await awaitedParams;
   const project = getProjectBySlug(params.slug);
 
   if (!project) {

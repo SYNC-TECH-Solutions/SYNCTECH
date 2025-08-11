@@ -9,12 +9,11 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, CheckCircle } from 'lucide-react';
 
-type Props = {
+type PageProps = {
   params: { slug: string };
-  searchParams: { [key: string]: string | string[] | undefined };
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const project = getProjectBySlug(params.slug);
 
   if (!project) {
@@ -45,13 +44,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
   return projects.map((project) => ({
     slug: project.slug,
   }));
 }
 
-export default function ProjectCaseStudyPage({ params }: Props) {
+export default function ProjectCaseStudyPage({ params }: PageProps) {
   const project = getProjectBySlug(params.slug);
 
   if (!project) {

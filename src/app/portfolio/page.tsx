@@ -2,43 +2,14 @@
 'use client';
 
 import Image from "next/image";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { projects } from "@/lib/projects";
 import { useInView } from "react-intersection-observer";
 import { cn } from "@/lib/utils";
-
-const projects = [
-  {
-    title: "E-COMMERCE MANAGER | LUXE THREADS",
-    description: "Launched and managed an online fashion brand on WordPress/WooCommerce with custom HTML/CSS, integrating Stripe and PayPal for seamless checkout. Executed SEO and Google Ads campaigns that increased organic traffic by 50% and lifted conversion rates by 25%.",
-    image: "https://placehold.co/600x400.png",
-    imageHint: "fashion website",
-    techStack: ["WordPress", "WooCommerce", "Stripe", "PayPal", "SEO", "Google Ads"],
-    results: "Estimated a pre-revenue of approximately €18,750 per month from Google Ads based on 15,000 monthly visitors, a 2.5% conversion rate, and a €75 average order value.",
-    liveUrl: "https://synctech.ie",
-  },
-  {
-    title: "GoExploree – Real Estate Mobile App",
-    description: "Developed a cross-platform real estate mobile app for a local student accommodation service, enabling 30+ prospective tenants to browse and schedule viewings.",
-    image: "https://placehold.co/600x400.png",
-    imageHint: "mobile app interface",
-    techStack: ["Ionic", "Angular", "Capacitor", "Firebase", "PostgreSQL", "Google Maps API"],
-    results: "Successfully enabled 30+ prospective tenants to browse properties and schedule viewings, streamlining the rental process.",
-    liveUrl: "https://github.com/SherazHussain546/GoExploree",
-  },
-  {
-    title: "ATLANTIC HOTEL - Live Project",
-    description: "Led the redesign and development of the Atlantic Hotel website, creating a user-friendly interface and a custom booking management system.",
-    image: "https://placehold.co/600x400.png",
-    imageHint: "hotel booking system",
-    techStack: ["Booking.com API", "Airbnb API", "OpenTable API", "React"],
-    results: "Integrated major booking platforms, resulting in a 67% increase in revenue and improved operational efficiency for hotel staff.",
-    liveUrl: "http://www.atlantichotel.ie",
-  },
-];
+import { ArrowRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 export default function PortfolioPage() {
   const { ref, inView } = useInView({
@@ -65,42 +36,47 @@ export default function PortfolioPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <Card 
-              key={project.title} 
+              key={project.slug}
               className={cn(
-                "flex flex-col overflow-hidden hover:scale-[1.02] transition-transform duration-300 bg-background transform transition-all ease-in-out",
+                "flex flex-col overflow-hidden hover:scale-[1.02] transition-transform duration-300 bg-card transform transition-all ease-in-out",
                 inView ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
               )}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="aspect-video overflow-hidden">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  width={600}
-                  height={400}
-                  className="w-full h-full object-cover"
-                  data-ai-hint={project.imageHint}
-                />
-              </div>
+              <Link href={`/portfolio/${project.slug}`} className="block">
+                <div className="aspect-video overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={600}
+                    height={300}
+                    className="w-full h-full object-cover"
+                    data-ai-hint={project.imageHint}
+                  />
+                </div>
+              </Link>
               <CardHeader>
-                <CardTitle>{project.title}</CardTitle>
+                <CardTitle>
+                  <Link href={`/portfolio/${project.slug}`}>{project.title}</Link>
+                </CardTitle>
               </CardHeader>
               <CardContent className="flex-grow">
-                <p className="text-muted-foreground text-sm mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.techStack.map((tech) => (
+                <p className="text-muted-foreground text-sm mb-4">{project.excerpt}</p>
+                 <div className="flex flex-wrap gap-2">
+                  {project.techStack.slice(0, 3).map((tech) => (
                     <Badge key={tech} variant="secondary">{tech}</Badge>
                   ))}
+                  {project.techStack.length > 3 && (
+                    <Badge variant="outline">+{project.techStack.length - 3} more</Badge>
+                  )}
                 </div>
-                <p className="text-sm font-semibold">Results:</p>
-                <p className="text-sm text-muted-foreground">{project.results}</p>
               </CardContent>
               <CardFooter>
-                 <Button variant="outline" asChild className="w-full">
-                    <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                        View Project <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                 </Button>
+                <Button asChild variant="outline" className="w-full">
+                  <Link href={`/portfolio/${project.slug}`}>
+                    View Case Study <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
               </CardFooter>
             </Card>
           ))}

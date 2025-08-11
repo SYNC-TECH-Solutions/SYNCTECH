@@ -9,36 +9,15 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 import { cn } from "@/lib/utils";
-
-const projects = [
-  {
-    title: "E-COMMERCE MANAGER | LUXE THREADS",
-    description: "Launched and managed an online fashion brand on WordPress/WooCommerce with custom HTML/CSS, integrating Stripe and PayPal for seamless checkout.",
-    image: "https://placehold.co/600x400.png",
-    imageHint: "fashion website",
-    techStack: ["WordPress", "WooCommerce", "SEO"],
-  },
-  {
-    title: "GoExploree – Real Estate Mobile App",
-    description: "Developed a cross-platform real estate mobile app for a local student accommodation service, enabling tenants to browse and schedule viewings.",
-    image: "https://placehold.co/600x400.png",
-    imageHint: "mobile app interface",
-    techStack: ["Ionic", "Angular", "Firebase"],
-  },
-  {
-    title: "ATLANTIC HOTEL - Live Project",
-    description: "Led the redesign and development of the Atlantic Hotel website, creating a user-friendly interface and a custom booking management system.",
-    image: "https://placehold.co/600x400.png",
-    imageHint: "hotel booking system",
-    techStack: ["Booking.com API", "React"],
-  },
-];
+import { projects } from "@/lib/projects";
 
 export default function PortfolioSection() {
     const { ref, inView } = useInView({
         triggerOnce: true,
         threshold: 0.1,
     });
+
+    const featuredProjects = projects.slice(0, 3);
 
     return (
         <section 
@@ -57,7 +36,7 @@ export default function PortfolioSection() {
                     </p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {projects.map((project, index) => (
+                    {featuredProjects.map((project, index) => (
                         <Card 
                             key={project.title} 
                             className={cn(
@@ -66,27 +45,33 @@ export default function PortfolioSection() {
                             )}
                             style={{ transitionDelay: `${index * 100}ms` }}
                         >
-                            <div className="aspect-video overflow-hidden">
-                                <Image
-                                    src={project.image}
-                                    alt={project.title}
-                                    width={600}
-                                    height={400}
-                                    className="w-full h-full object-cover"
-                                    data-ai-hint={project.imageHint}
-                                />
-                            </div>
+                             <Link href={`/portfolio/${project.slug}`} className="block">
+                                <div className="aspect-video overflow-hidden">
+                                    <Image
+                                        src={project.image}
+                                        alt={project.title}
+                                        width={600}
+                                        height={400}
+                                        className="w-full h-full object-cover"
+                                        data-ai-hint={project.imageHint}
+                                    />
+                                </div>
+                            </Link>
                             <CardHeader>
-                                <CardTitle>{project.title}</CardTitle>
+                               <CardTitle>
+                                    <Link href={`/portfolio/${project.slug}`}>{project.title}</Link>
+                                </CardTitle>
                             </CardHeader>
                             <CardContent className="flex-grow">
-                                <p className="text-muted-foreground text-sm mb-4">{project.description}</p>
-                                <div className="flex flex-wrap gap-2 mb-4">
-                                    {project.techStack.map((tech) => (
-                                        <Badge key={tech} variant="secondary">{tech}</Badge>
-                                    ))}
-                                </div>
+                                <p className="text-muted-foreground text-sm mb-4">{project.excerpt}</p>
                             </CardContent>
+                             <CardFooter>
+                                <Button asChild variant="outline" className="w-full">
+                                    <Link href={`/portfolio/${project.slug}`}>
+                                        View Case Study <ArrowRight className="ml-2 h-4 w-4" />
+                                    </Link>
+                                </Button>
+                            </CardFooter>
                         </Card>
                     ))}
                 </div>

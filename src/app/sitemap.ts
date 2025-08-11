@@ -1,6 +1,7 @@
 
 import { MetadataRoute } from 'next'
 import { posts } from '@/lib/posts';
+import { projects } from '@/lib/projects';
  
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://synctech.ie';
@@ -9,6 +10,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }));
+
+  const projectRoutes = projects.map((project) => ({
+    url: `${baseUrl}/portfolio/${project.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
     priority: 0.7,
   }));
 
@@ -35,8 +43,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/portfolio`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.9,
     },
+    ...projectRoutes,
     {
       url: `${baseUrl}/blog`,
       lastModified: new Date(),

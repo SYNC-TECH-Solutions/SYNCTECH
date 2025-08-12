@@ -7,6 +7,7 @@ import { Footer } from '@/components/layout/footer';
 import { Analytics } from '@/components/analytics';
 import { Inter } from 'next/font/google';
 import { Providers } from '@/components/providers';
+import { Suspense } from 'react';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -93,12 +94,12 @@ export default function RootLayout({
         />
       </head>
       <body className={cn('font-sans antialiased min-h-screen flex flex-col')}>
-        <Providers>
           <Header />
           <main className="flex-grow">{children}</main>
           <Footer />
-          <Analytics />
-        </Providers>
+          <Suspense fallback={null}>
+            <Analytics />
+          </Suspense>
       </body>
     </html>
   );

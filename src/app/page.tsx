@@ -7,17 +7,18 @@ import ServicesSection from '@/components/sections/services-section';
 import PortfolioSection from '@/components/sections/portfolio-section';
 import TestimonialsSection from '@/components/sections/testimonials-section';
 import ContactSection from '@/components/sections/contact-section';
+import MainLayout from './main-layout';
 
 
 export default function Home() {
   return (
-    <>
+    <MainLayout>
       <Hero />
       <AboutSection />
       <ServicesSection />
       <PortfolioSection />
       <TestimonialsSection />
       <ContactSection />
-    </>
+    </MainLayout>
   );
 }

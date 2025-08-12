@@ -30,24 +30,6 @@ This project is built with a modern, robust, and scalable technology stack:
 -   **SEO Optimized:** Built-in metadata generation for all pages, including blog posts and portfolio items, plus an automatically generated `sitemap.xml`.
 -   **Comprehensive Legal Pages:** Includes templates for Privacy Policy, Terms & Conditions, and an Accessibility Statement.
 
-## Hosting Options (Free)
-
-You have several excellent free options for hosting this project. The best choice depends on whether your GitHub repository is private or public.
-
-### For Public Repositories (Recommended)
-If your repository is public, you have access to the best platforms in the ecosystem, which are perfectly optimized for Next.js. **Vercel is the top recommendation.**
-
--   **Vercel:** Created by the makers of Next.js, Vercel offers a seamless, zero-configuration deployment experience. It's free for public/open-source repos and is the ideal choice for this project.
--   **Netlify:** Another top-tier platform with a powerful free tier for public repositories, known for its ease of use and robust features.
-
-### For Private Repositories
-If you choose to keep your repository private, both **Firebase Hosting** and **Cloudflare Pages** are ideal choices.
-
--   **Firebase Hosting:** Free deployment from private repos, integrates well with other Firebase services, and offers a global CDN.
--   **Cloudflare Pages:** Generous free tier with unlimited sites and bandwidth, world-class performance, and a simple Git-based workflow.
-
-**Note on GitHub Pages:** While GitHub Pages is great for simple, static websites, it **cannot run this Next.js application** because it does not support the necessary server-side functionality (like the contact form).
-
 ## Getting Started
 
 Follow these instructions to get a local copy of the project up and running for development and testing purposes.
@@ -56,7 +38,6 @@ Follow these instructions to get a local copy of the project up and running for 
 
 -   [Node.js](https://nodejs.org/en/) (version 20.x or later recommended)
 -   [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
--   [Firebase CLI](https://firebase.google.com/docs/cli) (if deploying to Firebase Hosting)
 
 ### Installation
 
@@ -76,7 +57,7 @@ Follow these instructions to get a local copy of the project up and running for 
     ```bash
     cp .env.example .env
     ```
-    Now, open the `.env` file and add your secret keys:
+    Now, open the `.env` file and add your secret keys. This is crucial for running the project locally.
 
     ```env
     # Resend API Key for sending emails from the contact form
@@ -88,7 +69,6 @@ Follow these instructions to get a local copy of the project up and running for 
     # Your website's absolute URL (used for sitemap and metadata)
     NEXT_PUBLIC_SITE_URL=http://localhost:9002
     ```
-    **Note:** When you deploy your site, be sure to set these as environment variables in your hosting provider's dashboard and update `NEXT_PUBLIC_SITE_URL` to your live domain.
 
 ## Available Scripts
 
@@ -100,29 +80,47 @@ In the project directory, you can run the following commands:
 -   `npm run lint`: Lints the project files for errors.
 -   `npm run typecheck`: Runs the TypeScript compiler to check for type errors.
 
-## Deployment
+## Deployment Guide (Netlify)
 
-You can deploy this Next.js application to any hosting provider that supports Node.js. For a seamless, free experience, we recommend the providers listed in the "Hosting Options" section above.
+This project is optimized for deployment on **Netlify**, which offers a generous free tier for public repositories.
 
-### Build Command
+### Prerequisites
+- A [GitHub](https://github.com/) account with this repository pushed to it.
+- A [Netlify](https://www.netlify.com/) account.
 
-To create a production-ready build of your app, run:
-```bash
-npm run build
-```
-This command generates an optimized version of your site in the `.next` folder. Your hosting provider will need this command.
+### Step-by-Step Instructions
 
-### Deploying
+#### Step 1: Login to Netlify and Add a New Site
+1.  Go to your [Netlify dashboard](https://app.netlify.com/).
+2.  Click the **"Add new site"** button and select **"Import an existing project"**.
 
--   **With Vercel or Netlify:** Connect your GitHub repository to the hosting provider. They will automatically build and deploy your site whenever you push to your main branch. You will typically only need to set the build command to `npm run build` and the output directory to `.next` in the project settings on their platform.
--   **With Firebase Hosting:** Run `firebase deploy` after initializing your project.
+#### Step 2: Connect to GitHub
+1.  Under "Connect to a Git provider," click the **GitHub** button.
+2.  A new window will open, asking you to authorize Netlify to access your GitHub repositories. Click **Authorize**.
+3.  Select the repository for your SYNC TECH project.
 
-## Project Structure Overview
+#### Step 3: Configure Build Settings
+Netlify will automatically detect that this is a Next.js project and should pre-fill the build settings correctly thanks to the `netlify.toml` file in the project. Please verify that they are as follows:
 
--   `src/app/`: Contains all the routes and pages of the application (using the App Router).
--   `src/components/`: Shared React components used across the application.
--   `src/lib/`: Utility functions, data sources (`posts.ts`, `projects.ts`), and schemas.
--   `src/ai/`: Contains all the Genkit AI flows and configuration.
+-   **Build command:** `npm run build`
+-   **Publish directory:** `.next`
 
-For a more detailed guide on how to manage the content of this website, please see the `WIKI.md` file.
+#### Step 4: Add Environment Variables (Crucial!)
+This is the most important step for ensuring your contact form works correctly on the live site.
+1.  Before deploying, click on **"Show advanced"** and then **"New variable"**.
+2.  You need to add your secret keys here. These are the same keys from your local `.env` file.
+    -   Add a variable with the key `RESEND_API_KEY` and the value of your Resend API key.
+    -   Add another variable with the key `NEXT_PUBLIC_GA_ID` and the value of your Google Analytics ID.
+    -   Add a final variable with the key `NEXT_PUBLIC_SITE_URL` and the value of your final, live website URL (e.g., `https://www.synctech.ie`).
 
+#### Step 5: Deploy the Site
+1.  Click the **"Deploy site"** button.
+2.  Netlify will start building and deploying your application. You can watch the progress in the deploy logs. It should take a few minutes to complete.
+
+Once finished, your site will be live on a temporary Netlify URL (e.g., `your-site-name.netlify.app`).
+
+### Step 6: Add Your Custom Domain (Optional)
+1.  In your site's dashboard on Netlify, go to **Domain settings**.
+2.  Click **"Add a domain"** and follow the instructions to link your custom domain. Netlify provides excellent, easy-to-follow guidance on how to update your DNS records.
+
+Congratulations! Your SYNC TECH website is now live for the world to see.

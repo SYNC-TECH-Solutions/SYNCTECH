@@ -15,6 +15,8 @@ import { generateBlogPost, type GenerateBlogPostOutput } from '@/ai/flows/genera
 import ReactMarkdown from 'react-markdown';
 import { useToast } from '@/hooks/use-toast';
 
+export const dynamic = 'force-dynamic';
+
 const formSchema = z.object({
   topic: z.string().min(5, { message: 'Topic must be at least 5 characters.' }),
   keywords: z.string().min(3, { message: 'Please provide at least one keyword.' }),

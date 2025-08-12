@@ -6,7 +6,6 @@ import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { Analytics } from '@/components/analytics';
 import { Inter } from 'next/font/google';
-import { firebaseApp } from '@/lib/firebase'; // Import to initialize Firebase
 import { Providers } from '@/components/providers';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });

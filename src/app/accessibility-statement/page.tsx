@@ -3,7 +3,6 @@
 
 import { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Check, X } from "lucide-react";
 
 export default function AccessibilityStatementPage() {
   const [lastUpdated, setLastUpdated] = useState('');

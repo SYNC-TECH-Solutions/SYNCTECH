@@ -32,19 +32,21 @@ This project is built with a modern, robust, and scalable technology stack:
 
 ## Hosting Options (Free)
 
-You have several excellent free options for hosting this project, depending on whether your GitHub repository is private or public.
+You have several excellent free options for hosting this project. The best choice depends on whether your GitHub repository is private or public.
+
+### For Public Repositories (Recommended)
+If your repository is public, you have access to the best platforms in the ecosystem, which are perfectly optimized for Next.js. **Vercel is the top recommendation.**
+
+-   **Vercel:** Created by the makers of Next.js, Vercel offers a seamless, zero-configuration deployment experience. It's free for public/open-source repos and is the ideal choice for this project.
+-   **Netlify:** Another top-tier platform with a powerful free tier for public repositories, known for its ease of use and robust features.
 
 ### For Private Repositories
-For developers looking for a free and powerful hosting solution for private repositories, both **Firebase Hosting** and **Cloudflare Pages** are ideal choices.
+If you choose to keep your repository private, both **Firebase Hosting** and **Cloudflare Pages** are ideal choices.
 
 -   **Firebase Hosting:** Free deployment from private repos, integrates well with other Firebase services, and offers a global CDN.
 -   **Cloudflare Pages:** Generous free tier with unlimited sites and bandwidth, world-class performance, and a simple Git-based workflow.
 
-### For Public Repositories
-If you make your repository public, your free options expand to include two of the most popular platforms in the ecosystem.
-
--   **Vercel:** Created by the makers of Next.js, Vercel offers a seamless, zero-configuration deployment experience and is perfectly optimized for Next.js projects. It's free for public/open-source repos.
--   **Netlify:** Another top-tier platform with a powerful free tier for public repositories, known for its ease of use and robust features.
+**Note on GitHub Pages:** While GitHub Pages is great for simple, static websites, it **cannot run this Next.js application** because it does not support the necessary server-side functionality (like the contact form).
 
 ## Getting Started
 
@@ -82,9 +84,11 @@ Follow these instructions to get a local copy of the project up and running for 
 
     # Google Analytics Tracking ID
     NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
-    ```
 
-    **Note:** You will also need to have Application Default Credentials set up for Google Cloud for the Genkit AI features to work locally. Follow the [Google Cloud authentication guide](https://cloud.google.com/docs/authentication/provide-credentials-adc) for instructions.
+    # Your website's absolute URL (used for sitemap and metadata)
+    NEXT_PUBLIC_SITE_URL=http://localhost:9002
+    ```
+    **Note:** When you deploy your site, be sure to set these as environment variables in your hosting provider's dashboard and update `NEXT_PUBLIC_SITE_URL` to your live domain.
 
 ## Available Scripts
 
@@ -110,9 +114,8 @@ This command generates an optimized version of your site in the `.next` folder. 
 
 ### Deploying
 
+-   **With Vercel or Netlify:** Connect your GitHub repository to the hosting provider. They will automatically build and deploy your site whenever you push to your main branch. You will typically only need to set the build command to `npm run build` and the output directory to `.next` in the project settings on their platform.
 -   **With Firebase Hosting:** Run `firebase deploy` after initializing your project.
--   **With Vercel, Netlify, or Cloudflare Pages:** Connect your GitHub repository to the hosting provider. They will automatically build and deploy your site whenever you push to your main branch. You will typically only need to set the build command to `npm run build` and the output directory to `.next` in the project settings on their platform.
-
 
 ## Project Structure Overview
 
@@ -122,3 +125,4 @@ This command generates an optimized version of your site in the `.next` folder. 
 -   `src/ai/`: Contains all the Genkit AI flows and configuration.
 
 For a more detailed guide on how to manage the content of this website, please see the `WIKI.md` file.
+

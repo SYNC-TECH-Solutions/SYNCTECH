@@ -88,6 +88,19 @@ export function Footer() {
             </div>
           </div>
         </div>
+         <div className="mt-8 border-t pt-8">
+            <div 
+              className="trustpilot-widget" 
+              data-locale="en-US" 
+              data-template-id="56278e9abfbbba0bdcd568bc" 
+              data-businessunit-id="689cbe87e91f287c6dde1dd9" 
+              data-style-height="52px" 
+              data-style-width="100%" 
+              data-token="156951d1-2c7b-4d24-99bd-38a1e9b007ee"
+            >
+              <a href="https://www.trustpilot.com/review/synctech.ie" target="_blank" rel="noopener">Trustpilot</a>
+            </div>
+        </div>
         <div className="mt-8 border-t pt-8 text-center text-sm">
           <p>&copy; {new Date().getFullYear()} SYNC TECH. All rights reserved. | <Link href="/privacy-policy" className="hover:text-primary">Privacy Policy</Link> | <Link href="/terms-and-conditions" className="hover:text-primary">Terms & Conditions</Link></p>
         </div>

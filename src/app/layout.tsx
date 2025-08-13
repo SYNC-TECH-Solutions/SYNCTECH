@@ -7,6 +7,7 @@ import { Footer } from '@/components/layout/footer';
 import { Analytics } from '@/components/analytics';
 import { Inter } from 'next/font/google';
 import { Suspense } from 'react';
+import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -94,6 +95,11 @@ export default function RootLayout({
         />
       </head>
       <body className={cn('font-sans antialiased min-h-screen flex flex-col')}>
+          <Script 
+            type="text/javascript" 
+            src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" 
+            async 
+          />
           <Header />
           <main className="flex-grow">{children}</main>
           <Footer />

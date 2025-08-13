@@ -6,7 +6,6 @@ import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { Analytics } from '@/components/analytics';
 import { Inter } from 'next/font/google';
-import { Providers } from '@/components/providers';
 import { Suspense } from 'react';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -88,6 +87,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable} dark`}>
       <head>
+        <meta name="trustpilot-one-time-domain-verification-id" content="8af38693-b36b-483d-aeca-ffa55637025c"/>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

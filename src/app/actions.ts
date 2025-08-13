@@ -1,7 +1,7 @@
 
 'use server';
 
-import type { z } from 'zod';
+import { z } from 'zod';
 import { contactFormSchema } from '@/lib/schemas';
 import { validateContactForm } from '@/ai/flows/validate-contact-form';
 import { Resend } from 'resend';

@@ -7,7 +7,11 @@ import { validateContactForm } from '@/ai/flows/validate-contact-form';
 import { Resend } from 'resend';
 import { ContactFormEmail } from '@/components/emails/contact-form-email';
 import * as React from 'react';
+import { auth } from 'firebase-admin';
+import { cookies } from 'next/headers';
+import { getFirebaseAdminApp } from '@/lib/firebase-admin';
 
+// --- Contact Form Action ---
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -59,4 +63,64 @@ export async function submitContactForm(values: ContactFormValues) {
       message: "An unexpected error occurred. Please contact us directly at hello@synctech.ie." 
     };
   }
+}
+
+
+// --- Auth Actions ---
+
+const loginFormSchema = z.object({
+  email: z.string().email(),
+  password: z.string().min(6),
+});
+type LoginFormValues = z.infer<typeof loginFormSchema>;
+
+// This is a placeholder for a real sign-in function that would use the Firebase client SDK
+// Since we can't run the client SDK here, this action simulates the ID token generation.
+async function getMockIdToken(email: string): Promise<string> {
+    // In a real app, you would use signInWithEmailAndPassword from 'firebase/auth' on the client
+    // to get the user and then user.getIdToken() to get the ID token.
+    // Here, we create a custom token with the Admin SDK to simulate this.
+    getFirebaseAdminApp();
+    const customToken = await auth().createCustomToken(email, { admin: true });
+    return customToken;
+}
+
+export async function login(values: LoginFormValues) {
+    try {
+        const { email } = loginFormSchema.parse(values);
+        
+        // This is a temporary measure for the server-side action.
+        // In a full implementation, the client-side Firebase SDK would handle the sign-in
+        // and send an ID token to a server endpoint to create a session cookie.
+        const idToken = await getMockIdToken(email);
+        
+        const expiresIn = 60 * 60 * 24 * 5 * 1000; // 5 days
+        
+        const sessionCookie = await auth().createSessionCookie(idToken, { expiresIn });
+        
+        cookies().set('__session', sessionCookie, {
+            maxAge: expiresIn,
+            httpOnly: true,
+            secure: true,
+        });
+        
+        return { success: true };
+
+    } catch (error: any) {
+        console.error('Login error:', error);
+        
+        // Provide more specific error messages for common Firebase auth errors
+        let message = 'An unexpected error occurred during login.';
+        if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password' || error.code === 'auth/invalid-credential') {
+            message = 'Invalid email or password. Please try again.';
+        }
+
+        return { success: false, message };
+    }
+}
+
+
+export async function logout() {
+  cookies().delete('__session');
+  return { success: true };
 }

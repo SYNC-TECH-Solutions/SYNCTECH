@@ -10,10 +10,12 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Loader2 } from 'lucide-react';
+import { Loader2, LogOut } from 'lucide-react';
 import { generateBlogPost, type GenerateBlogPostOutput } from '@/ai/flows/generate-blog-post';
 import ReactMarkdown from 'react-markdown';
 import { useToast } from '@/hooks/use-toast';
+import { logout } from '@/app/actions';
+import { useRouter } from 'next/navigation';
 
 export const dynamic = 'force-dynamic';
 
@@ -26,8 +28,10 @@ type FormValues = z.infer<typeof formSchema>;
 
 export default function AdminPage() {
   const [isPending, startTransition] = useTransition();
+  const [isLoggingOut, startLogoutTransition] = useTransition();
   const [generatedContent, setGeneratedContent] = useState<GenerateBlogPostOutput | null>(null);
   const { toast } = useToast();
+  const router = useRouter();
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -58,13 +62,44 @@ export default function AdminPage() {
     });
   }
 
+  async function handleLogout() {
+    startLogoutTransition(async () => {
+        const result = await logout();
+        if (result.success) {
+            router.push('/login');
+            toast({
+                title: 'Logged Out',
+                description: 'You have been successfully logged out.',
+            });
+        }
+    });
+  }
+
   return (
     <div className="py-20 md:py-28">
         <div className="container max-w-4xl">
              <Card>
+                <CardHeader className="flex flex-row items-center justify-between">
+                    <div>
+                        <CardTitle>Admin Dashboard</CardTitle>
+                        <CardDescription>This is your central hub for managing website content.</CardDescription>
+                    </div>
+                    <Button variant="outline" onClick={handleLogout} disabled={isLoggingOut}>
+                        {isLoggingOut ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <LogOut className="mr-2 h-4 w-4"/>}
+                        Logout
+                    </Button>
+                </CardHeader>
+                <CardContent>
+                   <div className="p-8 text-center bg-secondary rounded-lg">
+                     <h2 className="text-2xl font-bold">Welcome to the Admin Panel</h2>
+                     <p className="text-muted-foreground mt-2">More features like content management and analytics are coming soon!</p>
+                   </div>
+                </CardContent>
+             </Card>
+             <Card className="mt-8">
                 <CardHeader>
                     <CardTitle>AI Blog Post Generator</CardTitle>
-                    <CardDescription>This internal tool uses AI to generate a draft for a new blog post based on a topic and keywords. The generated content can be copied and added to the `src/lib/posts.ts` file.</CardDescription>
+                    <CardDescription>Generate a draft for a new blog post. The content can be copied and added to the new CMS (coming soon).</CardDescription>
                 </CardHeader>
                 <CardContent>
                     <Form {...form}>

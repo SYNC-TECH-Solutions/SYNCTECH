@@ -13,17 +13,6 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Stylish Marble Art",
-    slug: "stylish-marble-art",
-    excerpt: "Developed a visually stunning e-commerce store for a luxury marble art brand, focusing on a high-end user experience and secure transactions.",
-    description: "Designed and developed a bespoke e-commerce platform for Stylish Marble Art, a purveyor of fine marble sculptures and decor. The focus was on creating a luxurious and immersive digital showroom that mirrors the quality of the art. The site features high-resolution imagery, detailed product views, and a seamless, secure checkout process to cater to a discerning clientele.",
-    image: "https://placehold.co/1200x600.png",
-    imageHint: "marble art",
-    techStack: ["Shopify", "React", "Next.js", "Tailwind CSS", "Stripe"],
-    results: "Delivered a high-end, performant e-commerce site, leading to a successful online brand launch and a 40% increase in customer engagement within the first quarter.",
-    liveUrl: "https://www.stylishmarbleart.com",
-  },
-  {
     title: "E-COMMERCE MANAGER | LUXE THREADS",
     slug: "luxe-threads-ecommerce",
     excerpt: "Launched and managed a fashion e-commerce brand, driving a 50% increase in organic traffic and a 25% lift in conversion rates.",

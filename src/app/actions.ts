@@ -14,10 +14,11 @@ import { getFirebaseAdminApp } from '@/lib/firebase-admin';
 // --- Contact Form Action ---
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const supportEmail = 'hello@synctech.ie';
 
 export async function submitContactForm(values: ContactFormValues) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
+  
   try {
     // 1. Validate the form content with AI
     const validation = await validateContactForm(values);

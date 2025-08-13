@@ -12,22 +12,19 @@ const testimonials = [
     name: "Sarah L.",
     title: "CEO of FashionForward",
     quote: "SYNC TECH delivered a stunning website that exceeded our expectations, all within our budget. Their commitment to quality and value is unmatched.",
-    avatar: "https://placehold.co/100x100.png",
-    avatarHint: "character"
+    avatar: "/STreview.png",
   },
   {
     name: "Michael B.",
     title: "Director at Creative Co.",
     quote: "The team provided a high-end AI solution at a fraction of the cost of other agencies. The ROI has been phenomenal. Highly recommended for their quality and affordability.",
-    avatar: "https://placehold.co/100x100.png",
-    avatarHint: "character"
+    avatar: "/STreview.png",
   },
   {
     name: "Jessica T.",
     title: "Founder of FitLife",
     quote: "They built our mobile app on time and on budget, with a level of quality we didn't think was possible at this price point. A fantastic partner to work with.",
-    avatar: "https://placehold.co/100x100.png",
-    avatarHint: "character"
+    avatar: "/STreview.png",
   },
 ];
 
@@ -69,7 +66,7 @@ export default function TestimonialsSection() {
                       <p className="text-muted-foreground italic mb-6">"{testimonial.quote}"</p>
                       <div className="flex items-center">
                         <Avatar className="h-12 w-12 mr-4">
-                           <AvatarImage src={testimonial.avatar} alt={testimonial.name} data-ai-hint={testimonial.avatarHint} />
+                           <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
                           <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
                         </Avatar>
                         <div>

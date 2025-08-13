@@ -13,21 +13,21 @@ const testimonials = [
     title: "CEO of FashionForward",
     quote: "SYNC TECH transformed our e-commerce presence. Their expertise in web development and dedication to our project was outstanding. We saw a significant increase in sales and customer engagement, all within our budget.",
     avatar: "https://placehold.co/100x100.png",
-    avatarHint: "business woman"
+    avatarHint: "character"
   },
   {
     name: "Michael B.",
     title: "Marketing Director at Creative Co.",
     quote: "The AI-powered dashboard they built for us is a game-changer. It's intuitive, powerful, and has saved us countless hours on reporting. The value we got for the price was incredible. Highly recommend.",
     avatar: "https://placehold.co/100x100.png",
-    avatarHint: "man professional"
+    avatarHint: "character"
   },
   {
     name: "Jessica T.",
     title: "Founder of FitLife",
     quote: "From concept to launch, SYNC TECH was the perfect partner for our mobile app. They delivered a high-quality product that exceeded our expectations without exceeding our budget. A truly professional team.",
     avatar: "https://placehold.co/100x100.png",
-    avatarHint: "smiling woman"
+    avatarHint: "character"
   },
 ];
 

@@ -58,7 +58,7 @@ export default function AboutPage() {
             <div className="relative order-last md:order-first">
               <Card className="overflow-hidden">
                   <Image
-                      src="https://placehold.co/800x600.png"
+                      src="/dublinsync.png"
                       alt="A stylized image representing technology and innovation in Dublin"
                       width={800}
                       height={600}

@@ -36,7 +36,7 @@ export default function AboutSection() {
                     <div className="relative">
                         <Card className="overflow-hidden">
                             <Image
-                                src="https://placehold.co/800x600.png"
+                                src="/dublinsync.png"
                                 alt="Team collaborating on a project"
                                 width={800}
                                 height={600}

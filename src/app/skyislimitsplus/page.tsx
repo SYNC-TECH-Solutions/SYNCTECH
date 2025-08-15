@@ -16,6 +16,7 @@ import { generateOutreach, type GenerateOutreachOutput } from '@/ai/flows/genera
 import { Separator } from '@/components/ui/separator';
 import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
+import { Label } from '@/components/ui/label';
 
 const formSchema = z.object({
   businessName: z.string().min(2, { message: 'Business name is required.' }),

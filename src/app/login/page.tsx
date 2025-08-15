@@ -12,7 +12,6 @@ import { createSession } from '@/app/actions';
 import { useTransition } from 'react';
 import { Loader2 } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { useRouter } from 'next/navigation';
 import { Logo } from '@/components/logo';
 
 const formSchema = z.object({
@@ -23,7 +22,6 @@ type LoginFormValues = z.infer<typeof formSchema>;
 
 export default function LoginPage() {
   const { toast } = useToast();
-  const router = useRouter();
   const [isPending, startTransition] = useTransition();
 
   const form = useForm<LoginFormValues>({
@@ -42,8 +40,8 @@ export default function LoginPage() {
             title: 'Login Successful!',
             description: 'Redirecting to your dashboard...',
           });
-          router.push('/admin');
-          router.refresh(); // Force a refresh to ensure layout re-validates session
+          // Force a full page reload to ensure the new session is recognized.
+          window.location.href = '/admin';
       } else {
            toast({
             title: 'Login Failed',

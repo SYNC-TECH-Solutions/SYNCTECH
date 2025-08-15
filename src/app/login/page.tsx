@@ -43,6 +43,7 @@ export default function LoginPage() {
             description: 'Redirecting to your dashboard...',
           });
           router.push('/admin');
+          router.refresh(); // Force a refresh to ensure layout re-validates session
       } else {
            toast({
             title: 'Login Failed',

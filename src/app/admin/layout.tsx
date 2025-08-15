@@ -10,19 +10,19 @@ export default async function AdminLayout({
   const sessionCookie = cookies().get('__session')?.value;
 
   if (!sessionCookie) {
-    return redirect('/login');
+    redirect('/login');
   }
 
   try {
     const session = JSON.parse(sessionCookie);
     if (!session.isLoggedIn || session.expires < Date.now()) {
-      cookies().delete('__session');
-      return redirect('/login');
+      cookies().set('__session', '', { expires: new Date(0), path: '/' });
+      redirect('/login');
     }
   } catch (error) {
     console.error('Invalid session cookie:', error);
-    cookies().delete('__session');
-    return redirect('/login');
+    cookies().set('__session', '', { expires: new Date(0), path: '/' });
+    redirect('/login');
   }
 
 

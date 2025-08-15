@@ -76,10 +76,10 @@ export async function createSession(password: string) {
     }
 
     if (password === adminPassword) {
-        const sessionExpires = Date.now() + 7 * 24 * 60 * 60 * 1000; // 7 days
+        const sessionExpires = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // 7 days from now
         const sessionData = {
             isLoggedIn: true,
-            expires: sessionExpires
+            expires: sessionExpires.getTime()
         };
 
         cookies().set('__session', JSON.stringify(sessionData), {
@@ -87,6 +87,7 @@ export async function createSession(password: string) {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
             path: '/',
+            sameSite: 'lax',
         });
         return { success: true };
     } else {
@@ -96,6 +97,6 @@ export async function createSession(password: string) {
 
 
 export async function logout() {
-  cookies().delete('__session');
+  cookies().set('__session', '', { expires: new Date(0), path: '/' });
   return { success: true };
 }

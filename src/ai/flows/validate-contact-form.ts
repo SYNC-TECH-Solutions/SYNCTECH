@@ -35,12 +35,11 @@ const validateContactFormPrompt = ai.definePrompt({
   output: {schema: ValidateContactFormOutputSchema},
   prompt: `You are an AI assistant that validates contact form submissions for a tech company called SYNC TECH in Dublin, Ireland.
 
-  Evaluate the following contact form submission and determine if it is valid and appropriate. Consider factors such as:
-  - Presence of spam or irrelevant content
-  - Offensive or inappropriate language
-  - Data anomalies or inconsistencies
+  Evaluate the following contact form submission and determine if it is a legitimate, serious inquiry about the company's services (web development, AI, cybersecurity, etc.).
 
-  If the submission is not valid, provide a reason in the 'reason' field.
+  The message should be professional and relevant. Reject messages that are clearly spam, advertising, personal solicitations, or completely nonsensical. Be reasonably strict to filter out non-business inquiries.
+
+  If the submission is not valid, provide a concise reason in the 'reason' field (e.g., "Spam content," "Irrelevant inquiry," or "Advertising").
 
   Here is the contact form submission:
   Name: {{{name}}}

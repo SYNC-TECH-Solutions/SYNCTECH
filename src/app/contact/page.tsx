@@ -47,7 +47,7 @@ export default function ContactPage() {
       } else {
         toast({
           title: 'Submission Failed',
-          description: result.message || "An unknown error occurred. Please email us directly at hello@synctech.ie",
+          description: result.message || "An unknown error occurred. Please email us directly at synctechire@gmail.com",
           variant: 'destructive',
         });
       }
@@ -89,7 +89,7 @@ export default function ContactPage() {
                         </div>
                         <div>
                             <p className="font-semibold">Email Us</p>
-                            <a href="mailto:hello@synctech.ie" className="text-muted-foreground hover:text-primary transition-colors">hello@synctech.ie</a>
+                            <a href="mailto:synctechire@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">synctechire@gmail.com</a>
                         </div>
                     </div>
                      <div className="flex items-center gap-4">

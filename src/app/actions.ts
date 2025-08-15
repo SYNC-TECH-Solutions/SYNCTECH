@@ -14,11 +14,14 @@ import { getFirebaseAdminApp } from '@/lib/firebase-admin';
 // --- Contact Form Action ---
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
 
-const supportEmail = 'hello@synctech.ie';
+const supportEmail = 'synctechire@gmail.com';
 
 export async function submitContactForm(values: ContactFormValues) {  
   try {
-    // 1. Validate the form content with AI
+    // 1. Initialize Resend client inside the function
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    
+    // 2. Validate the form content with AI
     const validation = await validateContactForm(values);
 
     if (!validation.isValid) {
@@ -29,8 +32,7 @@ export async function submitContactForm(values: ContactFormValues) {
       };
     }
 
-    // 2. Send the email using Resend
-    const resend = new Resend(process.env.RESEND_API_KEY);
+    // 3. Send the email using Resend
     const { data, error } = await resend.emails.send({
       from: `Contact Form <noreply@synctech.ie>`,
       to: [supportEmail],
@@ -60,7 +62,7 @@ export async function submitContactForm(values: ContactFormValues) {
     console.error('An unexpected error occurred in submitContactForm:', error);
     return { 
       success: false, 
-      message: "An unexpected error occurred. Please contact us directly at hello@synctech.ie." 
+      message: "An unexpected error occurred. Please contact us directly at synctechire@gmail.com." 
     };
   }
 }
@@ -69,10 +71,13 @@ export async function submitContactForm(values: ContactFormValues) {
 // --- Auth Actions ---
 
 export async function createSession(idToken: string) {
-    getFirebaseAdminApp();
+    const app = getFirebaseAdminApp();
+    if (!app) {
+      return { success: false, message: 'Firebase Admin not initialized.' };
+    }
     const expiresIn = 60 * 60 * 24 * 5 * 1000; // 5 days
     try {
-        const sessionCookie = await auth().createSessionCookie(idToken, { expiresIn });
+        const sessionCookie = await auth(app).createSessionCookie(idToken, { expiresIn });
         cookies().set('__session', sessionCookie, {
             maxAge: expiresIn,
             httpOnly: true,

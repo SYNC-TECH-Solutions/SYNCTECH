@@ -75,7 +75,7 @@ export default function TermsAndConditionsPage() {
                     <div className="space-y-2">
                         <h2 className="text-xl font-semibold">8. Contact Us</h2>
                         <p className="text-muted-foreground">
-                           If you have any questions about these Terms and Conditions, please contact us at: <a href="mailto:hello@synctech.ie" className="text-primary hover:underline">hello@synctech.ie</a>
+                           If you have any questions about these Terms and Conditions, please contact us at: <a href="mailto:synctechire@gmail.com" className="text-primary hover:underline">synctechire@gmail.com</a>
                         </p>
                     </div>
                 </CardContent>

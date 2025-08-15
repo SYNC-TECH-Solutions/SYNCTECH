@@ -21,8 +21,8 @@ export function Footer() {
             <Logo />
             <p className="text-sm">Premium Tech Solutions at Competitive Prices.</p>
             <p className="text-sm">Dublin, Ireland</p>
-            <a href="mailto:hello@synctech.ie" className="text-sm hover:text-primary transition-colors">
-              hello@synctech.ie
+            <a href="mailto:synctechire@gmail.com" className="text-sm hover:text-primary transition-colors">
+              synctechire@gmail.com
             </a>
           </div>
           <div className="md:col-span-2 grid grid-cols-2 md:grid-cols-3 gap-8">

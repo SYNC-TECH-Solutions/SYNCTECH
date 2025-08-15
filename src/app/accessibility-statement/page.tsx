@@ -67,7 +67,7 @@ export default function AccessibilityStatementPage() {
                            We welcome your feedback on the accessibility of our website. Please let us know if you encounter any accessibility barriers. We aim to respond to feedback within 5 business days.
                         </p>
                          <ul className="list-disc list-inside text-muted-foreground space-y-1 pl-4">
-                            <li><strong>Email:</strong> <a href="mailto:hello@synctech.ie" className="text-primary hover:underline">hello@synctech.ie</a></li>
+                            <li><strong>Email:</strong> <a href="mailto:synctechire@gmail.com" className="text-primary hover:underline">synctechire@gmail.com</a></li>
                             <li><strong>Phone:</strong> +353 83 068 2026</li>
                         </ul>
                     </div>

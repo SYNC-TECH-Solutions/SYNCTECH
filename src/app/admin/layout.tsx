@@ -1,27 +1,30 @@
 
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
-import { getAuth } from 'firebase-admin/auth';
-import { getFirebaseAdminApp } from '@/lib/firebase-admin';
 
 export default async function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const sessionCookie = cookies().get('__session')?.value || '';
+  const sessionCookie = cookies().get('__session')?.value;
 
   if (!sessionCookie) {
-    redirect('/login');
+    return redirect('/login');
   }
 
   try {
-    getFirebaseAdminApp();
-    await getAuth().verifySessionCookie(sessionCookie, true);
+    const session = JSON.parse(sessionCookie);
+    if (!session.isLoggedIn || session.expires < Date.now()) {
+      cookies().delete('__session');
+      return redirect('/login');
+    }
   } catch (error) {
-    console.error('Session cookie verification failed:', error);
-    redirect('/login');
+    console.error('Invalid session cookie:', error);
+    cookies().delete('__session');
+    return redirect('/login');
   }
+
 
   return <>{children}</>;
 }

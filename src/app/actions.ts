@@ -7,9 +7,7 @@ import { validateContactForm } from '@/ai/flows/validate-contact-form';
 import { Resend } from 'resend';
 import { ContactFormEmail } from '@/components/emails/contact-form-email';
 import * as React from 'react';
-import { auth } from 'firebase-admin';
 import { cookies } from 'next/headers';
-import { getFirebaseAdminApp } from '@/lib/firebase-admin';
 
 // --- Contact Form Action ---
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
@@ -69,24 +67,30 @@ export async function submitContactForm(values: ContactFormValues) {
 
 
 // --- Auth Actions ---
+export async function createSession(password: string) {
+    const adminPassword = process.env.ADMIN_PASSWORD;
 
-export async function createSession(idToken: string) {
-    const app = getFirebaseAdminApp();
-    if (!app) {
-      return { success: false, message: 'Firebase Admin not initialized.' };
+    if (!adminPassword) {
+        console.error('ADMIN_PASSWORD environment variable is not set.');
+        return { success: false, message: 'Server configuration error.' };
     }
-    const expiresIn = 60 * 60 * 24 * 5 * 1000; // 5 days
-    try {
-        const sessionCookie = await auth(app).createSessionCookie(idToken, { expiresIn });
-        cookies().set('__session', sessionCookie, {
-            maxAge: expiresIn,
+
+    if (password === adminPassword) {
+        const sessionExpires = Date.now() + 7 * 24 * 60 * 60 * 1000; // 7 days
+        const sessionData = {
+            isLoggedIn: true,
+            expires: sessionExpires
+        };
+
+        cookies().set('__session', JSON.stringify(sessionData), {
+            expires: sessionExpires,
             httpOnly: true,
-            secure: true,
+            secure: process.env.NODE_ENV === 'production',
+            path: '/',
         });
         return { success: true };
-    } catch (error) {
-        console.error('Failed to create session:', error);
-        return { success: false, message: 'Failed to create session.' };
+    } else {
+        return { success: false, message: 'Invalid password.' };
     }
 }
 

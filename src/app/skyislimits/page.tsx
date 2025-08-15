@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Loader2, Search, Lightbulb } from 'lucide-react';
+import { Loader2, Search, Lightbulb, MapPin, Mail, Phone } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { findBusinessLeads, type FindBusinessLeadsOutput } from '@/ai/flows/find-business-leads';
 import { Separator } from '@/components/ui/separator';
@@ -128,13 +128,32 @@ export default function LeadFinderPage() {
                                             <CardTitle>{lead.name}</CardTitle>
                                             <CardDescription>{lead.description}</CardDescription>
                                         </CardHeader>
-                                        <CardContent>
+                                        <CardContent className="space-y-4">
                                             <div className="flex items-start gap-3">
                                                 <Lightbulb className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                                                 <div>
                                                     <p className="font-semibold text-sm">Opportunity:</p>
                                                     <p className="text-muted-foreground text-sm">{lead.reason}</p>
                                                 </div>
+                                            </div>
+                                             <Separator />
+                                            <div className="space-y-3 text-sm">
+                                                <div className="flex items-start gap-3">
+                                                    <MapPin className="h-4 w-4 text-muted-foreground mt-0.5 flex-shrink-0" />
+                                                    <p className="text-muted-foreground">{lead.address}</p>
+                                                </div>
+                                                {lead.phone && (
+                                                    <div className="flex items-start gap-3">
+                                                        <Phone className="h-4 w-4 text-muted-foreground mt-0.5 flex-shrink-0" />
+                                                        <p className="text-muted-foreground">{lead.phone}</p>
+                                                    </div>
+                                                )}
+                                                {lead.email && (
+                                                    <div className="flex items-start gap-3">
+                                                        <Mail className="h-4 w-4 text-muted-foreground mt-0.5 flex-shrink-0" />
+                                                        <a href={`mailto:${lead.email}`} className="text-primary hover:underline">{lead.email}</a>
+                                                    </div>
+                                                )}
                                             </div>
                                         </CardContent>
                                     </Card>

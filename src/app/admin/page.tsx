@@ -10,12 +10,13 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Loader2, LogOut } from 'lucide-react';
+import { Loader2, LogOut, FileText, Search } from 'lucide-react';
 import { generateBlogPost, type GenerateBlogPostOutput } from '@/ai/flows/generate-blog-post';
 import ReactMarkdown from 'react-markdown';
 import { useToast } from '@/hooks/use-toast';
 import { logout } from '@/app/actions';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export const dynamic = 'force-dynamic';
 
@@ -79,21 +80,45 @@ export default function AdminPage() {
     <div className="py-20 md:py-28">
         <div className="container max-w-4xl">
              <Card>
-                <CardHeader className="flex flex-row items-center justify-between">
+                <CardHeader className="flex flex-row items-start justify-between">
                     <div>
                         <CardTitle>Admin Dashboard</CardTitle>
-                        <CardDescription>This is your central hub for managing website content.</CardDescription>
+                        <CardDescription>Your central hub for managing content and finding leads.</CardDescription>
                     </div>
                     <Button variant="outline" onClick={handleLogout} disabled={isLoggingOut}>
                         {isLoggingOut ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <LogOut className="mr-2 h-4 w-4"/>}
                         Logout
                     </Button>
                 </CardHeader>
-                <CardContent>
-                   <div className="p-8 text-center bg-secondary rounded-lg">
-                     <h2 className="text-2xl font-bold">Welcome to the Admin Panel</h2>
-                     <p className="text-muted-foreground mt-2">More features like content management and analytics are coming soon!</p>
-                   </div>
+                <CardContent className="grid md:grid-cols-2 gap-6">
+                   <Card className="hover:border-primary transition-colors">
+                     <Link href="/admin/leads">
+                       <CardHeader>
+                          <div className="flex items-center gap-4">
+                            <div className="bg-primary/10 p-3 rounded-full">
+                                <Search className="h-6 w-6 text-primary" />
+                            </div>
+                            <CardTitle className="text-xl">AI Lead Finder</CardTitle>
+                          </div>
+                       </CardHeader>
+                       <CardContent>
+                         <p className="text-muted-foreground">Find new business leads based on type and location.</p>
+                       </CardContent>
+                      </Link>
+                   </Card>
+                    <Card>
+                       <CardHeader>
+                          <div className="flex items-center gap-4">
+                            <div className="bg-primary/10 p-3 rounded-full">
+                                <FileText className="h-6 w-6 text-primary" />
+                            </div>
+                            <CardTitle className="text-xl">Content Management</CardTitle>
+                          </div>
+                       </CardHeader>
+                       <CardContent>
+                         <p className="text-muted-foreground">Coming soon! Manage blog posts and portfolio projects directly.</p>
+                       </CardContent>
+                   </Card>
                 </CardContent>
              </Card>
              <Card className="mt-8">

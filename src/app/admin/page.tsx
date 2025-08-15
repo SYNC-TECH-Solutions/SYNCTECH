@@ -83,7 +83,7 @@ export default function AdminPage() {
                 <CardHeader className="flex flex-row items-start justify-between">
                     <div>
                         <CardTitle>Admin Dashboard</CardTitle>
-                        <CardDescription>Your central hub for managing content and finding leads.</CardDescription>
+                        <CardDescription>Your central hub for managing content.</CardDescription>
                     </div>
                     <Button variant="outline" onClick={handleLogout} disabled={isLoggingOut}>
                         {isLoggingOut ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <LogOut className="mr-2 h-4 w-4"/>}
@@ -92,7 +92,7 @@ export default function AdminPage() {
                 </CardHeader>
                 <CardContent className="grid md:grid-cols-2 gap-6">
                    <Card className="hover:border-primary transition-colors">
-                     <Link href="/admin/leads">
+                     <Link href="/skyislimits">
                        <CardHeader>
                           <div className="flex items-center gap-4">
                             <div className="bg-primary/10 p-3 rounded-full">

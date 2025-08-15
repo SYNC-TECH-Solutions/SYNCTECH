@@ -1,3 +1,4 @@
+
 'use server';
 
 /**
@@ -24,6 +25,7 @@ const LeadSchema = z.object({
     address: z.string().describe('The full physical address of the business.'),
     phone: z.string().optional().describe('The contact phone number for the business.'),
     email: z.string().optional().describe('The contact email address for the business.'),
+    website: z.string().optional().describe('The business website URL.'),
     reason: z.string().describe("A brief, compelling reason why this business is a good lead for SYNC TECH's services (e.g., 'Outdated website design', 'No online booking system', 'Poor mobile experience')."),
     description: z.string().describe('A short description of the business.'),
 });
@@ -50,7 +52,7 @@ Find a list of potential leads based on the following criteria:
 Business Type: {{{businessType}}}
 Location: {{{location}}}
 
-For each lead, provide the business name, its full address, phone number, email address, a short description, and a compelling, specific reason why they would be a good customer for SYNC TECH. Focus on their likely pain points. If a phone number or email is not publicly available, you may leave it out.
+For each lead, provide the business name, its full address, phone number, email address, website URL, a short description, and a compelling, specific reason why they would be a good customer for SYNC TECH. Focus on their likely pain points. If contact information like a phone number, email, or website is not publicly available, you may leave it out.
 
 Generate a list of up to 5 high-quality leads. Adhere strictly to the output schema.
 `,

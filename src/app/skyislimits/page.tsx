@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Loader2, Search, Lightbulb, MapPin, Mail, Phone } from 'lucide-react';
+import { Loader2, Search, Lightbulb, MapPin, Mail, Phone, Globe } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { findBusinessLeads, type FindBusinessLeadsOutput } from '@/ai/flows/find-business-leads';
 import { Separator } from '@/components/ui/separator';
@@ -152,6 +152,12 @@ export default function LeadFinderPage() {
                                                     <div className="flex items-start gap-3">
                                                         <Mail className="h-4 w-4 text-muted-foreground mt-0.5 flex-shrink-0" />
                                                         <a href={`mailto:${lead.email}`} className="text-primary hover:underline">{lead.email}</a>
+                                                    </div>
+                                                )}
+                                                {lead.website && (
+                                                    <div className="flex items-start gap-3">
+                                                        <Globe className="h-4 w-4 text-muted-foreground mt-0.5 flex-shrink-0" />
+                                                        <a href={lead.website} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">{lead.website}</a>
                                                     </div>
                                                 )}
                                             </div>

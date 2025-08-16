@@ -12,7 +12,7 @@ import { cookies } from 'next/headers';
 // --- Contact Form Action ---
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
 
-const supportEmail = 'synctechire@gmail.com';
+const supportEmail = process.env.FORWARDING_EMAIL || 'synctechire@gmail.com';
 
 export async function submitContactForm(values: ContactFormValues) {  
   try {
@@ -60,7 +60,7 @@ export async function submitContactForm(values: ContactFormValues) {
     console.error('An unexpected error occurred in submitContactForm:', error);
     return { 
       success: false, 
-      message: "An unexpected error occurred. Please contact us directly at synctechire@gmail.com." 
+      message: "An unexpected error occurred. Please contact us directly at " + supportEmail
     };
   }
 }

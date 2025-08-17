@@ -1,7 +1,7 @@
 
 'use client';
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Code, Bot, Cloud, Shield, Smartphone, TrendingUp } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 import { cn } from "@/lib/utils";
@@ -80,6 +80,11 @@ export default function ServicesPage() {
               <CardContent className="flex-grow">
                 <p className="text-muted-foreground">{service.description}</p>
               </CardContent>
+              <CardFooter className="pt-4 justify-center">
+                 <Button asChild variant="outline">
+                    <Link href="/contact">Get a Quote</Link>
+                </Button>
+              </CardFooter>
             </Card>
           ))}
         </div>

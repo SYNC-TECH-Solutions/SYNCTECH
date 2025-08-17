@@ -14,8 +14,8 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const siteConfig = {
   name: 'SYNC TECH',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://synctech.ie',
-  title: 'SYNC TECH: Premium Tech Solutions at Competitive Prices',
-  description: 'SYNC TECH delivers high-quality, affordable solutions in Web Development, AI Automation, and Cybersecurity. Get enterprise-level results without the enterprise price tag.',
+  title: 'SYNC TECH | Affordable & Global IT Solutions | 24/7 Support',
+  description: 'SYNC TECH delivers affordable, global IT solutions including cloud services, cybersecurity, and digital transformation. Get secure, scalable, and reliable 24/7 tech support to drive your business growth. Your trusted digital partner in Ireland and worldwide.',
   ogImage: 'https://placehold.co/1200x630.png'
 };
 
@@ -25,7 +25,9 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  keywords: ['web development', 'ai automation', 'cybersecurity', 'affordable tech solutions', 'tech company ireland', 'nextjs development', 'react development', 'professional websites'],
+  keywords: [
+    'IT Services Ireland', 'IT Services Near You', 'Affordable IT Solutions', 'Global Tech Support 24/7', 'Comprehensive IT Solutions', 'Secure Cloud Solutions', 'Your Digital Partner', 'SYNC TECH', 'IT Experts', 'Scalable IT', 'Trusted by Businesses', 'Tech Made Simple', 'Drive Growth with IT', 'cybersecurity', 'cloud services', 'automation', 'digital transformation', 'Worldwide IT Support', 'Future-Ready Tech Services', 'IT Solutions Made Simple', 'global IT services'
+  ],
   authors: [{ name: 'Sheraz Hussain', url: siteConfig.url }],
   creator: 'Sheraz Hussain',
   

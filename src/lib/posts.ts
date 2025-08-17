@@ -11,6 +11,37 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    title: "Case Study: How We Built a High-Converting E-Commerce Store for Stylish Marble Art",
+    slug: "case-study-stylish-marble-art",
+    date: "2024-08-22",
+    excerpt: "From concept to launch, discover how SYNC TECH developed a bespoke e-commerce platform for a luxury art retailer, resulting in a 40% increase in customer inquiries.",
+    content: `
+<p>At SYNC TECH, we believe the best way to demonstrate our value is through the success of our clients. We're excited to share the story of our partnership with Stylish Marble Art, a retailer of premium, handcrafted marble art. This project showcases our ability to deliver high-quality, affordable e-commerce solutions that drive real results.</p>
+
+<h3 class="text-2xl font-bold mt-6 mb-4">The Challenge: A Luxury Brand Needed a Digital Showroom</h3>
+<p>Stylish Marble Art offers exquisite, high-value products that require a sophisticated online presence to attract the right clientele. Their challenge was to create a digital experience that not only looked luxurious but was also fast, secure, and easy to use for both customers and staff. They needed more than just a website; they needed a powerful online sales engine.</p>
+
+<h3 class="text-2xl font-bold mt-6 mb-4">The Solution: A Bespoke E-Commerce Platform</h3>
+<p>Our team at SYNC TECH developed a fully custom e-commerce website from the ground up, focusing on three key areas:</p>
+<ul class="list-disc list-inside space-y-2 my-4">
+  <li><strong>Visually Stunning Design:</strong> We created a clean, elegant design that puts the focus on the products. High-resolution imagery and a minimalist layout ensure the craftsmanship of the marble art speaks for itself.</li>
+  <li><strong>Seamless User Experience:</strong> Built with Next.js and React, the site is incredibly fast. We designed an intuitive browsing experience and a streamlined, secure checkout process powered by Stripe to minimize friction and maximize conversions.</li>
+  <li><strong>Easy Content Management:</strong> We provided a simple-to-use backend that allows the Stylish Marble Art team to easily add new products, update content, and manage orders without needing any technical expertise.</li>
+</ul>
+
+<h3 class="text-2xl font-bold mt-6 mb-4">The Results: A 40% Increase in Inquiries</h3>
+<p>The new platform was a resounding success. By combining aesthetic appeal with technical excellence, we delivered a powerful tool that transformed their online presence. The results speak for themselves:</p>
+<ul class="list-disc list-inside space-y-2 my-4">
+  <li><strong>A 40% increase in customer inquiries</strong> within the first three months of launch.</li>
+  <li>A streamlined sales process that reduced administrative overhead.</li>
+  <li>A professional, high-performance website that builds trust and credibility with a high-end audience.</li>
+</ul>
+<p>This project is a perfect example of the SYNC TECH promise: delivering premium, enterprise-level solutions at a competitive price. If you're ready to elevate your online presence, we're ready to help.</p>
+`,
+    image: "/project/SMA.png",
+    imageHint: "marble art ecommerce"
+  },
+  {
     title: "The ROI of Quality: Why Investing in Good Web Design Pays Off",
     slug: "roi-of-quality-web-design",
     date: "2024-08-15",

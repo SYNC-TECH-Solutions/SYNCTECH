@@ -14,7 +14,7 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const siteConfig = {
   name: 'SYNC TECH',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://synctech.ie',
-  title: 'SYNC TECH: Global IT Solutions & Services',
+  title: 'SYNC TECH: Global IT Solutions & Services | Affordable & Secure',
   description: 'SYNC TECH delivers affordable and secure IT solutions to businesses worldwide. Get expert IT support tailored to your needs—reliable, fast, and secure 24/7. From cloud to cybersecurity, we make tech simple.',
   ogImage: 'https://placehold.co/1200x630.png'
 };
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  keywords: ['IT Services Ireland', 'IT Services Near You', 'Affordable IT Solutions', 'Global Tech Support 24/7', 'Smart & Scalable IT', 'Secure Cloud Solutions', 'Your Digital Partner', 'Comprehensive IT Solutions', 'Cutting-edge Technology', 'web development', 'ai automation', 'cybersecurity'],
+  keywords: ['IT Services Ireland', 'IT Services Near You', 'Affordable IT Solutions', 'Global Tech Support 24/7', 'Smart & Scalable IT', 'Secure Cloud Solutions', 'Your Digital Partner', 'Comprehensive IT Solutions', 'Cutting-edge Technology', 'web development', 'ai automation', 'cybersecurity', 'Excellent Customer Service', 'Computer Security', 'Global IT Services Expert', 'Future-Ready Tech Services'],
   authors: [{ name: 'Sheraz Hussain', url: siteConfig.url }],
   creator: 'Sheraz Hussain',
   

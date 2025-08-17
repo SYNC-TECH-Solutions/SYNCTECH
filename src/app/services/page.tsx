@@ -11,8 +11,8 @@ import { Button } from "@/components/ui/button";
 const services = [
   {
     icon: <Code className="w-8 h-8 text-primary" />,
-    title: "IT & Web Solutions",
-    description: "Crafting responsive, high-performance websites and providing comprehensive IT services tailored to your business needs.",
+    title: "Web Development",
+    description: "Crafting responsive, high-performance websites and applications tailored to your business needs, for less.",
   },
   {
     icon: <Bot className="w-8 h-8 text-primary" />,
@@ -21,7 +21,7 @@ const services = [
   },
   {
     icon: <Cloud className="w-8 h-8 text-primary" />,
-    title: "Secure Cloud Solutions",
+    title: "Secure Cloud Hosting",
     description: "Providing secure, scalable, and reliable cloud hosting to keep your services online 24/7, with cost-effective plans.",
   },
   {
@@ -31,7 +31,7 @@ const services = [
   },
   {
     icon: <Smartphone className="w-8 h-8 text-primary" />,
-    title: "Mobile Apps",
+    title: "Mobile App Development",
     description: "Building intuitive and engaging mobile applications for both iOS and Android platforms, focusing on quality and affordability.",
   },
   {
@@ -58,9 +58,9 @@ export default function ServicesPage() {
     >
       <div className="container">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold">Comprehensive IT Solutions</h1>
+          <h1 className="text-4xl md:text-5xl font-bold">Our Services</h1>
           <p className="mt-4 max-w-2xl mx-auto text-muted-foreground text-lg">
-            We offer a complete suite of affordable IT services to propel your business forward, delivering exceptional quality and 24/7 global support.
+            We offer a complete suite of affordable technology services to propel your business forward, delivering exceptional quality and value.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -85,7 +85,7 @@ export default function ServicesPage() {
         </div>
         <div className="text-center mt-12">
             <Button asChild size="lg">
-                <Link href="/contact">Get Your Custom IT Quote</Link>
+                <Link href="/contact">Get Your Custom Quote</Link>
             </Button>
         </div>
       </div>

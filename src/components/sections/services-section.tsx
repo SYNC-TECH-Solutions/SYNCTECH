@@ -11,8 +11,8 @@ import Link from "next/link";
 const featuredServices = [
   {
     icon: <Code className="w-8 h-8 text-primary" />,
-    title: "Affordable IT Solutions",
-    description: "High-performance IT and web services that look great and cost less.",
+    title: "Web Development",
+    description: "High-performance websites that look great and convert visitors.",
   },
   {
     icon: <Bot className="w-8 h-8 text-primary" />,
@@ -26,8 +26,8 @@ const featuredServices = [
   },
   {
     icon: <TrendingUp className="w-8 h-8 text-primary" />,
-    title: "Global Tech Support",
-    description: "Increase your visibility and drive traffic with our expert support.",
+    title: "Digital Growth & SEO",
+    description: "Increase your visibility and drive traffic with our expert strategies.",
   },
 ];
 
@@ -48,9 +48,9 @@ export default function ServicesSection() {
         >
             <div className="container">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold">Smart & Scalable IT Services</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold">Services Built for Value and Impact</h2>
                     <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
-                        We provide a wide range of IT solutions designed to deliver maximum impact without stretching your budget.
+                        We provide a wide range of technology solutions designed to deliver maximum impact without stretching your budget.
                     </p>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

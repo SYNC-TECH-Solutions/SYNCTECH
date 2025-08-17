@@ -58,9 +58,9 @@ export function ServicesClient() {
     >
       <div className="container">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold">Our Services</h1>
+          <h1 className="text-4xl md:text-5xl font-bold">The Pillars of Modern Technology</h1>
           <p className="mt-4 max-w-2xl mx-auto text-muted-foreground text-lg">
-            We offer a complete suite of affordable technology services to propel your business forward, delivering exceptional quality and value.
+            We provide a complete suite of future-ready technology services, engineered to propel your business into its next stage of growth.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

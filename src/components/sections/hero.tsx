@@ -11,19 +11,19 @@ export function Hero() {
 
       <div className="container text-center">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground">
-          Premium Tech Solutions.
+          Engineering the Future.
           <br />
-          <span className="text-primary">Competitive Prices.</span>
+          <span className="text-primary">Accessible to All.</span>
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
-          We build enterprise-level websites, AI tools, and security solutions that deliver high-end results without the high-end price tag.
+          We don't just use technology. We push it forward. Delivering unparalleled solutions in AI, cloud, and cybersecurity, engineered for every business.
         </p>
         <div className="mt-8 flex justify-center gap-4">
           <Button asChild size="lg">
-            <Link href="/contact">Get a Free Quote</Link>
+            <Link href="/contact">Start Building</Link>
           </Button>
           <Button asChild variant="outline" size="lg">
-            <Link href="/services">Explore Our Services</Link>
+            <Link href="/services">Explore Solutions</Link>
           </Button>
         </div>
       </div>

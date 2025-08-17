@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
@@ -10,8 +11,8 @@ import Link from "next/link";
 const featuredServices = [
   {
     icon: <Code className="w-8 h-8 text-primary" />,
-    title: "Web Development",
-    description: "High-performance websites that look great and cost less.",
+    title: "Affordable IT Solutions",
+    description: "High-performance IT and web services that look great and cost less.",
   },
   {
     icon: <Bot className="w-8 h-8 text-primary" />,
@@ -25,8 +26,8 @@ const featuredServices = [
   },
   {
     icon: <TrendingUp className="w-8 h-8 text-primary" />,
-    title: "SEO",
-    description: "Increase your visibility and drive traffic with our SEO strategies.",
+    title: "Global Tech Support",
+    description: "Increase your visibility and drive traffic with our expert support.",
   },
 ];
 
@@ -47,9 +48,9 @@ export default function ServicesSection() {
         >
             <div className="container">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold">Premium Services, Practical Prices</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold">Smart & Scalable IT Services</h2>
                     <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
-                        We provide a wide range of services designed to deliver maximum impact without stretching your budget.
+                        We provide a wide range of IT solutions designed to deliver maximum impact without stretching your budget.
                     </p>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

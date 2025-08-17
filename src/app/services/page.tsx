@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,8 +11,8 @@ import { Button } from "@/components/ui/button";
 const services = [
   {
     icon: <Code className="w-8 h-8 text-primary" />,
-    title: "Web Development",
-    description: "Crafting responsive, high-performance websites and applications tailored to your business needs, ensuring quality at an affordable price.",
+    title: "IT & Web Solutions",
+    description: "Crafting responsive, high-performance websites and providing comprehensive IT services tailored to your business needs.",
   },
   {
     icon: <Bot className="w-8 h-8 text-primary" />,
@@ -20,8 +21,8 @@ const services = [
   },
   {
     icon: <Cloud className="w-8 h-8 text-primary" />,
-    title: "Cloud Hosting",
-    description: "Providing secure, scalable, and reliable cloud hosting solutions to keep your services online 24/7, with cost-effective plans.",
+    title: "Secure Cloud Solutions",
+    description: "Providing secure, scalable, and reliable cloud hosting to keep your services online 24/7, with cost-effective plans.",
   },
   {
     icon: <Shield className="w-8 h-8 text-primary" />,
@@ -35,7 +36,7 @@ const services = [
   },
   {
     icon: <TrendingUp className="w-8 h-8 text-primary" />,
-    title: "SEO",
+    title: "Digital Growth & SEO",
     description: "Optimizing your online presence to increase visibility, attract more traffic, and improve search engine rankings for maximum ROI.",
   },
 ];
@@ -57,9 +58,9 @@ export default function ServicesPage() {
     >
       <div className="container">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold">Our Services</h1>
+          <h1 className="text-4xl md:text-5xl font-bold">Comprehensive IT Solutions</h1>
           <p className="mt-4 max-w-2xl mx-auto text-muted-foreground text-lg">
-            We offer a comprehensive suite of technology services to propel your business forward, delivering exceptional quality at an unmatched price.
+            We offer a complete suite of affordable IT services to propel your business forward, delivering exceptional quality and 24/7 global support.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -84,7 +85,7 @@ export default function ServicesPage() {
         </div>
         <div className="text-center mt-12">
             <Button asChild size="lg">
-                <Link href="/contact">Get Your Custom Quote</Link>
+                <Link href="/contact">Get Your Custom IT Quote</Link>
             </Button>
         </div>
       </div>

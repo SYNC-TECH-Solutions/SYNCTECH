@@ -8,40 +8,38 @@ import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
-import { createSession } from '@/app/actions';
-import { useTransition } from 'react';
-import { Loader2 } from 'lucide-react';
+import { sendLoginLink } from '@/app/actions';
+import { useState, useTransition } from 'react';
+import { Loader2, Mail } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Logo } from '@/components/logo';
+import { loginFormSchema } from '@/lib/schemas';
 
-const formSchema = z.object({
-  password: z.string().min(1, { message: 'Password is required.' }),
-});
-
-type LoginFormValues = z.infer<typeof formSchema>;
+type LoginFormValues = z.infer<typeof loginFormSchema>;
 
 export default function LoginPage() {
   const { toast } = useToast();
   const [isPending, startTransition] = useTransition();
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const form = useForm<LoginFormValues>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(loginFormSchema),
     defaultValues: {
-      password: '',
+      email: '',
     },
   });
 
   async function onSubmit(values: LoginFormValues) {
+    setFormSubmitted(false);
     startTransition(async () => {
-      const result = await createSession(values.password);
+      const result = await sendLoginLink(values);
 
       if (result.success) {
+          setFormSubmitted(true);
           toast({
-            title: 'Login Successful!',
-            description: 'Redirecting to your dashboard...',
+            title: 'Check Your Email',
+            description: result.message,
           });
-          // Force a full page reload to ensure the new session is recognized.
-          window.location.href = '/admin';
       } else {
            toast({
             title: 'Login Failed',
@@ -60,30 +58,40 @@ export default function LoginPage() {
                 <Logo />
             </div>
           <CardTitle>Admin Panel Login</CardTitle>
-          <CardDescription>Enter your admin password to access the dashboard.</CardDescription>
+          <CardDescription>Enter your admin email to receive a secure login link.</CardDescription>
         </CardHeader>
         <CardContent>
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <FormField
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Password</FormLabel>
-                    <FormControl>
-                      <Input type="password" placeholder="••••••••" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <Button type="submit" disabled={isPending} className="w-full">
-                {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                Sign In
-              </Button>
-            </form>
-          </Form>
+          {formSubmitted ? (
+            <div className="text-center space-y-4">
+              <Mail className="mx-auto h-12 w-12 text-primary" />
+              <h3 className="text-xl font-semibold">Login Link Sent</h3>
+              <p className="text-muted-foreground">
+                We've sent a secure login link to the email address you provided. Please check your inbox and click the link to sign in. The link will expire in 15 minutes.
+              </p>
+            </div>
+          ) : (
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Email</FormLabel>
+                      <FormControl>
+                        <Input type="email" placeholder="admin@example.com" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <Button type="submit" disabled={isPending} className="w-full">
+                  {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                  Send Login Link
+                </Button>
+              </form>
+            </Form>
+          )}
         </CardContent>
       </Card>
     </div>

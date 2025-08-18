@@ -16,8 +16,8 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const siteConfig = {
   name: 'SYNC TECH',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://synctech.ie',
-  title: 'SYNC TECH | Affordable & Global IT Solutions | 24/7 Support',
-  description: 'SYNC TECH delivers affordable, global IT solutions including cloud services, cybersecurity, and digital transformation. Get secure, scalable, and reliable 24/7 tech support to drive your business growth. Your trusted digital partner in Ireland and worldwide.',
+  title: 'SYNC TECH | Global IT Solutions & 24/7 Support',
+  description: 'SYNC TECH delivers affordable, global IT solutions including cloud services, cybersecurity, and AI-driven digital transformation. Get secure, scalable, and reliable 24/7 tech support to drive your business growth. Your trusted digital partner, worldwide.',
   ogImage: 'https://placehold.co/1200x630.png'
 };
 
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: [
-    'IT Services Ireland', 'IT Services Near You', 'Affordable IT Solutions', 'Global Tech Support 24/7', 'Comprehensive IT Solutions', 'Secure Cloud Solutions', 'Your Digital Partner', 'SYNC TECH', 'IT Experts', 'Scalable IT', 'Trusted by Businesses', 'Tech Made Simple', 'Drive Growth with IT', 'cybersecurity', 'cloud services', 'automation', 'digital transformation', 'Worldwide IT Support', 'Future-Ready Tech Services', 'IT Solutions Made Simple', 'global IT services'
+    'Global IT Services', 'Worldwide Tech Support', 'Affordable IT Solutions', '24/7 Tech Support', 'Comprehensive IT Solutions', 'Secure Cloud Solutions', 'Your Digital Partner', 'SYNC TECH', 'IT Experts', 'Scalable IT', 'Trusted by Businesses', 'Tech Made Simple', 'Drive Growth with IT', 'cybersecurity', 'cloud services', 'AI automation', 'digital transformation', 'International IT Support', 'Future-Ready Tech Services', 'IT Solutions Made Simple', 'global IT consulting'
   ],
   authors: [{ name: 'Sheraz Hussain', url: siteConfig.url }],
   creator: 'Sheraz Hussain',
   
   openGraph: {
     type: 'website',
-    locale: 'en_IE',
+    locale: 'en_US',
     url: siteConfig.url,
     title: siteConfig.title,
     description: siteConfig.description,
@@ -72,7 +72,6 @@ const jsonLd = {
     '@type': 'ContactPoint',
     telephone: '+353-83-068-2026',
     contactType: 'customer service',
-    areaServed: 'IE',
     availableLanguage: 'en'
   },
   sameAs: [

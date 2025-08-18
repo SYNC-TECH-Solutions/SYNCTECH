@@ -36,6 +36,11 @@ export function Footer() {
                     </Link>
                   </li>
                 ))}
+                 <li>
+                  <Link href="/presentation" className="text-sm hover:text-primary transition-colors">
+                    Presentation
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>

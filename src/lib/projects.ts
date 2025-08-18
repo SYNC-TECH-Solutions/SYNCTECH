@@ -13,6 +13,16 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "AI-Powered Analytics for Bio-Pharma",
+    slug: "ai-biopharma-analytics",
+    excerpt: "Developed a custom AI engine that automated the analysis of scientific data, accelerating biomarker validation by an estimated five years.",
+    description: "For a leading bio-pharmaceutical client, we engineered a sophisticated AI and Machine Learning platform to automate the analysis of complex genomic and proteomic data. This system replaced a manual process that was slow and prone to human error, enabling researchers to identify potential drug targets and validate biomarkers at an unprecedented speed. The platform integrated seamlessly with their existing research databases and provided an intuitive dashboard for scientists to explore the results.",
+    image: "https://placehold.co/1200x600.png",
+    imageHint: "ai science data",
+    techStack: ["Python", "TensorFlow", "AWS SageMaker", "Data Analytics", "Next.js"],
+    results: "The AI engine automated a process that was projected to take nearly five years of manual work, dramatically accelerating the drug discovery pipeline and providing a significant competitive advantage.",
+  },
+  {
     title: "Stylish Marble Art - E-Commerce Store",
     slug: "stylish-marble-art-ecommerce",
     excerpt: "Developed a bespoke e-commerce platform for a luxury marble art retailer, enhancing online presence and driving sales.",

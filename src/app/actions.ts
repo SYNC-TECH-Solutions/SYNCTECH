@@ -85,7 +85,7 @@ export async function sendLoginLink(values: z.infer<typeof loginFormSchema>) {
         const loginUrl = `${SITE_URL}/auth/callback?token=${token}`;
 
         const { error } = await resend.emails.send({
-            from: 'SYNC TECH Admin Login <onboarding@resend.dev>',
+            from: 'SYNC TECH Contact Form <onboarding@resend.dev>',
             to: [ADMIN_EMAIL],
             subject: 'Your Secure Login Link for SYNC TECH',
             react: LoginLinkEmail({ loginUrl }) as React.ReactElement,

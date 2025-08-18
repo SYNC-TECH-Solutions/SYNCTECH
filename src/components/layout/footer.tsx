@@ -41,6 +41,16 @@ export function Footer() {
                     Presentation
                   </Link>
                 </li>
+                 <li>
+                  <Link href="/skyislimits" className="text-sm hover:text-primary transition-colors">
+                    Sky is Limits
+                  </Link>
+                </li>
+                 <li>
+                  <Link href="/skyislimitsplus" className="text-sm hover:text-primary transition-colors">
+                    Sky is Limits+
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>
@@ -55,7 +65,7 @@ export function Footer() {
               </ul>
             </div>
              <div>
-              <h3 className="font-semibold mb-4">Legal</h3>
+              <h3 className="font-semibold mb-4">Legal & Admin</h3>
               <ul className="space-y-2">
                 <li>
                   <Link href="/privacy-policy" className="text-sm hover:text-primary transition-colors">
@@ -70,6 +80,11 @@ export function Footer() {
                  <li>
                   <Link href="/accessibility-statement" className="text-sm hover:text-primary transition-colors">
                     Accessibility
+                  </Link>
+                </li>
+                 <li>
+                  <Link href="/admin" className="text-sm hover:text-primary transition-colors">
+                    Admin
                   </Link>
                 </li>
               </ul>

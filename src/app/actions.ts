@@ -31,7 +31,7 @@ export async function submitContactForm(values: ContactFormValues) {
     }
 
     const { data, error } = await resend.emails.send({
-      from: `SYNC TECH <hello@synctech.ie>`,
+      from: `SYNC TECH Contact Form <onboarding@resend.dev>`,
       to: [supportEmail],
       subject: `New Message from ${values.name} via SYNC TECH Website`,
       reply_to: values.email,
@@ -85,7 +85,7 @@ export async function sendLoginLink(values: z.infer<typeof loginFormSchema>) {
         const loginUrl = `${SITE_URL}/auth/callback?token=${token}`;
 
         const { error } = await resend.emails.send({
-            from: 'SYNC TECH Admin <noreply@synctech.ie>',
+            from: 'SYNC TECH Admin Login <onboarding@resend.dev>',
             to: [ADMIN_EMAIL],
             subject: 'Your Secure Login Link for SYNC TECH',
             react: LoginLinkEmail({ loginUrl }) as React.ReactElement,

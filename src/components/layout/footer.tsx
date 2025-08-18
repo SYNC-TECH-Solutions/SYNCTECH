@@ -41,16 +41,6 @@ export function Footer() {
                     Presentation
                   </Link>
                 </li>
-                 <li>
-                  <Link href="/skyislimits" className="text-sm hover:text-primary transition-colors">
-                    Sky is Limits
-                  </Link>
-                </li>
-                 <li>
-                  <Link href="/skyislimitsplus" className="text-sm hover:text-primary transition-colors">
-                    Sky is Limits+
-                  </Link>
-                </li>
               </ul>
             </div>
             <div>

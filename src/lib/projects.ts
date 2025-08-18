@@ -23,6 +23,17 @@ export const projects: Project[] = [
     results: "The AI engine automated a process that was projected to take nearly five years of manual work, dramatically accelerating the drug discovery pipeline and providing a significant competitive advantage.",
   },
   {
+    title: "ChattyAI - Full-Stack AI Chatbot",
+    slug: "chattyai-full-stack-ai-chatbot",
+    excerpt: "Engineered a full-stack, real-time AI chatbot with user authentication, demonstrating expertise in modern MERN stack and OpenAI integration.",
+    description: "Developed 'ChattyAI', a complete conversational AI application from the ground up. The platform allows users to sign up, log in, and engage in real-time conversations with an advanced AI model. The system securely stores chat history, allowing users to revisit and manage their past conversations. This project showcases the ability to build secure, scalable, full-stack applications that integrate cutting-edge AI services.",
+    image: "https://placehold.co/1200x600.png",
+    imageHint: "chatbot interface",
+    techStack: ["React", "Node.js", "Express.js", "MongoDB", "OpenAI API", "Material-UI", "TypeScript", "JWT"],
+    results: "Successfully built and deployed a feature-rich AI application, demonstrating proficiency in MERN stack development, secure user authentication, and seamless integration with third-party AI APIs like OpenAI.",
+    liveUrl: "https://github.com/SherazHussain546/ChattyAI",
+  },
+  {
     title: "Stylish Marble Art - E-Commerce Store",
     slug: "stylish-marble-art-ecommerce",
     excerpt: "Developed a bespoke e-commerce platform for a luxury marble art retailer, enhancing online presence and driving sales.",

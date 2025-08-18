@@ -107,17 +107,7 @@ export default function PresentationPage() {
         </div>
       </Slide>
 
-       {/* Slide 5: The Admin Panel */}
-       <Slide className="bg-secondary">
-        <div className="max-w-4xl">
-          <h2 className="text-4xl md:text-5xl font-bold">Now Live: The SYNC TECH Admin Panel</h2>
-          <p className="mt-6 text-xl md:text-2xl text-muted-foreground leading-relaxed">
-            To streamline content management, we've built a secure, integrated admin panel at <Link href="/admin" className="text-primary underline">/admin</Link>. This powerful tool allows for real-time updates to blog posts, portfolio projects, and more, ensuring our website is always dynamic and up-to-date.
-          </p>
-        </div>
-      </Slide>
-
-       {/* Slide 6: Call to Action */}
+       {/* Slide 5: Call to Action */}
       <Slide>
         <div className="max-w-4xl">
           <h2 className="text-4xl md:text-5xl font-bold">Let's Build the Future. Together.</h2>

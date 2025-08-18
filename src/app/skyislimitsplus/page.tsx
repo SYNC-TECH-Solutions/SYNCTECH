@@ -1,68 +1,168 @@
 
 'use client';
 
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Bot, Cpu, Rocket } from "lucide-react";
-import Link from "next/link";
+import { useState, useTransition } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
+import { Button } from '@/components/ui/button';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { Textarea } from '@/components/ui/textarea';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { useToast } from '@/hooks/use-toast';
+import { GenerateProposalOutput, generateProposal, GenerateProposalInputSchema } from '@/ai/flows/generate-proposal';
+import { Loader2, Mail, FileText } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
 
-const features = [
-  {
-    icon: <Cpu className="h-8 w-8 text-primary" />,
-    title: "Advanced AI Integration",
-    description: "Go beyond basic automation. We build sophisticated AI models that become a core competitive advantage for your business."
-  },
-  {
-    icon: <Rocket className="h-8 w-8 text-primary" />,
-    title: "Hyper-Scalable Architecture",
-    description: "Build for the future with infrastructure that can handle exponential growth without compromising performance or security."
-  },
-  {
-    icon: <Bot className="h-8 w-8 text-primary" />,
-    title: "Autonomous Operations",
-    description: "Implement systems that self-heal, self-optimize, and run with minimal human intervention, freeing you to focus on innovation."
-  },
-];
+const formSchema = z.object({
+  leadInsightReport: z.string().refine((val) => {
+    try {
+      const parsed = JSON.parse(val);
+      GenerateProposalInputSchema.parse(parsed);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }, { message: 'Invalid JSON or does not match the Lead Insight Report schema.' }),
+});
+
+type FormValues = z.infer<typeof formSchema>;
 
 export default function SkyIsLimitsPlusPage() {
+  const { toast } = useToast();
+  const [isPending, startTransition] = useTransition();
+  const [generatedContent, setGeneratedContent] = useState<GenerateProposalOutput | null>(null);
+
+  const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      leadInsightReport: '',
+    },
+  });
+
+  function onSubmit(values: FormValues) {
+    setGeneratedContent(null);
+    startTransition(async () => {
+      try {
+        const parsedInput = JSON.parse(values.leadInsightReport);
+        const result = await generateProposal(parsedInput);
+        setGeneratedContent(result);
+        toast({
+          title: 'Content Generated!',
+          description: 'Your new cold email and proposal outline are ready below.',
+        });
+      } catch (error) {
+        console.error('Error generating proposal:', error);
+        toast({
+          title: 'Generation Failed',
+          description: 'An unexpected error occurred. Please check your input and try again.',
+          variant: 'destructive',
+        });
+      }
+    });
+  }
+  
+  const copyToClipboard = (text: string, fieldName: string) => {
+    navigator.clipboard.writeText(text);
+    toast({
+        title: 'Copied to Clipboard!',
+        description: `${fieldName} has been copied.`,
+    });
+  }
+
   return (
-    <div className="py-20 md:py-28 bg-secondary">
-      <div className="container text-center">
-        <div className="inline-block bg-primary text-primary-foreground p-3 rounded-full mb-4">
-            <Rocket className="h-10 w-10" />
-        </div>
-        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">Sky is Limits+</h1>
-        <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
-          For the visionaries ready for the next frontier. This is where we build the technology that defines industries.
-        </p>
-      </div>
+    <div className="py-20 md:py-28">
+      <div className="container max-w-4xl">
+        <Card className="mb-12">
+          <CardHeader>
+            <CardTitle>AI Proposal & Cold Email Generator</CardTitle>
+            <CardDescription>
+              Paste the JSON output from the Lead Insight Generator to create a personalized cold email and a structured proposal outline.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <FormField
+                  control={form.control}
+                  name="leadInsightReport"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Lead Insight Report (JSON)</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                            placeholder='Paste the JSON report from the previous page here...' 
+                            className="min-h-[200px] font-mono text-xs" 
+                            {...field} 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <Button type="submit" disabled={isPending} className="w-full">
+                  {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                  Generate Proposal & Email
+                </Button>
+              </form>
+            </Form>
+          </CardContent>
+        </Card>
 
-      <div className="container max-w-5xl mt-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {features.map((feature) => (
-                 <Card key={feature.title} className="text-center">
-                    <CardContent className="p-8">
-                        <div className="mb-4 inline-block bg-secondary p-3 rounded-full">
-                            {feature.icon}
-                        </div>
-                        <h2 className="text-xl font-bold mb-2">{feature.title}</h2>
-                        <p className="text-muted-foreground text-sm">
-                            {feature.description}
-                        </p>
-                    </CardContent>
-                </Card>
-            ))}
-        </div>
-      </div>
+        {isPending && (
+            <Card>
+                <CardContent className="p-12 text-center">
+                    <Loader2 className="mx-auto h-12 w-12 animate-spin text-primary mb-4" />
+                    <p className="text-muted-foreground">Generating outreach materials...</p>
+                </CardContent>
+            </Card>
+        )}
 
-       <div className="container text-center mt-16">
-            <p className="text-muted-foreground mb-4">Ready to build what's next?</p>
-            <Button asChild size="lg">
-                <Link href="/contact">
-                    Schedule an Innovation Call <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-            </Button>
-        </div>
+        {generatedContent && (
+          <div className="space-y-8">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center justify-between">
+                    <div className="flex items-center">
+                        <Mail className="mr-2 h-5 w-5 text-primary" />
+                        Generated Cold Email
+                    </div>
+                    <Button variant="outline" size="sm" onClick={() => copyToClipboard(`Subject: ${generatedContent.emailSubject}\n\n${generatedContent.emailBody}`, 'Email content')}>Copy Email</Button>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <h3 className="font-semibold mb-2">Subject:</h3>
+                  <p className="text-sm text-muted-foreground p-3 bg-secondary rounded-md">{generatedContent.emailSubject}</p>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-2">Body:</h3>
+                  <div className="text-sm text-muted-foreground p-3 bg-secondary rounded-md whitespace-pre-wrap">
+                    {generatedContent.emailBody}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+               <CardHeader>
+                <CardTitle className="flex items-center justify-between">
+                    <div className="flex items-center">
+                        <FileText className="mr-2 h-5 w-5 text-primary" />
+                        Generated Proposal Outline
+                    </div>
+                     <Button variant="outline" size="sm" onClick={() => copyToClipboard(generatedContent.proposalOutline, 'Proposal outline')}>Copy Outline</Button>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="prose prose-sm dark:prose-invert max-w-none p-4 bg-secondary rounded-md">
+                    <ReactMarkdown>{generatedContent.proposalOutline}</ReactMarkdown>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -1,60 +1,150 @@
 
 'use client';
 
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, CheckCircle, Zap } from "lucide-react";
-import Link from "next/link";
+import { useState, useTransition } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
+import { Button } from '@/components/ui/button';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { useToast } from '@/hooks/use-toast';
+import { generateLeadInsight, LeadInsightOutput } from '@/ai/flows/generate-lead-insight';
+import { Loader2, Lightbulb, Target, CheckCircle } from 'lucide-react';
+import { Textarea } from '@/components/ui/textarea';
+import Link from 'next/link';
+
+const formSchema = z.object({
+  companyWebsite: z.string().url({ message: 'Please enter a valid URL.' }),
+});
+
+type FormValues = z.infer<typeof formSchema>;
 
 export default function SkyIsLimitsPage() {
-  return (
-    <div className="py-20 md:py-28 bg-background">
-      <div className="container text-center">
-        <Zap className="mx-auto h-16 w-16 text-primary mb-4" />
-        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">The Sky is the Limit</h1>
-        <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
-          Your ambition has no ceiling. We provide the technology, strategy, and partnership to help you break through barriers and achieve exponential growth.
-        </p>
-      </div>
+  const { toast } = useToast();
+  const [isPending, startTransition] = useTransition();
+  const [leadInsight, setLeadInsight] = useState<LeadInsightOutput | null>(null);
 
-      <div className="container max-w-5xl mt-16">
-        <div className="grid md:grid-cols-2 gap-8">
+  const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      companyWebsite: '',
+    },
+  });
+
+  function onSubmit(values: FormValues) {
+    setLeadInsight(null);
+    startTransition(async () => {
+      try {
+        const result = await generateLeadInsight(values);
+        setLeadInsight(result);
+        toast({
+          title: 'Lead Insight Generated!',
+          description: 'The report is ready below. You can now generate a proposal.',
+        });
+      } catch (error) {
+        console.error('Error generating lead insight:', error);
+        toast({
+          title: 'Analysis Failed',
+          description: 'Could not analyze the website. Please check the URL or try another one.',
+          variant: 'destructive',
+        });
+      }
+    });
+  }
+
+  return (
+    <div className="py-20 md:py-28">
+      <div className="container max-w-4xl">
+        <Card className="mb-12">
+          <CardHeader>
+            <CardTitle>AI Lead Insight Generator</CardTitle>
+            <CardDescription>
+              Enter a company's website URL to automatically generate a lead qualification report.
+              This tool will analyze the business and identify potential opportunities for SYNC TECH.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <FormField
+                  control={form.control}
+                  name="companyWebsite"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Company Website URL</FormLabel>
+                      <FormControl>
+                        <Input placeholder="https://example.com" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <Button type="submit" disabled={isPending} className="w-full">
+                  {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                  Analyze Website
+                </Button>
+              </form>
+            </Form>
+          </CardContent>
+        </Card>
+
+        {isPending && (
             <Card>
-                <CardContent className="p-8">
-                    <h2 className="text-2xl font-bold mb-4">Unlock Your Potential</h2>
-                    <p className="text-muted-foreground mb-6">
-                        Stop letting outdated technology or inefficient processes hold you back. We specialize in transforming your business operations, unlocking new levels of productivity and innovation.
-                    </p>
-                    <ul className="space-y-3 text-left">
-                        <li className="flex items-start gap-3">
-                            <CheckCircle className="h-5 w-5 text-primary mt-1" />
-                            <span><strong>Streamline Operations</strong> with custom automation.</span>
-                        </li>
-                         <li className="flex items-start gap-3">
-                            <CheckCircle className="h-5 w-5 text-primary mt-1" />
-                            <span><strong>Scale Effortlessly</strong> with robust cloud infrastructure.</span>
-                        </li>
-                         <li className="flex items-start gap-3">
-                            <CheckCircle className="h-5 w-5 text-primary mt-1" />
-                            <span><strong>Make Smarter Decisions</strong> with data-driven insights.</span>
-                        </li>
-                    </ul>
+                <CardContent className="p-12 text-center">
+                    <Loader2 className="mx-auto h-12 w-12 animate-spin text-primary mb-4" />
+                    <p className="text-muted-foreground">Analyzing website and generating insights...</p>
                 </CardContent>
             </Card>
-             <Card className="bg-secondary">
-                <CardContent className="p-8">
-                    <h2 className="text-2xl font-bold mb-4">Ready to Ascend?</h2>
-                    <p className="text-muted-foreground mb-6">
-                       Your journey to market leadership starts here. Let's build a strategy that not only meets your goals but shatters them.
-                    </p>
-                    <Button asChild size="lg" className="w-full">
-                        <Link href="/contact">
-                            Discuss Your Vision <ArrowRight className="ml-2 h-5 w-5" />
-                        </Link>
-                    </Button>
-                </CardContent>
-            </Card>
-        </div>
+        )}
+
+        {leadInsight && (
+          <Card>
+            <CardHeader>
+              <CardTitle>Lead Insight Report for: {leadInsight.companyName}</CardTitle>
+              <CardDescription>
+                Here is the analysis of the company and suggested next steps. Use this information to generate a proposal.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div>
+                <h3 className="font-semibold mb-2 flex items-center"><Lightbulb className="mr-2 h-5 w-5 text-primary" />Company Summary</h3>
+                <p className="text-muted-foreground text-sm">{leadInsight.companySummary}</p>
+              </div>
+
+              <div>
+                <h3 className="font-semibold mb-2 flex items-center"><Target className="mr-2 h-5 w-5 text-primary" />Potential Needs</h3>
+                <ul className="list-disc list-inside text-muted-foreground text-sm space-y-1">
+                    {leadInsight.potentialNeeds.map((need, i) => <li key={i}>{need}</li>)}
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-semibold mb-2 flex items-center"><CheckCircle className="mr-2 h-5 w-5 text-primary" />Suggested SYNC TECH Services</h3>
+                 <ul className="list-disc list-inside text-muted-foreground text-sm space-y-1">
+                    {leadInsight.suggestedServices.map((service, i) => <li key={i}>{service}</li>)}
+                </ul>
+              </div>
+              
+              <div className="border-t pt-6">
+                 <h3 className="font-semibold mb-2">Next Step: Generate Proposal</h3>
+                 <p className="text-sm text-muted-foreground mb-4">Copy the full JSON report below and use it on the Proposal Generator page.</p>
+                <Textarea 
+                    readOnly 
+                    value={JSON.stringify(leadInsight, null, 2)} 
+                    className="min-h-[200px] font-mono text-xs bg-secondary"
+                />
+                 <Button asChild className="mt-4 w-full">
+                    <Link href="/skyislimitsplus">
+                        Go to Proposal & Email Generator
+                    </Link>
+                </Button>
+              </div>
+
+            </CardContent>
+          </Card>
+        )}
       </div>
     </div>
   );

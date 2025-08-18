@@ -8,6 +8,8 @@ import { Analytics } from '@/components/analytics';
 import { Inter } from 'next/font/google';
 import { Suspense } from 'react';
 import Script from 'next/script';
+import { Toaster } from '@/components/ui/toaster';
+import { FloatingCta } from '@/components/floating-cta';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -105,6 +107,8 @@ export default function RootLayout({
           <Header />
           <main className="flex-grow">{children}</main>
           <Footer />
+          <Toaster />
+          <FloatingCta />
           <Suspense fallback={null}>
             <Analytics />
           </Suspense>

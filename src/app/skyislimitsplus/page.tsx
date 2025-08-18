@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, useTransition } from 'react';
+import { useState, useTransition, useEffect, Suspense } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -10,9 +10,10 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { GenerateProposalOutput, generateProposal, GenerateProposalInputSchema } from '@/ai/flows/generate-proposal';
+import { GenerateProposalOutput, generateProposal, GenerateProposalInputSchema, GenerateProposalInput } from '@/ai/flows/generate-proposal';
 import { Loader2, Mail, FileText } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
+import { useSearchParams } from 'next/navigation';
 
 const formSchema = z.object({
   leadInsightReport: z.string().refine((val) => {
@@ -28,10 +29,11 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
-export default function SkyIsLimitsPlusPage() {
+function SkyIsLimitsPlusContent() {
   const { toast } = useToast();
   const [isPending, startTransition] = useTransition();
   const [generatedContent, setGeneratedContent] = useState<GenerateProposalOutput | null>(null);
+  const searchParams = useSearchParams();
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -39,6 +41,26 @@ export default function SkyIsLimitsPlusPage() {
       leadInsightReport: '',
     },
   });
+
+  useEffect(() => {
+    const reportData = searchParams.get('data');
+    if (reportData) {
+      try {
+        // Pre-ttify the JSON for display in the textarea
+        const parsedData = JSON.parse(reportData);
+        const formattedData = JSON.stringify(parsedData, null, 2);
+        form.setValue('leadInsightReport', formattedData);
+      } catch (error) {
+        console.error("Failed to parse lead insight data from URL", error);
+        toast({
+            title: 'Error',
+            description: 'Could not load the lead insight data from the previous page.',
+            variant: 'destructive',
+        });
+      }
+    }
+  }, [searchParams, form, toast]);
+
 
   function onSubmit(values: FormValues) {
     setGeneratedContent(null);
@@ -77,7 +99,7 @@ export default function SkyIsLimitsPlusPage() {
           <CardHeader>
             <CardTitle>AI Proposal & Cold Email Generator</CardTitle>
             <CardDescription>
-              Paste the JSON output from the Lead Insight Generator to create a personalized cold email and a structured proposal outline.
+              The Lead Insight Report has been pre-filled below. Click the button to generate a personalized cold email and a structured proposal outline.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -92,7 +114,7 @@ export default function SkyIsLimitsPlusPage() {
                       <FormControl>
                         <Textarea 
                             placeholder='Paste the JSON report from the previous page here...' 
-                            className="min-h-[200px] font-mono text-xs" 
+                            className="min-h-[200px] font-mono text-xs bg-secondary" 
                             {...field} 
                         />
                       </FormControl>
@@ -164,5 +186,14 @@ export default function SkyIsLimitsPlusPage() {
         )}
       </div>
     </div>
+  );
+}
+
+
+export default function SkyIsLimitsPlusPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SkyIsLimitsPlusContent />
+    </Suspense>
   );
 }

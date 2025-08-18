@@ -11,8 +11,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { generateLeadInsight, LeadInsightOutput } from '@/ai/flows/generate-lead-insight';
-import { Loader2, Lightbulb, Target, CheckCircle } from 'lucide-react';
-import { Textarea } from '@/components/ui/textarea';
+import { Loader2, Lightbulb, Target, CheckCircle, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 const formSchema = z.object({
@@ -129,15 +128,13 @@ export default function SkyIsLimitsPage() {
               
               <div className="border-t pt-6">
                  <h3 className="font-semibold mb-2">Next Step: Generate Proposal</h3>
-                 <p className="text-sm text-muted-foreground mb-4">Copy the full JSON report below and use it on the Proposal Generator page.</p>
-                <Textarea 
-                    readOnly 
-                    value={JSON.stringify(leadInsight, null, 2)} 
-                    className="min-h-[200px] font-mono text-xs bg-secondary"
-                />
-                 <Button asChild className="mt-4 w-full">
-                    <Link href="/skyislimitsplus">
-                        Go to Proposal & Email Generator
+                 <p className="text-sm text-muted-foreground mb-4">Click the button below to generate a cold email and proposal outline based on this report.</p>
+                 <Button asChild className="w-full">
+                    <Link href={{
+                        pathname: '/skyislimitsplus',
+                        query: { data: JSON.stringify(leadInsight) }
+                    }}>
+                        Go to Proposal & Email Generator <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                 </Button>
               </div>

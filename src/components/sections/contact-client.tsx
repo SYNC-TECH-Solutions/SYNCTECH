@@ -80,8 +80,8 @@ export function ContactClient() {
                             <MapPin className="h-6 w-6 text-primary" />
                         </div>
                         <div>
-                            <p className="font-semibold">Our Office</p>
-                            <p className="text-muted-foreground">Dublin, Ireland</p>
+                            <p className="font-semibold">Global Headquarters</p>
+                            <p className="text-muted-foreground">Serving clients worldwide</p>
                         </div>
                     </div>
                     <div className="flex items-center gap-4">

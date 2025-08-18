@@ -11,12 +11,12 @@ export function Hero() {
 
       <div className="container text-center">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground">
-          Engineering the Future.
+          Your Global Digital Partner.
           <br />
-          <span className="text-primary">Accessible to All.</span>
+          <span className="text-primary">24/7 Service, Worldwide.</span>
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
-          We don't just use technology. We push it forward. Delivering unparalleled solutions in AI, cloud, and cybersecurity, engineered for every business.
+          We deliver secure, scalable, and reliable IT solutions, from cloud infrastructure to AI-driven digital transformation, supported around the clock, anywhere in the world.
         </p>
         <div className="mt-8 flex justify-center gap-4">
           <Button asChild size="lg">

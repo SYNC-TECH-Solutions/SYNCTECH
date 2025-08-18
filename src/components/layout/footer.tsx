@@ -19,8 +19,8 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="flex flex-col gap-4">
             <Logo />
-            <p className="text-sm">Premium Tech Solutions at Competitive Prices.</p>
-            <p className="text-sm">Dublin, Ireland</p>
+            <p className="text-sm">Global IT Solutions & 24/7 Support.</p>
+            <p className="text-sm">Global Headquarters</p>
             <a href="mailto:synctechire@gmail.com" className="text-sm hover:text-primary transition-colors">
               synctechire@gmail.com
             </a>

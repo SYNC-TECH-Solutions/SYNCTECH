@@ -17,7 +17,7 @@ const services = [
   {
     icon: <Cloud className="w-8 h-8 text-primary" />,
     title: "Managed Cloud & Optimization",
-    description: "Offload cloud complexities with 24/7 support. We handle security, scalability, and data protection so you can focus on your core mission.",
+    description: "Offload cloud complexities with 24/7 global support. We handle security, scalability, and data protection so you can focus on your core mission.",
   },
   {
     icon: <DollarSign className="w-8 h-8 text-primary" />,
@@ -27,12 +27,12 @@ const services = [
   {
     icon: <Bot className="w-8 h-8 text-primary" />,
     title: "AI & Machine Learning",
-    description: "Leverage AI to automate processes, enhance efficiency, and unlock new capabilities for the best value.",
+    description: "Leverage AI to automate processes, enhance efficiency, and unlock new capabilities for the best value, anywhere in the world.",
   },
   {
     icon: <Shield className="w-8 h-8 text-primary" />,
     title: "Cybersecurity",
-    description: "Protecting your digital assets with advanced security protocols, threat detection, and risk management at a competitive price.",
+    description: "Protecting your digital assets with advanced security protocols, threat detection, and global risk management at a competitive price.",
   },
   {
     icon: <TrendingUp className="w-8 h-8 text-primary" />,
@@ -58,9 +58,9 @@ export function ServicesClient() {
     >
       <div className="container">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold">The Pillars of Modern Technology</h1>
+          <h1 className="text-4xl md:text-5xl font-bold">Global Solutions, Local Expertise</h1>
           <p className="mt-4 max-w-2xl mx-auto text-muted-foreground text-lg">
-            We provide a complete suite of future-ready technology services, engineered to propel your business into its next stage of growth.
+            We provide a complete suite of future-ready technology services, engineered to propel your business into its next stage of growth, no matter where you are.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

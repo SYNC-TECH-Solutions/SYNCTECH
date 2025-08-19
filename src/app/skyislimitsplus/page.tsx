@@ -10,7 +10,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { GenerateProposalOutput, generateProposal, GenerateProposalInputSchema, GenerateProposalInput } from '@/ai/flows/generate-proposal';
+import { GenerateProposalOutput, generateProposal } from '@/ai/flows/generate-proposal';
 import { Loader2, Mail, FileText } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { useSearchParams } from 'next/navigation';
@@ -18,13 +18,12 @@ import { useSearchParams } from 'next/navigation';
 const formSchema = z.object({
   leadInsightReport: z.string().refine((val) => {
     try {
-      const parsed = JSON.parse(val);
-      GenerateProposalInputSchema.parse(parsed);
+      JSON.parse(val);
       return true;
     } catch (e) {
       return false;
     }
-  }, { message: 'Invalid JSON or does not match the Lead Insight Report schema.' }),
+  }, { message: 'Invalid JSON format.' }),
 });
 
 type FormValues = z.infer<typeof formSchema>;

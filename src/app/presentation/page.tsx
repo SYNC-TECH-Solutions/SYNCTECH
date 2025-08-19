@@ -100,7 +100,7 @@ export default function PresentationPage() {
       </Slide>
 
        {/* Slide 5: Call to Action */}
-      <Slide className="bg-blue-800 text-white">
+      <Slide className="bg-primary text-primary-foreground">
         <div className="max-w-4xl">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">Ready to Innovate?</h2>
           <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90">

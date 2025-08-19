@@ -39,7 +39,7 @@ export const posts: Post[] = [
       
       <h3 class="text-2xl font-bold mt-6 mb-4">Challenges and Learnings</h3>
       <ul class="list-disc list-inside space-y-2 my-4">
-        <li><strong>State Management:</strong> Managing the application state in React, especially with asynchronous API calls, required careful planning. We relied on React's built-in hooks (`useState`, `useEffect`) to handle loading states, errors, and updating the UI in response to data changes.</li>
+        <li><strong>State Management:</strong> Managing the application state in React, especially with asynchronous API calls, required careful planning. We relied on React's built-in hooks to handle loading states, errors, and updating the UI in response to data changes.</li>
         <li><strong>Error Handling:</strong> Robust error handling is critical. We implemented comprehensive checks on both the client and server to manage potential issues, such as network failures, invalid user input, or errors from the OpenAI API, ensuring a smooth user experience even when things go wrong.</li>
       </ul>
 

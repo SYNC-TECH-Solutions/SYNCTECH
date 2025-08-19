@@ -72,7 +72,7 @@ export default function PresentationPage() {
       </Slide>
 
        {/* Slide 4: Our Work */}
-      <Slide>
+      <Slide className="bg-background">
         <div className="max-w-5xl w-full">
             <h2 className="text-4xl md:text-5xl font-bold">Proof of Quality</h2>
             <p className="mt-4 text-xl text-muted-foreground">Our work speaks for itself. Here are some of our successful client projects.</p>

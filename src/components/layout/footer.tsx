@@ -72,11 +72,6 @@ export function Footer() {
                     Accessibility
                   </Link>
                 </li>
-                 <li>
-                  <Link href="/admin" className="text-sm hover:text-primary transition-colors">
-                    Admin
-                  </Link>
-                </li>
               </ul>
             </div>
           </div>

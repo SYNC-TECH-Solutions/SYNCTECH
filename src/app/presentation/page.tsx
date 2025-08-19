@@ -9,7 +9,7 @@ import { Logo } from "@/components/logo";
 import Image from "next/image";
 
 const Slide = ({ children, className }: { children: React.ReactNode, className?: string }) => (
-  <div className={`w-full h-[calc(100vh-4rem)] flex flex-col justify-center items-center p-8 text-center border-b ${className}`}>
+  <div className={`w-full h-fit min-h-[calc(100vh-4rem)] flex flex-col justify-center items-center p-8 text-center border-b ${className}`}>
     {children}
   </div>
 );

@@ -11,7 +11,6 @@ import { ArrowLeft, ArrowRight, CheckCircle } from 'lucide-react';
 
 type Props = {
   params: { slug: string };
-  searchParams: { [key: string]: string | string[] | undefined };
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -51,7 +50,7 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
   }));
 }
 
-export default function ProjectCaseStudyPage({ params }: Props) {
+export default function ProjectCaseStudyPage({ params }: { params: { slug: string } }) {
   const project = getProjectBySlug(params.slug);
 
   if (!project) {

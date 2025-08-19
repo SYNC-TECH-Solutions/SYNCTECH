@@ -12,7 +12,7 @@
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
-export const GenerateProposalInputSchema = z.object({
+const GenerateProposalInputSchema = z.object({
   companyName: z.string().describe("The name of the company."),
   companySummary: z.string().describe("A brief summary of what the company does."),
   potentialNeeds: z.array(z.string()).describe("A list of potential needs the company may have."),

@@ -33,21 +33,20 @@ const validateContactFormPrompt = ai.definePrompt({
   name: 'validateContactFormPrompt',
   input: {schema: ValidateContactFormInputSchema},
   output: {schema: ValidateContactFormOutputSchema},
-  prompt: `You are an AI assistant that validates contact form submissions for a tech company called SYNC TECH in Dublin, Ireland.
+  prompt: `You are an AI assistant that validates contact form submissions for a tech company called SYNC TECH.
 
-  Evaluate the following contact form submission and determine if it is a legitimate, serious inquiry about the company's services (web development, AI, cybersecurity, etc.).
+  Your task is to determine if the following submission is a legitimate inquiry about the company's services (e.g., web development, AI, cybersecurity).
 
-  The message should be professional and relevant. Reject messages that are clearly spam, advertising, personal solicitations, or completely nonsensical. Be reasonably strict to filter out non-business inquiries.
+  The message should be business-related. You must REJECT messages that are clearly spam, direct advertising solicitations, personal messages, or malicious content. However, be lenient with messages that are simply short or poorly worded, as they may still be genuine leads.
 
-  If the submission is not valid, provide a concise reason in the 'reason' field (e.g., "Spam content," "Irrelevant inquiry," or "Advertising").
+  If the submission is invalid, provide a brief reason (e.g., "Spam content," "Advertising," "Malicious link detected").
 
-  Here is the contact form submission:
-  Name: {{{name}}}
-  Email: {{{email}}}
-  Message: {{{message}}}
+  Submission Details:
+  - Name: {{{name}}}
+  - Email: {{{email}}}
+  - Message: {{{message}}}
 
-  Return a JSON object with 'isValid' set to true or false, and 'reason' explaining why if not valid.
-  Follow the schema description for ValidateContactFormOutputSchema.
+  Return your response as a JSON object with 'isValid' (true/false) and an optional 'reason'.
   `,
 });
 

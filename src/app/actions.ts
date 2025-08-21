@@ -11,7 +11,7 @@ import * as React from 'react';
 // --- Contact Form Action ---
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
 
-const supportEmail = process.env.FORWARDING_EMAIL || 'synctechire@gmail.com';
+const supportEmail = 'synctechire@gmail.com';
 
 export async function submitContactForm(values: ContactFormValues) {  
   try {

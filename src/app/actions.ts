@@ -13,20 +13,20 @@ export type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 const supportEmail = 'synctechire@gmail.com';
 
-export async function submitContactForm(values: ContactFormValues) {  
-  if (!process.env.RESEND_API_KEY) {
+export async function submitContactForm(values: ContactFormValues) {
+  const resendApiKey = process.env.RESEND_API_KEY;
+
+  if (!resendApiKey) {
     console.error('Resend API key is not configured.');
     return {
       success: false,
-      message: "The contact form is currently unavailable due to a configuration issue. Please email us directly."
-    }
+      message: "The contact form is currently unavailable due to a server configuration issue. Please email us directly."
+    };
   }
 
+  // AI Validation Step
   try {
-    const resend = new Resend(process.env.RESEND_API_KEY);
-    
     const validation = await validateContactForm(values);
-
     if (!validation.isValid) {
       console.warn('AI validation failed:', validation.reason);
       return { 
@@ -34,7 +34,18 @@ export async function submitContactForm(values: ContactFormValues) {
         message: "Your message was flagged as suspicious. Please try rephrasing or email us directly." 
       };
     }
+  } catch (error) {
+    console.error('An unexpected error occurred during AI validation:', error);
+    return { 
+      success: false, 
+      message: "There was an issue validating your message. Please try again or email us directly at " + supportEmail
+    };
+  }
 
+  // Email Sending Step
+  try {
+    const resend = new Resend(resendApiKey);
+    
     const { data, error } = await resend.emails.send({
       from: `SYNC TECH Contact Form <onboarding@resend.dev>`,
       to: [supportEmail],
@@ -61,10 +72,10 @@ export async function submitContactForm(values: ContactFormValues) {
     };
 
   } catch (error) {
-    console.error('An unexpected error occurred in submitContactForm:', error);
+    console.error('An unexpected error occurred while sending the email:', error);
     return { 
       success: false, 
-      message: "An unexpected error occurred. Please contact us directly at " + supportEmail
+      message: "An unexpected server error occurred. Please contact us directly at " + supportEmail
     };
   }
 }

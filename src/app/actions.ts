@@ -14,6 +14,14 @@ export type ContactFormValues = z.infer<typeof contactFormSchema>;
 const supportEmail = 'synctechire@gmail.com';
 
 export async function submitContactForm(values: ContactFormValues) {  
+  if (!process.env.RESEND_API_KEY) {
+    console.error('Resend API key is not configured.');
+    return {
+      success: false,
+      message: "The contact form is currently unavailable due to a configuration issue. Please email us directly."
+    }
+  }
+
   try {
     const resend = new Resend(process.env.RESEND_API_KEY);
     

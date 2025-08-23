@@ -12,21 +12,6 @@ const navItems = [
   { href: '/contact', label: 'Contact' },
 ];
 
-const BloggerIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    className="h-4 w-4"
-    {...props}
-  >
-    <path d="M19.5 3H4.5C3.67 3 3 3.67 3 4.5v15C3 20.33 3.67 21 4.5 21h15c.83 0 1.5-.67 1.5-1.5v-15C21 3.67 20.33 3 19.5 3z" fill="#FF5722"/>
-    <path d="M7 15.5c0 .83.67 1.5 1.5 1.5H11v-3H8.5c-.83 0-1.5.67-1.5 1.5zm3.5-4.5H8.5c-.83 0-1.5.67-1.5 1.5V11h3.5c.83 0 1.5-.67 1.5-1.5v-1c0-.83-.67-1.5-1.5-1.5z" fill="#FFFFFF" opacity=".9"/>
-    <path d="M12.5 12.5H11v3h1.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5z" fill="#FFFFFF"/>
-  </svg>
-);
-
-
 export function Footer() {
   return (
     <footer className="bg-secondary text-secondary-foreground">
@@ -104,11 +89,6 @@ export function Footer() {
               </Button>
               <Button variant="outline" size="icon" asChild>
                 <a href="https://github.com/SherazHussain546" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><Github className="h-4 w-4" /></a>
-              </Button>
-              <Button variant="outline" size="icon" asChild>
-                <a href="https://synctech-ie.blogspot.com/" aria-label="Blogger" target="_blank" rel="noopener noreferrer">
-                  <BloggerIcon />
-                </a>
               </Button>
             </div>
           </div>

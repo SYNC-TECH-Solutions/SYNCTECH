@@ -20,23 +20,9 @@ const BloggerIcon = (props: React.SVGProps<SVGSVGElement>) => (
     className="h-4 w-4"
     {...props}
   >
-    <path
-      fillRule="evenodd"
-      d="M3.75 3.75a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h16.5a3 3 0 0 0 3-3V6.75a3 3 0 0 0-3-3H3.75zm10.033 4.155a.75.75 0 0 0-1.06 1.06l1.72 1.72H9.25a.75.75 0 0 0 0 1.5h5.193l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3a.75.75 0 0 0 0-1.06l-3-3z"
-      clipRule="evenodd"
-      style={{
-        fill: '#FF5722',
-        stroke: '#fff',
-        strokeWidth: 1.5,
-        paintOrder: 'stroke',
-      }}
-      transform="translate(0.5, 0.5) scale(0.9)"
-    />
-    <path
-      d="M8.25 9.75h2.25a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-.75.75H8.25a2.25 2.25 0 0 1-2.25-2.25V9.75h2.25zm0 1.5H6v.75a.75.75 0 0 0 .75.75h1.5v-1.5z"
-      fill="#fff"
-      transform="translate(0.5, 0.5) scale(0.9)"
-    />
+    <path d="M19.5 3H4.5C3.67 3 3 3.67 3 4.5v15C3 20.33 3.67 21 4.5 21h15c.83 0 1.5-.67 1.5-1.5v-15C21 3.67 20.33 3 19.5 3z" fill="#FF5722"/>
+    <path d="M7 15.5c0 .83.67 1.5 1.5 1.5H11v-3H8.5c-.83 0-1.5.67-1.5 1.5zm3.5-4.5H8.5c-.83 0-1.5.67-1.5 1.5V11h3.5c.83 0 1.5-.67 1.5-1.5v-1c0-.83-.67-1.5-1.5-1.5z" fill="#FFFFFF" opacity=".9"/>
+    <path d="M12.5 12.5H11v3h1.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5z" fill="#FFFFFF"/>
   </svg>
 );
 

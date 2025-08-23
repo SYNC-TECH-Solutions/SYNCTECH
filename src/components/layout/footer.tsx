@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { Logo } from '../logo';
 import { Button } from '../ui/button';
-import { Github, Linkedin, Instagram, Facebook } from 'lucide-react';
+import { Github, Linkedin, Instagram, Facebook, Rss } from 'lucide-react';
 
 const navItems = [
   { href: '/about', label: 'About' },
@@ -89,6 +89,9 @@ export function Footer() {
               </Button>
               <Button variant="outline" size="icon" asChild>
                 <a href="https://github.com/SherazHussain546" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><Github className="h-4 w-4" /></a>
+              </Button>
+              <Button variant="outline" size="icon" asChild>
+                <a href="https://synctech-ie.blogspot.com/" aria-label="Blogger" target="_blank" rel="noopener noreferrer"><Rss className="h-4 w-4" /></a>
               </Button>
             </div>
           </div>

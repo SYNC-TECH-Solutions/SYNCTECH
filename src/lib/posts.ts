@@ -46,7 +46,7 @@ export const posts: Post[] = [
       <h3 class="text-2xl font-bold mt-6 mb-4">Conclusion: Sharing Knowledge and Building Expertise</h3>
       <p>Building ChattyAI was a valuable exercise in full-stack development and AI integration. It demonstrates our capability to deliver end-to-end, secure, and scalable AI solutions. We believe in the power of open source to foster learning and innovation, which is why we've made the <a href="https://github.com/SherazHussain546/ChattyAI" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">entire project available on GitHub</a>. We encourage you to explore the code, and we hope it inspires you to build your own intelligent applications.</p>
     `,
-    image: "https://placehold.co/800x400.png",
+    image: "/project/chattyai.jpg",
     imageHint: "chatbot interface code"
   },
   {
@@ -76,7 +76,7 @@ export const posts: Post[] = [
       </ul>
       <p>By partnering with SYNC TECH, you don't just get control over your cloud spending; you gain a powerful lever for driving efficiency, innovation, and a measurable return on your technology investment.</p>
     `,
-    image: "https://placehold.co/800x400.png",
+    image: "/project/finops.png",
     imageHint: "financial chart graph"
   },
   {
@@ -105,7 +105,7 @@ export const posts: Post[] = [
         </ul>
         <p>This project is a clear demonstration of how a strategic investment in custom technology can deliver an exceptional return. By solving a core operational challenge, we unlocked significant new revenue streams and created a more efficient, profitable business for our client.</p>
       `,
-    image: "/project/atlantichotel.png",
+    image: "/project/hotel.png",
     imageHint: "hotel booking system"
   },
   {
@@ -144,7 +144,7 @@ export const posts: Post[] = [
 <h3 class="text-2xl font-bold mt-6 mb-4">Conclusion: Your Cloud Journey is a Strategic Partnership</h3>
 <p>The most effective cloud platform is not determined by market share. It is the strategic decision that aligns most closely with an organization's budget, team capabilities, and long-term business goals. A managed cloud strategy with a partner like SYNC TECH transforms a cloud investment from a reactive expense into a proactive, value-generating asset.</p>
 <p>Ready to move beyond the hype? <strong>Contact SYNC TECH for a free, no-obligation cloud strategy consultation.</strong> Let’s build a solution that fits—not overspends.</p>`,
-    image: "https://placehold.co/800x400.png",
+    image: "/project/giants.png",
     imageHint: "cloud computing strategy"
   },
   {
@@ -196,7 +196,7 @@ export const posts: Post[] = [
 <h3 class="text-2xl font-bold mt-6 mb-4">4. The SYNC TECH Advantage: Enterprise Quality, Accessible Price</h3>
 <p>At SYNC TECH, we specialize in delivering the best of both worlds: the cutting-edge quality you'd expect from a high-end agency, but at a price point that makes sense for your budget. We build websites that are not only beautiful and functional but are also powerful business assets designed to deliver a measurable return on your investment. We don't just build websites; we build engines for growth.</p>
 `,
-    image: "https://placehold.co/800x400.png",
+    image: "/project/roiquality.png",
     imageHint: "website design"
   },
   {
@@ -225,7 +225,7 @@ export const posts: Post[] = [
 <h3 class="text-2xl font-bold mt-6 mb-4">Make AI Work for You</h3>
 <p>At SYNC TECH, we believe that AI automation should be a competitive advantage for everyone, not just large corporations. We provide affordable, custom AI solutions that are tailored to the unique needs of your business. Ready to see how much time and money you could save? Contact us today.</p>
 `,
-    image: "https://placehold.co/800x400.png",
+    image: "/project/aiauto.webp",
     imageHint: "artificial intelligence"
   },
   {
@@ -254,7 +254,7 @@ export const posts: Post[] = [
 <h3 class="text-2xl font-bold mt-6 mb-4">Affordable, Enterprise-Grade Security is Possible</h3>
 <p>Protecting your business doesn't have to break the bank. At SYNC TECH, we offer comprehensive cybersecurity services tailored to your needs and budget. From security audits to ongoing monitoring and threat detection, we provide peace of mind so you can focus on running your business. Contact us for a free security consultation.</p>
 `,
-    image: "https://placehold.co/800x400.png",
+    image: "/project/cyber.jpg",
     imageHint: "cybersecurity padlock"
   }
 ];

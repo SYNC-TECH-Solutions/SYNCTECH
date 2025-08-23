@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { Logo } from '../logo';
 import { Button } from '../ui/button';
-import { Github, Linkedin, Instagram, Facebook, Rss } from 'lucide-react';
+import { Github, Linkedin, Instagram, Facebook } from 'lucide-react';
 
 const navItems = [
   { href: '/about', label: 'About' },
@@ -11,6 +11,27 @@ const navItems = [
   { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
 ];
+
+const BloggerIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M18 14.85c-1.46-1.46-2.92-2.92-2.92-2.92s-1.46 1.46-2.92 2.92c-1.46 1.46-2.92 2.92-2.92 2.92s1.46-1.46 2.92-2.92c1.46-1.46 2.92-2.92 2.92-2.92" />
+    <path d="M9.7 17.77c-1.46-1.46-2.92-2.92-2.92-2.92s-1.46 1.46-2.92 2.92c-1.46 1.46-2.92 2.92-2.92 2.92s1.46-1.46 2.92-2.92c1.46-1.46 2.92-2.92 2.92-2.92" />
+    <path d="M21 7.5a2 2 0 0 1-2-2" />
+    <path d="M17.5 4H10A6 6 0 0 0 4 10v4a6 6 0 0 0 6 6h4a6 6 0 0 0 6-6v-4a2 2 0 0 1 2-2" />
+    <path d="M12 11.5a2.5 2.5 0 0 1-5 0" />
+    <path d="M17 11.5a2.5 2.5 0 0 1-5 0" />
+  </svg>
+);
+
 
 export function Footer() {
   return (
@@ -91,7 +112,9 @@ export function Footer() {
                 <a href="https://github.com/SherazHussain546" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><Github className="h-4 w-4" /></a>
               </Button>
               <Button variant="outline" size="icon" asChild>
-                <a href="https://synctech-ie.blogspot.com/" aria-label="Blogger" target="_blank" rel="noopener noreferrer"><Rss className="h-4 w-4" /></a>
+                <a href="https://synctech-ie.blogspot.com/" aria-label="Blogger" target="_blank" rel="noopener noreferrer">
+                  <BloggerIcon className="h-4 w-4" />
+                </a>
               </Button>
             </div>
           </div>

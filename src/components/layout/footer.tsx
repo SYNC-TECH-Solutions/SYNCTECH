@@ -16,19 +16,27 @@ const BloggerIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
+    fill="currentColor"
+    className="h-4 w-4"
     {...props}
   >
-    <path d="M18 14.85c-1.46-1.46-2.92-2.92-2.92-2.92s-1.46 1.46-2.92 2.92c-1.46 1.46-2.92 2.92-2.92 2.92s1.46-1.46 2.92-2.92c1.46-1.46 2.92-2.92 2.92-2.92" />
-    <path d="M9.7 17.77c-1.46-1.46-2.92-2.92-2.92-2.92s-1.46 1.46-2.92 2.92c-1.46 1.46-2.92 2.92-2.92 2.92s1.46-1.46 2.92-2.92c1.46-1.46 2.92-2.92 2.92-2.92" />
-    <path d="M21 7.5a2 2 0 0 1-2-2" />
-    <path d="M17.5 4H10A6 6 0 0 0 4 10v4a6 6 0 0 0 6 6h4a6 6 0 0 0 6-6v-4a2 2 0 0 1 2-2" />
-    <path d="M12 11.5a2.5 2.5 0 0 1-5 0" />
-    <path d="M17 11.5a2.5 2.5 0 0 1-5 0" />
+    <path
+      fillRule="evenodd"
+      d="M3.75 3.75a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h16.5a3 3 0 0 0 3-3V6.75a3 3 0 0 0-3-3H3.75zm10.033 4.155a.75.75 0 0 0-1.06 1.06l1.72 1.72H9.25a.75.75 0 0 0 0 1.5h5.193l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3a.75.75 0 0 0 0-1.06l-3-3z"
+      clipRule="evenodd"
+      style={{
+        fill: '#FF5722',
+        stroke: '#fff',
+        strokeWidth: 1.5,
+        paintOrder: 'stroke',
+      }}
+      transform="translate(0.5, 0.5) scale(0.9)"
+    />
+    <path
+      d="M8.25 9.75h2.25a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-.75.75H8.25a2.25 2.25 0 0 1-2.25-2.25V9.75h2.25zm0 1.5H6v.75a.75.75 0 0 0 .75.75h1.5v-1.5z"
+      fill="#fff"
+      transform="translate(0.5, 0.5) scale(0.9)"
+    />
   </svg>
 );
 
@@ -98,7 +106,7 @@ export function Footer() {
           </div>
           <div className="flex flex-col gap-4">
             <h3 className="font-semibold">Follow Us</h3>
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               <Button variant="outline" size="icon" asChild>
                 <a href="https://www.linkedin.com/company/synctechie/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><Linkedin className="h-4 w-4" /></a>
               </Button>
@@ -113,7 +121,7 @@ export function Footer() {
               </Button>
               <Button variant="outline" size="icon" asChild>
                 <a href="https://synctech-ie.blogspot.com/" aria-label="Blogger" target="_blank" rel="noopener noreferrer">
-                  <BloggerIcon className="h-4 w-4" />
+                  <BloggerIcon />
                 </a>
               </Button>
             </div>

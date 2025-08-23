@@ -41,11 +41,6 @@ export function Footer() {
                     Presentation
                   </Link>
                 </li>
-                 <li>
-                  <Link href="/invoice-generator" className="text-sm hover:text-primary transition-colors">
-                    Invoice Generator
-                  </Link>
-                </li>
               </ul>
             </div>
             <div>

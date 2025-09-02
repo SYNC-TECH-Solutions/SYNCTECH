@@ -55,31 +55,40 @@ const projects = [
 
 const experiences = [
     {
+        role: "Founder & Lead Technologist",
+        company: "SYNC TECH",
+        date: "2023 – Present",
+        points: [
+            "Architected the vision for SYNC TECH to bridge the gap between high-end, enterprise-level IT solutions and the businesses that need them most, focusing on affordability and 24/7 global support.",
+            "Lead the design and development of custom web applications, AI automation tools, and cybersecurity frameworks for a diverse portfolio of clients, from startups to established enterprises.",
+            "Oversee all technical strategy, project management, and client relations, ensuring every solution delivers measurable ROI and aligns with our core mission of driving growth through technology.",
+        ]
+    },
+    {
+        role: "Founder & E-Commerce Strategist",
+        company: "Luxe Threads",
+        date: "2024",
+        points: [
+            "Launched and managed an online fashion brand on WordPress/WooCommerce, handling everything from custom web development (HTML/CSS) to digital marketing strategy.",
+            "Executed targeted SEO and Google Ads campaigns that increased organic traffic by 50% and lifted conversion rates by 25%, proving a strong grasp of the full e-commerce lifecycle.",
+        ]
+    },
+     {
         role: "Deputy Manager",
         company: "Castore",
         date: "April 2024 – Present",
         points: [
-            "Led and mentored a team of 12+ staff through daily stand-ups and performance reviews, driving a 55% increase in monthly sales targets.",
-            "Designed and implemented an inventory management system with real-time analytics, reducing stock discrepancies by 30%.",
-            "Developed customer-service training programs, boosting customer satisfaction scores by 70%.",
+            "Led and mentored a team of 12+ staff, driving a 55% increase in monthly sales targets through effective leadership and performance management.",
+            "Designed and implemented an inventory management system with real-time analytics, reducing stock discrepancies by 30% and demonstrating a strong capability for operational improvement.",
         ]
     },
     {
-        role: "E-Commerce Manager",
-        company: "Luxe Threads",
-        date: "May 2024 – January 2025",
-        points: [
-            "Launched and managed an online fashion brand on WordPress/WooCommerce with custom HTML/CSS.",
-            "Executed SEO and Google Ads campaigns that increased organic traffic by 50% and lifted conversion rates by 25%.",
-        ]
-    },
-     {
         role: "Peer Mentor",
         company: "Dublin Business School",
         date: "September 2022 – May 2023",
         points: [
-            "Mentored 20+ students each semester on study techniques, project work, and professional development.",
-            "Honored with the Student Leader Award (Peer Mentor with Distinction) for exceptional leadership and support.",
+            "Mentored 20+ students each semester, providing guidance on complex technical projects and professional development.",
+            "Honored with the Student Leader Award (Peer Mentor with Distinction) for exceptional leadership and impact.",
         ]
     },
 ];
@@ -127,19 +136,19 @@ export default function FounderPage() {
 
         <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2 space-y-12">
-                {/* --- Summary Section --- */}
+                {/* --- Founder's Profile --- */}
                 <Card>
                     <CardHeader>
-                        <CardTitle className="flex items-center gap-2"><User className="text-primary" /> Professional Summary</CardTitle>
+                        <CardTitle className="flex items-center gap-2"><User className="text-primary" /> Founder's Profile</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <p className="text-muted-foreground">Highly motivated and results-driven First-Class Honors Computing graduate with a robust skill set in Software Engineering, AI-Driven Development, and Cloud Computing. I have a proven ability to design, develop, and deploy innovative solutions using a full-stack approach. My expertise includes DevSecOps practices, AWS and Kubernetes architecture, and Cybersecurity principles, ensuring scalable and secure systems. Eager to contribute my technical expertise and collaborative spirit to a dynamic team.</p>
+                        <p className="text-muted-foreground">As a First-Class Honors Computing graduate and a passionate technologist, I founded SYNC TECH with a clear mission: to dismantle the barrier between elite, enterprise-level technology and the businesses that need it to grow. My journey has been driven by a relentless pursuit of innovation, from developing sophisticated AI-driven platforms to architecting secure, full-stack solutions. Each project and venture in my portfolio, including my work in e-commerce with Luxe Threads and my leadership roles, has been a stepping stone toward building SYNC TECH—a company that embodies technical excellence, strategic thinking, and a commitment to delivering tangible value. This is more than a portfolio; it's the story of building assets that solve real-world problems.</p>
                     </CardContent>
                 </Card>
 
-                 {/* --- Projects Section --- */}
+                 {/* --- Portfolio of Ventures & Key Assets --- */}
                 <section>
-                    <h2 className="text-2xl font-bold mb-4 flex items-center gap-2"><Briefcase className="text-primary"/> Projects</h2>
+                    <h2 className="text-2xl font-bold mb-4 flex items-center gap-2"><Briefcase className="text-primary"/> Portfolio of Ventures & Key Assets</h2>
                     <div className="space-y-6">
                         {projects.map(proj => (
                             <Card key={proj.title}>
@@ -161,9 +170,9 @@ export default function FounderPage() {
                     </div>
                 </section>
 
-                 {/* --- Work Experience Section --- */}
+                 {/* --- Professional Journey --- */}
                  <section>
-                    <h2 className="text-2xl font-bold mb-4 flex items-center gap-2"><Building className="text-primary"/> Work Experience</h2>
+                    <h2 className="text-2xl font-bold mb-4 flex items-center gap-2"><Building className="text-primary"/> Professional Journey</h2>
                     <div className="space-y-6">
                         {experiences.map(exp => (
                              <Card key={exp.company + exp.role}>
@@ -195,10 +204,10 @@ export default function FounderPage() {
                     </CardContent>
                 </Card>
 
-                 {/* --- Skills Section --- */}
+                 {/* --- Core Competencies --- */}
                 <Card>
                     <CardHeader>
-                        <CardTitle className="flex items-center gap-2"><Code className="text-primary"/> Skills</CardTitle>
+                        <CardTitle className="flex items-center gap-2"><Code className="text-primary"/> Core Competencies</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
                         {Object.entries(skills).map(([category, list]) => (
@@ -234,3 +243,5 @@ export default function FounderPage() {
     </div>
   );
 }
+
+    

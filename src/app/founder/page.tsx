@@ -8,9 +8,9 @@ import { Button } from '@/components/ui/button';
 import { Briefcase, Building, Award, Code, Github, Globe, Linkedin, Mail, MapPin, Phone, Star, User } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "Sheraz Hussain | Founder of SYNC TECH, AI & Full-Stack Developer",
-  description: "Explore the portfolio of Sheraz Hussain, a First-Class Honors Computing graduate and the founder of SYNC TECH. Discover his expertise in AI-driven development, full-stack engineering, cloud computing, and cybersecurity.",
-  keywords: ["Sheraz Hussain", "SYNC TECH founder", "AI developer", "full-stack engineer", "cloud computing expert", "cybersecurity professional", "Next.js developer", "React developer", "Python developer", "Dublin"],
+  title: "Sheraz Hussain | Founder of SYNC TECH, Technologist & Entrepreneur",
+  description: "Explore the portfolio of Sheraz Hussain, a First-Class Honors Computing graduate and the founder of SYNC TECH. Discover his journey of building high-value technology assets and ventures in AI, full-stack engineering, and cybersecurity.",
+  keywords: ["Sheraz Hussain", "SYNC TECH founder", "technology entrepreneur", "AI developer", "full-stack engineer", "technology ventures", "cloud computing expert", "cybersecurity professional", "Next.js developer", "React developer", "Python developer", "Dublin"],
 };
 
 const skills = {
@@ -120,7 +120,7 @@ export default function FounderPage() {
             </div>
             <div className="md:col-span-2 text-center md:text-left">
                 <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Sheraz Hussain</h1>
-                <p className="mt-2 text-xl text-primary font-semibold">Founder of SYNC TECH | AI & Full-Stack Developer</p>
+                <p className="mt-2 text-xl text-primary font-semibold">Founder of SYNC TECH | Technologist & Entrepreneur</p>
                 <div className="mt-4 flex flex-wrap justify-center md:justify-start gap-4 text-sm text-muted-foreground">
                     <span className="flex items-center gap-2"><MapPin className="h-4 w-4" /> Dublin, Ireland</span>
                     <a href="mailto:sherazhussainofficial1@gmail.com" className="flex items-center gap-2 hover:text-primary"><Mail className="h-4 w-4" /> sherazhussainofficial1@gmail.com</a>

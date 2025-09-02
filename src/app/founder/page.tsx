@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Briefcase, Building, Certificate, Code, Github, Globe, Linkedin, Mail, MapPin, Phone, Star, User } from 'lucide-react';
+import { Briefcase, Building, Award, Code, Github, Globe, Linkedin, Mail, MapPin, Phone, Star, User } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: "Sheraz Hussain | Founder of SYNC TECH, AI & Full-Stack Developer",
@@ -215,7 +215,7 @@ export default function FounderPage() {
                  {/* --- Certifications --- */}
                 <Card>
                     <CardHeader>
-                        <CardTitle className="flex items-center gap-2"><Certificate className="text-primary"/> Certifications</CardTitle>
+                        <CardTitle className="flex items-center gap-2"><Award className="text-primary"/> Certificates</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <ul className="space-y-2 text-sm text-muted-foreground">
@@ -234,5 +234,3 @@ export default function FounderPage() {
     </div>
   );
 }
-
-    

@@ -4,7 +4,9 @@ import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Logo } from '@/components/logo';
 import { Inter } from 'next/font/google';
-import { CheckCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle } from 'lucide-react';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -61,9 +63,14 @@ export default function BrandPage() {
                 <p className="text-muted-foreground mb-4">
                   SYNC TECH was founded by Sheraz Hussain, a technologist and visionary entrepreneur driven by a single, powerful mission: to dismantle the barrier between high-end IT solutions and the businesses that need them most. With a deep background in software engineering and a passion for strategic problem-solving, Sheraz identified a critical gap in the market—the space where enterprise-level quality and affordability could coexist.
                 </p>
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground mb-6">
                   He built SYNC TECH not just as a service provider, but as a strategic partner for growth, championing a philosophy where cutting-edge technology in AI, cybersecurity, and cloud infrastructure serves as a powerful engine for businesses of all sizes, not just the giants. His leadership ensures that every project is infused with a commitment to tangible results, measurable ROI, and unwavering 24/7 client support.
                 </p>
+                <Button asChild>
+                    <Link href="/founder">
+                        View Founder's Full Portfolio <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                </Button>
               </div>
             </div>
           </CardContent>
@@ -149,3 +156,5 @@ export default function BrandPage() {
     </div>
   );
 }
+
+    

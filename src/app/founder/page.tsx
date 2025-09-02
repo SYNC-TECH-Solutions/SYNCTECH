@@ -67,7 +67,7 @@ const experiences = [
     {
         role: "Founder & E-Commerce Strategist",
         company: "Luxe Threads",
-        date: "2024",
+        date: "2024 - Present",
         points: [
             "Launched and managed an online fashion brand on WordPress/WooCommerce, handling everything from custom web development (HTML/CSS) to digital marketing strategy.",
             "Executed targeted SEO and Google Ads campaigns that increased organic traffic by 50% and lifted conversion rates by 25%, proving a strong grasp of the full e-commerce lifecycle.",

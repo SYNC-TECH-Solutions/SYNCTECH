@@ -110,7 +110,7 @@ export default function FounderPage() {
         <header className="grid md:grid-cols-3 gap-8 items-center mb-16">
             <div className="md:col-span-1 flex justify-center">
                  <Image 
-                  src="/dublinsync.png" 
+                  src="/founder.jpg" 
                   alt="Sheraz Hussain, founder of SYNC TECH" 
                   width={250} 
                   height={250} 

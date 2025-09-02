@@ -47,7 +47,7 @@ export const posts: Post[] = [
       <p>In a world where technology determines who thrives and who falls behind, <strong>SYNC TECH</strong> stands as a beacon for businesses seeking a reliable, high-quality, and cost-effective partner. They are more than just a service provider; they are a strategic ally committed to helping your business navigate the digital frontier.</p>
       <p>Ready to transform your business with cutting-edge technology? Get in touch with SYNC TECH today for a free, no-obligation consultation. Discuss your project, explore your options, and discover how our <strong>Global IT Solutions</strong> can help you achieve your goals.</p>
     `,
-    image: "https://placehold.co/800x400.png",
+    image: "/project/synctech.png",
     imageHint: "global technology"
   },
   {

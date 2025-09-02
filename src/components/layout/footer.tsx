@@ -41,6 +41,11 @@ export function Footer() {
                     Presentation
                   </Link>
                 </li>
+                 <li>
+                  <Link href="/brand" className="text-sm hover:text-primary transition-colors">
+                    Brand Guide
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>

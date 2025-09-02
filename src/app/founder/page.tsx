@@ -203,7 +203,7 @@ export default function FounderPage() {
                     <CardContent className="space-y-4">
                         {Object.entries(skills).map(([category, list]) => (
                             <div key={category}>
-                                <h3 className="font-semibold mb-2 text-sm">{category}</h3>
+                                <h3 className="font-semibold mb-2 text-sm text-primary">{category}</h3>
                                 <div className="flex flex-wrap gap-1.5">
                                     {list.map(skill => <Badge key={skill} variant="outline">{skill}</Badge>)}
                                 </div>
@@ -215,7 +215,7 @@ export default function FounderPage() {
                  {/* --- Certifications --- */}
                 <Card>
                     <CardHeader>
-                        <CardTitle className="flex items-center gap-2"><Award className="text-primary"/> Certificates</CardTitle>
+                        <CardTitle className="flex items-center gap-2"><Award className="text-primary"/> Certifications</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <ul className="space-y-2 text-sm text-muted-foreground">

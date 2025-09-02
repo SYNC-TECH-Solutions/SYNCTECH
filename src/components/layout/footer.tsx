@@ -42,8 +42,8 @@ export function Footer() {
                   </Link>
                 </li>
                  <li>
-                  <Link href="/brand" className="text-sm hover:text-primary transition-colors">
-                    Brand Guide
+                  <Link href="/guidelines-synctech" className="text-sm hover:text-primary transition-colors">
+                    SYNC TECH Guides
                   </Link>
                 </li>
               </ul>

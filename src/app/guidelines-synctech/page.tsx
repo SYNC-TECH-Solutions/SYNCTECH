@@ -67,7 +67,7 @@ export default function BrandPage() {
                   He built SYNC TECH not just as a service provider, but as a strategic partner for growth, championing a philosophy where cutting-edge technology in AI, cybersecurity, and cloud infrastructure serves as a powerful engine for businesses of all sizes, not just the giants. His leadership ensures that every project is infused with a commitment to tangible results, measurable ROI, and unwavering 24/7 client support.
                 </p>
                 <Button asChild>
-                    <Link href="/founder">
+                    <Link href="/SherazHussain_SYNCTECH">
                         View Founder's Full Portfolio <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                 </Button>

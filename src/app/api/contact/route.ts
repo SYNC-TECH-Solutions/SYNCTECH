@@ -1,6 +1,8 @@
 
 import { NextResponse } from 'next/server';
 import { contactFormSchema } from '@/lib/schemas';
+import { getFirebaseAdminApp } from '@/lib/firebase-admin';
+import { getFirestore } from 'firebase-admin/firestore';
 
 /**
  * API route handler for contact form submissions.
@@ -19,14 +21,27 @@ export async function POST(request: Request) {
     
     const { name, email, message } = validationResult.data;
 
-    // 2. Process the data (e.g., save to your database)
+    // 2. Process the data (save to your database)
     // =======================================================================
-    // TODO: Add your logic here to store the submission in your admin portal's database.
-    // For example, using Prisma, Supabase, or another database client.
-    console.log("New Contact Form Submission:");
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Message:", message);
+    // This example saves the submission to a Firebase Firestore collection.
+    // Ensure your Firebase Admin SDK is configured via environment variables.
+    const adminApp = getFirebaseAdminApp();
+    if (adminApp) {
+      const db = getFirestore(adminApp);
+      await db.collection('contactSubmissions').add({
+        name,
+        email,
+        message,
+        submittedAt: new Date(),
+      });
+    } else {
+        // Fallback for local development if Firebase isn't set up.
+        console.log("Firebase Admin not initialized. Logging to console instead.");
+        console.log("New Contact Form Submission:");
+        console.log("Name:", name);
+        console.log("Email:", email);
+        console.log("Message:", message);
+    }
     // =======================================================================
 
     // 3. Return a success response

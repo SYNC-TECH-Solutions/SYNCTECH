@@ -4,27 +4,16 @@
 import type { z } from 'zod';
 import { contactFormSchema } from '@/lib/schemas';
 import { validateContactForm } from '@/ai/flows/validate-contact-form';
-import { Resend } from 'resend';
-import { ContactFormEmail } from '@/components/emails/contact-form-email';
-import * as React from 'react';
 
 // --- Contact Form Action ---
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 const supportEmail = 'synctechire@gmail.com';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
 export async function submitContactForm(values: ContactFormValues) {
-  const resendApiKey = process.env.RESEND_API_KEY;
 
-  if (!resendApiKey) {
-    console.error('Resend API key is not configured.');
-    return {
-      success: false,
-      message: "The contact form is currently unavailable due to a server configuration issue. Please email us directly."
-    };
-  }
-
-  // AI Validation Step
+  // AI Validation Step (optional but recommended)
   try {
     const validation = await validateContactForm(values);
     if (!validation.isValid) {
@@ -36,43 +25,36 @@ export async function submitContactForm(values: ContactFormValues) {
     }
   } catch (error) {
     console.error('An unexpected error occurred during AI validation:', error);
-    return { 
-      success: false, 
-      message: "There was an issue validating your message. Please try again or email us directly at " + supportEmail
-    };
+    // We can choose to proceed even if validation fails, or return an error.
+    // For now, we'll log it and continue.
   }
 
-  // Email Sending Step
+  // --- API Submission Step ---
   try {
-    const resend = new Resend(resendApiKey);
-    
-    const { data, error } = await resend.emails.send({
-      from: `SYNC TECH Contact Form <onboarding@resend.dev>`,
-      to: [supportEmail],
-      subject: `New Message from ${values.name} via SYNC TECH Website`,
-      reply_to: values.email,
-      react: ContactFormEmail({
-        name: values.name,
-        email: values.email,
-        message: values.message,
-      }) as React.ReactElement,
-    });
+    const response = await fetch(`${siteUrl}/api/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
 
-    if (error) {
-      console.error('Resend API error:', error);
-      return { 
-        success: false, 
-        message: "We encountered an issue sending your message. Please try again or email us directly." 
-      };
+    if (!response.ok) {
+        const errorData = await response.json();
+        console.error('API submission error:', errorData);
+        return { 
+            success: false, 
+            message: errorData.message || "We encountered an issue submitting your message. Please try again."
+        };
     }
-
+    
     return { 
       success: true, 
       message: "Thank you for your message! We'll get back to you shortly." 
     };
 
   } catch (error) {
-    console.error('An unexpected error occurred while sending the email:', error);
+    console.error('An unexpected error occurred while submitting the form:', error);
     return { 
       success: false, 
       message: "An unexpected server error occurred. Please contact us directly at " + supportEmail

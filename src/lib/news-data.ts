@@ -11,6 +11,26 @@ export type NewsPost = {
 
 export const newsPosts: NewsPost[] = [
   {
+    title: "Announcing the Official Launch of SYNC TECH Solutions!",
+    slug: "sync-tech-official-launch",
+    date: "2024-09-18",
+    content: `<p>We are excited to officially announce the launch of SYNC TECH Solutions!</p>
+    <p>Founded by Sheraz Hussain, a Full-Stack Software Engineer & AI/Cloud Developer with First Class Honors, our mission is to deliver affordable, reliable, and cutting-edge technology solutions to businesses in Dublin, throughout Ireland, and worldwide.</p>
+    <p>Our core services include:</p>
+    <ul class="list-disc list-inside space-y-2 my-4">
+      <li><strong>AI & Automation:</strong> We build smart tools that streamline workflows and enhance efficiency.</li>
+      <li><strong>Web & Mobile Development:</strong> We create modern, scalable platforms tailored to your business needs.</li>
+      <li><strong>Cloud & DevOps:</strong> We provide secure, cost-optimized infrastructure and reliable hosting.</li>
+      <li><strong>Cybersecurity:</strong> We protect your business with advanced security practices and solutions.</li>
+      <li><strong>Digital Growth & SEO:</strong> We drive visibility and performance to make a real business impact.</li>
+    </ul>
+    <p>At SYNC TECH, we're committed to being a trusted partner on your digital transformation journey.</p>
+    <p>Learn how we can help your business grow at <a href="https://www.synctech.ie" class="text-primary hover:underline">www.synctech.ie</a>.</p>`,
+    image: "https://picsum.photos/seed/launch/800/400",
+    imageHint: "company launch",
+    hashtags: ["#SyncTech", "#TechSolutions", "#SoftwareDevelopment", "#AI", "#CloudComputing", "#Cybersecurity"],
+  },
+  {
     title: "SYNC TECH Launches New AI-Powered Analytics Platform",
     slug: "launch-of-ai-analytics-platform",
     date: "2024-09-15",

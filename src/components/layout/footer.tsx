@@ -9,7 +9,7 @@ const navItems = [
   { href: '/services', label: 'Services' },
   { href: '/portfolio', label: 'Portfolio' },
   { href: '/blog', label: 'Blog' },
-  { href: '/news-and-events', label: 'Feed' },
+  { href: '/news-and-events', label: 'SYNC TECH Feed' },
   { href: '/contact', label: 'Contact' },
 ];
 

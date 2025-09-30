@@ -22,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const newsRoutes = newsPosts.map((post) => ({
-    url: `${baseUrl}/the-sync-report/${post.slug}`,
+    url: `${baseUrl}/news-and-events/${post.slug}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.8,
@@ -62,7 +62,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...postRoutes,
     {
-      url: `${baseUrl}/the-sync-report`,
+      url: `${baseUrl}/news-and-events`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,

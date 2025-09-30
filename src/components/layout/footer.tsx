@@ -9,7 +9,7 @@ const navItems = [
   { href: '/services', label: 'Services' },
   { href: '/portfolio', label: 'Portfolio' },
   { href: '/blog', label: 'Blog' },
-  { href: '/the-sync-report', label: 'The SYNC Report' },
+  { href: '/news-and-events', label: 'Feed' },
   { href: '/contact', label: 'Contact' },
 ];
 

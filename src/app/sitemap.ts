@@ -2,6 +2,7 @@
 import { MetadataRoute } from 'next'
 import { posts } from '@/lib/posts';
 import { projects } from '@/lib/projects';
+import { newsPosts } from '@/lib/news-data';
  
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://synctech.ie';
@@ -18,6 +19,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.7,
+  }));
+
+  const newsRoutes = newsPosts.map((post) => ({
+    url: `${baseUrl}/news-and-events/${post.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
   }));
 
   return [
@@ -53,6 +61,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     ...postRoutes,
+    {
+      url: `${baseUrl}/news-and-events`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    ...newsRoutes,
     {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),

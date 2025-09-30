@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -20,7 +21,7 @@ export function SocialShareButtons({ title, slug }: SocialShareButtonsProps) {
 
   useEffect(() => {
     // Ensure this runs only on the client where `window` is available
-    const pageDirectory = pathname.split('/')[1]; // e.g., 'news-and-events' or 'the-sync-report'
+    const pageDirectory = pathname.startsWith('/the-sync-report') ? 'the-sync-report' : pathname.split('/')[1];
     const url = `${window.location.origin}/${pageDirectory}/${slug}`;
     setShareUrl(url);
   }, [slug, pathname]);

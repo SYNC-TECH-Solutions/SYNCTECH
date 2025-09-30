@@ -7,6 +7,7 @@ import { newsPosts } from '@/lib/news-data';
 import { SocialShareButtons } from '@/components/social-share-buttons';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 
 export const metadata: Metadata = {
   title: 'SYNC TECH Feed | Latest News & Updates from SYNC TECH',
@@ -58,6 +59,13 @@ export default function TheSyncReportPage() {
               )}
               <CardContent>
                 <div className="prose prose-sm dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: post.content }} />
+                {post.hashtags && post.hashtags.length > 0 && (
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {post.hashtags.map((tag) => (
+                      <Badge key={tag} variant="outline">{tag}</Badge>
+                    ))}
+                  </div>
+                )}
               </CardContent>
               <CardFooter className="flex justify-between items-center">
                  <Button asChild variant="outline" size="sm">

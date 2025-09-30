@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import { getPostBySlug, newsPosts } from '@/lib/news-data';
 import { SocialShareButtons } from '@/components/social-share-buttons';
+import { Badge } from '@/components/ui/badge';
 
 type Props = {
   params: { slug: string };
@@ -28,6 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.title,
     description: excerpt,
+    keywords: post.hashtags,
     openGraph: {
       title: post.title,
       description: excerpt,
@@ -94,6 +96,14 @@ export default function NewsPostPage({ params }: { params: { slug: string } }) {
           className="prose dark:prose-invert max-w-none mx-auto mb-12"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
+
+        {post.hashtags && post.hashtags.length > 0 && (
+          <div className="mb-8 flex flex-wrap gap-2">
+            {post.hashtags.map((tag) => (
+              <Badge key={tag} variant="secondary">{tag}</Badge>
+            ))}
+          </div>
+        )}
 
         <div className="border-t pt-8 flex items-center justify-between">
             <p className="text-sm font-semibold">Share this post:</p>

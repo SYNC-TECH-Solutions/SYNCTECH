@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: post.title,
       description: excerpt,
       type: 'article',
-      url: `${siteUrl}/news-and-events/${post.slug}`,
+      url: `${siteUrl}/the-sync-report/${post.slug}`,
       images: post.image ? [
         {
           url: post.image,
@@ -62,9 +62,9 @@ export default function NewsPostPage({ params }: { params: { slug: string } }) {
       <div className="container max-w-4xl">
         <div className="mb-8">
             <Button asChild variant="outline">
-                <Link href="/news-and-events">
+                <Link href="/the-sync-report">
                     <ArrowLeft className="mr-2 h-4 w-4" />
-                    Back to News & Events
+                    Back to The SYNC Report
                 </Link>
             </Button>
         </div>

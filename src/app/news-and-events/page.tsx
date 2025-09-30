@@ -8,11 +8,11 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'News & Events | SYNC TECH',
+  title: 'The SYNC Report | Latest News & Updates from SYNC TECH',
   description: 'Stay up-to-date with the latest news, announcements, and events from SYNC TECH. Discover our recent achievements, product launches, and industry insights.',
 };
 
-export default function NewsAndEventsPage() {
+export default function TheSyncReportPage() {
   // Sort posts by date in descending order
   const sortedPosts = [...newsPosts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
@@ -20,7 +20,7 @@ export default function NewsAndEventsPage() {
     <div className="py-20 md:py-28 bg-secondary">
       <div className="container max-w-4xl">
         <header className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">News & Events</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">The SYNC Report</h1>
           <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
             The latest announcements, updates, and insights from the team at SYNC TECH.
           </p>
@@ -31,7 +31,7 @@ export default function NewsAndEventsPage() {
             <Card key={post.slug} className="bg-card">
               <CardHeader>
                 <CardTitle>
-                  <Link href={`/news-and-events/${post.slug}`} className="hover:text-primary transition-colors">
+                  <Link href={`/the-sync-report/${post.slug}`} className="hover:text-primary transition-colors">
                     {post.title}
                   </Link>
                 </CardTitle>
@@ -41,7 +41,7 @@ export default function NewsAndEventsPage() {
               </CardHeader>
               {post.image && (
                 <CardContent>
-                  <Link href={`/news-and-events/${post.slug}`}>
+                  <Link href={`/the-sync-report/${post.slug}`}>
                     <div className="aspect-video overflow-hidden rounded-lg border">
                       <Image
                         src={post.image}
@@ -60,7 +60,7 @@ export default function NewsAndEventsPage() {
               </CardContent>
               <CardFooter className="flex justify-between items-center">
                  <Button asChild variant="outline" size="sm">
-                    <Link href={`/news-and-events/${post.slug}`}>
+                    <Link href={`/the-sync-report/${post.slug}`}>
                         Read More <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                 </Button>

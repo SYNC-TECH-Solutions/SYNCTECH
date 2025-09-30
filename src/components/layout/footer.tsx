@@ -9,7 +9,7 @@ const navItems = [
   { href: '/services', label: 'Services' },
   { href: '/portfolio', label: 'Portfolio' },
   { href: '/blog', label: 'Blog' },
-  { href: '/news-and-events', label: 'News & Events' },
+  { href: '/the-sync-report', label: 'The SYNC Report' },
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -113,7 +113,7 @@ export function Footer() {
             </div>
         </div>
         <div className="mt-8 border-t pt-8 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} SYNC TECH. All rights reserved. | <Link href="/privacy-policy" className="hover:text-primary">Privacy Policy</Link> | <Link href="/terms-and-conditions" className="hover:text-primary">Terms & Conditions</Link></p>
+          <p>&copy; {new Date().getFullYear()} SYNC TECH. All rights reserved. | <Link href="/privacy-policy" className="hover:text-primary">Privacy Policy</Link> | <Link href="/terms-and-conditions" className="hover:text-primary">Terms &amp; Conditions</Link></p>
         </div>
       </div>
     </footer>

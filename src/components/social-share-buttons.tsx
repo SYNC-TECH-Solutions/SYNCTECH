@@ -6,6 +6,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Twitter, Facebook, Linkedin, Link as LinkIcon } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
 import { Input } from './ui/input';
+import { usePathname } from 'next/navigation';
 
 interface SocialShareButtonsProps {
   title: string;
@@ -14,13 +15,15 @@ interface SocialShareButtonsProps {
 
 export function SocialShareButtons({ title, slug }: SocialShareButtonsProps) {
   const { toast } = useToast();
+  const pathname = usePathname();
   const [shareUrl, setShareUrl] = useState('');
 
   useEffect(() => {
     // Ensure this runs only on the client where `window` is available
-    const url = `${window.location.origin}/news-and-events/${slug}`;
+    const pageDirectory = pathname.split('/')[1]; // e.g., 'news-and-events' or 'the-sync-report'
+    const url = `${window.location.origin}/${pageDirectory}/${slug}`;
     setShareUrl(url);
-  }, [slug]);
+  }, [slug, pathname]);
 
   const encodedTitle = encodeURIComponent(title);
 

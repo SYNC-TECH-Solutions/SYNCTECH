@@ -1,41 +1,32 @@
-/**
- * @fileoverview Firestore Security Rules for Contact Form Submissions.
- *
- * Core Philosophy:
- * This ruleset allows unauthenticated users to submit contact form data to the `contactFormSubmissions` collection.
- * All reads are denied to prevent public listing of submissions.
- *
- * Data Structure:
- * All contact form submissions are stored in the top-level `/contactFormSubmissions/{contactFormSubmissionId}` collection.
- *
- * Key Security Decisions:
- * - Unauthenticated writes are allowed for the contact form, but all reads are forbidden.
- * - Schema enforcement is relaxed in the prototyping phase to allow for rapid iteration.
- *
- * Denormalization for Authorization:
- *  N/A - No authorization is required for creating submissions.
- *
- * Structural Segregation:
- * N/A - There is no separation between public and private data.
- */
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-
     /**
-     * @description Protects the contactFormSubmissions collection. Allows anyone to create a submission, but denies all reads.
-     * @path /contactFormSubmissions/{contactFormSubmissionId}
-     * @allow (create) - Any unauthenticated user can submit a contact form.
-     * @deny (get, list) - No one can read the submissions.
-     * @deny (update, delete) - No one can update or delete submissions.
-     * @principle Allows unauthenticated submissions but prevents reading them.
+     * @description This ruleset allows public read access to contact form submissions, but restricts write access to authenticated users.
+     * Contact form submissions are stored in the `/contactform/{contactFormId}` collection.
+     * @path /contactform/{contactFormId}
+     * @allow (get, list) Public read access is allowed.
+     * @allow (create) Allows creation if the 'id' field matches the document ID.
+     * @allow (update, delete) Allows only authenticated users to update or delete existing submissions.
+     * @deny (create) Denies creation if the 'id' field does not match the document ID.
+     * @deny (update, delete) Denies unauthenticated users from updating or deleting submissions.
+     * @principle Public read access, authenticated write access with ID validation.
      */
-    match /contactFormSubmissions/{contactFormSubmissionId} {
-      allow get: if false;
-      allow list: if false;
-      allow create: if true;
-      allow update: if false;
-      allow delete: if false;
+    match /contactform/{contactFormId} {
+      // Allow anyone to read contact form submissions.
+      allow get, list: if true;
+
+      // Allow creation of contact form submissions if the ID matches the document ID and the user is signed in.
+      allow create: if isSignedIn() && request.resource.data.id == contactFormId;
+
+      // Allow updates and deletes only if the user is signed in and the document exists.
+      allow update, delete: if isSignedIn() && resource != null;
+
+    }
+
+    // Define helper functions
+    function isSignedIn() {
+      return request.auth != null;
     }
   }
 }

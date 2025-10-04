@@ -6,6 +6,8 @@ import { contactFormSchema } from '@/lib/schemas';
 import { validateContactForm } from '@/ai/flows/validate-contact-form';
 import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { initializeFirebase } from '@/firebase';
+import { errorEmitter } from '@/firebase/error-emitter';
+import { FirestorePermissionError } from '@/firebase/errors';
 
 // --- Contact Form Action ---
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
@@ -14,16 +16,24 @@ const supportEmail = 'synctechire@gmail.com';
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
 async function saveSubmissionToFirestore(values: ContactFormValues) {
-  try {
     const { firestore } = initializeFirebase();
-    await addDoc(collection(firestore, "contactform"), {
+    const contactFormCollection = collection(firestore, "contactform");
+    
+    addDoc(contactFormCollection, {
       ...values,
       submissionDate: serverTimestamp(),
+    }).catch(error => {
+        console.error('Error saving contact form submission to Firestore:', error);
+        // Non-blocking error emission for debugging in development
+        errorEmitter.emit(
+          'permission-error',
+          new FirestorePermissionError({
+            path: contactFormCollection.path,
+            operation: 'create',
+            requestResourceData: values,
+          })
+        )
     });
-  } catch (error) {
-    console.error('Error saving contact form submission to Firestore:', error);
-    // We won't block the user for this, just log the error.
-  }
 }
 
 export async function submitContactForm(values: ContactFormValues) {
@@ -42,7 +52,7 @@ export async function submitContactForm(values: ContactFormValues) {
     console.error('An unexpected error occurred during AI validation:', error);
   }
 
-  // --- Save to Firestore ---
+  // --- Save to Firestore (non-blocking) ---
   await saveSubmissionToFirestore(values);
   
   // --- API Submission for Email ---

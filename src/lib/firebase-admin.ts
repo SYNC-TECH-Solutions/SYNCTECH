@@ -1,19 +1,34 @@
 
 import * as admin from 'firebase-admin';
 
-// This file is kept for legacy purposes but should not be used for new development.
-// The @genkit-ai/firebase/admin package provides a pre-initialized admin instance.
+// This file provides a utility function to get the Firebase Admin App instance.
+// It ensures that the app is initialized only once.
 
-/**
- * @deprecated Use the admin export from '@genkit-ai/firebase/admin' instead.
- * This function is no longer the recommended way to get the Firebase Admin App instance.
- */
 export function getFirebaseAdminApp() {
   if (admin.apps.length > 0) {
-    return admin.app();
+    return admin.apps[0]!;
   }
-  
-  console.warn('getFirebaseAdminApp is deprecated and should not be used. It may not be properly initialized.');
-  
-  return undefined;
+
+  // If the service account key is stored in an environment variable,
+  // Firebase Admin SDK can automatically parse it.
+  if (process.env.FIREBASE_SERVICE_ACCOUNT_KEY) {
+      try {
+        const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY);
+        return admin.initializeApp({
+          credential: admin.credential.cert(serviceAccount),
+        });
+      } catch (e) {
+         console.error("Failed to parse FIREBASE_SERVICE_ACCOUNT_KEY. Make sure it's a valid JSON string.", e);
+         throw new Error("Firebase Admin SDK initialization failed due to invalid service account key.");
+      }
+  }
+
+  // Fallback for other environments (like local dev with a file path)
+  // or if automatic initialization is preferred.
+  try {
+    return admin.initializeApp();
+  } catch (e) {
+    console.error("Failed to initialize Firebase Admin SDK automatically.", e);
+    throw new Error("Firebase Admin SDK initialization failed.");
+  }
 }

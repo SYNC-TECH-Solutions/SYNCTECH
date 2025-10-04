@@ -3,14 +3,16 @@ import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { contactFormSchema } from '@/lib/schemas';
 import { ContactFormEmail } from '@/components/emails/contact-form-email';
-import { admin } from '@genkit-ai/firebase/admin';
+import { getFirebaseAdminApp } from '@/lib/firebase-admin';
+import { getFirestore } from 'firebase-admin/firestore';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const supportEmail = 'synctechire@gmail.com';
 
 async function saveSubmissionToFirestore(values: { name: string; email: string; message: string; }) {
     try {
-        const firestore = admin.firestore();
+        const adminApp = getFirebaseAdminApp();
+        const firestore = getFirestore(adminApp);
         const contactFormCollection = firestore.collection("contactFormSubmissions");
         await contactFormCollection.add({
           ...values,

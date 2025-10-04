@@ -10,6 +10,7 @@ import { Suspense } from 'react';
 import Script from 'next/script';
 import { Toaster } from '@/components/ui/toaster';
 import { FloatingCta } from '@/components/floating-cta';
+import { FirebaseClientProvider } from '@/firebase/client-provider';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -120,14 +121,16 @@ export default function RootLayout({
             src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" 
             async 
           />
-          <Header />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-          <Toaster />
-          <FloatingCta />
-          <Suspense fallback={null}>
-            <Analytics />
-          </Suspense>
+          <FirebaseClientProvider>
+            <Header />
+            <main className="flex-grow">{children}</main>
+            <Footer />
+            <Toaster />
+            <FloatingCta />
+            <Suspense fallback={null}>
+              <Analytics />
+            </Suspense>
+          </FirebaseClientProvider>
       </body>
     </html>
   );

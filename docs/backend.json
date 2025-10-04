@@ -1,3 +1,4 @@
+
 {
   "entities": {
     "ContactFormSubmission": {
@@ -49,24 +50,11 @@
     ]
   },
   "firestore": {
-    "structure": [
-      {
-        "path": "/contactFormSubmissions/{contactFormSubmissionId}",
-        "definition": {
-          "entityName": "ContactFormSubmission",
-          "schema": {
-            "$ref": "#/backend/entities/ContactFormSubmission"
-          },
-          "description": "Stores contact form submissions. The 'contactFormSubmissionId' is a unique identifier for each submission.",
-          "params": [
-            {
-              "name": "contactFormSubmissionId",
-              "description": "Unique identifier for the contact form submission."
-            }
-          ]
-        }
-      }
-    ],
-    "reasoning": "The Firestore data structure is designed to store contact form submissions from the Sync Tech Solutions website. A single collection, `contactFormSubmissions`, is used to store all submissions. Each document in this collection represents a single submission, containing fields for the submitter's name, email, message, submission date, and AI analysis results. The structure supports straightforward querying and retrieval of contact form data.\n\nThis structure simplifies security rules as all documents within the `contactFormSubmissions` collection share the same access requirements. There is no need for complex authorization logic. This design facilitates efficient listing operations (QAPs) as all submissions are stored in a single collection, enabling simple queries to retrieve and display the data.\n\nAuthorization Independence: While the original design does not require user-specific data segregation (no user authentication is required for form submission), we can include an optional `userId` field if authentication is later implemented. For now, all submissions are treated equally, without reliance on data outside the document itself."
+    "/contactform/{contactFormId}": {
+      "schema": {
+        "$ref": "#/backend/entities/ContactFormSubmission"
+      },
+      "description": "Stores contact form submissions. The 'contactFormId' is a unique identifier for each submission."
+    }
   }
 }

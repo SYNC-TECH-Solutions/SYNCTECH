@@ -4,10 +4,8 @@
 import type { z } from 'zod';
 import { contactFormSchema } from '@/lib/schemas';
 import { validateContactForm } from '@/ai/flows/validate-contact-form';
-import { getFirebaseAdminApp } from '@/lib/firebase-admin';
 import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { initializeApp, getApps } from 'firebase/app';
-import { firebaseConfig } from '@/firebase/config';
+import { initializeFirebase } from '@/firebase';
 
 // --- Contact Form Action ---
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
@@ -17,26 +15,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
 async function saveSubmissionToFirestore(values: ContactFormValues) {
   try {
-    const adminApp = getFirebaseAdminApp();
-    if (!adminApp) {
-        console.log("Firebase Admin App not initialized. Skipping Firestore save.");
-        // Fallback to client-side SDK if admin is not available
-        if (!getApps().length) {
-            initializeApp(firebaseConfig);
-        }
-        const db = getFirestore();
-        await addDoc(collection(db, "contactFormSubmissions"), {
-          ...values,
-          submissionDate: serverTimestamp(),
-        });
-
-    } else {
-        const adminDb = admin.firestore();
-        await adminDb.collection('contactFormSubmissions').add({
-        ...values,
-        submissionDate: admin.firestore.FieldValue.serverTimestamp(),
-        });
-    }
+    const { firestore } = initializeFirebase();
+    await addDoc(collection(firestore, "contactform"), {
+      ...values,
+      submissionDate: serverTimestamp(),
+    });
   } catch (error) {
     console.error('Error saving contact form submission to Firestore:', error);
     // We won't block the user for this, just log the error.

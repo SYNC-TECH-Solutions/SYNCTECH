@@ -1,0 +1,72 @@
+{
+  "entities": {
+    "ContactFormSubmission": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "ContactFormSubmission",
+      "type": "object",
+      "description": "Represents a contact form submission from the website.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the contact form submission."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the person submitting the form."
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address of the person submitting the form.",
+          "format": "email"
+        },
+        "message": {
+          "type": "string",
+          "description": "The message content from the contact form."
+        },
+        "submissionDate": {
+          "type": "string",
+          "description": "Date and time when the form was submitted.",
+          "format": "date-time"
+        },
+        "aiAnalysisResult": {
+          "type": "string",
+          "description": "Result of AI analysis on the submission, including validation and error detection."
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "email",
+        "message",
+        "submissionDate"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/contactFormSubmissions/{contactFormSubmissionId}",
+        "definition": {
+          "entityName": "ContactFormSubmission",
+          "schema": {
+            "$ref": "#/backend/entities/ContactFormSubmission"
+          },
+          "description": "Stores contact form submissions. The 'contactFormSubmissionId' is a unique identifier for each submission.",
+          "params": [
+            {
+              "name": "contactFormSubmissionId",
+              "description": "Unique identifier for the contact form submission."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore data structure is designed to store contact form submissions from the Sync Tech Solutions website. A single collection, `contactFormSubmissions`, is used to store all submissions. Each document in this collection represents a single submission, containing fields for the submitter's name, email, message, submission date, and AI analysis results. The structure supports straightforward querying and retrieval of contact form data.\n\nThis structure simplifies security rules as all documents within the `contactFormSubmissions` collection share the same access requirements. There is no need for complex authorization logic. This design facilitates efficient listing operations (QAPs) as all submissions are stored in a single collection, enabling simple queries to retrieve and display the data.\n\nAuthorization Independence: While the original design does not require user-specific data segregation (no user authentication is required for form submission), we can include an optional `userId` field if authentication is later implemented. For now, all submissions are treated equally, without reliance on data outside the document itself."
+  }
+}

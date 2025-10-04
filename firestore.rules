@@ -1,0 +1,41 @@
+/**
+ * @fileoverview Firestore Security Rules for Contact Form Submissions.
+ *
+ * Core Philosophy:
+ * This ruleset allows unauthenticated users to submit contact form data to the `contactFormSubmissions` collection.
+ * All reads are denied to prevent public listing of submissions.
+ *
+ * Data Structure:
+ * All contact form submissions are stored in the top-level `/contactFormSubmissions/{contactFormSubmissionId}` collection.
+ *
+ * Key Security Decisions:
+ * - Unauthenticated writes are allowed for the contact form, but all reads are forbidden.
+ * - Schema enforcement is relaxed in the prototyping phase to allow for rapid iteration.
+ *
+ * Denormalization for Authorization:
+ *  N/A - No authorization is required for creating submissions.
+ *
+ * Structural Segregation:
+ * N/A - There is no separation between public and private data.
+ */
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    /**
+     * @description Protects the contactFormSubmissions collection. Allows anyone to create a submission, but denies all reads.
+     * @path /contactFormSubmissions/{contactFormSubmissionId}
+     * @allow (create) - Any unauthenticated user can submit a contact form.
+     * @deny (get, list) - No one can read the submissions.
+     * @deny (update, delete) - No one can update or delete submissions.
+     * @principle Allows unauthenticated submissions but prevents reading them.
+     */
+    match /contactFormSubmissions/{contactFormSubmissionId} {
+      allow get: if false;
+      allow list: if false;
+      allow create: if true;
+      allow update: if false;
+      allow delete: if false;
+    }
+  }
+}

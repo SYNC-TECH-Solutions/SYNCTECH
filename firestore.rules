@@ -1,48 +1,171 @@
 /**
- * @fileoverview Firestore Security Rules for the Contact Form Submissions collection.
+ * @fileOverview Firestore Security Rules for Aptly Dressed eBoutique.
  *
  * Core Philosophy:
- * This ruleset allows public reads for all contact form submissions, but restricts write access (create, update, delete) to authenticated users.
+ * This ruleset enforces a strict user-ownership model for consumer data and
+ * public read access for product information. All write operations on user-owned
+ * data require authentication and authorization checks to ensure data privacy.
  *
  * Data Structure:
- * Contact form submissions are stored in the `/contactform/{contactFormId}` collection, where `contactFormId` is a unique identifier.
+ * - /products/{productId}: Publicly readable product information.
+ * - /consumers/{consumerId}: User account information, accessible only to the
+ *   authenticated user with matching UID.
+ * - /consumers/{consumerId}/orders/{orderId}: Order information for a specific
+ *   user, accessible only to the
+ *   authenticated user with matching UID.
+ * - /orders_items/{orderItemId}: Order items.
+ * - /products/{productId}/reviews/{reviewId}: Reviews for products.
+ * - /subscribers/{subscriberId}: Newsletter subscribers.
+ * - /notify-me/{notificationId}: "Coming Soon" notification sign-ups.
+ * - /contact-inquiries/{inquiryId}: Contact form submissions.
  *
  * Key Security Decisions:
- * - Public Read: All users, including unauthenticated ones, can read the contact form submissions (`get` and `list`).
- * - Authenticated Writes: Only authenticated users can create, update, or delete contact form submissions.  No role-based access control is implemented.
- * - No Listing for Authenticated Users:  Authenticated users cannot list all contact form submissions.
+ * - Consumers can only access their own data (orders, profile).
+ * - Products are publicly readable but not writable via client SDKs.
+ * - Listing of consumers is disallowed.
+ * - Subscribers can be created by unauthenticated users via callable functions.
+ * - Contact form submissions are publicly accessible for creation, but not for listing, getting, updating, or deleting.
  *
  * Denormalization for Authorization:
- * The `ContactFormSubmission` entity lacks an `ownerId` field.  In order to secure write operations, authentication is required.
+ *  - The data model follows a strict containment model. The User ID is reflected on all child documents of the User (eg: Orders).
+ *  - Where public read is allowed, ownership is enforced through a dedicated 'ownerId' field on the document.
  */
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
     /**
-     * @description Secures the `/contactform/{contactFormId}` collection. Allows public reads, but requires authentication for writes.
-     * @path /contactform/{contactFormId}
-     * @allow (get, list) Allows any user to read contact form submissions.
-     * @allow (create) Allows any authenticated user to create a contact form submission.
-     * @deny (create) Denies unauthenticated users from creating contact form submissions.
-     * @allow (update) Allows any authenticated user to update a contact form submission.
-     * @deny (update) Denies unauthenticated users from updating contact form submissions.
-     * @allow (delete) Allows any authenticated user to delete a contact form submission.
-     * @deny (delete) Denies unauthenticated users from deleting contact form submissions.
-     * @principle Allows public reads, but restricts writes to authenticated users.
+     * @description Checks if the request is authenticated.
+     * @returns {boolean} True if the request is authenticated, false otherwise.
      */
-    match /contactform/{contactFormId} {
-      allow get: if true;
-      allow list: if true;
-
-      allow create: if isSignedIn();
-      allow update: if isSignedIn() && resource != null;
-      allow delete: if isSignedIn() && resource != null;
-    }
-
-    // Helper function to determine if a user is signed in
     function isSignedIn() {
       return request.auth != null;
+    }
+
+    /**
+     * @description Checks if the authenticated user is the owner of the resource.
+     * @param {string} userId - The user ID to compare against the authenticated user's UID.
+     * @returns {boolean} True if the authenticated user is the owner, false otherwise.
+     */
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    /**
+     * @description Checks if the authenticated user is the owner of the existing resource.
+     * @param {string} userId - The user ID to compare against the authenticated user's UID.
+     * @returns {boolean} True if the authenticated user is the owner and the resource exists, false otherwise.
+     */
+    function isExistingOwner(userId) {
+      return isOwner(userId) && resource != null;
+    }
+
+    /**
+     * @description Rules for the /products collection.
+     * @path /products/{productId}
+     * @allow (get, list): Any user can read product information.
+     * @deny (create, update, delete): No client-side writes allowed; products managed via backend.
+     * @principle Public read, backend-managed writes.
+     */
+    match /products/{productId} {
+      allow get, list: if true;
+      allow create, update, delete: if false;
+    }
+
+    /**
+     * @description Rules for the /consumers collection.
+     * @path /consumers/{consumerId}
+     * @allow (get): Only the authenticated user with matching UID can read their own profile.
+     * @allow (create): Only the authenticated user can create their own profile (UID must match).
+     * @allow (update, delete): Only the authenticated user with matching UID can update/delete their own profile.
+     * @deny (list): Listing consumers is not allowed.
+     * @deny (create): Creating a consumer with an ID that does not match the authenticated user's UID is prohibited.
+     * @principle Enforces document ownership for reads and writes.
+     */
+    match /consumers/{consumerId} {
+      allow get: if isOwner(consumerId);
+      allow list: if false;
+      allow create: if isOwner(consumerId) && request.resource.data.id == consumerId;
+      allow update: if isExistingOwner(consumerId) && request.resource.data.id == resource.data.id;
+      allow delete: if isExistingOwner(consumerId);
+    }
+
+    /**
+     * @description Rules for the /consumers/{consumerId}/orders collection.
+     * @path /consumers/{consumerId}/orders/{orderId}
+     * @allow (get, list): Only the authenticated user with matching UID can read their own orders.
+     * @allow (create): Only the authenticated user with matching UID can create orders under their profile.
+     * @allow (update, delete): Only the authenticated user with matching UID can update/delete their own orders.
+     * @deny (create): Creating an order with a userId that does not match the authenticated user's UID is prohibited.
+     * @principle Enforces document ownership for reads and writes.
+     */
+    match /consumers/{consumerId}/orders/{orderId} {
+      allow get, list: if isOwner(consumerId);
+      allow create: if isOwner(consumerId) && request.resource.data.userId == consumerId;
+      allow update: if isExistingOwner(consumerId) && request.resource.data.userId == resource.data.userId;
+      allow delete: if isExistingOwner(consumerId);
+    }
+
+    /**
+     * @description Rules for the /orders_items collection.
+     * @path /orders_items/{orderItemId}
+     * @allow (get, list): Public read access for order items.
+     * @allow (create, update, delete): No client-side writes allowed; order items managed via backend.
+     * @principle Public read, backend-managed writes.
+     */
+    match /orders_items/{orderItemId} {
+      allow get, list: if true;
+      allow create, update, delete: if false;
+    }
+
+    /**
+     * @description Rules for the /products/{productId}/reviews collection.
+     * @path /products/{productId}/reviews/{reviewId}
+     * @allow (get, list): Public read access for reviews.
+     * @allow (create): Any authenticated user can create a review.
+     * @allow (update, delete): Only the owner (creator) of the review can update/delete it.
+     * @principle Public read, owner-only writes.
+     */
+    match /products/{productId}/reviews/{reviewId} {
+      allow get, list: if true;
+      allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
+      allow update: if isExistingOwner(resource.data.userId);
+      allow delete: if isExistingOwner(resource.data.userId);
+    }
+
+    /**
+     * @description Rules for the /subscribers collection.
+     * @path /subscribers/{subscriberId}
+     * @allow (create): Allows anyone to create a subscriber.
+     * @deny (get, list, update, delete): No client-side read, update, or delete access for subscribers.
+     * @principle: Public creation via callable functions, backend management only.
+     */
+    match /subscribers/{subscriberId} {
+      allow get, list, update, delete: if false;
+      allow create: if true;
+    }
+
+    /**
+     * @description Rules for the /notify-me collection (for "Coming Soon" page sign-ups).
+     * @path /notify-me/{notificationId}
+     * @allow (create): Allows anyone to create a notification request.
+     * @deny (get, list, update, delete): No client-side read, update, or delete access.
+     */
+    match /notify-me/{notificationId} {
+      allow get, list, update, delete: if false;
+      allow create: if true;
+    }
+
+    /**
+     * @description Rules for the /contact-inquiries collection.
+     * @path /contact-inquiries/{inquiryId}
+     * @allow (create): Allows anyone to create a contact inquiry.
+     * @deny (get, list, update, delete): No client-side read, update, or delete access.
+     * @principle: Public creation, backend management only.
+     */
+    match /contact-inquiries/{inquiryId} {
+      allow get, list, update, delete: if false;
+      allow create: if true;
     }
   }
 }

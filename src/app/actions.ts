@@ -4,8 +4,6 @@
 import type { z } from 'zod';
 import { contactFormSchema } from '@/lib/schemas';
 import { validateContactForm } from '@/ai/flows/validate-contact-form';
-import { getFirebaseAdminApp } from '@/lib/firebase-admin';
-import { getFirestore } from 'firebase-admin/firestore';
 
 // --- Contact Form Action ---
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
@@ -13,27 +11,6 @@ export type ContactFormValues = z.infer<typeof contactFormSchema>;
 const supportEmail = 'synctechire@gmail.com';
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
-async function saveSubmissionToFirestore(values: ContactFormValues) {
-    const adminApp = getFirebaseAdminApp();
-    if (!adminApp) {
-        console.error("Firebase Admin SDK is not initialized. Cannot save to Firestore.");
-        // We will still proceed to send the email
-        return;
-    }
-
-    try {
-        const firestore = getFirestore(adminApp);
-        const contactFormCollection = firestore.collection("contactform");
-        await contactFormCollection.add({
-          ...values,
-          submissionDate: new Date(), // Use server date
-        });
-    } catch (error) {
-        console.error('Error saving contact form submission to Firestore:', error);
-        // This is a server-side error, it should be logged.
-        // We don't want to block the user email from being sent.
-    }
-}
 
 export async function submitContactForm(values: ContactFormValues) {
 
@@ -49,12 +26,10 @@ export async function submitContactForm(values: ContactFormValues) {
     }
   } catch (error) {
     console.error('An unexpected error occurred during AI validation:', error);
+    // Don't block submission for AI errors
   }
 
-  // --- Save to Firestore (non-blocking on the client, but awaited on server) ---
-  await saveSubmissionToFirestore(values);
-  
-  // --- API Submission for Email ---
+  // --- API Submission for Firestore & Email ---
   try {
     const response = await fetch(`${siteUrl}/api/contact`, {
         method: 'POST',

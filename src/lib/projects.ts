@@ -13,7 +13,7 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "APTLY DRESSED - AI-Powered Fashion Curation",
+    title: "APTLY DRESSED - An Affiliate marketing solution for fashion brands",
     slug: "aptly-dressed-ai-fashion-curation",
     excerpt: "Launched a sophisticated, content-driven fashion affiliate aggregator offering expertly curated, complete outfit solutions with AI.",
     description: "Developed and launched APTLY DRESSED, a sophisticated, content-driven fashion affiliate aggregator. This platform solves the fragmented online shopping experience by offering expertly curated, complete outfit solutions from a variety of partner brands. It provides a seamless, high-end user journey, moving from style inspiration on our platform to purchase on trusted brand websites. The site is built to be exceptionally fast, secure, and powered by AI for personalized recommendations.",

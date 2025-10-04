@@ -19,7 +19,7 @@ async function saveSubmissionToFirestore(values: { name: string; email: string; 
 
     try {
         const firestore = getFirestore(adminApp);
-        const contactFormCollection = firestore.collection("contactform");
+        const contactFormCollection = firestore.collection("contact-submissions");
         await contactFormCollection.add({
           ...values,
           submissionDate: new Date(),
@@ -37,7 +37,6 @@ async function saveSubmissionToGoogleSheet(values: { name: string; email: string
     }
 
     try {
-        // Directly parse the JSON string from the environment variable
         const credentials = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_KEY_JSON);
 
         const auth = new google.auth.GoogleAuth({
@@ -47,13 +46,13 @@ async function saveSubmissionToGoogleSheet(values: { name: string; email: string
 
         const sheets = google.sheets({ version: 'v4', auth });
         const spreadsheetId = process.env.GOOGLE_SHEET_ID;
-        const range = 'Sheet1!A:C'; // Assuming data is in columns A, B, C of 'Sheet1'
+        const range = 'Sheet1!A:D'; 
 
         const newRow = [
             values.name,
             values.email,
             values.message,
-            new Date().toISOString(), // Optional: Add a timestamp
+            new Date().toISOString(),
         ];
 
         await sheets.spreadsheets.values.append({
@@ -66,7 +65,6 @@ async function saveSubmissionToGoogleSheet(values: { name: string; email: string
         });
     } catch (error) {
          console.error('Error saving contact form submission to Google Sheets:', error);
-         // Log the error but don't block the overall form submission process
     }
 }
 
@@ -82,14 +80,12 @@ export async function POST(request: Request) {
     
     const { name, email, message } = validationResult.data;
     
-    // Non-blocking parallel submissions
     await Promise.all([
         saveSubmissionToFirestore({ name, email, message }),
         saveSubmissionToGoogleSheet({ name, email, message })
     ]);
 
 
-    // Handle email sending
     if (!process.env.RESEND_API_KEY) {
         console.log("RESEND_API_KEY is not set. Logging to console instead.");
         console.log("New Contact Form Submission:", { name, email, message });

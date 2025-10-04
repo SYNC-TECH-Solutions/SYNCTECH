@@ -1,32 +1,36 @@
+/**
+ * @file Firestore Security Rules
+ * @description This ruleset secures the 'contactform' collection.
+ *
+ * Core Philosophy:
+ *   This ruleset enforces public read access while restricting write access to authenticated users.
+ *   It is designed for prototyping and allows flexible data shapes.
+ *
+ * Data Structure:
+ *   Data is stored in the /contactform/{contactFormId} collection.
+ *   Each document represents a contact form submission.
+ *
+ * Key Security Decisions:
+ *   - Public read access is granted to allow anyone to view contact form submissions.
+ *   - Write access (create, update, delete) is denied for all users, including authenticated ones, as there is no concept of ownership or roles in the provided schema.
+ *
+ * Denormalization for Authorization: N/A (No ownership or roles)
+ * Structural Segregation: N/A (Single collection for all submissions)
+ */
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+
     /**
-     * @description This ruleset allows public read access to contact form submissions, but restricts write access to authenticated users.
-     * Contact form submissions are stored in the `/contactform/{contactFormId}` collection.
+     * @description Allows anyone to read contact form submissions, but restricts write access to authenticated users.
      * @path /contactform/{contactFormId}
-     * @allow (get, list) Public read access is allowed.
-     * @allow (create) Allows creation if the 'id' field matches the document ID.
-     * @allow (update, delete) Allows only authenticated users to update or delete existing submissions.
-     * @deny (create) Denies creation if the 'id' field does not match the document ID.
-     * @deny (update, delete) Denies unauthenticated users from updating or deleting submissions.
-     * @principle Public read access, authenticated write access with ID validation.
+     * @allow (get, list) - Any user can read contact form submissions.
+     * @deny (create, update, delete) - No one can create, update, or delete contact form submissions.
+     * @principle Public read, restricted write.
      */
     match /contactform/{contactFormId} {
-      // Allow anyone to read contact form submissions.
       allow get, list: if true;
-
-      // Allow creation of contact form submissions if the ID matches the document ID and the user is signed in.
-      allow create: if isSignedIn() && request.resource.data.id == contactFormId;
-
-      // Allow updates and deletes only if the user is signed in and the document exists.
-      allow update, delete: if isSignedIn() && resource != null;
-
-    }
-
-    // Define helper functions
-    function isSignedIn() {
-      return request.auth != null;
+      allow create, update, delete: if false;
     }
   }
 }

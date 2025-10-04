@@ -5,8 +5,6 @@ const serviceAccount = process.env.FIREBASE_SERVICE_ACCOUNT_KEY
   ? JSON.parse(Buffer.from(process.env.FIREBASE_SERVICE_ACCOUNT_KEY, 'base64').toString('utf-8'))
   : undefined;
 
-let adminApp: admin.app.App | undefined = undefined;
-
 export function getFirebaseAdminApp() {
   if (admin.apps.length > 0) {
     return admin.app();

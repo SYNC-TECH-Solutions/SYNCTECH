@@ -37,6 +37,7 @@ async function saveSubmissionToGoogleSheet(values: { name: string; email: string
     }
 
     try {
+        // Directly parse the JSON string from the environment variable
         const credentials = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_KEY_JSON);
 
         const auth = new google.auth.GoogleAuth({

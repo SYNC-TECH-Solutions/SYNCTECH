@@ -18,7 +18,7 @@ async function saveSubmissionToFirestore(values: { name: string; email: string; 
 
     try {
         const firestore = getFirestore(adminApp);
-        const contactFormCollection = firestore.collection("contact-inquiries");
+        const contactFormCollection = firestore.collection("contactFormSubmissions");
         await contactFormCollection.add({
           ...values,
           submissionDate: new Date(),

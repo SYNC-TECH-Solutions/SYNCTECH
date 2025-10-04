@@ -4,6 +4,10 @@
 import type { z } from 'zod';
 import { contactFormSchema } from '@/lib/schemas';
 import { validateContactForm } from '@/ai/flows/validate-contact-form';
+import { getFirebaseAdminApp } from '@/lib/firebase-admin';
+import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { initializeApp, getApps } from 'firebase/app';
+import { firebaseConfig } from '@/firebase/config';
 
 // --- Contact Form Action ---
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
@@ -11,9 +15,37 @@ export type ContactFormValues = z.infer<typeof contactFormSchema>;
 const supportEmail = 'synctechire@gmail.com';
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
+async function saveSubmissionToFirestore(values: ContactFormValues) {
+  try {
+    const adminApp = getFirebaseAdminApp();
+    if (!adminApp) {
+        console.log("Firebase Admin App not initialized. Skipping Firestore save.");
+        // Fallback to client-side SDK if admin is not available
+        if (!getApps().length) {
+            initializeApp(firebaseConfig);
+        }
+        const db = getFirestore();
+        await addDoc(collection(db, "contactFormSubmissions"), {
+          ...values,
+          submissionDate: serverTimestamp(),
+        });
+
+    } else {
+        const adminDb = admin.firestore();
+        await adminDb.collection('contactFormSubmissions').add({
+        ...values,
+        submissionDate: admin.firestore.FieldValue.serverTimestamp(),
+        });
+    }
+  } catch (error) {
+    console.error('Error saving contact form submission to Firestore:', error);
+    // We won't block the user for this, just log the error.
+  }
+}
+
 export async function submitContactForm(values: ContactFormValues) {
 
-  // AI Validation Step (optional but recommended)
+  // AI Validation Step
   try {
     const validation = await validateContactForm(values);
     if (!validation.isValid) {
@@ -25,11 +57,12 @@ export async function submitContactForm(values: ContactFormValues) {
     }
   } catch (error) {
     console.error('An unexpected error occurred during AI validation:', error);
-    // We can choose to proceed even if validation fails, or return an error.
-    // For now, we'll log it and continue.
   }
 
-  // --- API Submission Step ---
+  // --- Save to Firestore ---
+  await saveSubmissionToFirestore(values);
+  
+  // --- API Submission for Email ---
   try {
     const response = await fetch(`${siteUrl}/api/contact`, {
         method: 'POST',

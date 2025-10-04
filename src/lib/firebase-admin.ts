@@ -2,22 +2,30 @@
 import * as admin from 'firebase-admin';
 
 const serviceAccount = process.env.FIREBASE_SERVICE_ACCOUNT_KEY
-  ? JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY)
+  ? JSON.parse(Buffer.from(process.env.FIREBASE_SERVICE_ACCOUNT_KEY, 'base64').toString('utf-8'))
   : undefined;
 
 let adminApp: admin.app.App | undefined = undefined;
 
 export function getFirebaseAdminApp() {
-  if (!admin.apps.length) {
-    if (serviceAccount) {
-        adminApp = admin.initializeApp({
+  if (admin.apps.length > 0) {
+    return admin.app();
+  }
+
+  if (serviceAccount) {
+    try {
+       return admin.initializeApp({
             credential: admin.credential.cert(serviceAccount),
         });
-    } else {
-        console.warn('Firebase Admin SDK service account credentials not found. Firebase Admin features will be disabled.');
+    } catch (error) {
+        console.error("Error initializing Firebase Admin SDK:", error);
+        return undefined;
     }
-  } else {
-    adminApp = admin.app();
   }
-  return adminApp;
+  
+  if (process.env.NODE_ENV !== 'development') {
+    console.warn('Firebase Admin SDK service account credentials not found. Certain backend features might be disabled.');
+  }
+  
+  return undefined;
 }

@@ -5,7 +5,6 @@ import { contactFormSchema } from '@/lib/schemas';
 import { ContactFormEmail } from '@/components/emails/contact-form-email';
 import { getFirebaseAdminApp } from '@/lib/firebase-admin';
 import { getFirestore } from 'firebase-admin/firestore';
-import { google } from 'googleapis';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const supportEmail = 'synctechire@gmail.com';
@@ -30,44 +29,6 @@ async function saveSubmissionToFirestore(values: { name: string; email: string; 
     }
 }
 
-async function saveSubmissionToGoogleSheet(values: { name: string; email: string; message: string; }) {
-    if (!process.env.GOOGLE_SERVICE_ACCOUNT_KEY_JSON || !process.env.GOOGLE_SHEET_ID) {
-        console.warn("Google Sheets credentials are not set. Skipping sheet submission.");
-        return;
-    }
-
-    try {
-        const credentials = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_KEY_JSON);
-
-        const auth = new google.auth.GoogleAuth({
-            credentials,
-            scopes: ['https://www.googleapis.com/auth/spreadsheets'],
-        });
-
-        const sheets = google.sheets({ version: 'v4', auth });
-        const spreadsheetId = process.env.GOOGLE_SHEET_ID;
-        const range = 'Sheet1!A:D'; 
-
-        const newRow = [
-            values.name,
-            values.email,
-            values.message,
-            new Date().toISOString(),
-        ];
-
-        await sheets.spreadsheets.values.append({
-            spreadsheetId,
-            range,
-            valueInputOption: 'USER_ENTERED',
-            requestBody: {
-                values: [newRow],
-            },
-        });
-    } catch (error) {
-         console.error('Error saving contact form submission to Google Sheets:', error);
-    }
-}
-
 
 export async function POST(request: Request) {
   try {
@@ -80,11 +41,8 @@ export async function POST(request: Request) {
     
     const { name, email, message } = validationResult.data;
     
-    await Promise.all([
-        saveSubmissionToFirestore({ name, email, message }),
-        saveSubmissionToGoogleSheet({ name, email, message })
-    ]);
-
+    // Save to Firestore without blocking the email response
+    await saveSubmissionToFirestore({ name, email, message });
 
     if (!process.env.RESEND_API_KEY) {
         console.log("RESEND_API_KEY is not set. Logging to console instead.");

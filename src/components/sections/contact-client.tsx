@@ -1,59 +1,66 @@
-
 'use client';
 
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import * as z from 'zod';
+import { useEffect, useRef, useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import { Button } from '@/components/ui/button';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { submitContactForm } from '@/app/actions';
-import { useState, useTransition } from 'react';
+import { submitContactForm, type ContactFormState } from '@/app/actions';
+import { useFirestore, addDocumentNonBlocking } from '@/firebase';
+import { collection } from 'firebase/firestore';
 import { Loader2, Mail, MapPin, Phone } from 'lucide-react';
-import { contactFormSchema } from '@/lib/schemas';
 import { useInView } from 'react-intersection-observer';
 import { cn } from '@/lib/utils';
+import { Label } from '../ui/label';
 
-
-type ContactFormValues = z.infer<typeof contactFormSchema>;
+function SubmitButton() {
+  const { pending } = useFormStatus();
+  return (
+    <Button type="submit" disabled={pending} className="w-full">
+      {pending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
+      Send Message
+    </Button>
+  );
+}
 
 export function ContactClient() {
+  const initialState: ContactFormState = { message: '', success: false };
+  const [state, formAction] = useActionState(submitContactForm, initialState);
   const { toast } = useToast();
-  const [isPending, startTransition] = useTransition();
+  const formRef = useRef<HTMLFormElement>(null);
+  const firestore = useFirestore();
+
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
-  const form = useForm<ContactFormValues>({
-    resolver: zodResolver(contactFormSchema),
-    defaultValues: {
-      name: '',
-      email: '',
-      message: '',
-    },
-  });
+   useEffect(() => {
+    if (state.success && state.fields) {
+      const { name, email, message } = state.fields;
+      const submissionsRef = collection(firestore, "contactFormSubmissions");
+      
+      const data = { name, email, message, submittedAt: new Date() };
+      
+      // Use non-blocking write which handles permission errors automatically
+      addDocumentNonBlocking(submissionsRef, data);
+      
+      // Assume success on the UI and let the error boundary catch any issues
+      toast({
+        title: 'Message Sent!',
+        description: "Thank you for your message! We'll get back to you shortly.",
+      });
+      formRef.current?.reset();
 
-  function onSubmit(values: ContactFormValues) {
-    startTransition(async () => {
-      const result = await submitContactForm(values);
-      if (result.success) {
-        toast({
-          title: 'Message Sent!',
-          description: result.message,
-        });
-        form.reset();
-      } else {
-        toast({
-          title: 'Submission Failed',
-          description: result.message || "An unknown error occurred. Please email us directly at synctechire@gmail.com",
-          variant: 'destructive',
-        });
-      }
-    });
-  }
+    } else if (state.message && !state.success && state.issues) {
+      toast({
+        title: 'Submission Failed',
+        description: state.issues.join(', ') || 'Please check your input.',
+        variant: 'destructive',
+      });
+    }
+  }, [state, toast, firestore]);
 
   return (
     <section 
@@ -106,53 +113,21 @@ export function ContactClient() {
             </div>
             <div className="bg-card p-8 rounded-lg shadow-sm">
               <h3 className="text-2xl font-bold mb-6">Send Us a Message</h3>
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Name</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Your Name" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Email</FormLabel>
-                        <FormControl>
-                          <Input placeholder="your.email@example.com" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="message"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Your Message</FormLabel>
-                        <FormControl>
-                          <Textarea placeholder="Tell us about your project, goals, and budget..." className="min-h-[150px]" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <Button type="submit" disabled={isPending} className="w-full">
-                    {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                    Send Message
-                  </Button>
+              <form ref={formRef} action={formAction} className="space-y-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Name</Label>
+                    <Input id="name" name="name" placeholder="Your Name" required />
+                  </div>
+                   <div className="space-y-2">
+                    <Label htmlFor="email">Email</Label>
+                    <Input id="email" name="email" type="email" placeholder="your.email@example.com" required />
+                  </div>
+                   <div className="space-y-2">
+                    <Label htmlFor="message">Your Message</Label>
+                    <Textarea id="message" name="message" placeholder="Tell us about your project, goals, and budget..." className="min-h-[150px]" required />
+                  </div>
+                  <SubmitButton />
                 </form>
-              </Form>
             </div>
         </div>
       </div>

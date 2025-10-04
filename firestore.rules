@@ -1,36 +1,48 @@
 /**
- * @file Firestore Security Rules
- * @description This ruleset secures the 'contactform' collection.
+ * @fileoverview Firestore Security Rules for the Contact Form Submissions collection.
  *
  * Core Philosophy:
- *   This ruleset enforces public read access while restricting write access to authenticated users.
- *   It is designed for prototyping and allows flexible data shapes.
+ * This ruleset allows public reads for all contact form submissions, but restricts write access (create, update, delete) to authenticated users.
  *
  * Data Structure:
- *   Data is stored in the /contactform/{contactFormId} collection.
- *   Each document represents a contact form submission.
+ * Contact form submissions are stored in the `/contactform/{contactFormId}` collection, where `contactFormId` is a unique identifier.
  *
  * Key Security Decisions:
- *   - Public read access is granted to allow anyone to view contact form submissions.
- *   - Write access (create, update, delete) is denied for all users, including authenticated ones, as there is no concept of ownership or roles in the provided schema.
+ * - Public Read: All users, including unauthenticated ones, can read the contact form submissions (`get` and `list`).
+ * - Authenticated Writes: Only authenticated users can create, update, or delete contact form submissions.  No role-based access control is implemented.
+ * - No Listing for Authenticated Users:  Authenticated users cannot list all contact form submissions.
  *
- * Denormalization for Authorization: N/A (No ownership or roles)
- * Structural Segregation: N/A (Single collection for all submissions)
+ * Denormalization for Authorization:
+ * The `ContactFormSubmission` entity lacks an `ownerId` field.  In order to secure write operations, authentication is required.
  */
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
     /**
-     * @description Allows anyone to read contact form submissions, but restricts write access to authenticated users.
+     * @description Secures the `/contactform/{contactFormId}` collection. Allows public reads, but requires authentication for writes.
      * @path /contactform/{contactFormId}
-     * @allow (get, list) - Any user can read contact form submissions.
-     * @deny (create, update, delete) - No one can create, update, or delete contact form submissions.
-     * @principle Public read, restricted write.
+     * @allow (get, list) Allows any user to read contact form submissions.
+     * @allow (create) Allows any authenticated user to create a contact form submission.
+     * @deny (create) Denies unauthenticated users from creating contact form submissions.
+     * @allow (update) Allows any authenticated user to update a contact form submission.
+     * @deny (update) Denies unauthenticated users from updating contact form submissions.
+     * @allow (delete) Allows any authenticated user to delete a contact form submission.
+     * @deny (delete) Denies unauthenticated users from deleting contact form submissions.
+     * @principle Allows public reads, but restricts writes to authenticated users.
      */
     match /contactform/{contactFormId} {
-      allow get, list: if true;
-      allow create, update, delete: if false;
+      allow get: if true;
+      allow list: if true;
+
+      allow create: if isSignedIn();
+      allow update: if isSignedIn() && resource != null;
+      allow delete: if isSignedIn() && resource != null;
+    }
+
+    // Helper function to determine if a user is signed in
+    function isSignedIn() {
+      return request.auth != null;
     }
   }
 }

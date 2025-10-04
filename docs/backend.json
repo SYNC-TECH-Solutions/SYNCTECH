@@ -50,11 +50,11 @@
     ]
   },
   "firestore": {
-    "/contactform/{contactFormId}": {
+    "/contact-inquiries/{inquiryId}": {
       "schema": {
         "$ref": "#/backend/entities/ContactFormSubmission"
       },
-      "description": "Stores contact form submissions. The 'contactFormId' is a unique identifier for each submission."
+      "description": "Stores contact form submissions. The 'inquiryId' is a unique identifier for each submission."
     }
   }
 }

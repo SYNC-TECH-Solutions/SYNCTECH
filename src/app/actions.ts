@@ -4,10 +4,8 @@
 import type { z } from 'zod';
 import { contactFormSchema } from '@/lib/schemas';
 import { validateContactForm } from '@/ai/flows/validate-contact-form';
-import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { initializeFirebase } from '@/firebase';
-import { errorEmitter } from '@/firebase/error-emitter';
-import { FirestorePermissionError } from '@/firebase/errors';
+import { getFirebaseAdminApp } from '@/lib/firebase-admin';
+import { getFirestore } from 'firebase-admin/firestore';
 
 // --- Contact Form Action ---
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
@@ -16,24 +14,25 @@ const supportEmail = 'synctechire@gmail.com';
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
 async function saveSubmissionToFirestore(values: ContactFormValues) {
-    const { firestore } = initializeFirebase();
-    const contactFormCollection = collection(firestore, "contactform");
-    
-    addDoc(contactFormCollection, {
-      ...values,
-      submissionDate: serverTimestamp(),
-    }).catch(error => {
+    const adminApp = getFirebaseAdminApp();
+    if (!adminApp) {
+        console.error("Firebase Admin SDK is not initialized. Cannot save to Firestore.");
+        // We will still proceed to send the email
+        return;
+    }
+
+    try {
+        const firestore = getFirestore(adminApp);
+        const contactFormCollection = firestore.collection("contactform");
+        await contactFormCollection.add({
+          ...values,
+          submissionDate: new Date(), // Use server date
+        });
+    } catch (error) {
         console.error('Error saving contact form submission to Firestore:', error);
-        // Non-blocking error emission for debugging in development
-        errorEmitter.emit(
-          'permission-error',
-          new FirestorePermissionError({
-            path: contactFormCollection.path,
-            operation: 'create',
-            requestResourceData: values,
-          })
-        )
-    });
+        // This is a server-side error, it should be logged.
+        // We don't want to block the user email from being sent.
+    }
 }
 
 export async function submitContactForm(values: ContactFormValues) {
@@ -52,7 +51,7 @@ export async function submitContactForm(values: ContactFormValues) {
     console.error('An unexpected error occurred during AI validation:', error);
   }
 
-  // --- Save to Firestore (non-blocking) ---
+  // --- Save to Firestore (non-blocking on the client, but awaited on server) ---
   await saveSubmissionToFirestore(values);
   
   // --- API Submission for Email ---

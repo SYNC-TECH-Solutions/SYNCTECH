@@ -11,6 +11,27 @@ export type NewsPost = {
 
 export const newsPosts: NewsPost[] = [
   {
+    title: "From Vision to Reality: SYNC TECH Delivers AI-Powered E-Commerce Platform for APTLY DRESSED",
+    slug: "sync-tech-delivers-for-aptly-dressed",
+    date: "2024-09-20",
+    content: `<p>We are proud to announce the successful launch of a new, AI-driven fashion platform for our partner, APTLY DRESSED! Our team at SYNC TECH translated their innovative vision for a curated fashion experience into a robust, scalable, and secure digital reality.</p>
+    <h4 class="text-xl font-bold mt-4 mb-2">The Challenge</h4>
+    <p>APTLY DRESSED aimed to solve the fragmented and overwhelming experience of online shopping by creating a single destination for expertly curated, occasion-based outfits. They needed a technology partner who could build a sophisticated, high-performance platform from the ground up to support a content-driven, affiliate marketing model.</p>
+    <h4 class="text-xl font-bold mt-4 mb-2">Our Solution: Engineering the Future of Fashion Tech</h4>
+    <p>The SYNC TECH team architected and delivered a full-stack solution designed for performance, scalability, and intelligence. Our key contributions include:</p>
+    <ul class="list-disc list-inside space-y-2 my-4">
+      <li><strong>High-Performance Frontend:</strong> Built with Next.js and React, we delivered a lightning-fast, server-rendered site that provides a seamless and engaging user experience.</li>
+      <li><strong>AI-Powered Curation:</strong> We integrated Google's Genkit AI to power a "Complete the Look" feature, providing intelligent recommendations that enhance user engagement and drive affiliate revenue.</li>
+      <li><strong>Scalable Backend:</strong> Leveraging Firebase for authentication and a Firestore database, we built a secure and scalable backend capable of managing user data and affiliate relationships efficiently.</li>
+      <li><strong>Zero-Inventory E-commerce Model:</strong> Our technical strategy enabled a lean, "zero-inventory" business model, minimizing operational complexity and maximizing profitability for our client.</li>
+    </ul>
+    <p>This project is a testament to our commitment to delivering enterprise-grade solutions at an accessible price point. We are thrilled to have partnered with a fellow Dublin-based innovator like APTLY DRESSED to bring their vision to the global stage.</p>
+    `,
+    image: "/project/APTLYDRESSED.png",
+    imageHint: "fashion affiliate aggregator",
+    hashtags: ["#SYNCtech", "#CaseStudy", "#Partnership", "#FashionTech", "#AffiliateMarketing", "#Ecommerce", "#Dublin", "#WebDevelopment", "#NextJS", "#Firebase", "#Genkit", "#AI"],
+  },
+  {
     title: "APTLY DRESSED Partners with SYNC TECH to Launch New Digital Home for Curated Style",
     slug: "aptly-dressed-sync-tech-partnership-launch",
     date: "2024-09-19",

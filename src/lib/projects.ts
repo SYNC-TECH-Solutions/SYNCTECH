@@ -17,7 +17,7 @@ export const projects: Project[] = [
     slug: "aptly-dressed-ai-fashion-curation",
     excerpt: "Launched a sophisticated, content-driven fashion affiliate aggregator offering expertly curated, complete outfit solutions with AI.",
     description: "Developed and launched APTLY DRESSED, a sophisticated, content-driven fashion affiliate aggregator. This platform solves the fragmented online shopping experience by offering expertly curated, complete outfit solutions from a variety of partner brands. It provides a seamless, high-end user journey, moving from style inspiration on our platform to purchase on trusted brand websites. The site is built to be exceptionally fast, secure, and powered by AI for personalized recommendations.",
-    image: "https://picsum.photos/seed/aptly-dressed/1200/600",
+    image: "/project/APTLYDRESSED.png",
     imageHint: "fashion affiliate website",
     techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "ShadCN UI", "Firebase", "Google Genkit", "Netlify", "Affiliate Marketing"],
     results: "Successfully launched a premier online destination for curated fashion, establishing a strong brand and a new affiliate revenue stream with a zero-inventory model. Integrated cutting-edge AI to provide 'Complete the Look' recommendations, significantly enhancing user engagement.",

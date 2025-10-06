@@ -75,6 +75,16 @@ const experiences = [
         ]
     },
     {
+        role: "E-Commerce & Digital Strategist (via SYNC TECH)",
+        company: "Stylish Marble Art",
+        date: "2024 - Present",
+        points: [
+            "Led the end-to-end digital transformation for a luxury retailer, including the development of a custom e-commerce website on a modern tech stack.",
+            "Managed the brand's entire online presence, implementing a multi-channel digital marketing strategy across Facebook, Instagram, and Google.",
+            "Executed targeted SEO and keyword campaigns to dramatically improve search engine rankings and drive qualified organic traffic.",
+        ]
+    },
+    {
         role: "Founder & E-Commerce Strategist",
         company: "Luxe Threads",
         date: "2024 - Present",

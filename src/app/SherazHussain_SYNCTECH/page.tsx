@@ -139,6 +139,7 @@ export default function FounderPage() {
                  <div className="mt-4 flex justify-center md:justify-start gap-2">
                     <Button variant="outline" size="icon" asChild><a href="https://linkedin.com/in/sherazhussain546/" target="_blank" rel="noopener noreferrer"><Linkedin /></a></Button>
                     <Button variant="outline" size="icon" asChild><a href="https://github.com/SherazHussain546" target="_blank" rel="noopener noreferrer"><Github /></a></Button>
+                    <Button variant="outline" size="icon" asChild><a href="https://aptlydressed.com" target="_blank" rel="noopener noreferrer"><Globe /></a></Button>
                 </div>
             </div>
         </header>
@@ -252,7 +253,3 @@ export default function FounderPage() {
     </div>
   );
 }
-
-    
-
-    

@@ -1,7 +1,7 @@
 
 'use client';
 
-import { ArrowRight, Mail, Handshake, ShieldCheck, TrendingUp, Zap, Target, DollarSign, Milestone } from "lucide-react";
+import { ArrowRight, Mail, Handshake, ShieldCheck, TrendingUp, Zap, Target, DollarSign, Milestone, Users, GitMerge, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import Link from "next/link";
@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils';
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip as RechartsTooltip, Legend } from "recharts";
 import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Badge } from "@/components/ui/badge";
 
 const partnerBenefits = [
   {
@@ -36,22 +37,25 @@ const partnerBenefits = [
 
 const partnershipModels = [
     {
+        icon: <Users className="h-8 w-8 text-primary" />,
         model: "Referral Partner",
         description: "Introduce opportunities and earn a commission for successful client engagements. Ideal for consultants and agencies with a strong network.",
         commitment: "Low",
-        benefits: "Generous commission, no technical overhead."
+        benefits: ["Generous commission", "No technical overhead"]
     },
     {
+        icon: <Award className="h-8 w-8 text-primary" />,
         model: "Solution Reseller",
         description: "Resell SYNC TECH services under your own brand or as a bundled offering. We provide the technical delivery and support.",
         commitment: "Medium",
-        benefits: "Higher margins, brand control, expanded portfolio."
+        benefits: ["Higher margins", "Brand control", "Expanded portfolio"]
     },
     {
+        icon: <GitMerge className="h-8 w-8 text-primary" />,
         model: "Technology Partner",
         description: "Integrate your products or platforms with our solutions to create a unique, combined offering for the market.",
         commitment: "High",
-        benefits: "Joint go-to-market strategy, shared innovation, strategic alignment."
+        benefits: ["Joint go-to-market", "Shared innovation", "Strategic alignment"]
     }
 ];
 
@@ -154,36 +158,32 @@ export function BecomeAPartnerClient() {
         ref={modelsRef}
         className={cn("py-20 md:py-28 bg-secondary transition-opacity duration-1000 ease-in-out", modelsInView ? "opacity-100" : "opacity-0")}
       >
-        <div className="container max-w-5xl">
+        <div className="container max-w-6xl">
             <div className="text-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold">Find the Partnership Model That’s Right for You</h2>
                 <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">We offer flexible partnership structures designed to align with your business goals and commitment level.</p>
             </div>
-            <Card>
-                <Table>
-                    <TableHeader>
-                        <TableRow>
-                        <TableHead className="w-[200px]">Model</TableHead>
-                        <TableHead>Description</TableHead>
-                        <TableHead>Commitment</TableHead>
-                        <TableHead>Key Benefits</TableHead>
-                        </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                        {partnershipModels.map((model) => (
-                        <TableRow key={model.model}>
-                            <TableCell className="font-medium">{model.model}</TableCell>
-                            <TableCell>{model.description}</TableCell>
-                            <TableCell>{model.commitment}</TableCell>
-                            <TableCell>{model.benefits}</TableCell>
-                        </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </Card>
-             <CardDescription className="text-center mt-4 text-xs">
+             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {partnershipModels.map((model) => (
+                    <Card key={model.model} className="flex flex-col text-center p-6">
+                        <CardHeader className="items-center">
+                            {model.icon}
+                            <CardTitle className="mt-4">{model.model}</CardTitle>
+                            <CardDescription>Commitment: <Badge variant="outline">{model.commitment}</Badge></CardDescription>
+                        </CardHeader>
+                        <CardContent className="flex-grow">
+                            <p className="text-muted-foreground mb-4">{model.description}</p>
+                            <h4 className="font-semibold mb-2">Key Benefits:</h4>
+                             <ul className="list-disc list-inside text-sm text-muted-foreground text-left">
+                                {model.benefits.map(benefit => <li key={benefit}>{benefit}</li>)}
+                            </ul>
+                        </CardContent>
+                    </Card>
+                ))}
+            </div>
+             <p className="text-center mt-8 text-sm text-muted-foreground">
                 We also offer hybrid success-based structures that align our financial incentives directly with your achieved performance metrics. Let's discuss a model that works for you.
-            </CardDescription>
+            </p>
         </div>
       </section>
 

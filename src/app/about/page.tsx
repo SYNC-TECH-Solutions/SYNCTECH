@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import { AboutClient } from '@/components/sections/about-client';
 
 export const metadata: Metadata = {
-  title: "About SYNC TECH | Our Mission, Value, and Story",
-  description: "Learn about SYNC TECH, a Dublin-based IT company founded by Sheraz Hussain. Discover our mission to provide affordable, high-quality tech solutions in web development, AI, and cybersecurity, and meet the team dedicated to your success.",
+  title: "Our Vision & Strategy | About SYNC TECH",
+  description: "Learn about SYNC TECH's mission to deliver scalable growth through AI and digital strategy. Discover our commitment to excellence, our Dublin roots, and our roadmap for building the future of IT solutions.",
 };
 
 export default function AboutPage() {

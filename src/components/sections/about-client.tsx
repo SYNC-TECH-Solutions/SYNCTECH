@@ -2,46 +2,43 @@
 'use client';
 
 import Image from "next/image";
-import { CheckCircle } from "lucide-react";
-import { Card } from "@/components/ui/card";
+import Link from "next/link";
+import { CheckCircle, Route, ShieldCheck, Target } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useInView } from "react-intersection-observer";
 import { cn } from "@/lib/utils";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Button } from "../ui/button";
 
 const faqs = [
   {
     question: "What makes SYNC TECH different from other IT companies?",
-    answer: "We bridge the gap between high-end quality and affordability. Our clients get the premium, enterprise-level IT solutions they need without the enterprise-level price tag. We're lean, efficient, and obsessed with delivering maximum value."
+    answer: "We bridge the gap between high-end quality and affordability. Our clients get the premium, enterprise-level IT solutions they need without the enterprise-level price tag. We're lean, efficient, and obsessed with delivering maximum value and measurable ROI."
   },
   {
     question: "How do you keep your prices so competitive?",
     answer: "Our business model is built on efficiency. We leverage modern, streamlined development processes, maintain low overheads, and focus on what truly matters: delivering exceptional results. This means you're paying for pure expertise, not agency fluff."
   },
   {
-    question: "What does the typical project process look like?",
-    answer: "Our process is transparent and collaborative. It starts with a deep-dive into your goals (Discovery), followed by a clear plan (Strategy), building your solution (Development), rigorous testing (QA), and a smooth launch (Deployment). We keep you informed every step of the way."
+    question: "What does your typical project process look like?",
+    answer: "Our process is transparent and collaborative. It starts with a deep-dive into your goals (Discovery & Audit), followed by a clear, data-driven plan (Strategy), building your solution (Implementation), and continuous improvement (Optimization). We keep you informed every step of the way."
   },
   {
     question: "Do you offer global IT support?",
-    answer: "Absolutely. While we are proudly based in Dublin, we serve clients across Ireland and internationally. Our digital-first approach and 24/7 support model ensure seamless collaboration regardless of your location."
+    answer: "Absolutely. While we are proudly based in Dublin, Ireland, we serve clients across the globe. Our digital-first approach and 24/7 support model ensure seamless collaboration regardless of your location."
   }
 ];
 
 export function AboutClient() {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  const { ref: faqRef, inView: faqInView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+  const { ref: visionRef, inView: visionInView } = useInView({ triggerOnce: true, threshold: 0.1 });
+  const { ref: roadmapRef, inView: roadmapInView } = useInView({ triggerOnce: true, threshold: 0.1 });
+  const { ref: faqRef, inView: faqInView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
     <>
       <section 
-        id="about" 
+        id="about-hero" 
         ref={ref}
         className={cn(
           "py-20 md:py-28 bg-background transition-opacity duration-1000 ease-in-out",
@@ -50,28 +47,51 @@ export function AboutClient() {
       >
         <div className="container">
           <div className="text-center mb-12">
-              <h1 className="text-4xl md:text-5xl font-bold">About SYNC TECH</h1>
+              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Our Mission: Your Scalable Growth</h1>
               <p className="mt-4 max-w-3xl mx-auto text-muted-foreground text-lg">
-                  Delivering Unmatched Quality and Value in Every IT Project.
+                  We don't just build software. We architect the systems, strategies, and AI-powered solutions that turn fragmented processes into predictable, high-performance growth engines.
               </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative order-last md:order-first">
+          <Card className="overflow-hidden">
+             <Image
+                src="/project/giants.png"
+                alt="A strategic illustration of technology growth and planning"
+                width={1200}
+                height={600}
+                data-ai-hint="strategy planning"
+                className="w-full h-auto object-cover"
+                priority
+              />
+          </Card>
+        </div>
+      </section>
+
+      <section 
+        id="vision" 
+        ref={visionRef}
+        className={cn(
+          "py-20 md:py-28 bg-secondary transition-opacity duration-1000 ease-in-out",
+          visionInView ? "opacity-100" : "opacity-0"
+        )}
+      >
+        <div className="container">
+           <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative order-last">
               <Card className="overflow-hidden">
                   <Image
                       src="/dublinsync.png"
                       alt="A stylized image representing technology and innovation in Dublin"
                       width={800}
                       height={600}
-                      data-ai-hint="technology innovation"
+                      data-ai-hint="technology innovation dublin"
                       className="w-full h-auto object-cover transition-transform hover:scale-105"
                   />
               </Card>
             </div>
-            <div className="text-center md:text-left">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Vision</h2>
+            <div className="text-center md:text-left order-first">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">The SYNC TECH Vision</h2>
               <p className="text-muted-foreground mb-6">
-                Founded by Sheraz Hussain, SYNC TECH was born from a singular vision: to democratize access to world-class technology. We believe the most powerful innovations in AI, cloud computing, and cybersecurity should not be confined to the largest corporations. Our purpose is to engineer these elite solutions and make them accessible, affordable, and transformative for every business, everywhere. We're not just building websites or tools; we're building the future of digital opportunity.
+                Founded by <Link href="/SherazHussain_SYNCTECH" className="text-primary font-semibold hover:underline">Sheraz Hussain</Link>, SYNC TECH was born from a singular vision: to dismantle the barrier between elite, enterprise-grade technology and the businesses that need it most. We believe the power of AI, cloud infrastructure, and cybersecurity should be a universal catalyst for growth, not a luxury. Based in Dublin, Ireland, we combine local expertise with a global mindset to make powerful technology accessible, affordable, and transformative for every business, everywhere.
               </p>
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
@@ -84,12 +104,70 @@ export function AboutClient() {
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold">Our Value</h3>
-                    <p className="text-muted-foreground text-sm">We combine visionary strategy with flawless execution. Our value lies in translating complex technological power into tangible, real-world success for your business.</p>
+                    <h3 className="font-semibold">Our Value Proposition</h3>
+                    <p className="text-muted-foreground text-sm">We translate complex technological power into tangible, real-world success. Our value lies in delivering measurable ROI, whether through revenue growth, cost reduction, or market penetration.</p>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="roadmap"
+        ref={roadmapRef}
+        className={cn(
+          "py-20 md:py-28 bg-background transition-opacity duration-1000 ease-in-out",
+          roadmapInView ? "opacity-100" : "opacity-0"
+        )}
+      >
+        <div className="container max-w-4xl">
+           <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold">Our Commitment to Excellence: The SYNC TECH Roadmap</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
+              Ambition requires a plan. We are committed to continuous improvement to better serve our clients and tackle enterprise-level challenges. Here’s a look at our path forward.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <Card className="p-6">
+                <CardHeader className="items-center">
+                    <div className="bg-primary/10 p-3 rounded-full mb-4">
+                        <Target className="h-8 w-8 text-primary" />
+                    </div>
+                    <CardTitle>Formalizing Expertise</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-muted-foreground text-sm">Our next horizon is achieving formal partner status with cloud giants like AWS and Google. This commitment ensures we can support clients at the highest enterprise levels and pass on the benefits of these strategic alliances.</p>
+                </CardContent>
+            </Card>
+             <Card className="p-6">
+                <CardHeader className="items-center">
+                    <div className="bg-primary/10 p-3 rounded-full mb-4">
+                        <Route className="h-8 w-8 text-primary" />
+                    </div>
+                    <CardTitle>Building Our Irish Roots</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-muted-foreground text-sm">As we grow, our plan includes establishing a physical headquarters here in Dublin. This step will solidify our presence, foster local talent, and create a hub for innovation and client collaboration right in the heart of Ireland's tech scene.</p>
+                </CardContent>
+            </Card>
+             <Card className="p-6">
+                <CardHeader className="items-center">
+                    <div className="bg-primary/10 p-3 rounded-full mb-4">
+                        <ShieldCheck className="h-8 w-8 text-primary" />
+                    </div>
+                    <CardTitle>Managing Your Risk</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-muted-foreground text-sm">We take our responsibility as your technology partner seriously. We are actively securing comprehensive business insurance, including Professional Indemnity and Cyber Liability, to ensure our high-risk services are backed by robust financial protection.</p>
+                </CardContent>
+            </Card>
+          </div>
+          <div className="text-center mt-12">
+            <Button asChild>
+                <Link href="/presentation">View Our Partnership Proposal</Link>
+            </Button>
           </div>
         </div>
       </section>

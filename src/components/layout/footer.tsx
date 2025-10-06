@@ -28,7 +28,7 @@ export function Footer() {
           </div>
           <div className="md:col-span-2 grid grid-cols-2 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="font-semibold mb-4">Quick Links</h3>
+              <h3 className="font-semibold mb-4 text-primary">Quick Links</h3>
               <ul className="space-y-2">
                 {navItems.map((item) => (
                   <li key={item.label}>
@@ -55,7 +55,7 @@ export function Footer() {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Services</h3>
+              <h3 className="font-semibold mb-4 text-primary">Services</h3>
               <ul className="space-y-2 text-sm">
                 <li>Web Development</li>
                 <li>AI Automation</li>
@@ -66,7 +66,7 @@ export function Footer() {
               </ul>
             </div>
              <div>
-              <h3 className="font-semibold mb-4">Legal & Admin</h3>
+              <h3 className="font-semibold mb-4 text-primary">Legal & Admin</h3>
               <ul className="space-y-2">
                 <li>
                   <Link href="/privacy-policy" className="text-sm hover:text-primary transition-colors">
@@ -92,7 +92,7 @@ export function Footer() {
             </div>
           </div>
           <div className="flex flex-col gap-4">
-            <h3 className="font-semibold">Follow Us</h3>
+            <h3 className="font-semibold text-primary">Follow Us</h3>
             <div className="flex flex-wrap gap-2">
               <Button variant="outline" size="icon" asChild>
                 <a href="https://www.linkedin.com/company/synctechie/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><Linkedin className="h-4 w-4" /></a>

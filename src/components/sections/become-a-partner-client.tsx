@@ -37,20 +37,6 @@ const partnerBenefits = [
 
 const partnershipModels = [
     {
-        icon: <Users className="h-8 w-8 text-primary" />,
-        model: "Referral Partner",
-        description: "Introduce opportunities and earn a commission for successful client engagements. Ideal for consultants and agencies with a strong network.",
-        commitment: "Low",
-        benefits: ["Generous commission", "No technical overhead"]
-    },
-    {
-        icon: <Award className="h-8 w-8 text-primary" />,
-        model: "Solution Reseller",
-        description: "Resell SYNC TECH services under your own brand or as a bundled offering. We provide the technical delivery and support.",
-        commitment: "Medium",
-        benefits: ["Higher margins", "Brand control", "Expanded portfolio"]
-    },
-    {
         icon: <GitMerge className="h-8 w-8 text-primary" />,
         model: "Technology Partner",
         description: "Integrate your products or platforms with our solutions to create a unique, combined offering for the market.",
@@ -160,10 +146,10 @@ export function BecomeAPartnerClient() {
       >
         <div className="container max-w-6xl">
             <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold">Find the Partnership Model That’s Right for You</h2>
-                <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">We offer flexible partnership structures designed to align with your business goals and commitment level.</p>
+                <h2 className="text-3xl md:text-4xl font-bold">Our Partnership Model</h2>
+                <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">We offer a focused partnership structure designed to align with your business goals and commitment level.</p>
             </div>
-             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+             <div className="grid grid-cols-1 md:grid-cols-1 gap-8 max-w-md mx-auto">
                 {partnershipModels.map((model) => (
                     <Card key={model.model} className="flex flex-col text-center p-6">
                         <CardHeader className="items-center">
@@ -239,7 +225,7 @@ export function BecomeAPartnerClient() {
             <h2 className="text-3xl md:text-4xl font-bold">A Simple Path to Shared Success</h2>
             <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">Our engagement model is designed for maximum impact and minimal disruption.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center relative z-0">
+          <div className="relative grid grid-cols-1 md:grid-cols-3 gap-8 text-center z-0">
             {/* Dashed line for desktop */}
             <div className="hidden md:block absolute top-12 left-0 w-full h-px border-t border-dashed -translate-y-8"></div>
             

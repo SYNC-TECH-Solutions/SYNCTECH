@@ -67,7 +67,7 @@ const experiences = [
      {
         role: "Co-Founder",
         company: "APTLY DRESSED",
-        date: "2024 – Present",
+        date: "2025 – Present",
         points: [
             "Co-founded APTLY DRESSED, a premier fashion affiliate aggregator designed to solve the fragmented online shopping experience by providing expertly curated, complete outfit solutions.",
             "Spearheaded the technology vision and execution, leveraging SYNC TECH Solutions to build and launch the platform, including a high-performance Next.js frontend and an AI-powered 'Complete the Look' feature using Google's Genkit.",

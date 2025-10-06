@@ -17,8 +17,8 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const siteConfig = {
   name: 'SYNC TECH',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://synctech.ie',
-  title: 'SYNC TECH | Global IT Solutions & 24/7 Support',
-  description: 'SYNC TECH delivers affordable, global IT solutions including cloud services, cybersecurity, and AI-driven digital transformation. Get secure, scalable, and reliable 24/7 tech support to drive your business growth. Your trusted digital partner, worldwide.',
+  title: 'SYNC TECH | AI Strategy, Custom IT Solutions & 24/7 Global Support',
+  description: 'SYNC TECH delivers affordable, global IT solutions including AI strategy, custom web development, cloud services, and cybersecurity. Get secure, scalable, and reliable 24/7 tech support to drive your business growth. Your trusted digital partner, worldwide.',
   ogImage: 'https://placehold.co/1200x630.png'
 };
 
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: [
-    'Global IT Services', 'Worldwide Tech Support', 'Affordable IT Solutions', '24/7 Tech Support', 'Comprehensive IT Solutions', 'Secure Cloud Solutions', 'Your Digital Partner', 'SYNC TECH', 'IT Experts', 'Scalable IT', 'Trusted by Businesses', 'Tech Made Simple', 'Drive Growth with IT', 'cybersecurity', 'cloud services', 'AI automation', 'digital transformation', 'International IT Support', 'Future-Ready Tech Services', 'IT Solutions Made Simple', 'global IT consulting'
+    'AI Strategy Dublin', 'Global IT Services', 'Worldwide Tech Support', 'Affordable IT Solutions', '24/7 Tech Support', 'Comprehensive IT Solutions', 'Secure Cloud Solutions', 'Your Digital Partner', 'SYNC TECH', 'IT Experts', 'Scalable IT', 'Trusted by Businesses', 'Tech Made Simple', 'Drive Growth with IT', 'cybersecurity', 'cloud services', 'AI automation', 'digital transformation', 'International IT Support', 'Future-Ready Tech Services', 'IT Solutions Made Simple', 'global IT consulting'
   ],
   authors: [{ name: 'Sheraz Hussain', url: siteConfig.url }],
   creator: 'Sheraz Hussain',

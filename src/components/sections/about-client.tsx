@@ -91,7 +91,7 @@ export function AboutClient() {
             <div className="text-center md:text-left order-first">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">The SYNC TECH Vision</h2>
               <p className="text-muted-foreground mb-6">
-                Founded by <Link href="/SherazHussain_SYNCTECH" className="text-primary font-semibold hover:underline">Sheraz Hussain</Link>, SYNC TECH was born from a singular vision: to dismantle the barrier between elite, enterprise-grade technology and the businesses that need it most. We believe the power of AI, cloud infrastructure, and cybersecurity should be a universal catalyst for growth, not a luxury. Based in Dublin, Ireland, we combine local expertise with a global mindset to make powerful technology accessible, affordable, and transformative for every business, everywhere.
+                Founded by <Link href="/SherazHussain_SYNCTECH" className="text-primary font-semibold hover:underline">Sheraz Hussain</Link>, SYNC TECH was born from a singular vision: to dismantle the barrier between elite, enterprise-grade technology and the businesses that need it most. We believe the power of <Link href="https://www.google.com/search?q=AI+Automation" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">AI</Link>, <Link href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">cloud infrastructure</Link>, and <Link href="https://www.google.com/search?q=Cybersecurity" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">cybersecurity</Link> should be a universal catalyst for growth, not a luxury. Based in <Link href="https://www.google.com/search?q=Dublin+business+environment" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Dublin, Ireland</Link>, we combine local expertise with a global mindset to make powerful technology accessible, affordable, and transformative for every business, everywhere.
               </p>
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
@@ -138,7 +138,7 @@ export function AboutClient() {
                     <CardTitle>Formalizing Expertise</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <p className="text-muted-foreground text-sm">Our next horizon is achieving formal partner status with cloud giants like AWS and Google. This commitment ensures we can support clients at the highest enterprise levels and pass on the benefits of these strategic alliances.</p>
+                    <p className="text-muted-foreground text-sm">Our next horizon is achieving formal partner status with cloud giants like <Link href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">AWS</Link>, <Link href="https://cloud.google.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Google</Link>, and <Link href="https://azure.microsoft.com/en-us/get-started/azure-portal/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Microsoft</Link>. This commitment ensures we can support clients at the highest enterprise levels and pass on the benefits of these strategic alliances.</p>
                 </CardContent>
             </Card>
              <Card className="p-6">
@@ -149,7 +149,7 @@ export function AboutClient() {
                     <CardTitle>Building Our Irish Roots</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <p className="text-muted-foreground text-sm">As we grow, our plan includes establishing a physical headquarters here in Dublin. This step will solidify our presence, foster local talent, and create a hub for innovation and client collaboration right in the heart of Ireland's tech scene.</p>
+                    <p className="text-muted-foreground text-sm">As we grow, our plan includes establishing a physical headquarters here in <Link href="https://www.google.com/search?q=local+outreach+marketing+Dublin+Ireland" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Dublin</Link>. This step will solidify our presence, foster local talent, and create a hub for innovation and client collaboration right in the heart of Ireland's tech scene.</p>
                 </CardContent>
             </Card>
              <Card className="p-6">
@@ -160,7 +160,7 @@ export function AboutClient() {
                     <CardTitle>Managing Your Risk</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <p className="text-muted-foreground text-sm">We take our responsibility as your technology partner seriously. We are actively securing comprehensive business insurance, including Professional Indemnity and Cyber Liability, to ensure our high-risk services are backed by robust financial protection.</p>
+                    <p className="text-muted-foreground text-sm">We take our responsibility as your technology partner seriously. We are actively securing comprehensive <Link href="https://www.google.com/search?q=business+insurance" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">business insurance</Link>, including Professional Indemnity and <Link href="https://www.google.com/search?q=Cyber+Liability+insurance" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Cyber Liability</Link>, to ensure our high-risk services are backed by robust financial protection.</p>
                 </CardContent>
             </Card>
           </div>

@@ -7,8 +7,8 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import Link from "next/link";
 import { useInView } from 'react-intersection-observer';
 import { cn } from '@/lib/utils';
-import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from "recharts"
-import { ChartConfig, ChartContainer, ChartTooltipContent } from "@/components/ui/chart"
+import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts"
+import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 
 const chartData = [
   { metric: "CAC Reduction", value: 35, label: "Up to 35% reduction in Customer Acquisition Cost (CAC) through automation and intelligent lead prioritization." },
@@ -127,22 +127,24 @@ export function PresentationClient() {
                 </CardHeader>
                 <CardContent>
                   <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
-                    <BarChart accessibilityLayer data={chartData} margin={{ top: 20, right: 20, left: -10, bottom: 5 }}>
-                      <XAxis dataKey="metric" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
-                      <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(value) => `${value}%`} />
-                      <ChartTooltip
-                          content={<ChartTooltipContent 
-                              formatter={(value, name, item) => (
-                                  <div className="flex flex-col gap-1 p-2">
-                                      <span className="font-bold text-primary">{item.payload.metric}</span>
-                                      <span>Impact: {value}%</span>
-                                      <span className="text-xs text-muted-foreground max-w-xs">{item.payload.label}</span>
-                                  </div>
-                              )} 
-                          />}
-                      />
-                      <Bar dataKey="value" fill="var(--color-value)" radius={[4, 4, 0, 0]} />
-                    </BarChart>
+                    <ResponsiveContainer width="100%" height={300}>
+                      <BarChart accessibilityLayer data={chartData} margin={{ top: 20, right: 20, left: -10, bottom: 5 }}>
+                        <XAxis dataKey="metric" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
+                        <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(value) => `${value}%`} />
+                        <ChartTooltip
+                            content={<ChartTooltipContent 
+                                formatter={(value, name, item) => (
+                                    <div className="flex flex-col gap-1 p-2">
+                                        <span className="font-bold text-primary">{item.payload.metric}</span>
+                                        <span>Impact: {value}%</span>
+                                        <span className="text-xs text-muted-foreground max-w-xs">{item.payload.label}</span>
+                                    </div>
+                                )} 
+                            />}
+                        />
+                        <Bar dataKey="value" fill="var(--color-value)" radius={[4, 4, 0, 0]} />
+                      </BarChart>
+                    </ResponsiveContainer>
                   </ChartContainer>
                 </CardContent>
               </Card>

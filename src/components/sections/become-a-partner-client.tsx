@@ -1,7 +1,7 @@
 
 'use client';
 
-import { ArrowRight, BrainCircuit, Handshake, ShieldCheck, TrendingUp, Zap, Target, DollarSign } from "lucide-react";
+import { ArrowRight, BrainCircuit, Handshake, ShieldCheck, TrendingUp, Zap, Target, DollarSign, Milestone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import Link from "next/link";
@@ -69,6 +69,25 @@ const partnerRoiChartConfig = {
   },
 } satisfies ChartConfig;
 
+const processSteps = [
+    {
+        step: "1",
+        title: "Discovery & Audit",
+        description: "A collaborative effort to map your entire client acquisition journey and tech stack. We identify high-leverage points for AI intervention."
+    },
+    {
+        step: "2",
+        title: "AI Strategy Implementation",
+        description: "Deployment of tailored AI tools (e.g., predictive lead scoring, automated segmentation) that integrate seamlessly with your existing infrastructure."
+    },
+    {
+        step: "3",
+        title: "Optimization & Training",
+        description: "Post-launch monitoring, continuous calibration based on real-world performance, and comprehensive training to ensure your teams master the new workflow."
+    }
+];
+
+
 export function BecomeAPartnerClient() {
   const { ref: heroRef, inView: heroInView } = useInView({ triggerOnce: true, threshold: 0.1 });
   const { ref: whyRef, inView: whyInView } = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -84,7 +103,7 @@ export function BecomeAPartnerClient() {
         className={cn("py-20 md:py-32 text-center bg-secondary transition-opacity duration-1000 ease-in-out", heroInView ? "opacity-100" : "opacity-0")}
       >
         <div className="container">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">Partner with SYNC TECH and Grow Together</h1>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">Accelerating Scalable Growth Through AI Strategy</h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg text-muted-foreground">
             Join our ecosystem of forward-thinking partners. Leverage our cutting-edge AI, web, and cybersecurity solutions to deliver more value, win more clients, and unlock powerful new revenue streams.
           </p>
@@ -107,7 +126,7 @@ export function BecomeAPartnerClient() {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold">Amplify Your Business with Our Expertise</h2>
             <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
-              Partnering with SYNC TECH gives you an unfair advantage. Here’s how we empower your growth.
+              Partnering with SYNC TECH gives you an unfair advantage. We convert fragmented processes into a high-performance, automated growth engine. Here’s how we empower your growth.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -138,7 +157,7 @@ export function BecomeAPartnerClient() {
         <div className="container max-w-5xl">
             <div className="text-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold">Find the Partnership Model That’s Right for You</h2>
-                <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">We offer flexible partnership structures designed to align with your business goals.</p>
+                <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">We offer flexible partnership structures designed to align with your business goals and commitment level.</p>
             </div>
             <Card>
                 <Table>
@@ -162,6 +181,9 @@ export function BecomeAPartnerClient() {
                     </TableBody>
                 </Table>
             </Card>
+             <CardDescription className="text-center mt-4 text-xs">
+                We also offer hybrid success-based structures that align our financial incentives directly with your achieved performance metrics. Let's discuss a model that works for you.
+            </CardDescription>
         </div>
       </section>
 
@@ -173,12 +195,12 @@ export function BecomeAPartnerClient() {
         <div className="container max-w-4xl">
             <div className="text-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold">The Tangible ROI of Partnership</h2>
-                <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">Our partnership is designed to deliver a measurable return on your time and effort.</p>
+                <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">Our focus is on delivering a verifiable, positive Return On Investment. Partnering with SYNC TECH is expected to yield the following strategic benefits.</p>
             </div>
             <Card>
                 <CardHeader>
                   <CardTitle>Projected Growth for Our Partners</CardTitle>
-                  <CardDescription>Anticipated business improvements by leveraging SYNC TECH solutions.</CardDescription>
+                  <CardDescription>Anticipated business improvements by leveraging SYNC TECH solutions, including up to a 35% reduction in Customer Acquisition Cost (CAC).</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <ChartContainer config={partnerRoiChartConfig} className="min-h-[200px] w-full">
@@ -212,48 +234,28 @@ export function BecomeAPartnerClient() {
         ref={processRef}
         className={cn("py-20 md:py-28 bg-secondary transition-opacity duration-1000 ease-in-out", processInView ? "opacity-100" : "opacity-0")}
       >
-        <div className="container max-w-4xl">
+        <div className="container max-w-5xl">
            <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold">A Simple Path to Shared Success</h2>
-            <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">Our onboarding process is straightforward, transparent, and designed for speed.</p>
+            <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">Our engagement model is designed for maximum impact and minimal disruption.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center relative">
             {/* Dashed line for desktop */}
-            <div className="hidden md:block absolute top-1/2 left-0 w-full h-px border-t border-dashed -translate-y-8"></div>
+            <div className="hidden md:block absolute top-12 left-0 w-full h-px border-t border-dashed -translate-y-8"></div>
             
-            <Card className="p-6 z-10">
-                <CardHeader className="items-center">
-                    <div className="bg-primary/10 p-4 rounded-full mb-4">
-                        <p className="text-2xl font-bold text-primary">1</p>
-                    </div>
-                    <CardTitle>Discovery Call</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-muted-foreground text-sm">A brief, no-obligation call to understand your business, your clients, and your goals. We'll find the perfect partnership fit.</p>
-                </CardContent>
-            </Card>
-             <Card className="p-6 z-10">
-                <CardHeader className="items-center">
-                    <div className="bg-primary/10 p-4 rounded-full mb-4">
-                        <p className="text-2xl font-bold text-primary">2</p>
-                    </div>
-                    <CardTitle>Strategic Alignment</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-muted-foreground text-sm">We'll provide you with all the materials you need and define a clear go-to-market plan that aligns with your existing strategy.</p>
-                </CardContent>
-            </Card>
-             <Card className="p-6 z-10">
-                <CardHeader className="items-center">
-                    <div className="bg-primary/10 p-4 rounded-full mb-4">
-                        <p className="text-2xl font-bold text-primary">3</p>
-                    </div>
-                    <CardTitle>Launch & Grow</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-muted-foreground text-sm">Start offering new solutions, winning new clients, and generating new revenue. We'll be there to support you every step of the way.</p>
-                </CardContent>
-            </Card>
+            {processSteps.map((step) => (
+                <Card key={step.step} className="p-6 z-10 flex flex-col items-center">
+                    <CardHeader className="items-center">
+                        <div className="bg-primary/10 p-4 rounded-full mb-4">
+                            <p className="text-2xl font-bold text-primary">{step.step}</p>
+                        </div>
+                        <CardTitle>{step.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <p className="text-muted-foreground text-sm">{step.description}</p>
+                    </CardContent>
+                </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -266,3 +268,5 @@ export function BecomeAPartnerClient() {
     </div>
   );
 }
+
+    

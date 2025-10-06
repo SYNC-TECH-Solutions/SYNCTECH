@@ -64,6 +64,16 @@ const experiences = [
             "Oversee all technical strategy, project management, and client relations, ensuring every solution delivers measurable ROI and aligns with our core mission of driving growth through technology.",
         ]
     },
+     {
+        role: "Co-Founder",
+        company: "APTLY DRESSED",
+        date: "2024 – Present",
+        points: [
+            "Co-founded APTLY DRESSED, a premier fashion affiliate aggregator designed to solve the fragmented online shopping experience by providing expertly curated, complete outfit solutions.",
+            "Spearheaded the technology vision and execution, leveraging SYNC TECH Solutions to build and launch the platform, including a high-performance Next.js frontend and an AI-powered 'Complete the Look' feature using Google's Genkit.",
+            "Architected a lean, zero-inventory-risk business model based on affiliate marketing, establishing a scalable and profitable digital venture from the ground up.",
+        ]
+    },
     {
         role: "Founder & E-Commerce Strategist",
         company: "Luxe Threads",

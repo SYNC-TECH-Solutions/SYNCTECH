@@ -126,24 +126,24 @@ export function PresentationClient() {
                   <CardDescription>Anticipated improvements based on our AI-driven optimizations.</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ResponsiveContainer width="100%" height={300}>
-                      <BarChart data={chartData} margin={{ top: 20, right: 20, left: -10, bottom: 5 }}>
-                        <XAxis dataKey="metric" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
-                        <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(value) => `${value}%`} />
-                        <Tooltip
-                            content={<ChartTooltipContent 
-                                formatter={(value, name, item) => (
-                                    <div className="flex flex-col gap-1 p-2">
-                                        <span className="font-bold text-primary">{item.payload.metric}</span>
-                                        <span>Impact: {value}%</span>
-                                        <span className="text-xs text-muted-foreground max-w-xs">{item.payload.label}</span>
-                                    </div>
-                                )} 
-                            />}
-                        />
-                        <Bar dataKey="value" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
-                      </BarChart>
-                  </ResponsiveContainer>
+                  <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
+                    <BarChart accessibilityLayer data={chartData} margin={{ top: 20, right: 20, left: -10, bottom: 5 }}>
+                      <XAxis dataKey="metric" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
+                      <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(value) => `${value}%`} />
+                      <ChartTooltip
+                          content={<ChartTooltipContent 
+                              formatter={(value, name, item) => (
+                                  <div className="flex flex-col gap-1 p-2">
+                                      <span className="font-bold text-primary">{item.payload.metric}</span>
+                                      <span>Impact: {value}%</span>
+                                      <span className="text-xs text-muted-foreground max-w-xs">{item.payload.label}</span>
+                                  </div>
+                              )} 
+                          />}
+                      />
+                      <Bar dataKey="value" fill="var(--color-value)" radius={[4, 4, 0, 0]} />
+                    </BarChart>
+                  </ChartContainer>
                 </CardContent>
               </Card>
             </div>

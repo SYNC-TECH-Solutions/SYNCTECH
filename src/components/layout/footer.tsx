@@ -47,6 +47,11 @@ export function Footer() {
                     SYNC TECH Guides
                   </Link>
                 </li>
+                 <li>
+                  <Link href="/become-a-partner" className="text-sm hover:text-primary transition-colors">
+                    Become a Partner
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>

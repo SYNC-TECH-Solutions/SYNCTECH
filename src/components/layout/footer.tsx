@@ -83,6 +83,11 @@ export function Footer() {
                     Accessibility
                   </Link>
                 </li>
+                 <li>
+                  <Link href="/sitemap" className="text-sm hover:text-primary transition-colors">
+                    Sitemap
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

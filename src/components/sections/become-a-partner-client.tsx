@@ -1,7 +1,7 @@
 
 'use client';
 
-import { ArrowRight, BrainCircuit, Handshake, ShieldCheck, TrendingUp, Zap, Target, DollarSign, Milestone } from "lucide-react";
+import { ArrowRight, Mail, Handshake, ShieldCheck, TrendingUp, Zap, Target, DollarSign, Milestone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import Link from "next/link";
@@ -10,7 +10,6 @@ import { cn } from '@/lib/utils';
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip as RechartsTooltip, Legend } from "recharts";
 import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { ContactClient } from "./contact-client";
 
 const partnerBenefits = [
   {
@@ -94,6 +93,7 @@ export function BecomeAPartnerClient() {
   const { ref: modelsRef, inView: modelsInView } = useInView({ triggerOnce: true, threshold: 0.1 });
   const { ref: roiRef, inView: roiInView } = useInView({ triggerOnce: true, threshold: 0.1 });
   const { ref: processRef, inView: processInView } = useInView({ triggerOnce: true, threshold: 0.1 });
+  const { ref: ctaRef, inView: ctaInView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
     <div className="bg-background text-foreground">
@@ -260,13 +260,30 @@ export function BecomeAPartnerClient() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <div id="partner-form">
-        <ContactClient />
-      </div>
+      {/* New CTA Section */}
+      <section
+        id="partner-form"
+        ref={ctaRef}
+        className={cn(
+          "py-20 md:py-28 bg-primary text-primary-foreground transition-opacity duration-1000 ease-in-out",
+          ctaInView ? "opacity-100" : "opacity-0"
+        )}
+      >
+        <div className="container text-center">
+          <h2 className="text-3xl md:text-4xl font-bold">Become Our Partner</h2>
+          <p className="mt-4 max-w-2xl mx-auto opacity-90">
+            Ready to expand your services and unlock new revenue streams? Let's discuss how a partnership with SYNC TECH can drive mutual success.
+          </p>
+          <div className="mt-8">
+            <Button asChild size="lg" variant="secondary">
+              <a href="mailto:synctechire@gmail.com">
+                Email Us to Start the Conversation <Mail className="ml-2 h-5 w-5" />
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
 
     </div>
   );
 }
-
-    

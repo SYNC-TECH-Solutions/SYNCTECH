@@ -239,12 +239,12 @@ export function BecomeAPartnerClient() {
             <h2 className="text-3xl md:text-4xl font-bold">A Simple Path to Shared Success</h2>
             <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">Our engagement model is designed for maximum impact and minimal disruption.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center relative">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center relative z-0">
             {/* Dashed line for desktop */}
             <div className="hidden md:block absolute top-12 left-0 w-full h-px border-t border-dashed -translate-y-8"></div>
             
             {processSteps.map((step) => (
-                <Card key={step.step} className="p-6 z-10 flex flex-col items-center">
+                <Card key={step.step} className="p-6 flex flex-col items-center">
                     <CardHeader className="items-center">
                         <div className="bg-primary/10 p-4 rounded-full mb-4">
                             <p className="text-2xl font-bold text-primary">{step.step}</p>

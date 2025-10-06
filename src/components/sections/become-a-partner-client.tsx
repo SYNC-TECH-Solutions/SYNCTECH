@@ -146,8 +146,8 @@ export function BecomeAPartnerClient() {
       >
         <div className="container max-w-6xl">
             <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold">Our Partnership Model</h2>
-                <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">We offer a focused partnership structure designed to align with your business goals and commitment level.</p>
+                <h2 className="text-3xl md:text-4xl font-bold">Find the Partnership Model That’s Right for You</h2>
+                <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">We offer flexible partnership structures designed to align with your business goals and commitment level.</p>
             </div>
              <div className="grid grid-cols-1 md:grid-cols-1 gap-8 max-w-md mx-auto">
                 {partnershipModels.map((model) => (
@@ -167,9 +167,6 @@ export function BecomeAPartnerClient() {
                     </Card>
                 ))}
             </div>
-             <p className="text-center mt-8 text-sm text-muted-foreground">
-                We also offer hybrid success-based structures that align our financial incentives directly with your achieved performance metrics. Let's discuss a model that works for you.
-            </p>
         </div>
       </section>
 
@@ -218,7 +215,7 @@ export function BecomeAPartnerClient() {
        {/* How it Works Section */}
        <section
         ref={processRef}
-        className={cn("py-20 md:py-28 bg-secondary transition-opacity duration-1000 ease-in-out", processInView ? "opacity-100" : "opacity-0")}
+        className={cn("relative py-20 md:py-28 bg-secondary transition-opacity duration-1000 ease-in-out", processInView ? "opacity-100" : "opacity-0")}
       >
         <div className="container max-w-5xl">
            <div className="text-center mb-16">
@@ -273,3 +270,5 @@ export function BecomeAPartnerClient() {
     </div>
   );
 }
+
+    

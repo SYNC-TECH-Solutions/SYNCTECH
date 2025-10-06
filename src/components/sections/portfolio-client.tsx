@@ -3,12 +3,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { projects } from "@/lib/projects";
 import { useInView } from "react-intersection-observer";
 import { cn } from "@/lib/utils";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Eye } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 export function PortfolioClient() {
@@ -38,46 +37,45 @@ export function PortfolioClient() {
             <Card 
               key={project.slug}
               className={cn(
-                "flex flex-col overflow-hidden hover:scale-[1.02] transition-transform duration-300 bg-card transform transition-all ease-in-out",
+                "group flex flex-col overflow-hidden bg-card transform transition-all duration-300 ease-in-out hover:shadow-xl",
                 inView ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
               )}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <Link href={`/portfolio/${project.slug}`} className="block">
-                <div className="aspect-video overflow-hidden">
+              <Link href={`/portfolio/${project.slug}`} className="block overflow-hidden">
+                <div className="relative aspect-video">
                   <Image
                     src={project.image}
                     alt={project.title}
-                    width={600}
-                    height={300}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     data-ai-hint={project.imageHint}
                   />
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="flex items-center gap-2 text-white bg-black/50 px-4 py-2 rounded-full">
+                      <Eye className="h-5 w-5" />
+                      <span>View Case Study</span>
+                    </div>
+                  </div>
                 </div>
               </Link>
               <CardHeader>
                 <CardTitle>
-                  <Link href={`/portfolio/${project.slug}`}>{project.title}</Link>
+                  <Link href={`/portfolio/${project.slug}`} className="hover:text-primary transition-colors">{project.title}</Link>
                 </CardTitle>
               </CardHeader>
               <CardContent className="flex-grow">
                 <p className="text-muted-foreground text-sm mb-4">{project.excerpt}</p>
                  <div className="flex flex-wrap gap-2">
-                  {project.techStack.slice(0, 3).map((tech) => (
+                  {project.techStack.slice(0, 4).map((tech) => (
                     <Badge key={tech} variant="secondary">{tech}</Badge>
                   ))}
-                  {project.techStack.length > 3 && (
-                    <Badge variant="outline">+{project.techStack.length - 3} more</Badge>
+                  {project.techStack.length > 4 && (
+                    <Badge variant="outline">+{project.techStack.length - 4} more</Badge>
                   )}
                 </div>
               </CardContent>
-              <CardFooter>
-                <Button asChild variant="outline" className="w-full">
-                  <Link href={`/portfolio/${project.slug}`}>
-                    View Case Study <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardFooter>
             </Card>
           ))}
         </div>

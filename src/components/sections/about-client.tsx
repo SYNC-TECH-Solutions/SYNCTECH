@@ -12,20 +12,20 @@ import { Button } from "../ui/button";
 
 const faqs = [
   {
-    question: "What makes SYNC TECH different from other IT companies?",
-    answer: "We bridge the gap between high-end quality and affordability. Our clients get the premium, enterprise-level IT solutions they need without the enterprise-level price tag. We're lean, efficient, and obsessed with delivering maximum value and measurable ROI."
+    question: "What specific services do you offer?",
+    answer: "We offer a comprehensive suite of IT solutions including Application Modernization, Managed Cloud & Optimization, FinOps & Cost Management, AI & Machine Learning, Cybersecurity, and Digital Growth & SEO. You can explore each of these in detail on our <a href='/services' class='text-primary hover:underline'>services page</a>."
   },
   {
-    question: "How do you keep your prices so competitive?",
-    answer: "Our business model is built on efficiency. We leverage modern, streamlined development processes, maintain low overheads, and focus on what truly matters: delivering exceptional results. This means you're paying for pure expertise, not agency fluff."
+    question: "Can I see examples of your previous work?",
+    answer: "Absolutely. We pride ourselves on the quality and impact of our work. You can view detailed case studies of our projects, from AI-driven analytics platforms to custom e-commerce stores, in our <a href='/portfolio' class='text-primary hover:underline'>portfolio section</a>."
   },
   {
-    question: "What does your typical project process look like?",
-    answer: "Our process is transparent and collaborative. It starts with a deep-dive into your goals (Discovery & Audit), followed by a clear, data-driven plan (Strategy), building your solution (Implementation), and continuous improvement (Optimization). We keep you informed every step of the way."
+    question: "Do you offer partnership opportunities for other businesses?",
+    answer: "Yes, we do. We offer a robust Technology Partnership program designed to help other businesses expand their service offerings and unlock new revenue streams. You can learn more about the benefits and our engagement model on our <a href='/become-a-partner' class='text-primary hover:underline'>Become a Partner page</a>."
   },
   {
-    question: "Do you offer global IT support?",
-    answer: "Absolutely. While we are proudly based in Dublin, Ireland, we serve clients across the globe. Our digital-first approach and 24/7 support model ensure seamless collaboration regardless of your location."
+    question: "What is your process for starting a new project?",
+    answer: "Our process begins with a complimentary consultation to understand your goals. From there, we move to a discovery and audit phase, followed by strategy, implementation, and optimization. The best way to start is to <a href='/contact' class='text-primary hover:underline'>get in touch with us</a> to discuss your project."
   }
 ];
 
@@ -192,7 +192,7 @@ export function AboutClient() {
               <AccordionItem key={index} value={`item-${index}`}>
                 <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
                 <AccordionContent>
-                  {faq.answer}
+                  <p dangerouslySetInnerHTML={{ __html: faq.answer }} />
                 </AccordionContent>
               </AccordionItem>
             ))}
@@ -202,3 +202,5 @@ export function AboutClient() {
     </>
   );
 }
+
+    

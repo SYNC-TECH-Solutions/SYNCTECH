@@ -11,6 +11,7 @@ import Script from 'next/script';
 import { Toaster } from '@/components/ui/toaster';
 import { FloatingCta } from '@/components/floating-cta';
 import { FirebaseClientProvider } from '@/firebase/client-provider';
+import CookieConsent from 'react-cookie-consent';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -127,6 +128,18 @@ export default function RootLayout({
             <Footer />
             <Toaster />
             <FloatingCta />
+            <CookieConsent
+              location="bottom"
+              buttonText="I understand"
+              cookieName="synctechCookieConsent"
+              style={{ background: "hsl(var(--background))", color: "hsl(var(--foreground))", borderTop: "1px solid hsl(var(--border))" }}
+              buttonStyle={{ background: "hsl(var(--primary))", color: "hsl(var(--primary-foreground))", fontSize: "14px", borderRadius: "0.5rem" }}
+              expires={150}
+            >
+              This website uses cookies to enhance the user experience. By continuing to use this site, you agree to our use of cookies. See our{" "}
+              <a href="/privacy-policy" className="text-primary hover:underline">Privacy Policy</a>
+              {" "}for details.
+            </CookieConsent>
             <Suspense fallback={null}>
               <Analytics />
             </Suspense>

@@ -35,6 +35,7 @@ const companyLinks = [
 ];
 
 const legalLinks = [
+  { href: '/faq', label: 'FAQ' },
   { href: '/privacy-policy', label: 'Privacy Policy' },
   { href: '/terms-and-conditions', label: 'Terms & Conditions' },
   { href: '/accessibility-statement', label: 'Accessibility Statement' },
@@ -99,7 +100,7 @@ export default function SitemapPage() {
             </CardContent>
           </Card>
 
-          <Card className="md:col-span-2 lg:col-span-3">
+          <Card className="md:col-span-3">
             <CardHeader>
               <CardTitle>Portfolio Case Studies</CardTitle>
             </CardHeader>
@@ -110,7 +111,7 @@ export default function SitemapPage() {
             </CardContent>
           </Card>
           
-           <Card className="md:col-span-2 lg:col-span-3">
+           <Card className="md:col-span-3">
             <CardHeader>
               <CardTitle>Blog Articles</CardTitle>
             </CardHeader>
@@ -121,7 +122,7 @@ export default function SitemapPage() {
             </CardContent>
           </Card>
 
-           <Card className="md:col-span-2 lg:col-span-3">
+           <Card className="md:col-span-3">
             <CardHeader>
               <CardTitle>News & Events Feed</CardTitle>
             </CardHeader>

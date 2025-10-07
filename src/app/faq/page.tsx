@@ -1,12 +1,13 @@
+
 'use client';
 
-import { useState, useMemo } from 'react';
-import type { Metadata } from 'next';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Input } from '@/components/ui/input';
 import { Handshake, Code, Bot, Shield, Cloud, FileText, Server, BookUser, Users, Milestone, Briefcase, DollarSign } from 'lucide-react';
-import Link from 'next/link';
+import { Popover, PopoverContent, PopoverTrigger, PopoverAnchor } from '@/components/ui/popover';
+import { Command, CommandEmpty, CommandGroup, CommandItem, CommandList } from '@/components/ui/command';
 
 const faqCategories = [
   {
@@ -237,7 +238,18 @@ const faqCategories = [
 
 export default function FaqPage() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
+  const allQuestions = useMemo(() => {
+    return faqCategories.flatMap(category => category.questions.map(q => q.question));
+  }, []);
+
+  const searchSuggestions = useMemo(() => {
+    if (!searchTerm) return [];
+    const lowercasedFilter = searchTerm.toLowerCase();
+    return allQuestions.filter(q => q.toLowerCase().includes(lowercasedFilter)).slice(0, 5);
+  }, [searchTerm, allQuestions]);
+  
   const filteredCategories = useMemo(() => {
     if (!searchTerm) {
       return faqCategories;
@@ -255,6 +267,19 @@ export default function FaqPage() {
 
   }, [searchTerm]);
 
+  const handleSuggestionClick = (suggestion: string) => {
+    setSearchTerm(suggestion);
+    setIsPopoverOpen(false);
+  };
+  
+  useEffect(() => {
+    if (searchTerm && searchSuggestions.length > 0) {
+      setIsPopoverOpen(true);
+    } else {
+      setIsPopoverOpen(false);
+    }
+  }, [searchTerm, searchSuggestions.length]);
+
   return (
     <div className="py-20 md:py-28 bg-secondary">
       <div className="container">
@@ -266,13 +291,36 @@ export default function FaqPage() {
         </header>
 
         <div className="max-w-2xl mx-auto mb-12">
-            <Input 
-                type="search"
-                placeholder="Search questions..."
-                className="w-full text-base"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-            />
+            <Popover open={isPopoverOpen} onOpenChange={setIsPopoverOpen}>
+              <PopoverAnchor asChild>
+                <Input 
+                    type="search"
+                    placeholder="Search questions..."
+                    className="w-full text-base"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                />
+              </PopoverAnchor>
+              <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0">
+                  <Command>
+                    <CommandList>
+                      <CommandEmpty>No suggestions found.</CommandEmpty>
+                      <CommandGroup>
+                        {searchSuggestions.map((suggestion, i) => (
+                          <CommandItem
+                            key={i}
+                            value={suggestion}
+                            onSelect={() => handleSuggestionClick(suggestion)}
+                            className="cursor-pointer"
+                          >
+                            {suggestion}
+                          </CommandItem>
+                        ))}
+                      </CommandGroup>
+                    </CommandList>
+                  </Command>
+              </PopoverContent>
+            </Popover>
         </div>
 
         <div className="space-y-12">

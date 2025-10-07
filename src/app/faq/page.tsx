@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, useMemo, useEffect, useRef } from 'react';
+import { useState, useMemo } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Input } from '@/components/ui/input';
@@ -272,13 +272,15 @@ export default function FaqPage() {
     setIsPopoverOpen(false);
   };
   
-  useEffect(() => {
-    if (searchTerm && searchSuggestions.length > 0) {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+    if (value && allQuestions.filter(q => q.toLowerCase().includes(value.toLowerCase())).length > 0) {
       setIsPopoverOpen(true);
     } else {
       setIsPopoverOpen(false);
     }
-  }, [searchTerm, searchSuggestions.length]);
+  };
 
   return (
     <div className="py-20 md:py-28 bg-secondary">
@@ -292,16 +294,19 @@ export default function FaqPage() {
 
         <div className="max-w-2xl mx-auto mb-12">
             <Popover open={isPopoverOpen} onOpenChange={setIsPopoverOpen}>
-              <PopoverAnchor asChild>
+              <PopoverAnchor>
                 <Input 
                     type="search"
                     placeholder="Search questions..."
                     className="w-full text-base"
                     value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
+                    onChange={handleInputChange}
+                    onFocus={() => {
+                      if (searchTerm) setIsPopoverOpen(true);
+                    }}
                 />
               </PopoverAnchor>
-              <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0">
+              <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0" onOpenAutoFocus={(e) => e.preventDefault()}>
                   <Command>
                     <CommandList>
                       <CommandEmpty>No suggestions found.</CommandEmpty>

@@ -1,19 +1,18 @@
 
+'use client';
+
+import { useState, useMemo } from 'react';
 import type { Metadata } from 'next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-
-export const metadata: Metadata = {
-  title: "FAQ | Answers to Your Questions About SYNC TECH",
-  description: "Find answers to frequently asked questions about SYNC TECH's services, including web development, AI automation, cybersecurity, pricing, project processes, and GDPR compliance.",
-  keywords: [
-    "SYNC TECH FAQ", "IT services FAQ", "web development questions", "AI automation pricing", "cybersecurity process", "managed cloud services", "GDPR compliance", "FinOps questions", "SLA details"
-  ],
-};
+import { Input } from '@/components/ui/input';
+import { Handshake, Code, Bot, Shield, Cloud, FileText, Server, BookUser } from 'lucide-react';
+import Link from 'next/link';
 
 const faqCategories = [
   {
     category: "General & Business Questions",
+    icon: <Handshake className="w-8 h-8 text-primary" />,
     questions: [
       {
         question: "What makes SYNC TECH different from other IT and development companies?",
@@ -31,6 +30,7 @@ const faqCategories = [
   },
   {
     category: "Web Development & Digital Growth",
+    icon: <Code className="w-8 h-8 text-primary" />,
     questions: [
       {
         question: "Do you only build new websites, or can you update my existing site?",
@@ -48,6 +48,7 @@ const faqCategories = [
   },
   {
     category: "AI & Automation Services",
+    icon: <Bot className="w-8 h-8 text-primary" />,
     questions: [
       {
         question: "How can AI Automation help my business?",
@@ -65,6 +66,7 @@ const faqCategories = [
   },
   {
     category: "Cybersecurity & Cloud Solutions",
+    icon: <Shield className="w-8 h-8 text-primary" />,
     questions: [
       {
         question: "What is Managed Cybersecurity, and why do I need it?",
@@ -82,6 +84,7 @@ const faqCategories = [
   },
   {
     category: "Cloud Migration & FinOps",
+    icon: <Cloud className="w-8 h-8 text-primary" />,
     questions: [
       {
         question: "What is 'Cloud Migration'?",
@@ -107,6 +110,7 @@ const faqCategories = [
   },
   {
     category: "GDPR & Data Compliance",
+    icon: <FileText className="w-8 h-8 text-primary" />,
     questions: [
       {
         question: "What is the GDPR?",
@@ -132,6 +136,7 @@ const faqCategories = [
   },
   {
     category: "Service Level Agreements (SLAs)",
+    icon: <Server className="w-8 h-8 text-primary" />,
     questions: [
       {
         question: "What is a Service Level Agreement (SLA)?",
@@ -157,6 +162,7 @@ const faqCategories = [
   },
   {
     category: "Project & Development Process",
+    icon: <BookUser className="w-8 h-8 text-primary" />,
     questions: [
       {
         question: "What methodologies and technologies do you use for Web Development?",
@@ -183,38 +189,86 @@ const faqCategories = [
 ];
 
 export default function FaqPage() {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const filteredCategories = useMemo(() => {
+    if (!searchTerm) {
+      return faqCategories;
+    }
+
+    const lowercasedFilter = searchTerm.toLowerCase();
+    
+    return faqCategories.map(category => {
+      const filteredQuestions = category.questions.filter(faq => 
+        faq.question.toLowerCase().includes(lowercasedFilter) || 
+        faq.answer.toLowerCase().includes(lowercasedFilter)
+      );
+      return { ...category, questions: filteredQuestions };
+    }).filter(category => category.questions.length > 0);
+
+  }, [searchTerm]);
+
   return (
     <div className="py-20 md:py-28 bg-secondary">
       <div className="container">
-        <header className="text-center mb-16">
+        <header className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Frequently Asked Questions</h1>
           <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
-            Find answers to common questions about our services, processes, and how we deliver value.
+            Have a question? Search for answers or browse by category.
           </p>
         </header>
 
+        <div className="max-w-2xl mx-auto mb-12">
+            <Input 
+                type="search"
+                placeholder="Search questions..."
+                className="w-full text-base"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+            />
+        </div>
+
         <div className="space-y-12">
-          {faqCategories.map((category) => (
-            <Card key={category.category}>
-              <CardHeader>
-                <CardTitle>{category.category}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <Accordion type="single" collapsible className="w-full">
-                  {category.questions.map((faq, index) => (
-                    <AccordionItem key={index} value={`item-${index}`}>
-                      <AccordionTrigger className="text-left text-base">{faq.question}</AccordionTrigger>
-                      <AccordionContent className="prose prose-sm dark:prose-invert max-w-none">
-                        <div dangerouslySetInnerHTML={{ __html: faq.answer }} />
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </CardContent>
+          {filteredCategories.length > 0 ? (
+            filteredCategories.map((category) => (
+              <Card key={category.category}>
+                <CardHeader className="flex flex-row items-center gap-4">
+                  {category.icon}
+                  <CardTitle>{category.category}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <Accordion type="single" collapsible className="w-full">
+                    {category.questions.map((faq, index) => (
+                      <AccordionItem key={index} value={`item-${index}`}>
+                        <AccordionTrigger className="text-left text-base">{faq.question}</AccordionTrigger>
+                        <AccordionContent className="prose prose-sm dark:prose-invert max-w-none">
+                          <div dangerouslySetInnerHTML={{ __html: faq.answer }} />
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </CardContent>
+              </Card>
+            ))
+          ) : (
+            <Card>
+                <CardContent className="py-12 text-center">
+                    <h3 className="text-xl font-semibold">No Results Found</h3>
+                    <p className="text-muted-foreground mt-2">
+                        We couldn't find an answer to your question. Please try a different search term or contact us directly.
+                    </p>
+                    <p className="mt-4">
+                        <a href="mailto:synctechire@gmail.com" className="text-primary hover:underline">
+                            Email: synctechire@gmail.com
+                        </a>
+                    </p>
+                </CardContent>
             </Card>
-          ))}
+          )}
         </div>
       </div>
     </div>
   );
 }
+
+    

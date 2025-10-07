@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useMemo } from 'react';
@@ -14,6 +13,10 @@ const faqCategories = [
     category: "General & Business Questions",
     icon: <Handshake className="w-8 h-8 text-primary" />,
     questions: [
+      {
+        question: "What is SYNC TECH, and what does the name mean?",
+        answer: "The name SYNC TECH stands for 'Synchronizing Technology.' Our core mission is to perfectly align and synchronize advanced technologies—like AI, cloud infrastructure, and cybersecurity—with your specific business goals. We don't just provide services; we act as a strategic partner to ensure all your technological components work in harmony, creating a powerful, efficient, and synchronized engine for growth. It's about turning technology from a cost center into your greatest asset. You can <a href='/about' class='text-primary hover:underline'>learn more about our vision here</a>."
+      },
       {
         question: "What makes SYNC TECH different from other IT and development companies?",
         answer: "Our primary differentiator is our focus on delivering top-tier results and exceptional value. We combine high-end technology solutions—Web Development, AI, and advanced Cybersecurity—with a commitment to competitive, transparent pricing. We aim to deliver the best possible Return on Investment (ROI) for our clients, as demonstrated by our client <a href='/testimonials' class='text-primary hover:underline'>testimonials</a>."
@@ -270,5 +273,3 @@ export default function FaqPage() {
     </div>
   );
 }
-
-    

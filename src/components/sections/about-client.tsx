@@ -197,6 +197,11 @@ export function AboutClient() {
               </AccordionItem>
             ))}
           </Accordion>
+           <div className="text-center mt-12">
+                <Button asChild>
+                    <Link href="/faq">View All FAQs</Link>
+                </Button>
+            </div>
         </div>
       </section>
     </>

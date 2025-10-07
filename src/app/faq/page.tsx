@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Input } from '@/components/ui/input';
-import { Handshake, Code, Bot, Shield, Cloud, FileText, Server, BookUser } from 'lucide-react';
+import { Handshake, Code, Bot, Shield, Cloud, FileText, Server, BookUser, Users, Milestone, Briefcase, DollarSign } from 'lucide-react';
 import Link from 'next/link';
 
 const faqCategories = [
@@ -28,145 +28,189 @@ const faqCategories = [
       {
         question: "What pricing models do you offer for your services?",
         answer: "We offer flexible pricing to suit your project's needs and budget. The most common models are: <ul class='list-disc list-inside space-y-2 mt-2'><li><strong>Fixed-Price Contract:</strong> Ideal for projects with a clearly defined scope, where a firm price is agreed upon in advance.</li><li><strong>Time & Materials (T&M):</strong> Best for projects where requirements may evolve, where you pay for the hours and resources our experts dedicate to your needs.</li><li><strong>Monthly/Annual Retainer:</strong> Available for ongoing support, maintenance, or managed services (like Cybersecurity and Managed Cloud).</li></ul>"
+      },
+       {
+        question: "Your website is synctech.ie. Does the '.ie' mean you only work with businesses in Ireland?",
+        answer: "While we are proud to be headquartered in Dublin, Ireland, we are a global company. The '.ie' domain reflects our roots, but our services and 24/7 support network are designed for businesses worldwide. We have a proven track record of successfully delivering projects for clients in different countries and time zones."
       }
     ]
   },
   {
-    category: "Web Development & Digital Growth",
+    category: "The People & Expertise",
+    icon: <Users className="w-8 h-8 text-primary" />,
+    questions: [
+        {
+            question: "Who is Sheraz Hussain, and why did he start SYNC TECH?",
+            answer: "Sheraz Hussain is a First-Class Honors Computing graduate and the founder of SYNC TECH. He started the company with a clear mission: to dismantle the barrier between elite, enterprise-level technology and the businesses that need it most. His background in full-stack engineering, AI, and cloud computing revealed a major market gap for affordable, high-quality IT solutions. You can learn more about his journey and see his work on his <a href='/SherazHussain_SYNCTECH' class='text-primary hover:underline'>founder's portfolio page</a>."
+        },
+        {
+            question: "What kind of certifications do your developers have?",
+            answer: "Our team is committed to continuous learning and professional development. Our founder, Sheraz Hussain, holds multiple industry-recognized job simulation certificates from leading companies like Electronic Arts (EA), Deloitte, and Mastercard in fields such as Software Engineering, Cybersecurity, and Data Analytics. This commitment to excellence is a core part of our company culture."
+        },
+        {
+            question: "Do you have specific teams for different services (e.g., an 'AI team' and a 'web team')?",
+            answer: "As a lean and agile company, our experts are often cross-trained, but we do have specialists who lead different practice areas. For larger projects, we assemble a dedicated team with the right mix of skills—such as AI/ML engineers, full-stack developers, and cybersecurity analysts—to ensure focused expertise and a successful outcome."
+        },
+        {
+            question: "How do you stay up-to-date with new technologies?",
+            answer: "Staying current is a core part of our business model. Our team actively engages in continuous professional development, participates in industry job simulations, contributes to open-source projects, and constantly prototypes with emerging technologies. This hands-on approach ensures that the solutions we deliver for clients like you are modern, efficient, and future-proof."
+        },
+        {
+            question: "Are the people working on my project full-time employees or freelancers?",
+            answer: "The core of our strategy, design, and project management is handled by our dedicated in-house team, led by our founder. To maintain our competitive pricing and scale our expertise, we leverage a trusted global network of specialized freelance developers and partners who are vetted for their skills and reliability. This flexible model allows us to bring in top-tier talent for your specific needs without the overhead of a large, permanent staff."
+        }
+    ]
+  },
+  {
+    category: "Defining the Tech",
     icon: <Code className="w-8 h-8 text-primary" />,
     questions: [
-      {
-        question: "Do you only build new websites, or can you update my existing site?",
-        answer: "We offer both. We can build a high-performance, bespoke website or e-commerce store from scratch that focuses on conversions and user experience. We also provide <a href='/services' class='text-primary hover:underline'>Application Modernization</a> services to refactor and update legacy applications and websites for secure, scalable cloud environments, enhancing speed and agility."
-      },
-      {
-        question: "What steps do you take to ensure my new website is secure?",
-        answer: "Security is baked into our web development process from the start. Key measures include: <ul class='list-disc list-inside space-y-2 mt-2'><li>Using secure, modern Content Management Systems (CMS) and frameworks.</li><li>Implementing Web Application Firewalls (WAF), malware detection, and DDoS protection.</li><li>Regularly applying security updates and patches to the CMS, themes, and all third-party plugins.</li><li>Ensuring secure hosting, typically on a Managed Cloud environment with built-in security protocols and 24/7 monitoring.</li></ul>"
-      },
-      {
-        question: "What is included in your Digital Growth & SEO service?",
-        answer: "Our <a href='/services' class='text-primary hover:underline'>Digital Growth and SEO service</a> is focused on improving your online visibility and driving qualified traffic with a strong ROI. This includes: <ul class='list-disc list-inside space-y-2 mt-2'><li>Search Engine Optimization (SEO): Keyword research, on-page optimization, technical SEO audits, and content strategy.</li><li>Performance Analytics: Tracking and reporting on key metrics to ensure your online presence is continually growing and converting visitors effectively.</li></ul>"
-      }
+        {
+            question: "What is the 'Cloud'?",
+            answer: "The 'Cloud' refers to a global network of remote servers that are used to store and manage data, run applications, and deliver services over the internet. It's more than just 'storage on the internet'—it's a complete ecosystem that provides computing power, databases, and software on demand. This allows businesses to access powerful resources without having to own and manage their own physical hardware, enabling greater flexibility, scalability, and often, cost savings. Our <a href='/services' class='text-primary hover:underline'>Managed Cloud services</a> help you harness this power securely and efficiently."
+        },
+        {
+            question: "What is 'DevOps'?",
+            answer: "DevOps is a set of practices that combines software development (Dev) and IT operations (Ops). The goal is to shorten the development lifecycle and provide continuous delivery with high software quality. It's not about two specific people; it's a collaborative culture and methodology. By automating and integrating the processes between development and operations teams, we can build, test, and release software faster and more reliably."
+        },
+        {
+            question: "What are 'Full-Stack' services?",
+            answer: "A 'Full-Stack' developer or service provider is proficient in both the 'frontend' (what the user sees and interacts with, like your website's layout and buttons) and the 'backend' (the server, database, and logic that power the application). When we offer full-stack services, it means we can handle a project from concept to completion—from designing the user interface to building the server-side infrastructure that makes it all work."
+        },
+        {
+            question: "What do you mean by 'scalable'?",
+            answer: "Scalability is the ability of a system to handle a growing amount of work. When we build a 'scalable' website or application, we design it to perform just as well for 10,000 customers as it does for 10. We achieve this by using modern cloud architectures and efficient code, ensuring your platform can grow with your business without crashing or slowing down."
+        },
+        {
+            question: "What is a 'MERN stack'?",
+            answer: "MERN is an acronym for a specific set of technologies used to build full-stack web applications. It stands for MongoDB (a database), Express.js (a backend framework), React (a frontend library), and Node.js (a backend environment). It's not a single language, but a popular and powerful combination of JavaScript-based technologies that allows for the rapid development of modern, high-performance web applications, like the <a href='/portfolio/chattyai-full-stack-ai-chatbot' class='text-primary hover:underline'>ChattyAI project</a> in our portfolio."
+        }
     ]
   },
   {
-    category: "AI & Automation Services",
-    icon: <Bot className="w-8 h-8 text-primary" />,
+    category: "Growth & Strategy",
+    icon: <Milestone className="w-8 h-8 text-primary" />,
     questions: [
-      {
-        question: "How can AI Automation help my business?",
-        answer: "AI Automation leverages Artificial Intelligence and Machine Learning to automate repetitive workflows, enhance operational efficiency, and provide a competitive edge. This can include: <ul class='list-disc list-inside space-y-2 mt-2'><li><strong>Smart Data Processing:</strong> Automating data entry, validation, and reporting (e.g., smart payroll validation).</li><li><strong>AI-Powered Analytics:</strong> Developing custom AI engines for tasks like scientific data analysis or real-time decision-making.</li><li><strong>Customer Engagement:</strong> Implementing AI Chatbots for instant, 24/7 customer support.</li><li><strong>System Integration:</strong> Connecting your existing systems (ERP, CRM) to create seamless, automated workflows.</li></ul>"
-      },
-      {
-        question: "Do I need to be a large company to use your AI services?",
-        answer: "Not at all. We specialize in making powerful AI and automation accessible and affordable, even for Small to Medium-sized Enterprises (SMEs). We focus on practical, applied AI solutions that deliver immediate value and a clear ROI, such as setting up your first AI agent or automated workflow in less than an hour during a <a href='/contact' class='text-primary hover:underline'>consultation</a>."
-      },
-      {
-        question: "How do you address the security risks of integrating AI into my operations?",
-        answer: "We view AI security as a fundamental part of data security. Our approach includes: <ul class='list-disc list-inside space-y-2 mt-2'><li><strong>Data Governance:</strong> Managing what data is accessed by AI tools (especially Large Language Models), and ensuring proper permissions and control to prevent leaks of sensitive information.</li><li><strong>Secure Development:</strong> Following secure AI development guidelines and conducting risk assessments for all new AI/ML systems.</li><li><strong>Mitigation:</strong> Protecting against AI-specific threats like 'data poisoning' or 'jailbreaking,' and ensuring that human responsibility and oversight remain in the loop.</li></ul>"
-      }
+        {
+            question: "What is Digital Growth & SEO?",
+            answer: "Our Digital Growth & SEO service is about making your business more visible online and turning that visibility into revenue. It's not just about keywords; it's a holistic strategy that includes: <ul class='list-disc list-inside space-y-2 mt-2'><li><strong>Technical SEO:</strong> Ensuring your site is fast, mobile-friendly, and easy for Google to crawl.</li><li><strong>Content Strategy:</strong> Creating valuable content that answers your customers' questions and establishes you as an authority.</li><li><strong>On-Page Optimization:</strong> Structuring your site's content and HTML to clearly signal what you're about to search engines.</li></ul> The goal is to rank higher than your competitors for the terms your customers are searching for, driving qualified traffic to your site."
+        },
+        {
+            question: "Do you help with paid advertising like Google Ads?",
+            answer: "Yes, we do. While our primary focus is on organic growth through SEO, we recognize that a comprehensive digital strategy often includes paid advertising. We can assist with setting up and managing targeted Google Ads and social media ad campaigns to complement your SEO efforts and drive immediate traffic for key initiatives."
+        },
+        {
+            question: "Can you help me define a Minimum Viable Product (MVP)?",
+            answer: "Absolutely. This is a core part of our strategic process, especially for startups and new projects. We work with you to identify the essential, core features your product needs to launch and solve a real problem for your first users. This MVP approach allows you to get to market faster, gather valuable feedback, and iterate based on real-world data, all while managing your initial budget effectively."
+        },
+        {
+            question: "How much of my time will you need during a project?",
+            answer: "Your time commitment will vary based on the project phase. It's most intensive during the initial Discovery and Strategy phase, where we need your input to define goals. After that, we typically establish a weekly or bi-weekly check-in schedule to review progress and gather feedback. We aim to be efficient with your time, providing clear updates and only involving you in key decisions, so you can continue to run your business."
+        },
+        {
+            question: "Do you work on projects that mix physical and digital tech?",
+            answer: "Yes, this is an area where we can add significant value. A common example is integrating e-commerce platforms with physical inventory management systems. We can develop solutions that, for instance, connect in-store barcode scanners or POS systems directly to your website's stock levels, ensuring your digital and physical operations are perfectly synchronized."
+        }
     ]
   },
   {
-    category: "Cybersecurity & Cloud Solutions",
+    category: "Security, Quality & Compliance",
     icon: <Shield className="w-8 h-8 text-primary" />,
     questions: [
-      {
-        question: "What is Managed Cybersecurity, and why do I need it?",
-        answer: "Managed Cybersecurity is an outsourced service where we take full responsibility for protecting your digital assets 24/7. It's essential because cyber threats are complex and relentless. Our service provides: <ul class='list-disc list-inside space-y-2 mt-2'><li><strong>Continuous Monitoring:</strong> Using advanced technologies (often AI-powered) for real-time threat detection and response.</li><li><strong>Proactive Measures:</strong> Including vulnerability assessments, penetration testing, and security architecture design (firewalls, IDS).</li><li><strong>Incident Response:</strong> Immediate action to block threats, isolate compromised systems, and provide recovery services in the event of an attack.</li></ul>"
-      },
-      {
-        question: "How can moving to the cloud improve my security?",
-        answer: "Migrating to a Managed Cloud environment significantly enhances security compared to managing everything on-premises. Cloud providers invest heavily in world-class security infrastructure. Our managed cloud services provide: <ul class='list-disc list-inside space-y-2 mt-2'><li><strong>Built-in Security:</strong> Enterprise-grade security protocols, encryption, and compliance features.</li><li><strong>Scalability & Resilience:</strong> Redundancy, frequent backups, and a clear disaster recovery plan to prevent data loss and minimize downtime.</li><li><strong>Automation:</strong> Automating routine security tasks like patching and monitoring, reducing the burden on your team.</li></ul>"
-      },
-      {
-        question: "What happens if I want to switch to another provider later on?",
-        answer: "We believe in making our partnerships mutually beneficial and long-term, but we also ensure you maintain control of your data. We design our solutions to avoid vendor lock-in where possible. We will provide a clear exit strategy that ensures you have full access to your data, a comprehensive data migration plan, and support for the transition to a new environment, should you ever choose to leave."
-      }
+        {
+            question: "What is an SLA, and do you offer one?",
+            answer: "An SLA, or Service Level Agreement, is a formal contract defining the level of service you can expect from us, including metrics for uptime and response times. Yes, we offer SLAs for our managed hosting and support retainers. These agreements guarantee a specific response time for critical issues, giving you peace of mind that your business is protected. You can learn more about our commitment in the <a href='/faq#service-level-agreements-slas' class='text-primary hover:underline'>SLA section of our FAQ</a>."
+        },
+        {
+            question: "Does SYNC TECH have industry certifications like ISO 27001?",
+            answer: "While we are not yet formally ISO 27001 certified, we are actively working towards this goal as part of our long-term roadmap. Our internal processes and security protocols are designed and implemented in alignment with the best practices and control frameworks outlined by standards like ISO 27001 and the NIST Cybersecurity Framework. We take security and compliance very seriously as a foundational element of our services."
+        },
+        {
+            question: "How do you handle data privacy and GDPR?",
+            answer: "We adhere strictly to GDPR principles. As your Data Processor, we only handle personal data according to your documented instructions. We execute a Data Processing Agreement (DPA) before any project begins, and we implement 'privacy by design' principles, including strong encryption and access controls, to protect all data. You can find more detail in our <a href='/faq#gdpr-data-compliance' class='text-primary hover-underline'>GDPR FAQ section</a> and our official <a href='/privacy-policy' class='text-primary hover:underline'>Privacy Policy</a>."
+        },
+        {
+            question: "How do you test a new app to ensure it has no 'bugs'?",
+            answer: "Our Quality Assurance (QA) process is multi-layered. It includes: <ul class='list-disc list-inside space-y-2 mt-2'><li><strong>Unit Testing:</strong> Developers test individual components of the code.</li><li><strong>Integration Testing:</strong> We test how different parts of the application work together.</li><li><strong>User Acceptance Testing (UAT):</strong> Before launch, you and your team will have a chance to test the application in a staging environment to ensure it meets all your requirements and is free of critical bugs.</li></ul>"
+        },
+        {
+            question: "If a security breach happens on a server you manage, who is liable?",
+            answer: "This is a critical question. As part of our commitment to managing risk, we are actively in the process of securing comprehensive Professional Indemnity and Cyber Liability insurance. The specifics of liability are formally defined in our Service Level Agreement (SLA) and contract. Our goal is to provide robust technical protection and have a clear, contractually-defined process for handling such events, ensuring our clients are protected."
+        }
     ]
   },
   {
-    category: "Cloud Migration & FinOps",
-    icon: <Cloud className="w-8 h-8 text-primary" />,
+    category: "Cost & Value",
+    icon: <DollarSign className="w-8 h-8 text-primary" />,
     questions: [
-      {
-        question: "What is 'Cloud Migration'?",
-        answer: "Cloud Migration is the process of moving an organization's digital assets—such as data, applications, and IT resources—from on-premises infrastructure or a legacy system to a cloud environment (e.g., AWS, Azure, GCP), or from one cloud platform to another."
-      },
-      {
-        question: "What are the common strategies for cloud migration (the 6 R's)?",
-        answer: "We utilize the 6 R's strategy framework for migration planning: Rehost (Lift-and-Shift), Replatform (optimization with minor changes), Refactor/Rearchitect (major changes for cloud-native benefits), Repurchase (move to a SaaS solution), Retire (decommissioning), and Retain (keeping some workloads on-premise)."
-      },
-      {
-        question: "What is FinOps?",
-        answer: "FinOps (Cloud Financial Operations) is a cultural practice that brings financial accountability to the variable spending model of the cloud. It combines systems, best practices, and culture to help teams manage their cloud costs, maximize business value, and increase agility."
-      },
-      {
-        question: "How do your FinOps services help control costs?",
-        answer: "Our FinOps services provide Cloud Cost Management and Cloud Cost Estimation tools. We track and analyze how, where, and when your cloud budget is being spent, identifying waste, optimizing resource utilization (e.g., utilizing reserved instances), and creating accurate future spending forecasts."
-      },
-      {
-        question: "What are the key risks associated with cloud migration?",
-        answer: "Key risks include potential downtime during the final cutover, the possibility of data loss or exposure if security protocols are misconfigured, and compatibility issues with legacy applications that may require extensive refactoring."
-      }
+        {
+            question: "How do you keep prices competitive while delivering high quality?",
+            answer: "Our business model is built on efficiency. We operate with a lean core team and leverage a global network of specialized talent, which keeps our overheads low. We also focus on using modern, efficient technologies and pre-built components where appropriate to accelerate development without sacrificing quality. This allows us to pass those cost savings on to you, offering enterprise-level results at a price that is accessible."
+        },
+        {
+            question: "Are your projects custom-quoted, or do you have tiered pricing?",
+            answer: "Nearly all of our projects are custom-quoted. We believe a 'one-size-fits-all' approach doesn't deliver the best value. We start with a free consultation to understand your specific needs and budget, and then we provide a detailed, transparent proposal tailored to your goals. This ensures you only pay for what you need."
+        },
+        {
+            question: "Are your AI or Cloud solutions accessible to SMEs?",
+            answer: "Yes, absolutely. This is a core part of our mission. We specialize in making powerful technologies accessible. Whether it's setting up your first automated workflow or migrating a small application to the cloud, we design solutions that are practical, affordable, and deliver a clear ROI for small-to-medium enterprises (SMEs)."
+        },
+        {
+            question: "What is FinOps and how does it save me money?",
+            answer: "FinOps (Financial Operations) is a practice we use to manage your cloud spending. Instead of getting a surprise bill at the end of the month, we proactively monitor, analyze, and optimize your cloud usage. We identify and eliminate wasted resources (like idle servers) and ensure you're on the most cost-effective pricing plan. This brings financial accountability to your cloud usage and directly lowers your monthly bill."
+        },
+        {
+            question: "If I only need a website, do I have to pay for a full suite of services?",
+            answer: "No, of course not. Our services are entirely à la carte. If you only need a high-performance website, that is what we will quote and deliver. We can always add more services like SEO or AI automation later on as your business grows and your needs evolve."
+        }
     ]
   },
   {
-    category: "GDPR & Data Compliance",
-    icon: <FileText className="w-8 h-8 text-primary" />,
+    category: "Technology & Projects",
+    icon: <Briefcase className="w-8 h-8 text-primary" />,
     questions: [
-      {
-        question: "What is the GDPR?",
-        answer: "The General Data Protection Regulation (GDPR) is an EU law that governs data protection and privacy for all individuals within the European Union and the European Economic Area. It imposes strict rules on how organizations must safeguard personal data."
-      },
-      {
-        question: "Who must comply with the GDPR?",
-        answer: "Any organization that processes the personal data of people in the EU must comply, regardless of where the organization itself is based. This includes data controllers (who determine processing purposes) and data processors (who process data on their behalf)."
-      },
-      {
-        question: "What is the difference between a Data Controller and a Data Processor?",
-        answer: "The Data Controller (you, the client) determines why and how personal data is processed. The Data Processor (us, the service provider) processes the data only on the documented instructions of the Controller."
-      },
-      {
-        question: "Do you provide a Data Processing Agreement (DPA)?",
-        answer: "Yes. Before commencing any service that involves the processing of your users' personal data, we execute a comprehensive Data Processing Agreement (DPA) that contractually defines our obligations as the Data Processor under GDPR standards."
-      },
-      {
-        question: "Does GDPR mandate the use of encryption?",
-        answer: "While not explicitly mandatory in all cases, the GDPR requires organizations to implement 'appropriate technical and organizational measures' to secure personal data. Encryption is cited as a core example and is generally considered the most appropriate technical measure for securing data both in transit and at rest."
-      }
+        {
+            question: "What technology stacks do you specialize in for Web Development?",
+            answer: "We are experts in modern, JavaScript-based stacks, primarily the MERN/MEAN stack (MongoDB, Express.js, React/Angular, Node.js). We have a particular specialization in using <a href='https://nextjs.org/' target='_blank' rel='noopener noreferrer' class='text-primary hover:underline'>Next.js</a> for building high-performance, server-rendered React applications. However, we are technology-agnostic and always choose the right tools for the job based on your project's specific requirements."
+        },
+        {
+            question: "What kind of support do you offer after a project is launched?",
+            answer: "We offer several levels of post-launch support. Every project comes with a standard warranty period to fix any bugs. Beyond that, we offer monthly and annual support retainers for ongoing maintenance, security updates, and general technical assistance, all governed by a clear Service Level Agreement (SLA)."
+        },
+        {
+            question: "Can you share a success story relevant to a small retail business?",
+            answer: "Certainly. Our work with <a href='/portfolio/stylish-marble-art-ecommerce' class='text-primary hover:underline'>Stylish Marble Art</a> is a perfect example. We built a bespoke e-commerce platform for this luxury retailer, which led to a 40% increase in customer inquiries. This project demonstrates our ability to create beautiful, high-converting online stores for niche retail businesses. You can read the full case study in our portfolio."
+        },
+        {
+            question: "What is Application Modernization and how do I know if I need it?",
+            answer: "Application Modernization is the process of updating older, legacy software applications to modern, more efficient technologies (like moving them to the cloud). You might need it if your current software is slow, unreliable, difficult to update, insecure, or not mobile-friendly. Modernizing can reduce costs, improve security, and make your business more agile."
+        },
+        {
+            question: "If I hire you to build an app, who legally owns the code?",
+            answer: "You, the client, do. Our standard contract stipulates that upon final payment for the project, the full intellectual property (IP) and ownership of the custom code we've written for you are transferred to you. We believe you should own what you pay for."
+        }
     ]
   },
   {
-    category: "Service Level Agreements (SLAs)",
-    icon: <Server className="w-8 h-8 text-primary" />,
-    questions: [
-      {
-        question: "What is a Service Level Agreement (SLA)?",
-        answer: "An SLA is a formal, documented commitment between us and you that defines the services we will provide, the minimum expected level of performance (e.g., uptime, response times), how performance will be measured, and what remedies are provided if targets are missed."
-      },
-      {
-        question: "What are the key measurable components of your SLAs?",
-        answer: "Our SLAs focus on three key metrics: Response Time (time to acknowledge an incident), Resolution Time (time to restore service), and System Uptime (percentage of time critical systems are available). We also specify agreed-upon maintenance windows."
-      },
-      {
-        question: "How do you define service priority levels for incident response?",
-        answer: "Incidents are categorized based on business impact: P1 (Critical): Service is down, major business function affected. P2 (High): Service is degraded, significant but not total impact. P3 (Medium): Minor issue, service is usable but impaired. Each level has a corresponding guaranteed response and resolution time."
-      },
-      {
-        question: "What are Service Credits?",
-        answer: "Service Credits are financial remedies or penalties that the service provider must issue to the client if the agreed-upon SLA performance targets (such as uptime percentages) are not met within a given service period."
-      },
-      {
-        question: "What types of SLAs do you offer?",
-        answer: "We offer Customer-based SLAs (customized agreement with a single client), Service-based SLAs (same level of service for all users of a specific service, e.g., cloud hosting), and Multilevel SLAs (covering different service levels within an organization or across different infrastructure tiers)."
-      }
-    ]
-  },
-  {
-    category: "Project & Development Process",
+    category: "Partnership & Support",
     icon: <BookUser className="w-8 h-8 text-primary" />,
     questions: [
+      {
+        question: "How quickly can I expect a response if my website goes down?",
+        answer: "For clients on one of our support retainers with an SLA, we have guaranteed response times. For a critical P1 incident like a website being down, our target acknowledgement time is typically under 15 minutes, with work beginning on a resolution immediately after. We offer 24/7 global support to ensure your business is always protected."
+      },
+      {
+        question: "Where are your headquarters located?",
+        answer: "Our global headquarters are based in Dublin, Ireland, placing us in the heart of one of Europe's leading tech hubs. However, our team and our clients are located worldwide."
+      },
+      {
+        question: "What is the very first step to start a project with you?",
+        answer: "The first step is simple: <a href='/contact' class='text-primary hover:underline'>contact us</a> for a free, no-obligation consultation. This initial conversation allows us to understand your vision, discuss your goals, and determine if we are the right fit for each other. From there, we can move forward to a more detailed discovery and proposal phase."
+      },
+      {
+        question: "Will I have a dedicated project manager?",
+        answer: "Yes. For every project, you will have a single, dedicated point of contact—typically a project manager or a lead developer. This individual will be responsible for providing regular updates, gathering your feedback, and ensuring the project stays on track, providing a clear and consistent communication channel."
+      },
       {
         question: "What methodologies and technologies do you use for Web Development?",
         answer: "We primarily employ Agile/Scrum methodologies for iterative development. Our technology stack often includes MERN/MEAN (MongoDB, Express, React/Angular, Node.js) for full-stack applications, and robust content management systems like WordPress or headless CMS options."

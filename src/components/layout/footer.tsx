@@ -52,6 +52,11 @@ export function Footer() {
                     Become a Partner
                   </Link>
                 </li>
+                <li>
+                  <Link href="/gamehub" className="text-sm hover:text-primary transition-colors">
+                    Game Hub
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>

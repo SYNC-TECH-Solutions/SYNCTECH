@@ -15,6 +15,68 @@ export const metadata: Metadata = {
   ],
 };
 
+const WordlePreview = () => (
+    <div className="aspect-video rounded-lg border bg-secondary/50 p-4 flex flex-col justify-center items-center gap-1">
+      {[
+        [{ l: 'W', s: 'present' }, { l: 'E', s: 'absent' }, { l: 'A', s: 'absent' }, { l: 'R', s: 'absent' }, { l: 'Y', s: 'absent' }],
+        [{ l: 'P', s: 'absent' }, { l: 'I', s: 'absent' }, { l: 'L', s: 'present' }, { l: 'O', s: 'correct' }, { l: 'T', s: 'absent' }],
+        [{ l: 'S', s: 'absent' }, { l: 'O', s: 'correct' }, { l: 'L', s: 'present' }, { l: 'V', s: 'absent' }, { l: 'E', s: 'present' }],
+        [{ l: 'W', s: 'absent' }, { l: 'O', s: 'correct' }, { l: 'R', s: 'correct' }, { l: 'L', s: 'absent' }, { l: 'D', s: 'absent' }],
+        [{ l: 'W', s: 'absent' }, { l: 'O', s: 'correct' }, { l: 'R', s: 'correct' }, { l: 'D', 'correct' }, { l: 'L', s: 'correct' }],
+      ].map((row, rowIndex) => (
+        <div key={rowIndex} className="flex gap-1">
+          {row.map((cell, cellIndex) => (
+            <div
+              key={cellIndex}
+              className={`w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded text-white font-bold text-lg ${
+                cell.s === 'present' ? 'bg-yellow-500' : cell.s === 'correct' ? 'bg-green-600' : 'bg-gray-500'
+              }`}
+            >
+              {cell.l}
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+  
+  const CrosswordPreview = () => (
+    <div className="aspect-video rounded-lg border bg-secondary/50 p-4 flex justify-center items-center">
+      <div className="grid grid-cols-8 gap-px bg-muted-foreground/50">
+        {Array.from({ length: 64 }).map((_, i) => {
+          const isBlack = [1, 3, 5, 7, 8, 10, 15, 17, 20, 22, 24, 26, 28, 30, 33, 35, 38, 41, 43, 45, 47, 50, 55, 57, 59, 61, 62, 63].includes(i);
+          return (
+            <div key={i} className={`w-5 h-5 ${isBlack ? 'bg-foreground' : 'bg-background'}`} />
+          );
+        })}
+      </div>
+    </div>
+  );
+  
+  const SudokuPreview = () => (
+    <div className="aspect-video rounded-lg border bg-secondary/50 p-4 flex justify-center items-center">
+      <div className="grid grid-cols-9 grid-rows-9 gap-px bg-muted-foreground/50 border-2 border-foreground">
+        {Array.from({ length: 81 }).map((_, i) => {
+          const row = Math.floor(i / 9);
+          const col = i % 9;
+          const numbers: {[key: number]: number} = {0: 5, 2: 3, 10: 6, 20: 1, 22: 9, 23: 5, 30: 8, 38: 6, 42: 3, 50: 8, 57: 7, 59: 3, 60: 1, 68: 8, 72: 2, 75: 7, 78: 4, 80: 9};
+          return (
+            <div
+              key={i}
+              className={`w-5 h-5 flex items-center justify-center bg-background text-foreground text-sm font-bold ${
+                col % 3 === 2 && col !== 8 ? 'border-r-2 border-foreground' : ''
+              } ${
+                row % 3 === 2 && row !== 8 ? 'border-b-2 border-foreground' : ''
+              }`}
+            >
+              {numbers[i] || ''}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+
 const games = [
   {
     icon: <Gamepad2 className="h-8 w-8 text-primary" />,
@@ -41,70 +103,6 @@ const games = [
     preview: <SudokuPreview />,
   },
 ];
-
-
-const WordlePreview = () => (
-  <div className="aspect-video rounded-lg border bg-secondary/50 p-4 flex flex-col justify-center items-center gap-1">
-    {[
-      [{ l: 'W', s: 'present' }, { l: 'E', s: 'absent' }, { l: 'A', s: 'absent' }, { l: 'R', s: 'absent' }, { l: 'Y', s: 'absent' }],
-      [{ l: 'P', s: 'absent' }, { l: 'I', s: 'absent' }, { l: 'L', s: 'present' }, { l: 'O', s: 'correct' }, { l: 'T', s: 'absent' }],
-      [{ l: 'S', s: 'absent' }, { l: 'O', s: 'correct' }, { l: 'L', s: 'present' }, { l: 'V', s: 'absent' }, { l: 'E', 'present' }],
-      [{ l: 'W', s: 'absent' }, { l: 'O', s: 'correct' }, { l: 'R', s: 'correct' }, { l: 'L', s: 'absent' }, { l: 'D', 'absent' }],
-      [{ l: 'W', s: 'absent' }, { l: 'O', s: 'correct' }, { l: 'R', s: 'correct' }, { l: 'D', 'correct' }, { l: 'L', 'correct' }],
-    ].map((row, rowIndex) => (
-      <div key={rowIndex} className="flex gap-1">
-        {row.map((cell, cellIndex) => (
-          <div
-            key={cellIndex}
-            className={`w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded text-white font-bold text-lg ${
-              cell.s === 'present' ? 'bg-yellow-500' : cell.s === 'correct' ? 'bg-green-600' : 'bg-gray-500'
-            }`}
-          >
-            {cell.l}
-          </div>
-        ))}
-      </div>
-    ))}
-  </div>
-);
-
-const CrosswordPreview = () => (
-  <div className="aspect-video rounded-lg border bg-secondary/50 p-4 flex justify-center items-center">
-    <div className="grid grid-cols-8 gap-px bg-muted-foreground/50">
-      {Array.from({ length: 64 }).map((_, i) => {
-        const isBlack = [1, 3, 5, 7, 8, 10, 15, 17, 20, 22, 24, 26, 28, 30, 33, 35, 38, 41, 43, 45, 47, 50, 55, 57, 59, 61, 62, 63].includes(i);
-        return (
-          <div key={i} className={`w-5 h-5 ${isBlack ? 'bg-foreground' : 'bg-background'}`} />
-        );
-      })}
-    </div>
-  </div>
-);
-
-const SudokuPreview = () => (
-  <div className="aspect-video rounded-lg border bg-secondary/50 p-4 flex justify-center items-center">
-    <div className="grid grid-cols-9 grid-rows-9 gap-px bg-muted-foreground/50 border-2 border-foreground">
-      {Array.from({ length: 81 }).map((_, i) => {
-        const row = Math.floor(i / 9);
-        const col = i % 9;
-        const numbers: {[key: number]: number} = {0: 5, 2: 3, 10: 6, 20: 1, 22: 9, 23: 5, 30: 8, 38: 6, 42: 3, 50: 8, 57: 7, 59: 3, 60: 1, 68: 8, 72: 2, 75: 7, 78: 4, 80: 9};
-        return (
-          <div
-            key={i}
-            className={`w-5 h-5 flex items-center justify-center bg-background text-foreground text-sm font-bold ${
-              col % 3 === 2 && col !== 8 ? 'border-r-2 border-foreground' : ''
-            } ${
-              row % 3 === 2 && row !== 8 ? 'border-b-2 border-foreground' : ''
-            }`}
-          >
-            {numbers[i] || ''}
-          </div>
-        );
-      })}
-    </div>
-  </div>
-);
-
 
 export default function GameHubPage() {
   return (

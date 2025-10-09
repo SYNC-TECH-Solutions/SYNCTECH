@@ -114,7 +114,7 @@ export default function GameHubPage() {
       <Script
         id="adsense-script"
         async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7334468000130380"
         crossOrigin="anonymous"
         strategy="afterInteractive"
       />
@@ -179,19 +179,21 @@ export default function GameHubPage() {
                     <CardTitle className="text-center text-sm font-normal text-muted-foreground">Advertisement</CardTitle>
                 </CardHeader>
                 <CardContent className="flex items-center justify-center min-h-[100px]">
-                    <p className="text-sm text-muted-foreground">Ad unit will be displayed here.</p>
-                     {/* 
-                        Example AdSense Unit: Replace with your own code.
+                    {/* 
+                        This is where you would place your AdSense ad unit code.
+                        Make sure your AdSense account is approved and you have generated an ad unit.
+                        
                         <ins class="adsbygoogle"
                             style={{ display: 'block' }}
-                            data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-                            data-ad-slot="1234567890"
+                            data-ad-client="ca-pub-7334468000130380"
+                            data-ad-slot="YOUR_AD_SLOT_ID"
                             data-ad-format="auto"
                             data-full-width-responsive="true"></ins>
                         <script>
                             (adsbygoogle = window.adsbygoogle || []).push({});
                         </script> 
                     */}
+                     <p className="text-sm text-muted-foreground">Ad unit will be displayed here once configured.</p>
                 </CardContent>
             </Card>
           </div>

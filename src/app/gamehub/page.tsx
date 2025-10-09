@@ -42,6 +42,44 @@ const WordlePreview = () => (
   </div>
 );
 
+const CrosswordPreview = () => (
+  <div className="aspect-video rounded-lg border bg-secondary/50 p-4 flex justify-center items-center">
+    <div className="grid grid-cols-8 gap-px bg-muted-foreground/50">
+      {Array.from({ length: 64 }).map((_, i) => {
+        const isBlack = [1, 3, 5, 7, 8, 10, 15, 17, 20, 22, 24, 26, 28, 30, 33, 35, 38, 41, 43, 45, 47, 50, 55, 57, 59, 61, 62, 63].includes(i);
+        return (
+          <div key={i} className={cn('w-5 h-5', isBlack ? 'bg-foreground' : 'bg-background')} />
+        );
+      })}
+    </div>
+  </div>
+);
+
+const SudokuPreview = () => (
+  <div className="aspect-video rounded-lg border bg-secondary/50 p-4 flex justify-center items-center">
+    <div className="grid grid-cols-9 grid-rows-9 gap-px bg-muted-foreground/50 border-2 border-foreground">
+      {Array.from({ length: 81 }).map((_, i) => {
+        const row = Math.floor(i / 9);
+        const col = i % 9;
+        const numbers: {[key: number]: number} = {0: 5, 2: 3, 10: 6, 20: 1, 22: 9, 23: 5, 30: 8, 38: 6, 42: 3, 50: 8, 57: 7, 59: 3, 60: 1, 68: 8, 72: 2, 75: 7, 78: 4, 80: 9};
+        return (
+          <div
+            key={i}
+            className={cn(
+              'w-5 h-5 flex items-center justify-center bg-background text-foreground text-sm font-bold',
+              col % 3 === 2 && col !== 8 && 'border-r-2 border-foreground',
+              row % 3 === 2 && row !== 8 && 'border-b-2 border-foreground'
+            )}
+          >
+            {numbers[i] || ''}
+          </div>
+        );
+      })}
+    </div>
+  </div>
+);
+
+
 const games = [
   {
     icon: <PenLine className="h-8 w-8 text-primary" />,
@@ -57,11 +95,7 @@ const games = [
     description: "Test your vocabulary with our classic crossword puzzle. A perfect way to sharpen your mind during a coffee break.",
     status: "Coming Soon",
     link: "#",
-    preview: (
-      <div className="aspect-video rounded-lg border bg-secondary/50 p-2 flex items-center justify-center">
-        <p className="text-muted-foreground font-semibold">Crossword Preview</p>
-      </div>
-    ),
+    preview: <CrosswordPreview />,
   },
   {
     icon: <Brain className="h-8 w-8 text-primary" />,
@@ -69,11 +103,7 @@ const games = [
     description: "A logic-based number-placement puzzle. Fill the 9x9 grid so that each column, row, and 3x3 subgrid contains all digits from 1 to 9.",
     status: "Coming Soon",
     link: "#",
-    preview: (
-       <div className="aspect-video rounded-lg border bg-secondary/50 p-2 flex items-center justify-center">
-        <p className="text-muted-foreground font-semibold">Sudoku Preview</p>
-      </div>
-    ),
+    preview: <SudokuPreview />,
   },
 ];
 

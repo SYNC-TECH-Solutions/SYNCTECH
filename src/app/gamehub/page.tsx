@@ -53,30 +53,30 @@ const CrosswordPreview = () => {
   return (
     <div className="p-4 bg-background rounded-lg flex justify-center scale-90 md:scale-100">
       <div className="grid grid-cols-5 gap-0">
-        <Cell isBlack />
         <Cell letter="S" />
         <Cell letter="Y" />
         <Cell letter="N" />
         <Cell letter="C" />
-        <Cell letter="G" />
         <Cell isBlack />
-        <Cell letter="E" />
+        <Cell letter="Y" />
         <Cell isBlack />
-        <Cell letter="L" />
-        <Cell letter="A" />
-        <Cell letter="M" />
-        <Cell letter="E" />
         <Cell isBlack />
         <Cell letter="O" />
-        <Cell letter="M" />
         <Cell isBlack />
+        <Cell letter="N" />
+        <Cell letter="E" />
+        <Cell letter="X" />
+        <Cell letter="T" />
+        <Cell letter="E" />
+        <Cell letter="C" />
+        <Cell isBlack />
+        <Cell isBlack />
+        <Cell letter="A" />
         <Cell isBlack />
         <Cell letter="H" />
-        <Cell letter="U" />
-        <Cell letter="E" />
         <Cell isBlack />
-        <Cell letter="B" />
         <Cell isBlack />
+        <Cell letter="I" />
         <Cell isBlack />
       </div>
     </div>

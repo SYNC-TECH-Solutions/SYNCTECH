@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Puzzle, Brain, PenLineSquare, Gamepad2 } from 'lucide-react';
+import { ArrowRight, Puzzle, Brain, PenLine, Gamepad2 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 const games = [
   {
-    icon: <PenLineSquare className="h-8 w-8 text-primary" />,
+    icon: <PenLine className="h-8 w-8 text-primary" />,
     title: "Wordle",
     description: "Guess the hidden five-letter word in six tries. A new puzzle is available every day. Can you solve it?",
     status: "Live",

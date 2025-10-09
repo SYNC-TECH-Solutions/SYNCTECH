@@ -18,6 +18,36 @@ export const metadata: Metadata = {
   },
 };
 
+const WordlePreview = () => (
+  <div className="flex flex-col gap-1.5 p-2 bg-background rounded-lg scale-75 md:scale-100">
+    <div className="flex gap-1.5">
+      <div className="w-8 h-8 bg-emerald-500 border-2 border-primary/50 rounded-md flex items-center justify-center font-bold text-white">W</div>
+      <div className="w-8 h-8 bg-secondary border-2 border-border rounded-md"></div>
+      <div className="w-8 h-8 bg-yellow-500 border-2 border-primary/50 rounded-md flex items-center justify-center font-bold text-white">R</div>
+      <div className="w-8 h-8 bg-secondary border-2 border-border rounded-md"></div>
+      <div className="w-8 h-8 bg-secondary border-2 border-border rounded-md"></div>
+    </div>
+     <div className="flex gap-1.5">
+      <div className="w-8 h-8 bg-secondary border-2 border-border rounded-md"></div>
+      <div className="w-8 h-8 bg-emerald-500 border-2 border-primary/50 rounded-md flex items-center justify-center font-bold text-white">O</div>
+      <div className="w-8 h-8 bg-secondary border-2 border-border rounded-md"></div>
+      <div className="w-8 h-8 bg-emerald-500 border-2 border-primary/50 rounded-md flex items-center justify-center font-bold text-white">D</div>
+      <div className="w-8 h-8 bg-yellow-500 border-2 border-primary/50 rounded-md flex items-center justify-center font-bold text-white">L</div>
+    </div>
+  </div>
+);
+
+const CrosswordPreview = () => (
+  <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">
+    Crossword Preview
+  </div>
+);
+const SudokuPreview = () => (
+   <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">
+    Sudoku Preview
+  </div>
+);
+
 const games = [
   {
     icon: <Gamepad2 className="h-8 w-8 text-primary" />,
@@ -25,6 +55,7 @@ const games = [
     description: "Guess the hidden five-letter word in six tries. A new puzzle is available every day. Can you solve it?",
     status: "Live",
     link: "https://wordle.synctech.ie",
+    preview: <WordlePreview />,
   },
   {
     icon: <Gamepad2 className="h-8 w-8 text-primary" />,
@@ -32,6 +63,7 @@ const games = [
     description: "Test your vocabulary with our classic crossword puzzle. A perfect way to sharpen your mind during a coffee break.",
     status: "Coming Soon",
     link: "#",
+    preview: <CrosswordPreview />,
   },
   {
     icon: <Gamepad2 className="h-8 w-8 text-primary" />,
@@ -39,6 +71,7 @@ const games = [
     description: "A logic-based number-placement puzzle. Fill the 9x9 grid so that each column, row, and 3x3 subgrid contains all digits from 1 to 9.",
     status: "Coming Soon",
     link: "#",
+    preview: <SudokuPreview />,
   },
 ];
 
@@ -84,8 +117,8 @@ export default function GameHubPage() {
                   </div>
                 </CardHeader>
                 <CardContent className="flex-grow space-y-4">
-                    <div className="aspect-video rounded-lg border bg-secondary/50 p-4 flex flex-col justify-center items-center gap-1">
-                        {/* Placeholder for game preview */}
+                    <div className="aspect-video rounded-lg border bg-secondary/50 flex flex-col justify-center items-center">
+                        {game.preview}
                     </div>
                     <p className="text-muted-foreground text-sm">{game.description}</p>
                 </CardContent>

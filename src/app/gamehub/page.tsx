@@ -1,7 +1,6 @@
 
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Script from 'next/script';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Puzzle, Brain, Gamepad2 } from 'lucide-react';
@@ -23,7 +22,7 @@ const WordlePreview = () => (
       [{ l: 'P', s: 'absent' }, { l: 'I', s: 'absent' }, { l: 'L', s: 'present' }, { l: 'O', s: 'correct' }, { l: 'T', s: 'absent' }],
       [{ l: 'S', s: 'absent' }, { l: 'O', s: 'correct' }, { l: 'L', s: 'present' }, { l: 'V', s: 'absent' }, { l: 'E', s: 'present' }],
       [{ l: 'W', s: 'absent' }, { l: 'O', s: 'correct' }, { l: 'R', s: 'correct' }, { l: 'L', s: 'absent' }, { l: 'D', s: 'absent' }],
-      [{ l: 'W', s: 'absent' }, { l: 'O', s: 'correct' }, { l: 'R', s: 'correct' }, { l: 'D', s: 'correct' }, { l: 'L', s: 'correct' }],
+      [{ l: 'W', s: 'absent' }, { l: 'O', s: 'correct' }, { l: 'R', s: 'correct' }, { l: 'D', 'correct' }, { l: 'L', s: 'correct' }],
     ].map((row, rowIndex) => (
       <div key={rowIndex} className="flex gap-1">
         {row.map((cell, cellIndex) => (
@@ -111,13 +110,6 @@ const games = [
 export default function GameHubPage() {
   return (
     <>
-      <Script
-        id="adsense-script"
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7334468000130380"
-        crossOrigin="anonymous"
-        strategy="afterInteractive"
-      />
       <div className="bg-background">
         {/* --- Hero Section --- */}
         <section className="relative w-full py-20 md:py-32 flex items-center justify-center overflow-hidden">

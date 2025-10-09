@@ -98,6 +98,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.6,
     },
+    {
+      url: `${baseUrl}/gamehub`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
      {
       url: `${baseUrl}/SherazHussain_SYNCTECH`,
       lastModified: new Date(),
@@ -130,3 +136,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 }
+
+    

@@ -13,9 +13,6 @@ export const metadata: Metadata = {
   keywords: [
     "online mini-games", "play wordle online", "free online puzzles", "brain games", "crossword puzzles", "SYNC TECH games", "daily puzzles", "word games"
   ],
-  other: {
-    "google-adsense-account": "ca-pub-7334468000130380",
-  },
 };
 
 const games = [

@@ -1,6 +1,7 @@
 
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Script from 'next/script';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Puzzle, Brain, Gamepad2 } from 'lucide-react';
@@ -109,80 +110,110 @@ const games = [
 
 export default function GameHubPage() {
   return (
-    <div className="bg-background">
-      {/* --- Hero Section --- */}
-      <section className="relative w-full py-20 md:py-32 flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 -z-10 h-full w-full bg-secondary">
-           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
-        </div>
+    <>
+      <Script
+        id="adsense-script"
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+        crossOrigin="anonymous"
+        strategy="afterInteractive"
+      />
+      <div className="bg-background">
+        {/* --- Hero Section --- */}
+        <section className="relative w-full py-20 md:py-32 flex items-center justify-center overflow-hidden">
+          <div className="absolute inset-0 -z-10 h-full w-full bg-secondary">
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
+          </div>
 
-        <div className="container text-center z-10">
-          <Gamepad2 className="h-16 w-16 text-primary mx-auto mb-4" />
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground">
-            Welcome to the <span className="text-primary">GameHub</span>
-          </h1>
-          <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
-            Take a break, challenge your mind, and have some fun. Explore our collection of free online mini-games.
-          </p>
-        </div>
-      </section>
-
-
-      {/* --- Games Section --- */}
-      <section id="games" className="py-20 md:py-28">
-        <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold">Choose Your Challenge</h2>
-            <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
-              We're always adding new games and puzzles. See what's available now and what's coming soon!
+          <div className="container text-center z-10">
+            <Gamepad2 className="h-16 w-16 text-primary mx-auto mb-4" />
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground">
+              Welcome to the <span className="text-primary">GameHub</span>
+            </h1>
+            <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
+              Take a break, challenge your mind, and have some fun. Explore our collection of free online mini-games.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {games.map((game) => (
-              <Card key={game.title} className="flex flex-col bg-card hover:border-primary transition-colors hover:shadow-lg">
-                <CardHeader>
-                  <div className="flex justify-between items-start">
-                    <div className="flex items-center gap-4">
-                        {game.icon}
-                        <CardTitle className="text-xl">{game.title}</CardTitle>
-                    </div>
-                    <Badge variant={game.status === 'Live' ? 'default' : 'secondary'}>{game.status}</Badge>
-                  </div>
-                </CardHeader>
-                <CardContent className="flex-grow space-y-4">
-                    {game.preview}
-                    <p className="text-muted-foreground text-sm">{game.description}</p>
-                </CardContent>
-                <CardFooter>
-                  <Button asChild className="w-full" disabled={game.status !== 'Live'}>
-                    <Link href={game.link} target={game.status === 'Live' ? '_blank' : '_self'} rel="noopener noreferrer">
-                      {game.status === 'Live' ? 'Play Now' : 'Coming Soon'}
-                      {game.status === 'Live' && <ArrowRight className="ml-2 h-5 w-5" />}
-                    </Link>
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* --- CTA Section --- */}
-      <section className="py-20 md:py-28 bg-secondary">
-        <div className="container text-center">
-          <h2 className="text-3xl md:text-4xl font-bold">Have an Idea for a Game?</h2>
-          <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
-            We built this GameHub to showcase our development skills in a fun way. If you have an idea for a web or mobile game, our team can bring it to life.
-          </p>
-          <div className="mt-8">
-            <Button asChild size="lg">
-              <Link href="/contact">
-                Discuss Your Game Idea <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
+        {/* --- Games Section --- */}
+        <section id="games" className="py-20 md:py-28">
+          <div className="container">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold">Choose Your Challenge</h2>
+              <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
+                We're always adding new games and puzzles. See what's available now and what's coming soon!
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {games.map((game) => (
+                <Card key={game.title} className="flex flex-col bg-card hover:border-primary transition-colors hover:shadow-lg">
+                  <CardHeader>
+                    <div className="flex justify-between items-start">
+                      <div className="flex items-center gap-4">
+                          {game.icon}
+                          <CardTitle className="text-xl">{game.title}</CardTitle>
+                      </div>
+                      <Badge variant={game.status === 'Live' ? 'default' : 'secondary'}>{game.status}</Badge>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="flex-grow space-y-4">
+                      {game.preview}
+                      <p className="text-muted-foreground text-sm">{game.description}</p>
+                  </CardContent>
+                  <CardFooter>
+                    <Button asChild className="w-full" disabled={game.status !== 'Live'}>
+                      <Link href={game.link} target={game.status === 'Live' ? '_blank' : '_self'} rel="noopener noreferrer">
+                        {game.status === 'Live' ? 'Play Now' : 'Coming Soon'}
+                        {game.status === 'Live' && <ArrowRight className="ml-2 h-5 w-5" />}
+                      </Link>
+                    </Button>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+
+            {/* Ad Placeholder */}
+            <Card className="mt-16 bg-secondary/50 border-dashed">
+                <CardHeader>
+                    <CardTitle className="text-center text-sm font-normal text-muted-foreground">Advertisement</CardTitle>
+                </CardHeader>
+                <CardContent className="flex items-center justify-center min-h-[100px]">
+                    <p className="text-sm text-muted-foreground">Ad unit will be displayed here.</p>
+                     {/* 
+                        Example AdSense Unit: Replace with your own code.
+                        <ins class="adsbygoogle"
+                            style={{ display: 'block' }}
+                            data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                            data-ad-slot="1234567890"
+                            data-ad-format="auto"
+                            data-full-width-responsive="true"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script> 
+                    */}
+                </CardContent>
+            </Card>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+
+        {/* --- CTA Section --- */}
+        <section className="py-20 md:py-28 bg-secondary">
+          <div className="container text-center">
+            <h2 className="text-3xl md:text-4xl font-bold">Have an Idea for a Game?</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
+              We built this GameHub to showcase our development skills in a fun way. If you have an idea for a web or mobile game, our team can bring it to life.
+            </p>
+            <div className="mt-8">
+              <Button asChild size="lg">
+                <Link href="/contact">
+                  Discuss Your Game Idea <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </>
   );
 }

@@ -1,6 +1,7 @@
 
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Gamepad2 } from 'lucide-react';
@@ -17,33 +18,6 @@ export const metadata: Metadata = {
   },
 };
 
-const WordlePreview = () => {
-  const Tile = ({ letter, color }: { letter: string; color: string }) => (
-    <div className={`w-8 h-8 md:w-10 md:h-10 border-2 rounded-md flex items-center justify-center font-bold text-lg md:text-xl text-primary-foreground ${color}`}>
-      {letter}
-    </div>
-  );
-
-  return (
-    <div className="flex flex-col gap-1.5 p-4 bg-background rounded-lg">
-      <div className="flex justify-center gap-1.5">
-        <Tile letter="A" color="bg-yellow-500" />
-        <Tile letter="U" color="bg-secondary" />
-        <Tile letter="D" color="bg-emerald-600" />
-        <Tile letter="I" color="bg-secondary" />
-        <Tile letter="O" color="bg-yellow-500" />
-      </div>
-      <div className="flex justify-center gap-1.5">
-        <Tile letter="S" color="bg-secondary" />
-        <Tile letter="T" color="bg-yellow-500" />
-        <Tile letter="A" color="bg-secondary" />
-        <Tile letter="R" color="bg-emerald-600" />
-        <Tile letter="E" color="bg-emerald-600" />
-      </div>
-    </div>
-  );
-};
-
 const CrosswordPreview = () => {
   const Cell = ({ letter, isBlack }: { letter?: string; isBlack?: boolean }) => (
     <div className={`w-5 h-5 md:w-6 md:h-6 border border-muted/50 flex items-center justify-center text-xs md:text-sm font-semibold ${isBlack ? 'bg-foreground' : 'bg-background text-foreground'}`}>
@@ -58,26 +32,21 @@ const CrosswordPreview = () => {
         <Cell letter="N" />
         <Cell letter="C" />
         <Cell isBlack />
-        <Cell letter="Y" />
+        <Cell />
         <Cell isBlack />
-        <Cell isBlack />
-        <Cell letter="O" />
-        <Cell isBlack />
-        <Cell letter="N" />
-        <Cell letter="E" />
-        <Cell letter="X" />
-        <Cell letter="T" />
-        <Cell letter="E" />
-        <Cell letter="C" />
-        <Cell isBlack />
-        <Cell isBlack />
+        <Cell />
+        <Cell />
+        <Cell letter="G" />
         <Cell letter="A" />
-        <Cell isBlack />
+        <Cell letter="M" />
+        <Cell letter="E" />
         <Cell letter="H" />
+        <Cell letter="U" />
+        <Cell letter="B" />
         <Cell isBlack />
-        <Cell isBlack />
-        <Cell letter="I" />
-        <Cell isBlack />
+        <Cell />
+        <Cell />
+        <Cell />
       </div>
     </div>
   );
@@ -112,7 +81,7 @@ const games = [
     description: "Guess the hidden five-letter word in six tries. A new puzzle is available every day. Can you solve it?",
     status: "Live",
     link: "https://wordle.synctech.ie",
-    preview: <WordlePreview />,
+    preview: <Image src="/wordle.png" alt="Wordle game preview" width={300} height={200} className="object-contain" />,
   },
   {
     icon: <Gamepad2 className="h-8 w-8 text-primary" />,

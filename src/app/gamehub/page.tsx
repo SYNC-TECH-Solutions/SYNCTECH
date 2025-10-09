@@ -26,27 +26,12 @@ const CrosswordPreview = () => {
   );
   return (
     <div className="p-4 bg-background rounded-lg flex justify-center scale-90 md:scale-100">
-      <div className="grid grid-cols-5 gap-0">
-        <Cell letter="S" />
-        <Cell letter="Y" />
-        <Cell letter="N" />
-        <Cell letter="C" />
-        <Cell isBlack />
-        <Cell />
-        <Cell isBlack />
-        <Cell />
-        <Cell />
-        <Cell letter="G" />
-        <Cell letter="A" />
-        <Cell letter="M" />
-        <Cell letter="E" />
-        <Cell letter="H" />
-        <Cell letter="U" />
-        <Cell letter="B" />
-        <Cell isBlack />
-        <Cell />
-        <Cell />
-        <Cell />
+      <div className="grid grid-cols-5 gap-0.5">
+        <Cell isBlack /><Cell letter="S" /><Cell letter="Y" /><Cell letter="N" /><Cell letter="C" />
+        <Cell letter="G" /><Cell isBlack /><Cell /><Cell isBlack /><Cell />
+        <Cell letter="A" /><Cell /><Cell letter="M" /><Cell letter="E" /><Cell isBlack />
+        <Cell letter="M" /><Cell isBlack /><Cell /><Cell isBlack /><Cell letter="H" />
+        <Cell letter="E" /><Cell letter="U" /><Cell letter="B" /><Cell isBlack /><Cell />
       </div>
     </div>
   );
@@ -81,7 +66,7 @@ const games = [
     description: "Guess the hidden five-letter word in six tries. A new puzzle is available every day. Can you solve it?",
     status: "Live",
     link: "https://wordle.synctech.ie",
-    preview: <Image src="/wordle.png" alt="Wordle game preview" width={300} height={200} className="object-contain" />,
+    preview: <Image src="/wordle.png" alt="Wordle game preview" width={300} height={300} className="object-contain" />,
   },
   {
     icon: <Gamepad2 className="h-8 w-8 text-primary" />,
@@ -143,7 +128,7 @@ export default function GameHubPage() {
                   </div>
                 </CardHeader>
                 <CardContent className="flex-grow space-y-4">
-                    <div className="aspect-video rounded-lg border bg-secondary/50 flex flex-col justify-center items-center overflow-hidden">
+                    <div className="rounded-lg border bg-secondary/50 flex flex-col justify-center items-center overflow-hidden p-4">
                         {game.preview}
                     </div>
                     <p className="text-muted-foreground text-sm">{game.description}</p>

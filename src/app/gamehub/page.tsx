@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 const WordlePreview = () => {
   const Tile = ({ letter, color }: { letter: string; color: string }) => (
-    <div className={`w-8 h-8 md:w-10 md:h-10 border-2 rounded-md flex items-center justify-center font-bold text-lg md:text-xl text-white ${color}`}>
+    <div className={`w-8 h-8 md:w-10 md:h-10 border-2 rounded-md flex items-center justify-center font-bold text-lg md:text-xl text-primary-foreground ${color}`}>
       {letter}
     </div>
   );

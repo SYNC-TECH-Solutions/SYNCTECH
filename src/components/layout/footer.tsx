@@ -57,6 +57,11 @@ export function Footer() {
                     Game Hub
                   </Link>
                 </li>
+                <li>
+                  <Link href="/game-business-strategy" className="text-sm hover:text-primary transition-colors">
+                    Game Monetization
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>

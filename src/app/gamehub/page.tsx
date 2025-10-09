@@ -18,24 +18,33 @@ export const metadata: Metadata = {
   },
 };
 
-const WordlePreview = () => (
-  <div className="flex flex-col gap-1.5 p-2 bg-background rounded-lg scale-75 md:scale-100">
-    <div className="flex gap-1.5">
-      <div className="w-8 h-8 bg-emerald-500 border-2 border-primary/50 rounded-md flex items-center justify-center font-bold text-white">W</div>
-      <div className="w-8 h-8 bg-secondary border-2 border-border rounded-md"></div>
-      <div className="w-8 h-8 bg-yellow-500 border-2 border-primary/50 rounded-md flex items-center justify-center font-bold text-white">R</div>
-      <div className="w-8 h-8 bg-secondary border-2 border-border rounded-md"></div>
-      <div className="w-8 h-8 bg-secondary border-2 border-border rounded-md"></div>
+const WordlePreview = () => {
+  const Tile = ({ letter, color }: { letter: string; color: string }) => (
+    <div className={`w-8 h-8 md:w-10 md:h-10 border-2 rounded-md flex items-center justify-center font-bold text-lg md:text-xl text-white ${color}`}>
+      {letter}
     </div>
-     <div className="flex gap-1.5">
-      <div className="w-8 h-8 bg-secondary border-2 border-border rounded-md"></div>
-      <div className="w-8 h-8 bg-emerald-500 border-2 border-primary/50 rounded-md flex items-center justify-center font-bold text-white">O</div>
-      <div className="w-8 h-8 bg-secondary border-2 border-border rounded-md"></div>
-      <div className="w-8 h-8 bg-emerald-500 border-2 border-primary/50 rounded-md flex items-center justify-center font-bold text-white">D</div>
-      <div className="w-8 h-8 bg-yellow-500 border-2 border-primary/50 rounded-md flex items-center justify-center font-bold text-white">L</div>
+  );
+
+  return (
+    <div className="flex flex-col gap-1.5 p-4 bg-background rounded-lg">
+      <div className="flex justify-center gap-1.5">
+        <Tile letter="A" color="bg-yellow-500" />
+        <Tile letter="U" color="bg-secondary" />
+        <Tile letter="D" color="bg-emerald-600" />
+        <Tile letter="I" color="bg-secondary" />
+        <Tile letter="O" color="bg-yellow-500" />
+      </div>
+      <div className="flex justify-center gap-1.5">
+        <Tile letter="S" color="bg-secondary" />
+        <Tile letter="T" color="bg-yellow-500" />
+        <Tile letter="A" color="bg-secondary" />
+        <Tile letter="R" color="bg-emerald-600" />
+        <Tile letter="E" color="bg-emerald-600" />
+      </div>
     </div>
-  </div>
-);
+  );
+};
+
 
 const CrosswordPreview = () => (
   <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">
@@ -117,7 +126,7 @@ export default function GameHubPage() {
                   </div>
                 </CardHeader>
                 <CardContent className="flex-grow space-y-4">
-                    <div className="aspect-video rounded-lg border bg-secondary/50 flex flex-col justify-center items-center">
+                    <div className="aspect-video rounded-lg border bg-secondary/50 flex flex-col justify-center items-center overflow-hidden">
                         {game.preview}
                     </div>
                     <p className="text-muted-foreground text-sm">{game.description}</p>
@@ -133,6 +142,18 @@ export default function GameHubPage() {
               </Card>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* --- Advertisement Placeholder --- */}
+      <section className="py-12">
+        <div className="container">
+            <Card className="flex items-center justify-center min-h-[120px] bg-secondary">
+                <div className="text-center text-muted-foreground">
+                    <p className="text-sm font-semibold">Advertisement</p>
+                    {/* Your ad unit code can be placed here */}
+                </div>
+            </Card>
         </div>
       </section>
 

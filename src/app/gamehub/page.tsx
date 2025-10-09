@@ -4,14 +4,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Gamepad2 } from 'lucide-react';
+import { ArrowRight, Gamepad2, Brain, Puzzle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 export const metadata: Metadata = {
-  title: "SYNC TECH GameHub | Play Wordle, Crosswords & More Online",
-  description: "Take a break and challenge your mind with the SYNC TECH GameHub. Play free online mini-games like Wordle, Crosswords, and other brain-teasing puzzles. Fun for everyone!",
+  title: "SYNC TECH GameHub | Play Free Online Wordle, Crosswords & Brain Games",
+  description: "Challenge your mind with the SYNC TECH GameHub. Play free online mini-games like Wordle, daily Crosswords, and Sudoku. Perfect for a quick break, our brain-teasing puzzles are fun, free, and waiting for you!",
   keywords: [
-    "online mini-games", "play wordle online", "free online puzzles", "brain games", "crossword puzzles", "SYNC TECH games", "daily puzzles", "word games"
+    "online mini-games", "play wordle online", "free online puzzles", "brain games", "crossword puzzles online", "free sudoku", "SYNC TECH games", "daily puzzles", "word games", "logic puzzles", "office break games", "free games to play", "mind games online"
   ],
 };
 
@@ -19,7 +20,7 @@ const games = [
   {
     icon: <Gamepad2 className="h-8 w-8 text-primary" />,
     title: "Wordle",
-    description: "Guess the hidden five-letter word in six tries. A new puzzle is available every day. Can you solve it?",
+    description: "Guess the hidden five-letter word in six tries. A new puzzle is available every day. A perfect daily challenge!",
     status: "Live",
     link: "https://wordle.synctech.ie",
     preview: <Image src="/wordle.png" alt="Wordle game preview" width={300} height={300} className="object-contain" />,
@@ -35,11 +36,30 @@ const games = [
   {
     icon: <Gamepad2 className="h-8 w-8 text-primary" />,
     title: "Sudoku",
-    description: "A logic-based number-placement puzzle. Fill the 9x9 grid so that each column, row, and 3x3 subgrid contains all digits from 1 to 9.",
+    description: "Engage your logic with the classic number puzzle. Fill the 9x9 grid and challenge your problem-solving skills.",
     status: "Coming Soon",
     link: "#",
     preview: <Image src="/sudoku.png" alt="Sudoku game preview" width={300} height={300} className="object-contain" />,
   },
+];
+
+const faqs = [
+    {
+        question: "Are the games on the GameHub completely free to play?",
+        answer: "Yes, absolutely! All the games available on the SYNC TECH GameHub are completely free to play. There are no hidden costs or subscriptions required."
+    },
+    {
+        question: "Do I need to create an account to play?",
+        answer: "No account is needed. You can start playing any of our live games immediately just by visiting the page. We wanted to make it as easy as possible to jump in and have fun."
+    },
+    {
+        question: "How often are new games added?",
+        answer: "We plan to add new games and puzzles periodically. Our goal is to expand the GameHub as a fun showcase of our development capabilities. Keep an eye on this page for future announcements!"
+    },
+    {
+        question: "Why did a tech company build a GameHub?",
+        answer: "The GameHub is a fun way for us to showcase our skills in web and application development. It demonstrates our ability to build engaging, high-quality digital experiences. Plus, we believe everyone deserves a fun break!"
+    }
 ];
 
 export default function GameHubPage() {
@@ -54,10 +74,10 @@ export default function GameHubPage() {
         <div className="container text-center z-10">
           <Gamepad2 className="h-16 w-16 text-primary mx-auto mb-4" />
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground">
-            Welcome to the <span className="text-primary">GameHub</span>
+            The SYNC TECH <span className="text-primary">GameHub</span>
           </h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
-            Take a break, challenge your mind, and have some fun. Explore our collection of free online mini-games.
+            Ready for a challenge? Take a break and sharpen your mind with our collection of free online Wordle, Crosswords, and other brain-teasing puzzles.
           </p>
         </div>
       </section>
@@ -103,34 +123,57 @@ export default function GameHubPage() {
         </div>
       </section>
 
-      {/* --- Advertisement Placeholder --- */}
-      <section className="py-12">
-        <div className="container">
-            <Card className="flex items-center justify-center min-h-[120px] bg-secondary">
-                <div className="text-center text-muted-foreground">
-                    <p className="text-sm font-semibold">Advertisement</p>
-                    {/* Your ad unit code can be placed here */}
+      {/* --- Why We Built This Section --- */}
+      <section className="py-20 md:py-28 bg-secondary">
+        <div className="container grid md:grid-cols-2 gap-12 items-center">
+            <div className="text-center md:text-left">
+                <Brain className="h-12 w-12 text-primary mb-4 mx-auto md:mx-0" />
+                <h2 className="text-3xl md:text-4xl font-bold">More Than Just Games</h2>
+                <p className="mt-4 text-muted-foreground">
+                    The SYNC TECH GameHub is a passion project and a showcase of our development capabilities. We built it to demonstrate our expertise in creating fun, engaging, and high-quality web applications from the ground up. It's a testament to our commitment to clean code, great user experience, and robust performance.
+                </p>
+                 <p className="mt-4 text-muted-foreground">
+                    If you have an idea for a web or mobile application—whether it's a game, a tool, or a new platform—our team has the skills to bring it to life.
+                </p>
+                <div className="mt-8">
+                    <Button asChild size="lg">
+                    <Link href="/contact">
+                        Discuss Your Project Idea <ArrowRight className="ml-2 h-5 w-5" />
+                    </Link>
+                    </Button>
                 </div>
-            </Card>
+            </div>
+            <div className="flex justify-center">
+                 <Image src="/project/gamehub-showcase.png" alt="Showcase of game development code" width={500} height={400} className="rounded-lg shadow-lg" data-ai-hint="code on screen" />
+            </div>
         </div>
       </section>
 
-      {/* --- CTA Section --- */}
-      <section className="py-20 md:py-28 bg-secondary">
-        <div className="container text-center">
-          <h2 className="text-3xl md:text-4xl font-bold">Have an Idea for a Game?</h2>
-          <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
-            We built this GameHub to showcase our development skills in a fun way. If you have an idea for a web or mobile game, our team can bring it to life.
-          </p>
-          <div className="mt-8">
-            <Button asChild size="lg">
-              <Link href="/contact">
-                Discuss Your Game Idea <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
+       {/* --- FAQ Section --- */}
+      <section id="faq" className="py-20 md:py-28">
+        <div className="container max-w-3xl">
+          <div className="text-center mb-12">
+            <Puzzle className="h-12 w-12 text-primary mx-auto mb-4" />
+            <h2 className="text-3xl md:text-4xl font-bold">Frequently Asked Questions</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
+              Have a question about the GameHub? We've got answers.
+            </p>
           </div>
+          <Accordion type="single" collapsible className="w-full">
+            {faqs.map((faq, index) => (
+              <AccordionItem key={index} value={`item-${index}`}>
+                <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
+                <AccordionContent>
+                  <p>{faq.answer}</p>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </section>
+
     </div>
   );
 }
+
+    

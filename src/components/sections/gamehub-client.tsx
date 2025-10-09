@@ -14,9 +14,9 @@ const WordlePreview = () => (
     {[
       [{ l: 'W', s: 'present' }, { l: 'E', s: 'absent' }, { l: 'A', s: 'absent' }, { l: 'R', s: 'absent' }, { l: 'Y', s: 'absent' }],
       [{ l: 'P', s: 'absent' }, { l: 'I', s: 'absent' }, { l: 'L', s: 'present' }, { l: 'O', s: 'correct' }, { l: 'T', s: 'absent' }],
-      [{ l: 'S', s: 'absent' }, { l: 'O', s: 'correct' }, { l: 'L', s: 'present' }, { l: 'V', s: 'absent' }, { l: 'E', s: 'present' }],
-      [{ l: 'W', s: 'absent' }, { l: 'O', s: 'correct' }, { l: 'R', s: 'correct' }, { l: 'L', s: 'absent' }, { l: 'D', s: 'absent' }],
-      [{ l: 'W', s: 'absent' }, { l: 'O', s: 'correct' }, { l: 'R', s: 'correct' }, { l: 'D', 'correct' }, { l: 'L', s: 'correct' }],
+      [{ l: 'S', s: 'absent' }, { l: 'O', s: 'correct' }, { l: 'L', s: 'present' }, { l: 'V', s: 'absent' }, { l: 'E', 'present' }],
+      [{ l: 'W', s: 'absent' }, { l: 'O', s: 'correct' }, { l: 'R', s: 'correct' }, { l: 'L', s: 'absent' }, { l: 'D', 'absent' }],
+      [{ l: 'W', s: 'absent' }, { l: 'O', s: 'correct' }, { l: 'R', s: 'correct' }, { l: 'D', 'correct' }, { l: 'L', 'correct' }],
     ].map((row, rowIndex) => (
       <div key={rowIndex} className="flex gap-1">
         {row.map((cell, cellIndex) => (

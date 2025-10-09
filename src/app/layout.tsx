@@ -86,7 +86,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable} dark`}>
       <head>
-        <meta name="google-adsense-account" content="ca-pub-7334468000130380"></meta>
         <meta name="trustpilot-one-time-domain-verification-id" content="8af38693-b36b-483d-aeca-ffa55637025c"/>
         <script
           type="application/ld+json"

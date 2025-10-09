@@ -18,47 +18,6 @@ export const metadata: Metadata = {
   },
 };
 
-const CrosswordPreview = () => {
-  const Cell = ({ letter, isBlack }: { letter?: string; isBlack?: boolean }) => (
-    <div className={`w-5 h-5 md:w-6 md:h-6 border border-muted/50 flex items-center justify-center text-xs md:text-sm font-semibold ${isBlack ? 'bg-foreground' : 'bg-background text-foreground'}`}>
-      {letter}
-    </div>
-  );
-  return (
-    <div className="p-4 bg-background rounded-lg flex justify-center scale-90 md:scale-100">
-      <div className="grid grid-cols-5 gap-0.5">
-        <Cell isBlack /><Cell letter="S" /><Cell letter="Y" /><Cell letter="N" /><Cell letter="C" />
-        <Cell letter="G" /><Cell isBlack /><Cell /><Cell isBlack /><Cell />
-        <Cell letter="A" /><Cell /><Cell letter="M" /><Cell letter="E" /><Cell isBlack />
-        <Cell letter="M" /><Cell isBlack /><Cell /><Cell isBlack /><Cell letter="H" />
-        <Cell letter="E" /><Cell letter="U" /><Cell letter="B" /><Cell isBlack /><Cell />
-      </div>
-    </div>
-  );
-};
-
-const SudokuPreview = () => {
-    const Cell = ({ number }: { number?: number }) => (
-        <div className={`w-5 h-5 md:w-6 md:h-6 border border-muted/50 flex items-center justify-center text-xs md:text-sm ${number ? 'font-bold text-primary' : ''}`}>
-            {number || ''}
-        </div>
-    );
-    return (
-        <div className="p-4 bg-background rounded-lg flex justify-center scale-90 md:scale-100">
-            <div className="grid grid-cols-3 gap-0 border-2 border-foreground">
-                {Array.from({ length: 3 }).map((_, r) => (
-                     <div key={r} className="grid grid-cols-3 gap-0">
-                        <Cell number={r === 0 && Math.random() > 0.5 ? 5 : undefined} /><Cell number={r === 0 && Math.random() > 0.5 ? 3 : undefined} /><Cell />
-                        <Cell number={r === 1 && Math.random() > 0.5 ? 6 : undefined} /><Cell /><Cell number={r === 1 && Math.random() > 0.5 ? 1 : undefined} />
-                        <Cell /><Cell number={r === 2 && Math.random() > 0.5 ? 9 : undefined} /><Cell number={r === 2 && Math.random() > 0.5 ? 8 : undefined} />
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
-};
-
-
 const games = [
   {
     icon: <Gamepad2 className="h-8 w-8 text-primary" />,
@@ -74,7 +33,7 @@ const games = [
     description: "Test your vocabulary with our classic crossword puzzle. A perfect way to sharpen your mind during a coffee break.",
     status: "Coming Soon",
     link: "#",
-    preview: <CrosswordPreview />,
+    preview: <Image src="/crossword.png" alt="Crossword game preview" width={300} height={300} className="object-contain" />,
   },
   {
     icon: <Gamepad2 className="h-8 w-8 text-primary" />,
@@ -82,7 +41,7 @@ const games = [
     description: "A logic-based number-placement puzzle. Fill the 9x9 grid so that each column, row, and 3x3 subgrid contains all digits from 1 to 9.",
     status: "Coming Soon",
     link: "#",
-    preview: <SudokuPreview />,
+    preview: <Image src="/sudoku.png" alt="Sudoku game preview" width={300} height={300} className="object-contain" />,
   },
 ];
 

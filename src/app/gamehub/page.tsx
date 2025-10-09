@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Puzzle, Brain, PenLine, Gamepad2 } from 'lucide-react';
+import { ArrowRight, Puzzle, Brain, Gamepad2 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 
@@ -82,7 +82,7 @@ const SudokuPreview = () => (
 
 const games = [
   {
-    icon: <PenLine className="h-8 w-8 text-primary" />,
+    icon: <Gamepad2 className="h-8 w-8 text-primary" />,
     title: "Wordle",
     description: "Guess the hidden five-letter word in six tries. A new puzzle is available every day. Can you solve it?",
     status: "Live",
@@ -90,7 +90,7 @@ const games = [
     preview: <WordlePreview />,
   },
   {
-    icon: <Puzzle className="h-8 w-8 text-primary" />,
+    icon: <Gamepad2 className="h-8 w-8 text-primary" />,
     title: "Crossword",
     description: "Test your vocabulary with our classic crossword puzzle. A perfect way to sharpen your mind during a coffee break.",
     status: "Coming Soon",
@@ -98,7 +98,7 @@ const games = [
     preview: <CrosswordPreview />,
   },
   {
-    icon: <Brain className="h-8 w-8 text-primary" />,
+    icon: <Gamepad2 className="h-8 w-8 text-primary" />,
     title: "Sudoku",
     description: "A logic-based number-placement puzzle. Fill the 9x9 grid so that each column, row, and 3x3 subgrid contains all digits from 1 to 9.",
     status: "Coming Soon",

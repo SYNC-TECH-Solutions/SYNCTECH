@@ -1,11 +1,11 @@
 
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Puzzle, Brain, PenLine, Gamepad2 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
   title: "SYNC TECH GameHub | Play Wordle, Crosswords & More Online",
@@ -15,6 +15,33 @@ export const metadata: Metadata = {
   ],
 };
 
+const WordlePreview = () => (
+  <div className="aspect-video rounded-lg border bg-secondary/50 p-4 flex flex-col justify-center items-center gap-1">
+    {[
+      [{ l: 'W', s: 'present' }, { l: 'E', s: 'absent' }, { l: 'A', s: 'absent' }, { l: 'R', s: 'absent' }, { l: 'Y', s: 'absent' }],
+      [{ l: 'P', s: 'absent' }, { l: 'I', s: 'absent' }, { l: 'L', s: 'present' }, { l: 'O', s: 'correct' }, { l: 'T', s: 'absent' }],
+      [{ l: 'S', s: 'absent' }, { l: 'O', s: 'correct' }, { l: 'L', s: 'present' }, { l: 'V', s: 'absent' }, { l: 'E', s: 'present' }],
+      [{ l: 'W', s: 'absent' }, { l: 'O', s: 'correct' }, { l: 'R', s: 'correct' }, { l: 'L', s: 'absent' }, { l: 'D', s: 'absent' }],
+      [{ l: 'W', s: 'absent' }, { l: 'O', s: 'correct' }, { l: 'R', s: 'correct' }, { l: 'D', s: 'correct' }, { l: 'L', s: 'correct' }],
+    ].map((row, rowIndex) => (
+      <div key={rowIndex} className="flex gap-1">
+        {row.map((cell, cellIndex) => (
+          <div
+            key={cellIndex}
+            className={cn('w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded text-white font-bold text-lg', {
+              'bg-yellow-500': cell.s === 'present',
+              'bg-green-600': cell.s === 'correct',
+              'bg-gray-500': cell.s === 'absent',
+            })}
+          >
+            {cell.l}
+          </div>
+        ))}
+      </div>
+    ))}
+  </div>
+);
+
 const games = [
   {
     icon: <PenLine className="h-8 w-8 text-primary" />,
@@ -22,8 +49,7 @@ const games = [
     description: "Guess the hidden five-letter word in six tries. A new puzzle is available every day. Can you solve it?",
     status: "Live",
     link: "https://wordle.synctech.ie",
-    image: "https://picsum.photos/seed/wordle/800/400",
-    imageHint: "letter blocks puzzle"
+    preview: <WordlePreview />,
   },
   {
     icon: <Puzzle className="h-8 w-8 text-primary" />,
@@ -31,8 +57,11 @@ const games = [
     description: "Test your vocabulary with our classic crossword puzzle. A perfect way to sharpen your mind during a coffee break.",
     status: "Coming Soon",
     link: "#",
-    image: "https://picsum.photos/seed/crossword/800/400",
-    imageHint: "crossword puzzle grid"
+    preview: (
+      <div className="aspect-video rounded-lg border bg-secondary/50 p-2 flex items-center justify-center">
+        <p className="text-muted-foreground font-semibold">Crossword Preview</p>
+      </div>
+    ),
   },
   {
     icon: <Brain className="h-8 w-8 text-primary" />,
@@ -40,8 +69,11 @@ const games = [
     description: "A logic-based number-placement puzzle. Fill the 9x9 grid so that each column, row, and 3x3 subgrid contains all digits from 1 to 9.",
     status: "Coming Soon",
     link: "#",
-    image: "https://picsum.photos/seed/sudoku/800/400",
-    imageHint: "sudoku grid numbers"
+    preview: (
+       <div className="aspect-video rounded-lg border bg-secondary/50 p-2 flex items-center justify-center">
+        <p className="text-muted-foreground font-semibold">Sudoku Preview</p>
+      </div>
+    ),
   },
 ];
 
@@ -88,17 +120,8 @@ export default function GameHubPage() {
                   </div>
                 </CardHeader>
                 <CardContent className="flex-grow space-y-4">
-                    <div className="aspect-video rounded-lg overflow-hidden border">
-                         <Image
-                            src={game.image}
-                            alt={game.title}
-                            width={800}
-                            height={400}
-                            className="w-full h-full object-cover"
-                            data-ai-hint={game.imageHint}
-                        />
-                    </div>
-                  <p className="text-muted-foreground text-sm">{game.description}</p>
+                    {game.preview}
+                    <p className="text-muted-foreground text-sm">{game.description}</p>
                 </CardContent>
                 <CardFooter>
                   <Button asChild className="w-full" disabled={game.status !== 'Live'}>

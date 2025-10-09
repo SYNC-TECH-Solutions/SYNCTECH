@@ -1,6 +1,5 @@
 
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -45,17 +44,66 @@ const WordlePreview = () => {
   );
 };
 
+const CrosswordPreview = () => {
+  const Cell = ({ letter, isBlack }: { letter?: string; isBlack?: boolean }) => (
+    <div className={`w-5 h-5 md:w-6 md:h-6 border border-muted/50 flex items-center justify-center text-xs md:text-sm font-semibold ${isBlack ? 'bg-foreground' : 'bg-background text-foreground'}`}>
+      {letter}
+    </div>
+  );
+  return (
+    <div className="p-4 bg-background rounded-lg flex justify-center scale-90 md:scale-100">
+      <div className="grid grid-cols-5 gap-0">
+        <Cell isBlack />
+        <Cell letter="S" />
+        <Cell letter="Y" />
+        <Cell letter="N" />
+        <Cell letter="C" />
+        <Cell letter="G" />
+        <Cell isBlack />
+        <Cell letter="E" />
+        <Cell isBlack />
+        <Cell letter="L" />
+        <Cell letter="A" />
+        <Cell letter="M" />
+        <Cell letter="E" />
+        <Cell isBlack />
+        <Cell letter="O" />
+        <Cell letter="M" />
+        <Cell isBlack />
+        <Cell isBlack />
+        <Cell letter="H" />
+        <Cell letter="U" />
+        <Cell letter="E" />
+        <Cell isBlack />
+        <Cell letter="B" />
+        <Cell isBlack />
+        <Cell isBlack />
+      </div>
+    </div>
+  );
+};
 
-const CrosswordPreview = () => (
-  <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">
-    Crossword Preview
-  </div>
-);
-const SudokuPreview = () => (
-   <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">
-    Sudoku Preview
-  </div>
-);
+const SudokuPreview = () => {
+    const Cell = ({ number }: { number?: number }) => (
+        <div className={`w-5 h-5 md:w-6 md:h-6 border border-muted/50 flex items-center justify-center text-xs md:text-sm ${number ? 'font-bold text-primary' : ''}`}>
+            {number || ''}
+        </div>
+    );
+    return (
+        <div className="p-4 bg-background rounded-lg flex justify-center scale-90 md:scale-100">
+            <div className="grid grid-cols-3 gap-0 border-2 border-foreground">
+                {Array.from({ length: 3 }).map((_, r) => (
+                     <div key={r} className="grid grid-cols-3 gap-0">
+                        <Cell number={r === 0 && Math.random() > 0.5 ? 5 : undefined} /><Cell number={r === 0 && Math.random() > 0.5 ? 3 : undefined} /><Cell />
+                        <Cell number={r === 1 && Math.random() > 0.5 ? 6 : undefined} /><Cell /><Cell number={r === 1 && Math.random() > 0.5 ? 1 : undefined} />
+                        <Cell /><Cell number={r === 2 && Math.random() > 0.5 ? 9 : undefined} /><Cell number={r === 2 && Math.random() > 0.5 ? 8 : undefined} />
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
 
 const games = [
   {

@@ -1,12 +1,17 @@
 
+'use client';
+
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Puzzle, Brain, Gamepad2 } from 'lucide-react';
+import { ArrowRight, Gamepad2 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
+import Script from 'next/script';
 
+// Note: Metadata export is not used in client components but can be kept for reference
+// or moved to a layout if needed for server-side rendering of the head tag.
 export const metadata: Metadata = {
   title: "SYNC TECH GameHub | Play Wordle, Crosswords & More Online",
   description: "Take a break and challenge your mind with the SYNC TECH GameHub. Play free online mini-games like Wordle, Crosswords, and other brain-teasing puzzles. Fun for everyone!",
@@ -110,6 +115,12 @@ const games = [
 export default function GameHubPage() {
   return (
     <>
+      <Script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7334468000130380"
+        crossOrigin="anonymous"
+        strategy="afterInteractive"
+      />
       <div className="bg-background">
         {/* --- Hero Section --- */}
         <section className="relative w-full py-20 md:py-32 flex items-center justify-center overflow-hidden">

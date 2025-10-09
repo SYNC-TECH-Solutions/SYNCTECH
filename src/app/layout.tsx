@@ -104,8 +104,6 @@ export default function RootLayout({
           }}
         />
         {/* End Google Tag Manager */}
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7334468000130380"
-     crossOrigin="anonymous"></script>
       </head>
       <body className={cn('font-sans antialiased min-h-screen flex flex-col')}>
         <MainLayout>

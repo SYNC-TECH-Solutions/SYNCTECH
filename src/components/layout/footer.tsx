@@ -30,8 +30,8 @@ const legalLinks = [
 
 const servicesLinks = [
     { href: '/services/web-development', label: 'Web Development' },
-    { href: '/services', label: 'AI & Machine Learning' },
-    { href: '/services', label: 'Managed Cloud' },
+    { href: '/services/ai-machine-learning', label: 'AI & Machine Learning' },
+    { href: '/services/managed-cloud', label: 'Managed Cloud' },
     { href: '/services', label: 'Cybersecurity' },
     { href: '/services', label: 'Digital Growth & SEO' },
     { href: '/services', label: 'Games' },

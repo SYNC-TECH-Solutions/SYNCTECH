@@ -31,6 +31,7 @@ const services = [
     icon: <Bot className="w-8 h-8 text-primary" />,
     title: "AI & Machine Learning",
     description: "Leverage AI to automate processes, enhance efficiency, and unlock new capabilities for the best value, anywhere in the world.",
+    link: "/services/ai-machine-learning",
   },
   {
     icon: <Shield className="w-8 h-8 text-primary" />,

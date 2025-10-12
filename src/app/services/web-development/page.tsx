@@ -2,7 +2,7 @@
 import type { Metadata } from 'next';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CheckCircle, Code, Layers, MousePointerClick, Smartphone, Zap } from 'lucide-react';
+import { ArrowRight, CheckCircle, Code, Layers, Smartphone, Zap, TrendingUp } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 

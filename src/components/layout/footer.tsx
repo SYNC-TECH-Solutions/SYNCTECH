@@ -28,6 +28,15 @@ const legalLinks = [
     { href: '/accessibility-statement', label: 'Accessibility' },
 ]
 
+const servicesLinks = [
+    { href: '/services/web-development', label: 'Web Development' },
+    { href: '/services', label: 'AI & Machine Learning' },
+    { href: '/services', label: 'Managed Cloud' },
+    { href: '/services', label: 'Cybersecurity' },
+    { href: '/services', label: 'Digital Growth & SEO' },
+    { href: '/services', label: 'Games' },
+];
+
 export function Footer() {
   return (
     <footer className="bg-secondary text-secondary-foreground">
@@ -70,14 +79,14 @@ export function Footer() {
             </div>
             <div>
               <h3 className="font-semibold mb-4 text-primary">Services</h3>
-              <ul className="space-y-2 text-sm">
-                <li>Web Development</li>
-                <li>AI Automation</li>
-                <li>Cloud Hosting</li>
-                <li>Cybersecurity</li>
-                <li>Mobile Apps</li>
-                <li>SEO</li>
-                <li>Games</li>
+              <ul className="space-y-2">
+                {servicesLinks.map((item) => (
+                  <li key={item.label}>
+                    <Link href={item.href} className="text-sm hover:text-primary transition-colors">
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
              <div>

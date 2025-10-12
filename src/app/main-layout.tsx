@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Suspense } from 'react';
@@ -10,6 +11,7 @@ import { FloatingCta } from '@/components/floating-cta';
 import { FirebaseClientProvider } from '@/firebase/client-provider';
 import CookieConsent from 'react-cookie-consent';
 import { Analytics } from '@/components/analytics';
+import { Breadcrumb } from '@/components/ui/breadcrumb';
 
 export default function MainLayout({
   children,
@@ -35,6 +37,7 @@ export default function MainLayout({
       />
       <FirebaseClientProvider>
         <Header />
+        <Breadcrumb />
         <main className="flex-grow">{children}</main>
         <Footer />
         <Toaster />

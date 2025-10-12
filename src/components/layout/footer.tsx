@@ -4,7 +4,7 @@ import { Logo } from '../logo';
 import { Button } from '../ui/button';
 import { Github, Linkedin, Instagram, Facebook } from 'lucide-react';
 
-const navItems = [
+const mainLinks = [
   { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
   { href: '/portfolio', label: 'Portfolio' },
@@ -13,11 +13,27 @@ const navItems = [
   { href: '/contact', label: 'Contact' },
 ];
 
+const secondaryLinks = [
+    { href: '/presentation', label: 'Presentation' },
+    { href: '/guidelines-synctech', label: 'SYNC TECH Guides' },
+    { href: '/become-a-partner', label: 'Become a Partner' },
+    { href: '/gamehub', label: 'Game Hub' },
+    { href: '/game-business-strategy', label: 'Game Monetization' },
+];
+
+const legalLinks = [
+    { href: '/faq', label: 'FAQ' },
+    { href: '/privacy-policy', label: 'Privacy Policy' },
+    { href: '/terms-and-conditions', label: 'Terms & Conditions' },
+    { href: '/accessibility-statement', label: 'Accessibility' },
+]
+
 export function Footer() {
   return (
     <footer className="bg-secondary text-secondary-foreground">
       <div className="container py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          
           <div className="flex flex-col gap-4">
             <Logo />
             <p className="text-sm">Global IT Solutions & 24/7 Support.</p>
@@ -26,43 +42,31 @@ export function Footer() {
               synctechire@gmail.com
             </a>
           </div>
-          <div className="md:col-span-2 grid grid-cols-2 md:grid-cols-3 gap-8">
+
+          <div className="md:col-span-3 grid grid-cols-2 md:grid-cols-4 gap-8">
             <div>
               <h3 className="font-semibold mb-4 text-primary">Quick Links</h3>
               <ul className="space-y-2">
-                {navItems.map((item) => (
+                {mainLinks.map((item) => (
                   <li key={item.label}>
                     <Link href={item.href} className="text-sm hover:text-primary transition-colors">
                       {item.label}
                     </Link>
                   </li>
                 ))}
-                 <li>
-                  <Link href="/presentation" className="text-sm hover:text-primary transition-colors">
-                    Presentation
-                  </Link>
-                </li>
-                 <li>
-                  <Link href="/guidelines-synctech" className="text-sm hover:text-primary transition-colors">
-                    SYNC TECH Guides
-                  </Link>
-                </li>
-                 <li>
-                  <Link href="/become-a-partner" className="text-sm hover:text-primary transition-colors">
-                    Become a Partner
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/gamehub" className="text-sm hover:text-primary transition-colors">
-                    Game Hub
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/game-business-strategy" className="text-sm hover:text-primary transition-colors">
-                    Game Monetization
-                  </Link>
-                </li>
               </ul>
+            </div>
+            <div>
+                <h3 className="font-semibold mb-4 text-primary">Explore</h3>
+                <ul className="space-y-2">
+                    {secondaryLinks.map((item) => (
+                    <li key={item.label}>
+                        <Link href={item.href} className="text-sm hover:text-primary transition-colors">
+                        {item.label}
+                        </Link>
+                    </li>
+                    ))}
+                </ul>
             </div>
             <div>
               <h3 className="font-semibold mb-4 text-primary">Services</h3>
@@ -73,36 +77,25 @@ export function Footer() {
                 <li>Cybersecurity</li>
                 <li>Mobile Apps</li>
                 <li>SEO</li>
+                <li>Games</li>
               </ul>
             </div>
              <div>
               <h3 className="font-semibold mb-4 text-primary">Legal & Admin</h3>
               <ul className="space-y-2">
-                 <li>
-                  <Link href="/faq" className="text-sm hover:text-primary transition-colors">
-                    FAQ
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/privacy-policy" className="text-sm hover:text-primary transition-colors">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/terms-and-conditions" className="text-sm hover:text-primary transition-colors">
-                    Terms & Conditions
-                  </Link>
-                </li>
-                 <li>
-                  <Link href="/accessibility-statement" className="text-sm hover:text-primary transition-colors">
-                    Accessibility
-                  </Link>
-                </li>
+                 {legalLinks.map((item) => (
+                  <li key={item.label}>
+                    <Link href={item.href} className="text-sm hover:text-primary transition-colors">
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
-          <div className="flex flex-col gap-4">
-            <h3 className="font-semibold text-primary">Follow Us</h3>
+        </div>
+
+        <div className="flex flex-col md:flex-row items-center justify-between mt-8 border-t pt-8 gap-4">
             <div className="flex flex-wrap gap-2">
               <Button variant="outline" size="icon" asChild>
                 <a href="https://www.linkedin.com/company/synctechie/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><Linkedin className="h-4 w-4" /></a>
@@ -117,21 +110,20 @@ export function Footer() {
                 <a href="https://github.com/SherazHussain546" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><Github className="h-4 w-4" /></a>
               </Button>
             </div>
-          </div>
-        </div>
-         <div className="mt-8 border-t pt-8">
             <div 
               className="trustpilot-widget" 
               data-locale="en-US" 
               data-template-id="56278e9abfbbba0bdcd568bc" 
               data-businessunit-id="689cbe87e91f287c6dde1dd9" 
               data-style-height="52px" 
-              data-style-width="100%" 
+              data-style-width="100%"
+              data-theme="dark"
               data-token="156951d1-2c7b-4d24-99bd-38a1e9b007ee"
             >
               <a href="https://www.trustpilot.com/review/synctech.ie" target="_blank" rel="noopener">Trustpilot</a>
             </div>
         </div>
+
         <div className="mt-8 border-t pt-8 text-center text-sm">
           <p>&copy; {new Date().getFullYear()} SYNC TECH. All rights reserved. | <Link href="/privacy-policy" className="hover:text-primary">Privacy Policy</Link> | <Link href="/terms-and-conditions" className="hover:text-primary">Terms &amp; Conditions</Link></p>
         </div>

@@ -35,6 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/services/ai-machine-learning',
     '/services/cybersecurity',
     '/services/digital-growth-seo',
+    '/services/games',
   ];
 
   const serviceRoutes = servicePages.map((route) => ({

@@ -49,6 +49,7 @@ const services = [
     icon: <Gamepad2 className="w-8 h-8 text-primary" />,
     title: "Games",
     description: "We build and deploy engaging, monetizable games for web and mobile platforms, turning your creative vision into a playable reality.",
+    link: "/services/games",
   }
 ];
 

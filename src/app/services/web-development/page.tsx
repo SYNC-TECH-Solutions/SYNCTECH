@@ -85,12 +85,11 @@ export default function WebDevelopmentPage() {
         <div className="container grid md:grid-cols-2 gap-12 items-center">
             <div className="relative">
                 <Image 
-                    src="https://picsum.photos/seed/mobileux/800/600" 
-                    alt="Mobile-first user interface design"
+                    src="/webdev.png" 
+                    alt="Responsive web design shown on multiple devices"
                     width={800}
                     height={600}
                     className="rounded-lg shadow-lg"
-                    data-ai-hint="mobile interface design"
                 />
             </div>
             <div>

@@ -25,9 +25,6 @@ export default function PrivacyPolicyPage() {
                         <p className="text-muted-foreground">
                             Welcome to SYNC TECH ("we," "our," or "us"). We are committed to protecting the privacy and security of your personal information. This Privacy Policy describes how we collect, use, disclose, and safeguard your information when you visit our website, <a href="https://synctech.ie" className="text-primary hover:underline">synctech.ie</a> (the "Site"), and use our services.
                         </p>
-                        <p className="text-sm text-amber-500">
-                           <strong>Disclaimer:</strong> This Privacy Policy is for informational purposes and does not constitute legal advice. You should consult with a legal professional to ensure this policy meets your specific needs and complies with all applicable laws, including the General Data Protection Regulation (GDPR).
-                        </p>
                     </div>
 
                     <div className="space-y-2">
@@ -125,5 +122,3 @@ export default function PrivacyPolicyPage() {
     </div>
   );
 }
-
-    

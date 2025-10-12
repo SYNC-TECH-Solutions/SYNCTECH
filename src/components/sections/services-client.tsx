@@ -2,7 +2,7 @@
 'use client';
 
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Code, Bot, Cloud, Shield, Smartphone, TrendingUp, DollarSign, Layers } from "lucide-react";
+import { Code, Bot, Cloud, Shield, Smartphone, TrendingUp, DollarSign, Layers, Gamepad2 } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -39,6 +39,11 @@ const services = [
     title: "Digital Growth & SEO",
     description: "Optimizing your online presence to increase visibility, attract more traffic, and improve search engine rankings for maximum ROI.",
   },
+  {
+    icon: <Gamepad2 className="w-8 h-8 text-primary" />,
+    title: "Games",
+    description: "We build and deploy engaging, monetizable games for web and mobile platforms, turning your creative vision into a playable reality.",
+  }
 ];
 
 export function ServicesClient() {

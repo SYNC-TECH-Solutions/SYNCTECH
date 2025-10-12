@@ -81,7 +81,7 @@ export default function GameDevelopmentPage() {
               </div>
               <div className="relative">
                   <Image 
-                    src="https://picsum.photos/seed/gamedev/800/600" 
+                    src="/game.png" 
                     alt="Game development process with code and graphics"
                     width={800}
                     height={600}

@@ -19,6 +19,7 @@ const services = [
     icon: <Cloud className="w-8 h-8 text-primary" />,
     title: "Managed Cloud & Optimization",
     description: "Offload cloud complexities with 24/7 global support. We handle security, scalability, and data protection so you can focus on your core mission.",
+    link: "/services/managed-cloud",
   },
   {
     icon: <DollarSign className="w-8 h-8 text-primary" />,
@@ -97,7 +98,7 @@ export function ServicesClient() {
                     </Button>
                  )}
                 <Button asChild size="sm">
-                    <a href="mailto:synctechire@gmail.com?subject=Quote%20Request:%20' + service.title">Get a Quote</a>
+                    <a href={`mailto:synctechire@gmail.com?subject=Quote%20Request:%20${encodeURIComponent(service.title)}`}>Get a Quote</a>
                 </Button>
               </CardFooter>
             </Card>

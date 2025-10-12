@@ -28,6 +28,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const servicePages = [
+    '/services/web-development',
+    '/services/managed-cloud',
+  ];
+
+  const serviceRoutes = servicePages.map((route) => ({
+      url: `${baseUrl}${route}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+  }));
+
   return [
     {
       url: baseUrl,
@@ -47,6 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    ...serviceRoutes,
     {
       url: `${baseUrl}/portfolio`,
       lastModified: new Date(),
@@ -142,5 +155,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 }
-
-    

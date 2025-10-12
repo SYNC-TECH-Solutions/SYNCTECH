@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle, Cloud, Cpu, Gauge, ShieldCheck, Zap, Server, GanttChartSquare, Code } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: "Expert Managed Cloud Services in Ireland | Sync Tech",
@@ -114,23 +115,15 @@ export default function ManagedCloudPage() {
                       </li>
                   </ul>
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                   <Card className="p-4 text-center bg-card">
-                      <CardHeader className="p-2 items-center">
-                          <div className="bg-primary/10 p-3 rounded-full mb-2">
-                             <Zap className="h-6 w-6 text-primary" />
-                          </div>
-                          <CardTitle className="text-base font-semibold">Enhanced Performance</CardTitle>
-                      </CardHeader>
-                  </Card>
-                  <Card className="p-4 text-center bg-card">
-                      <CardHeader className="p-2 items-center">
-                          <div className="bg-primary/10 p-3 rounded-full mb-2">
-                             <ShieldCheck className="h-6 w-6 text-primary" />
-                          </div>
-                          <CardTitle className="text-base font-semibold">Ironclad Security</CardTitle>
-                      </CardHeader>
-                  </Card>
+              <div className="relative">
+                  <Image 
+                    src="/cloud.png" 
+                    alt="Abstract visualization of cloud computing services"
+                    width={800}
+                    height={600}
+                    className="rounded-lg shadow-lg"
+                    data-ai-hint="cloud computing"
+                />
               </div>
           </div>
       </section>
@@ -236,3 +229,5 @@ export default function ManagedCloudPage() {
     </div>
   );
 }
+
+    

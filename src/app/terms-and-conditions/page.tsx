@@ -25,9 +25,6 @@ export default function TermsAndConditionsPage() {
                         <p className="text-muted-foreground">
                            By accessing and using our website, <a href="https://synctech.ie" className="text-primary hover:underline">synctech.ie</a> (the "Site"), and our services, you agree to be bound by these Terms and Conditions ("Terms") and our <a href="/privacy-policy" className="text-primary hover:underline">Privacy Policy</a>. If you do not agree with all of these terms, then you are expressly prohibited from using the Site and you must discontinue use immediately. We reserve the right, in our sole discretion, to make changes or modifications to these Terms at any time and for any reason.
                         </p>
-                         <p className="text-sm text-amber-500">
-                           <strong>Disclaimer:</strong> This is a template for Terms and Conditions and does not constitute legal advice. It is recommended to consult with a legal professional to ensure these terms meet your specific business needs and comply with all applicable laws.
-                        </p>
                     </div>
 
                     <div className="space-y-2">

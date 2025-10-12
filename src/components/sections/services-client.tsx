@@ -86,9 +86,18 @@ export function ServicesClient() {
               <CardContent className="flex-grow">
                 <p className="text-muted-foreground">{service.description}</p>
               </CardContent>
-              <CardFooter className="pt-4 justify-center">
-                 <Button asChild variant="outline">
-                    <Link href={service.link || "/contact"}>{service.link ? "Learn More" : "Get a Quote"}</Link>
+              <CardFooter className="pt-4 justify-center gap-2">
+                 {service.link ? (
+                    <Button asChild variant="outline" size="sm">
+                        <Link href={service.link}>Learn More</Link>
+                    </Button>
+                 ) : (
+                    <Button asChild variant="outline" size="sm" disabled>
+                        <span className="cursor-not-allowed">Learn More</span>
+                    </Button>
+                 )}
+                <Button asChild size="sm">
+                    <a href="mailto:synctechire@gmail.com?subject=Quote%20Request:%20' + service.title">Get a Quote</a>
                 </Button>
               </CardFooter>
             </Card>

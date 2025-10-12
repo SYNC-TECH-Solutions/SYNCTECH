@@ -43,6 +43,7 @@ const services = [
     icon: <TrendingUp className="w-8 h-8 text-primary" />,
     title: "Digital Growth & SEO",
     description: "Optimizing your online presence to increase visibility, attract more traffic, and improve search engine rankings for maximum ROI.",
+    link: "/services/digital-growth-seo",
   },
   {
     icon: <Gamepad2 className="w-8 h-8 text-primary" />,

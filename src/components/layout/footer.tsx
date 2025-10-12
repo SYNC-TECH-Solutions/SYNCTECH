@@ -33,7 +33,7 @@ const servicesLinks = [
     { href: '/services/ai-machine-learning', label: 'AI & Machine Learning' },
     { href: '/services/managed-cloud', label: 'Managed Cloud' },
     { href: '/services/cybersecurity', label: 'Cybersecurity' },
-    { href: '/services', label: 'Digital Growth & SEO' },
+    { href: '/services/digital-growth-seo', label: 'Digital Growth & SEO' },
     { href: '/services', label: 'Games' },
 ];
 

@@ -98,19 +98,22 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-between mt-8 border-t pt-8 gap-4">
-            <div className="flex flex-wrap gap-2">
-              <Button variant="outline" size="icon" asChild>
-                <a href="https://www.linkedin.com/company/synctechie/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><Linkedin className="h-4 w-4" /></a>
-              </Button>
-               <Button variant="outline" size="icon" asChild>
-                <a href="https://www.instagram.com/synctech.ie" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><Instagram className="h-4 w-4" /></a>
-              </Button>
-               <Button variant="outline" size="icon" asChild>
-                <a href="https://www.facebook.com/share/19LP52QsnN/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><Facebook className="h-4 w-4" /></a>
-              </Button>
-              <Button variant="outline" size="icon" asChild>
-                <a href="https://github.com/SherazHussain546" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><Github className="h-4 w-4" /></a>
-              </Button>
+            <div className="flex items-center gap-3">
+              <p className="text-sm font-semibold">Follow us on:</p>
+              <div className="flex flex-wrap gap-2">
+                <Button variant="outline" size="icon" asChild>
+                  <a href="https://www.linkedin.com/company/synctechie/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><Linkedin className="h-4 w-4" /></a>
+                </Button>
+                <Button variant="outline" size="icon" asChild>
+                  <a href="https://www.instagram.com/synctech.ie" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><Instagram className="h-4 w-4" /></a>
+                </Button>
+                <Button variant="outline" size="icon" asChild>
+                  <a href="https://www.facebook.com/share/19LP52QsnN/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><Facebook className="h-4 w-4" /></a>
+                </Button>
+                <Button variant="outline" size="icon" asChild>
+                  <a href="https://github.com/SherazHussain546" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><Github className="h-4 w-4" /></a>
+                </Button>
+              </div>
             </div>
             <div 
               className="trustpilot-widget" 

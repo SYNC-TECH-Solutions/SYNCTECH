@@ -33,6 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/services/managed-cloud',
     '/services/finops-cost-management',
     '/services/ai-machine-learning',
+    '/services/cybersecurity',
   ];
 
   const serviceRoutes = servicePages.map((route) => ({

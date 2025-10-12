@@ -37,6 +37,7 @@ const services = [
     icon: <Shield className="w-8 h-8 text-primary" />,
     title: "Cybersecurity",
     description: "Protecting your digital assets with advanced security protocols, threat detection, and global risk management at a competitive price.",
+    link: "/services/cybersecurity",
   },
   {
     icon: <TrendingUp className="w-8 h-8 text-primary" />,

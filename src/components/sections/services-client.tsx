@@ -10,9 +10,10 @@ import { Button } from "@/components/ui/button";
 
 const services = [
   {
-    icon: <Layers className="w-8 h-8 text-primary" />,
-    title: "Application Modernization",
-    description: "Innovate and reduce costs by refactoring legacy applications for secure, scalable cloud environments, enhancing business agility.",
+    icon: <Code className="w-8 h-8 text-primary" />,
+    title: "Web Design & Development",
+    description: "Build high-performing, mobile-first websites for eCommerce and corporate clients across Ireland.",
+    link: "/services/web-development",
   },
   {
     icon: <Cloud className="w-8 h-8 text-primary" />,
@@ -87,7 +88,7 @@ export function ServicesClient() {
               </CardContent>
               <CardFooter className="pt-4 justify-center">
                  <Button asChild variant="outline">
-                    <Link href="/contact">Get a Quote</Link>
+                    <Link href={service.link || "/contact"}>{service.link ? "Learn More" : "Get a Quote"}</Link>
                 </Button>
               </CardFooter>
             </Card>

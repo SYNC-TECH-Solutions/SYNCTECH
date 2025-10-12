@@ -25,6 +25,7 @@ const services = [
     icon: <DollarSign className="w-8 h-8 text-primary" />,
     title: "FinOps & Cost Management",
     description: "Build a culture of financial accountability. We align IT, finance, and business teams to continuously optimize your cloud spending for maximum value.",
+    link: "/services/finops-cost-management",
   },
   {
     icon: <Bot className="w-8 h-8 text-primary" />,

@@ -59,8 +59,8 @@ export function Footer() {
               <ul className="space-y-2">
                 {mainLinks.map((item) => (
                   <li key={item.label}>
-                    <Link href={item.href} className="text-sm hover:text-primary transition-colors">
-                      {item.label}
+                    <Link href={item.href} legacyBehavior>
+                        <a className="text-sm hover:text-primary transition-colors">{item.label}</a>
                     </Link>
                   </li>
                 ))}
@@ -71,8 +71,8 @@ export function Footer() {
                 <ul className="space-y-2">
                     {secondaryLinks.map((item) => (
                     <li key={item.label}>
-                        <Link href={item.href} className="text-sm hover:text-primary transition-colors">
-                        {item.label}
+                        <Link href={item.href} legacyBehavior>
+                            <a className="text-sm hover:text-primary transition-colors">{item.label}</a>
                         </Link>
                     </li>
                     ))}
@@ -83,8 +83,8 @@ export function Footer() {
               <ul className="space-y-2">
                 {servicesLinks.map((item) => (
                   <li key={item.label}>
-                    <Link href={item.href} className="text-sm hover:text-primary transition-colors">
-                      {item.label}
+                    <Link href={item.href} legacyBehavior>
+                      <a className="text-sm hover:text-primary transition-colors">{item.label}</a>
                     </Link>
                   </li>
                 ))}
@@ -95,8 +95,8 @@ export function Footer() {
               <ul className="space-y-2">
                  {legalLinks.map((item) => (
                   <li key={item.label}>
-                    <Link href={item.href} className="text-sm hover:text-primary transition-colors">
-                      {item.label}
+                    <Link href={item.href} legacyBehavior>
+                        <a className="text-sm hover:text-primary transition-colors">{item.label}</a>
                     </Link>
                   </li>
                 ))}

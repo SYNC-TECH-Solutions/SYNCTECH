@@ -29,12 +29,13 @@ const legalLinks = [
 ]
 
 const servicesLinks = [
-    { href: '/services/web-development', label: 'Web Development' },
-    { href: '/services/ai-machine-learning', label: 'AI & Machine Learning' },
-    { href: '/services/managed-cloud', label: 'Managed Cloud' },
+    { href: '/services/web-development', label: 'Web Design & Development' },
+    { href: '/services/ai-machine-learning', label: 'AI & ML' },
+    { href: '/services/managed-cloud', label: 'Cloud Management & Optimization' },
+    { href: '/services/finops-cost-management', label: 'FinOps & Cost Management' },
     { href: '/services/cybersecurity', label: 'Cybersecurity' },
     { href: '/services/digital-growth-seo', label: 'Digital Growth & SEO' },
-    { href: '/services/games', label: 'Games' },
+    { href: '/services/games', label: 'Game Development' },
 ];
 
 export function Footer() {

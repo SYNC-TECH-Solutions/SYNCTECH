@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Gamepad2, Brain, Puzzle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: "SYNC TECH GameHub | Play Free Online Wordle, Crosswords & Brain Games",
@@ -79,6 +80,27 @@ export default function GameHubPage() {
           <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
             Ready for a challenge? Take a break and sharpen your mind with our collection of free online Wordle, Crosswords, and other brain-teasing puzzles.
           </p>
+        </div>
+      </section>
+
+      {/* Ad Banner Section */}
+      <section className="py-8 flex justify-center">
+        <div className="ad-container">
+            <Script id="ad-config" strategy="lazyOnload">
+              {`
+                atOptions = {
+                  'key' : '7a3c0f5d756f13fa19a5fb53e6968715',
+                  'format' : 'iframe',
+                  'height' : 60,
+                  'width' : 468,
+                  'params' : {}
+                };
+              `}
+            </Script>
+            <Script 
+              src="//www.highperformanceformat.com/7a3c0f5d756f13fa19a5fb53e6968715/invoke.js" 
+              strategy="lazyOnload" 
+            />
         </div>
       </section>
 
@@ -175,5 +197,3 @@ export default function GameHubPage() {
     </div>
   );
 }
-
-    

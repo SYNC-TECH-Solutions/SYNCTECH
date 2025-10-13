@@ -9,7 +9,7 @@ const mainLinks = [
   { href: '/services', label: 'Services' },
   { href: '/portfolio', label: 'Portfolio' },
   { href: '/blog', label: 'Blog' },
-  { href: '/news-and-events', label: 'SYNC TECH Feed' },
+  { href: '/news-and-events', label: 'Updates' },
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -116,7 +116,7 @@ export function Footer() {
               </div>
             </div>
             <div 
-              className="trustpilot-widget" 
+              className="trustpilot-widget w-full max-w-xs" 
               data-locale="en-US" 
               data-template-id="56278e9abfbbba0bdcd568bc" 
               data-businessunit-id="689cbe87e91f287c6dde1dd9" 

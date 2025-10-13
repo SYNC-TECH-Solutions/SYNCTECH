@@ -67,7 +67,7 @@ export default function NewsPostPage({ params }: { params: { slug: string } }) {
             <Button asChild variant="outline">
                 <Link href="/news-and-events">
                     <ArrowLeft className="mr-2 h-4 w-4" />
-                    Back to SYNC TECH Feed
+                    Back to SYNC TECH Updates
                 </Link>
             </Button>
         </div>

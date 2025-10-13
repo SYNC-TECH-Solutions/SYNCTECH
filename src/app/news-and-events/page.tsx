@@ -10,7 +10,7 @@ import { ArrowRight } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 export const metadata: Metadata = {
-  title: 'SYNC TECH Feed | Latest News & Updates from SYNC TECH',
+  title: 'SYNC TECH Updates | Latest News & Updates from SYNC TECH',
   description: 'Stay up-to-date with the latest news, announcements, and events from SYNC TECH. Discover our recent achievements, product launches, and industry insights.',
 };
 
@@ -22,7 +22,7 @@ export default function TheSyncReportPage() {
     <div className="py-20 md:py-28 bg-secondary">
       <div className="container max-w-4xl">
         <header className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">SYNC TECH Feed</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">SYNC TECH Updates</h1>
           <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
             The latest announcements, updates, and insights from the team at SYNC TECH.
           </p>

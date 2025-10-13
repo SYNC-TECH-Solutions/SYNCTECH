@@ -2,7 +2,6 @@
 'use client';
 
 import { useState } from 'react';
-import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -13,7 +12,7 @@ import { ArrowRight } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import Head from 'next/head';
 
-const POSTS_PER_PAGE = 6;
+const POSTS_PER_PAGE = 5;
 
 export default function TheSyncReportPage() {
   const [visiblePosts, setVisiblePosts] = useState(POSTS_PER_PAGE);

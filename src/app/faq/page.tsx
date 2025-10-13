@@ -8,6 +8,8 @@ import { Input } from '@/components/ui/input';
 import { Handshake, Code, Bot, Shield, Cloud, FileText, Server, BookUser, Users, Milestone, Briefcase, DollarSign } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger, PopoverAnchor } from '@/components/ui/popover';
 import { Command, CommandEmpty, CommandGroup, CommandItem, CommandList } from '@/components/ui/command';
+import type { Metadata } from 'next';
+import Head from 'next/head';
 
 const faqCategories = [
   {
@@ -236,6 +238,8 @@ const faqCategories = [
   }
 ];
 
+// Since this is a client component, we can't export metadata directly.
+// We'll use next/head to set the metadata for this page.
 export default function FaqPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
@@ -283,6 +287,12 @@ export default function FaqPage() {
   };
 
   return (
+    <>
+    <Head>
+        <title>FAQ | Frequently Asked Questions about SYNC TECH</title>
+        <meta name="description" content="Find answers to common questions about SYNC TECH's services, process, technology, and pricing. Learn about our web development, AI, and cybersecurity solutions." />
+        <meta name="keywords" content="SYNC TECH FAQ, IT services FAQ, web development questions, AI pricing, cybersecurity questions, tech company FAQ" />
+    </Head>
     <div className="py-20 md:py-28 bg-secondary">
       <div className="container">
         <header className="text-center mb-12">
@@ -368,5 +378,6 @@ export default function FaqPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }

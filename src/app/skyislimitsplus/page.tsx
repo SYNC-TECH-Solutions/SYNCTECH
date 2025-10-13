@@ -14,6 +14,7 @@ import { GenerateProposalOutput, generateProposal } from '@/ai/flows/generate-pr
 import { Loader2, Mail, FileText } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { useSearchParams } from 'next/navigation';
+import Head from 'next/head';
 
 const formSchema = z.object({
   leadInsightReport: z.string().refine((val) => {
@@ -92,6 +93,11 @@ function SkyIsLimitsPlusContent() {
   }
 
   return (
+    <>
+    <Head>
+        <title>AI Proposal Generator | Internal Tool</title>
+        <meta name="robots" content="noindex, nofollow" />
+    </Head>
     <div className="py-20 md:py-28">
       <div className="container max-w-4xl">
         <Card className="mb-12">
@@ -185,6 +191,7 @@ function SkyIsLimitsPlusContent() {
         )}
       </div>
     </div>
+    </>
   );
 }
 

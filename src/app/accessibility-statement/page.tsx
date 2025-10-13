@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import Head from 'next/head';
 
 export default function AccessibilityStatementPage() {
   const [lastUpdated, setLastUpdated] = useState('');
@@ -12,7 +13,13 @@ export default function AccessibilityStatementPage() {
   }, []);
 
   return (
-    <div className="py-20 md:py-28">
+    <>
+      <Head>
+        <title>Accessibility Statement | SYNC TECH</title>
+        <meta name="description" content="Read the accessibility statement for SYNC TECH. We are committed to ensuring digital accessibility for people with disabilities and conforming to WCAG 2.1 Level AA." />
+        <meta name="keywords" content="accessibility statement, web accessibility, WCAG, digital inclusion, disability access, SYNC TECH accessibility" />
+      </Head>
+      <div className="py-20 md:py-28">
         <div className="container">
             <Card>
                 <CardHeader>
@@ -91,5 +98,6 @@ export default function AccessibilityStatementPage() {
             </Card>
         </div>
     </div>
+    </>
   );
 }

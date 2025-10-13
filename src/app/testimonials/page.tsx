@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { useInView } from "react-intersection-observer";
 import { cn } from "@/lib/utils";
+import Head from "next/head";
 
 const testimonials = [
   {
@@ -35,6 +36,12 @@ export default function TestimonialsPage() {
   });
 
   return (
+    <>
+    <Head>
+        <title>Testimonials | What Our Clients Say About SYNC TECH</title>
+        <meta name="description" content="Read testimonials from satisfied clients who have partnered with SYNC TECH for web development, AI solutions, and cybersecurity services. See our commitment to quality and value." />
+        <meta name="keywords" content="SYNC TECH testimonials, client reviews, customer feedback, web development reviews, IT services testimonials, tech company reviews" />
+    </Head>
     <section 
       id="testimonials"
       ref={ref}
@@ -85,5 +92,6 @@ export default function TestimonialsPage() {
         </Carousel>
       </div>
     </section>
+    </>
   );
 }

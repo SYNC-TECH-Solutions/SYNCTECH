@@ -14,6 +14,7 @@ import { generateLeadInsight, LeadInsightOutput, LeadInsightInput } from '@/ai/f
 import { Loader2, Lightbulb, Target, CheckCircle, Building, Globe, ArrowRight } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import Link from 'next/link';
+import Head from 'next/head';
 
 const formSchema = z.object({
   industry: z.string().min(3, { message: 'Please enter a valid industry.' }),
@@ -57,6 +58,11 @@ export default function SkyIsLimitsPage() {
   }
 
   return (
+    <>
+    <Head>
+        <title>AI Lead Finder | Internal Tool</title>
+        <meta name="robots" content="noindex, nofollow" />
+    </Head>
     <div className="py-20 md:py-28">
       <div className="container max-w-4xl">
         <Card className="mb-12">
@@ -181,5 +187,6 @@ export default function SkyIsLimitsPage() {
         )}
       </div>
     </div>
+    </>
   );
 }

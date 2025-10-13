@@ -13,7 +13,7 @@ const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://synctech.ie',
   title: 'SYNC TECH | AI Strategy, Custom IT Solutions & 24/7 Global Support',
   description: 'SYNC TECH delivers affordable, global IT solutions including AI strategy, custom web development, cloud services, and cybersecurity. Get secure, scalable, and reliable 24/7 tech support to drive your business growth. Your trusted digital partner, worldwide.',
-  ogImage: 'https://placehold.co/1200x630.png'
+  ogImage: '/project/synctech.png'
 };
 
 export const metadata: Metadata = {

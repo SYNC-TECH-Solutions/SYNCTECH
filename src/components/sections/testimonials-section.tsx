@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { useInView } from "react-intersection-observer";
 import { cn } from "@/lib/utils";
+import { Star } from "lucide-react";
 
 const testimonials = [
   {
@@ -39,14 +40,14 @@ export default function TestimonialsSection() {
       id="testimonials"
       ref={ref}
       className={cn(
-        "py-20 md:py-28 bg-secondary transition-opacity duration-1000 ease-in-out",
+        "py-20 md:py-28 bg-background transition-opacity duration-1000 ease-in-out",
         inView ? "opacity-100" : "opacity-0"
       )}
     >
       <div className="container">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold">Client Success Stories</h2>
-          <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
+          <p className="mt-4 max-w-2xl mx-auto text-muted-foreground text-lg">
             Hear from businesses who have experienced the SYNC TECH difference: top-tier results and exceptional value.
           </p>
         </div>
@@ -55,16 +56,20 @@ export default function TestimonialsSection() {
             align: "start",
             loop: true,
           }}
-          className="w-full max-w-4xl mx-auto"
+          className="w-full max-w-5xl mx-auto"
         >
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
-              <CarouselItem key={index} className="md:basis-1/2">
-                <div className="p-1">
-                  <Card className="bg-background">
-                    <CardContent className="flex flex-col items-center text-center p-6">
-                      <p className="text-muted-foreground italic mb-6">"{testimonial.quote}"</p>
-                      <div className="flex items-center">
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                <div className="p-4 h-full">
+                  <Card className="bg-secondary h-full flex flex-col justify-between">
+                    <CardContent className="p-6">
+                        <div className="flex gap-1 mb-4">
+                            {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 text-yellow-400 fill-yellow-400" />)}
+                        </div>
+                      <p className="text-foreground italic">"{testimonial.quote}"</p>
+                    </CardContent>
+                    <div className="flex items-center p-6 pt-0">
                         <Avatar className="h-12 w-12 mr-4">
                            <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
                           <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
@@ -74,14 +79,13 @@ export default function TestimonialsSection() {
                           <p className="text-sm text-muted-foreground">{testimonial.title}</p>
                         </div>
                       </div>
-                    </CardContent>
                   </Card>
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="left-[-50px]" />
+          <CarouselNext className="right-[-50px]" />
         </Carousel>
       </div>
     </section>

@@ -1,7 +1,7 @@
 
 'use client';
 
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 import { Code, Bot, Shield, TrendingUp, Cloud, DollarSign, Gamepad2 } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 import { cn } from "@/lib/utils";
@@ -64,39 +64,43 @@ export default function ServicesSection() {
             id="services"
             ref={ref}
             className={cn(
-                "py-20 md:py-28 bg-secondary transition-opacity duration-1000 ease-in-out",
+                "py-20 md:py-28 bg-background transition-opacity duration-1000 ease-in-out",
                 inView ? "opacity-100" : "opacity-0"
             )}
         >
             <div className="container">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-bold">Services Built for Value and Impact</h2>
-                    <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
+                    <p className="mt-4 max-w-2xl mx-auto text-muted-foreground text-lg">
                         We provide a complete suite of technology solutions designed to deliver maximum impact without stretching your budget.
                     </p>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {allServices.map((service, index) => (
-                         <Link key={service.title} href={service.link || "/services"} className="block h-full">
-                            <Card 
-                                className={cn(
-                                    "text-center p-6 h-full hover:shadow-lg hover:border-primary transition-all duration-300 transform ease-in-out",
-                                    inView ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-                                )}
-                                style={{ transitionDelay: `${index * 100}ms` }}
-                            >
-                                <CardHeader className="flex flex-col items-center">
-                                    {service.icon}
-                                    <CardTitle className="mt-4">{service.title}</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p className="text-muted-foreground">{service.description}</p>
-                                </CardContent>
-                            </Card>
-                        </Link>
+                        <Card 
+                            key={service.title}
+                            className={cn(
+                                "text-center p-6 bg-card hover:shadow-primary/20 hover:shadow-lg hover:-translate-y-2 transition-all duration-300 ease-in-out flex flex-col",
+                                inView ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+                            )}
+                            style={{ transitionDelay: `${index * 100}ms` }}
+                        >
+                            <CardHeader className="flex flex-col items-center">
+                                {service.icon}
+                                <CardTitle className="mt-4">{service.title}</CardTitle>
+                            </CardHeader>
+                            <CardContent className="flex-grow">
+                                <p className="text-muted-foreground">{service.description}</p>
+                            </CardContent>
+                            <CardFooter className="pt-4 !justify-center">
+                                <Button asChild variant="outline">
+                                    <Link href={service.link || "/services"}>Learn More</Link>
+                                </Button>
+                            </CardFooter>
+                        </Card>
                     ))}
                 </div>
-                <div className="text-center mt-12">
+                <div className="text-center mt-16">
                     <Button asChild size="lg">
                         <Link href="/services">Explore All Our Services</Link>
                     </Button>

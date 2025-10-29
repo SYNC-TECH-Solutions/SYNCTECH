@@ -3,14 +3,14 @@
 
 import { useInView } from 'react-intersection-observer';
 import { cn } from '@/lib/utils';
-import { WordPressLogo, GoDaddyLogo, StripeLogo, WooCommerceLogo, JetpackLogo } from '@/components/partner-logos';
+import Image from 'next/image';
 
 const logos = [
-  { component: <GoDaddyLogo className="h-7 text-muted-foreground" />, name: "GoDaddy" },
-  { component: <WordPressLogo className="h-8 text-muted-foreground" />, name: "WordPress" },
-  { component: <WooCommerceLogo className="h-8 text-muted-foreground" />, name: "WooCommerce" },
-  { component: <JetpackLogo className="h-8 text-muted-foreground" />, name: "Jetpack" },
-  { component: <StripeLogo className="h-8 text-muted-foreground" />, name: "Stripe" },
+  { src: "https://cdn.worldvectorlogo.com/logos/godaddy-01.svg", name: "GoDaddy", width: 120, height: 40 },
+  { src: "https://cdn.worldvectorlogo.com/logos/wordpress-icon.svg", name: "WordPress", width: 40, height: 40 },
+  { src: "https://cdn.worldvectorlogo.com/logos/woocommerce.svg", name: "WooCommerce", width: 140, height: 40 },
+  { src: "https://cdn.worldvectorlogo.com/logos/jetpack.svg", name: "Jetpack", width: 120, height: 40 },
+  { src: "https://cdn.worldvectorlogo.com/logos/stripe-4.svg", name: "Stripe", width: 80, height: 40 },
 ];
 
 export default function PartnersSection() {
@@ -46,8 +46,14 @@ export default function PartnersSection() {
           >
             <div className="flex animate-infinite-scroll">
               {[...logos, ...logos].map((logo, index) => (
-                <div key={index} className="flex-shrink-0 w-64 flex justify-center items-center" aria-label={logo.name}>
-                  {logo.component}
+                <div key={index} className="flex-shrink-0 w-64 flex justify-center items-center h-12" aria-label={logo.name}>
+                  <Image 
+                    src={logo.src}
+                    alt={logo.name}
+                    width={logo.width}
+                    height={logo.height}
+                    className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                  />
                 </div>
               ))}
             </div>
@@ -57,4 +63,3 @@ export default function PartnersSection() {
     </section>
   );
 }
-

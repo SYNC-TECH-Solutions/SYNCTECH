@@ -36,7 +36,7 @@ export default function PartnersSection() {
             inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           )}
         >
-          <h3 className="text-center text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-8">
+          <h3 className="text-center text-sm font-semibold text-primary uppercase tracking-wider mb-8">
             Proudly Partnered With Industry Leaders
           </h3>
           <TooltipProvider>

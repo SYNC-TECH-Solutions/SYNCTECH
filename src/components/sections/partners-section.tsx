@@ -24,6 +24,7 @@ export default function PartnersSection() {
     <section 
       id="partners" 
       ref={ref}
+      aria-labelledby="partners-heading"
       className={cn(
         "py-16 bg-black transition-opacity duration-1000 ease-in-out",
         inView ? "opacity-100" : "opacity-0"
@@ -36,15 +37,16 @@ export default function PartnersSection() {
             inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           )}
         >
-          <h3 className="text-center text-sm font-semibold text-primary uppercase tracking-wider mb-8">
+          <h2 id="partners-heading" className="text-center text-sm font-semibold text-primary uppercase tracking-wider mb-8">
             Proudly Partnered With Industry Leaders
-          </h3>
+          </h2>
           <TooltipProvider>
             <div
               className="relative w-full overflow-hidden"
               style={{
                 maskImage: "linear-gradient(to right, transparent, black 20%, black 80%, transparent)"
               }}
+              aria-label="A scrolling slideshow of partner logos"
             >
               <div className="flex animate-infinite-scroll">
                 {[...logos, ...logos].map((logo, index) => (
@@ -53,7 +55,7 @@ export default function PartnersSection() {
                       <div className="flex-shrink-0 w-48 flex justify-center items-center" aria-label={logo.name}>
                         <Image 
                           src={logo.src}
-                          alt={logo.name}
+                          alt={`${logo.name} partner logo`}
                           width={logo.width}
                           height={logo.height}
                           className="object-contain transition-all duration-300"

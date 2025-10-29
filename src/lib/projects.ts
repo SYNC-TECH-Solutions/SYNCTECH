@@ -17,7 +17,7 @@ export const projects: Project[] = [
     slug: "blogify-blog-platform",
     excerpt: "Built a secure, scalable, and user-friendly global blogging platform with a robust CMS, subscription service via Stripe, and an intuitive admin experience.",
     description: "blogify.blog was conceived as a global, multi-purpose platform with a dual mission: to serve as a dynamic stage for content creators and to act as a launchpad for startups. The core challenge was building a secure, scalable application with a robust CMS, seamless subscriptions, and an intuitive admin experience. For readers, it's a hub for quality content. For startups, it's a 'startup's paradise' for gaining visibility. For the founders, it's a monetizable platform with a recurring revenue model.",
-    image: "/bblogo.png",
+    image: "/project/bblogo.png",
     imageHint: "blogging platform logo",
     techStack: ["Next.js", "Firebase", "Stripe", "Tailwind CSS", "ShadCN UI", "Firestore", "Server Actions"],
     results: "Delivered a feature-rich platform with a comprehensive admin dashboard for content/subscriber management, a secure Stripe payment gateway for its 'blogging-as-a-service' model, and a clean, responsive UI. The project successfully integrated Stripe Webhooks and secure Firestore rules, establishing a fully functional, monetizable, and scalable application.",

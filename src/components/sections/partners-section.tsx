@@ -46,7 +46,7 @@ export default function PartnersSection() {
           >
             <div className="flex animate-infinite-scroll">
               {[...logos, ...logos].map((logo, index) => (
-                <div key={index} className="flex-shrink-0 w-64 flex justify-center items-center h-12" aria-label={logo.name}>
+                <div key={index} className="flex-shrink-0 w-48 flex justify-center items-center h-12" aria-label={logo.name}>
                   <Image 
                     src={logo.src}
                     alt={logo.name}

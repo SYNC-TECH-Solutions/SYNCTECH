@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useInView } from 'react-intersection-observer';
@@ -55,7 +56,7 @@ export default function PartnersSection() {
                           alt={logo.name}
                           width={logo.width}
                           height={logo.height}
-                          className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                          className="object-contain transition-all duration-300"
                         />
                       </div>
                     </TooltipTrigger>
@@ -72,3 +73,4 @@ export default function PartnersSection() {
     </section>
   );
 }
+

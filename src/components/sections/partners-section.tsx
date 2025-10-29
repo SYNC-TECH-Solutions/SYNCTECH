@@ -50,7 +50,7 @@ export default function PartnersSection() {
                 {[...logos, ...logos].map((logo, index) => (
                   <Tooltip key={`${logo.name}-${index}`}>
                     <TooltipTrigger asChild>
-                      <div className="flex-shrink-0 w-48 flex justify-center items-center h-12" aria-label={logo.name}>
+                      <div className="flex-shrink-0 w-48 flex justify-center items-center" aria-label={logo.name}>
                         <Image 
                           src={logo.src}
                           alt={logo.name}
@@ -73,4 +73,3 @@ export default function PartnersSection() {
     </section>
   );
 }
-

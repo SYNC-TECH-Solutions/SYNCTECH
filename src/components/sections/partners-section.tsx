@@ -25,7 +25,7 @@ export default function PartnersSection() {
       id="partners" 
       ref={ref}
       className={cn(
-        "py-16 bg-secondary transition-opacity duration-1000 ease-in-out",
+        "py-16 bg-black transition-opacity duration-1000 ease-in-out",
         inView ? "opacity-100" : "opacity-0"
       )}
     >

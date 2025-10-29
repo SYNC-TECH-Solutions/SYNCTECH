@@ -1,9 +1,9 @@
-
 'use client';
 
 import { useInView } from 'react-intersection-observer';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 const logos = [
   { src: "https://cdn.worldvectorlogo.com/logos/godaddy-01.svg", name: "GoDaddy", width: 120, height: 40 },
@@ -38,26 +38,35 @@ export default function PartnersSection() {
           <h3 className="text-center text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-8">
             Proudly Partnered With Industry Leaders
           </h3>
-          <div
-            className="relative w-full overflow-hidden"
-            style={{
-              maskImage: "linear-gradient(to right, transparent, black 20%, black 80%, transparent)"
-            }}
-          >
-            <div className="flex animate-infinite-scroll">
-              {[...logos, ...logos].map((logo, index) => (
-                <div key={index} className="flex-shrink-0 w-48 flex justify-center items-center h-12" aria-label={logo.name}>
-                  <Image 
-                    src={logo.src}
-                    alt={logo.name}
-                    width={logo.width}
-                    height={logo.height}
-                    className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                  />
-                </div>
-              ))}
+          <TooltipProvider>
+            <div
+              className="relative w-full overflow-hidden"
+              style={{
+                maskImage: "linear-gradient(to right, transparent, black 20%, black 80%, transparent)"
+              }}
+            >
+              <div className="flex animate-infinite-scroll">
+                {[...logos, ...logos].map((logo, index) => (
+                  <Tooltip key={`${logo.name}-${index}`}>
+                    <TooltipTrigger asChild>
+                      <div className="flex-shrink-0 w-48 flex justify-center items-center h-12" aria-label={logo.name}>
+                        <Image 
+                          src={logo.src}
+                          alt={logo.name}
+                          width={logo.width}
+                          height={logo.height}
+                          className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                        />
+                      </div>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{logo.name}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                ))}
+              </div>
             </div>
-          </div>
+          </TooltipProvider>
         </div>
       </div>
     </section>

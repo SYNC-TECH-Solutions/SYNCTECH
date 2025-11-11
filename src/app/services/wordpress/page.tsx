@@ -86,12 +86,12 @@ export default function WordpressPage() {
               </div>
               <div className="relative">
                   <Image 
-                    src="https://picsum.photos/seed/wordpress-website/800/600"
-                    alt="WordPress website"
+                    src="https://picsum.photos/seed/website-flow/800/600"
+                    alt="Website development flow"
                     width={800}
                     height={600}
                     className="rounded-lg shadow-lg"
-                    data-ai-hint="WordPress website"
+                    data-ai-hint="website flow"
                 />
               </div>
           </div>

@@ -36,11 +36,10 @@ const servicesLinks = [
     { href: '/services/cybersecurity', label: 'Cybersecurity' },
     { href: '/services/digital-growth-seo', label: 'Digital Growth & SEO' },
     { href: '/services/games', label: 'Game Development' },
-    { href: '/services/wordpress', label: 'WordPress Development' },
 ];
 
 const partnershipLinks = [
-    { href: 'https://wordpress.com/', label: 'WordPress' },
+    { href: '/services/wordpress', label: 'WordPress' },
     { href: 'https://woocommerce.com/', label: 'WooCommerce' },
     { href: 'https://jetpack.com/', label: 'Jetpack' },
     { href: 'https://stripe.com/', label: 'Stripe' },

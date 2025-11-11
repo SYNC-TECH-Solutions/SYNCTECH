@@ -97,7 +97,11 @@ export function Footer() {
                 <ul className="space-y-2">
                     {partnershipLinks.map((item) => (
                     <li key={item.label}>
-                        <a href={item.href} target="_blank" rel="noopener noreferrer" className="text-sm hover:text-primary transition-colors">{item.label}</a>
+                        {item.href.startsWith('/') ? (
+                            <Link href={item.href} className="text-sm hover:text-primary transition-colors">{item.label}</Link>
+                        ) : (
+                            <a href={item.href} target="_blank" rel="noopener noreferrer" className="text-sm hover:text-primary transition-colors">{item.label}</a>
+                        )}
                     </li>
                     ))}
                 </ul>

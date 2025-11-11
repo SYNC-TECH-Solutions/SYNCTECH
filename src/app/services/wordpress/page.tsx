@@ -44,7 +44,7 @@ export default function WordpressPage() {
         <div className="container">
             <div className="flex justify-center items-center gap-4 md:gap-6 mb-8">
                 <Image src="https://cdn.worldvectorlogo.com/logos/wordpress-icon.svg" alt="WordPress Logo" width={60} height={60} />
-                <span className="text-4xl md:text-5xl font-thin text-muted-foreground">x</span>
+                <span className="text-4xl md:text-5xl font-bold text-muted-foreground">x</span>
                 <Logo className="text-4xl md:text-5xl" />
             </div>
             <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center">

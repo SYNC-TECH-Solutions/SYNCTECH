@@ -41,6 +41,7 @@ export default function WordpressPage() {
       {/* Hero Section */}
       <section className="py-20 md:py-32 bg-secondary text-center">
         <div className="container">
+            <h2 className="text-2xl font-bold text-muted-foreground tracking-wider mb-8">WordPress | SYNC TECH Solutions</h2>
             <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center">
                  <Image src="https://cdn.worldvectorlogo.com/logos/wordpress-icon.svg" alt="WordPress Logo" width={40} height={40} />
             </div>

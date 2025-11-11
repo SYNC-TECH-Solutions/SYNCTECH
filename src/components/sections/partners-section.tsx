@@ -7,11 +7,11 @@ import Image from 'next/image';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 const logos = [
-  { src: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.L8d3nzrXGpafB9Ldy-D4TgHaE8%3Fpid%3DApi&f=1&ipt=f637bc6621c7a7b271d109bba511cffeacf541bcf8de3413af118803761043d5", name: "GoDaddy", width: 140, height: 40 },
-  { src: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F020%2F336%2F303%2Flarge_2x%2Fwordpress-logo-wordpress-icon-transparent-png-free-vector.jpg&f=1&nofb=1&ipt=355b0b5d960492bcf497702f5d6b4fc62f19cea32da859457562278f8df099e8", name: "WordPress", width: 140, height: 40 },
-  { src: "https://cdn.worldvectorlogo.com/logos/woocommerce.svg", name: "WooCommerce", width: 140, height: 40 },
-  { src: "https://cdn.worldvectorlogo.com/logos/jetpack.svg", name: "Jetpack", width: 120, height: 40 },
-  { src: "https://cdn.worldvectorlogo.com/logos/stripe-4.svg", name: "Stripe", width: 80, height: 40 },
+  { src: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.L8d3nzrXGpafB9Ldy-D4TgHaE8%3Fpid%3DApi&f=1&ipt=f637bc6621c7a7b271d109bba511cffeacf541bcf8de3413af118803761043d5", name: "GoDaddy Pro", width: 140, height: 40, description: "As a GoDaddy Pro partner, we manage your domains, hosting, and professional email, providing a one-stop-shop for your online infrastructure." },
+  { src: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F020%2F336%2F303%2Flarge_2x%2Fwordpress-logo-wordpress-icon-transparent-png-free-vector.jpg&f=1&nofb=1&ipt=355b0b5d960492bcf497702f5d6b4fc62f19cea32da859457562278f8df099e8", name: "WordPress", width: 140, height: 40, description: "As a WordPress affiliate, we build scalable, feature-rich websites and blogs using the world's most popular CMS." },
+  { src: "https://cdn.worldvectorlogo.com/logos/woocommerce.svg", name: "WooCommerce", width: 140, height: 40, description: "We leverage WooCommerce to create powerful, customizable e-commerce solutions on the WordPress platform." },
+  { src: "https://cdn.worldvectorlogo.com/logos/jetpack.svg", name: "Jetpack", width: 120, height: 40, description: "We use Jetpack to enhance WordPress sites with top-tier security, performance, and marketing tools." },
+  { src: "https://cdn.worldvectorlogo.com/logos/stripe-4.svg", name: "Stripe", width: 80, height: 40, description: "Through our Stripe partnership, we build secure and seamless payment processing for e-commerce and subscription services." },
 ];
 
 export default function PartnersSection() {
@@ -62,8 +62,9 @@ export default function PartnersSection() {
                         />
                       </div>
                     </TooltipTrigger>
-                    <TooltipContent>
-                      <p>{logo.name}</p>
+                    <TooltipContent className="max-w-xs text-center">
+                      <p className="font-bold">{logo.name}</p>
+                      <p className="text-sm text-muted-foreground">{logo.description}</p>
                     </TooltipContent>
                   </Tooltip>
                 ))}

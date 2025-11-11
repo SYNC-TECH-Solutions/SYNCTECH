@@ -108,16 +108,16 @@ export default function WordpressPage() {
           </div>
           <div className="relative max-w-4xl mx-auto">
             {/* Vertical connector line */}
-            <div className="absolute left-8 md:left-1/2 top-0 h-full w-0.5 bg-border -translate-x-1/2 z-0"></div>
+            <div className="absolute left-1/2 md:left-1/2 top-0 h-full w-0.5 bg-border -translate-x-1/2 z-0"></div>
             
-            <div className="space-y-16">
+            <div className="space-y-12 md:space-y-24">
                 {coreServices.map((service, index) => (
                     <div key={service.title} className="relative flex items-center md:even:flex-row-reverse">
                         <div className="hidden md:flex w-1/2 md:even:ml-auto"></div>
-                        <div className="absolute left-8 md:left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 bg-secondary p-2 rounded-full ring-4 ring-primary">
+                        <div className="absolute left-1/2 -translate-y-1/2 -translate-x-1/2 bg-secondary p-2 rounded-full ring-4 ring-primary">
                             {service.icon}
                         </div>
-                        <div className="w-full md:w-1/2 pl-16 md:pl-8 md:even:pl-0 md:even:pr-8">
+                        <div className="w-full md:w-1/2 pl-8 pr-8 md:pl-16 md:pr-0 md:even:pl-0 md:even:pr-16 text-center md:text-left">
                              <Card className="bg-card hover:shadow-lg transition-shadow">
                                 <CardHeader>
                                     <CardTitle className="text-xl">{service.title}</CardTitle>

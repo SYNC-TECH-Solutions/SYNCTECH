@@ -47,9 +47,6 @@ export default function WordpressPage() {
                 <span className="text-4xl md:text-5xl font-bold text-muted-foreground">x</span>
                 <Logo className="text-4xl md:text-5xl" />
             </div>
-            <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center">
-                 <Image src="https://cdn.worldvectorlogo.com/logos/wordpress-icon.svg" alt="WordPress Logo" width={40} height={40} />
-            </div>
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">Custom WordPress Development Services</h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
             From bespoke themes to managed hosting, SYNC TECH provides enterprise-grade WordPress solutions at prices that empower businesses worldwide.

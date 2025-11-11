@@ -15,24 +15,24 @@ export const metadata: Metadata = {
 
 const coreServices = [
     {
-        icon: <Code className="h-8 w-8 text-primary" />,
-        title: "Custom Development",
-        description: "We build bespoke WordPress websites and plugins tailored to your exact business needs, ensuring a unique and functional online presence."
+        icon: <Palette className="h-10 w-10 text-primary" />,
+        title: "Phase 1: Theme Design & Customization",
+        description: "We start by designing a professionally crafted, custom WordPress theme that reflects your unique brand identity and engages your target audience, ensuring you stand out from the crowd."
     },
     {
-        icon: <Palette className="h-8 w-8 text-primary" />,
-        title: "Theme Design & Customization",
-        description: "Stand out from the crowd with a professionally designed, custom WordPress theme that reflects your brand and engages your audience."
+        icon: <Code className="h-10 w-10 text-primary" />,
+        title: "Phase 2: Custom Development",
+        description: "Next, we build out your bespoke WordPress website and any custom plugins required. This ensures your site is perfectly tailored to your business needs, creating a unique and highly functional online presence."
     },
     {
-        icon: <Server className="h-8 w-8 text-primary" />,
-        title: "Managed Hosting & Support",
-        description: "We can manage your hosting environment, ensuring your site is fast, secure, and always online, with 24/7 support."
+        icon: <Server className="h-10 w-10 text-primary" />,
+        title: "Phase 3: Managed Hosting & Support",
+        description: "Once development is complete, we can manage your hosting environment. This ensures your site is fast, secure, and always online, backed by our 24/7 global support."
     },
     {
-        icon: <Globe className="h-8 w-8 text-primary" />,
-        title: "Global Service at Local Prices",
-        description: "Our efficient model allows us to offer world-class WordPress services at globally competitive prices, providing unmatched value."
+        icon: <Globe className="h-10 w-10 text-primary" />,
+        title: "Phase 4: Global Service Delivery",
+        description: "Our efficient model allows us to offer these world-class WordPress services at globally competitive prices, providing you with unmatched value and a long-term partnership for success."
     }
 ];
 
@@ -87,7 +87,7 @@ export default function WordpressPage() {
               <div className="relative">
                   <Image 
                     src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.mos.cms.futurecdn.net%2F7ehqrjkNyoaWQ9eN7A65sC.jpg&f=1&nofb=1&ipt=7b791e4a6337402600e736e6efc1254d047b3be8af430559dff18404b64aad68"
-                    alt="Website development flow"
+                    alt="WordPress website"
                     width={800}
                     height={600}
                     className="rounded-lg shadow-lg"
@@ -97,27 +97,39 @@ export default function WordpressPage() {
           </div>
       </section>
 
-      {/* Core Services Section */}
+      {/* Core Services Workflow Section */}
       <section className="py-20 md:py-28 bg-secondary">
         <div className="container">
            <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold">Our Comprehensive WordPress Services</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">Our WordPress Development Workflow</h2>
             <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
-              We offer a full spectrum of WordPress services, providing everything you need to build, launch, and manage a successful online presence.
+              We offer a full-spectrum, end-to-end process to build, launch, and manage your successful online presence.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {coreServices.map((service) => (
-              <Card key={service.title} className="text-center p-6 bg-card hover:shadow-lg transition-shadow">
-                <CardHeader className="flex flex-col items-center">
-                  {service.icon}
-                  <CardTitle className="mt-4 text-lg">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-sm">{service.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="relative max-w-4xl mx-auto">
+            {/* Vertical connector line */}
+            <div className="absolute left-8 md:left-1/2 top-0 h-full w-0.5 bg-border -translate-x-1/2 z-0"></div>
+            
+            <div className="space-y-16">
+                {coreServices.map((service, index) => (
+                    <div key={service.title} className="relative flex items-center md:even:flex-row-reverse">
+                        <div className="hidden md:flex w-1/2 md:even:ml-auto"></div>
+                        <div className="absolute left-8 md:left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 bg-secondary p-2 rounded-full ring-4 ring-primary">
+                            {service.icon}
+                        </div>
+                        <div className="w-full md:w-1/2 pl-16 md:pl-8 md:even:pl-0 md:even:pr-8">
+                             <Card className="bg-card hover:shadow-lg transition-shadow">
+                                <CardHeader>
+                                    <CardTitle className="text-xl">{service.title}</CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <p className="text-muted-foreground">{service.description}</p>
+                                </CardContent>
+                            </Card>
+                        </div>
+                    </div>
+                ))}
+            </div>
           </div>
         </div>
       </section>

@@ -65,7 +65,7 @@ export default function WordpressPage() {
       <section className="py-20 md:py-28">
           <div className="container grid md:grid-cols-2 gap-12 items-center">
               <div>
-                  <h2 className="text-3xl md:text-4xl font-bold">What is WordPress?</h2>
+                  <h2 className="text-3xl md:text-4xl font-bold">What is <span className="text-primary">WordPress</span>?</h2>
                   <p className="mt-4 text-muted-foreground text-lg">WordPress is the world's most popular Content Management System (CMS), powering over 43% of all websites on the internet. Its flexibility, ease of use, and vast ecosystem of plugins and themes make it the ideal platform for everything from simple blogs and corporate websites to complex e-commerce stores and membership sites.</p>
                   <ul className="mt-6 space-y-4">
                       <li className="flex items-start gap-4">

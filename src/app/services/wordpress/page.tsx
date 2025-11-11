@@ -139,13 +139,13 @@ export default function WordpressPage() {
         <div className="container max-w-5xl">
             <div className="grid md:grid-cols-2 gap-12 items-center">
                  <div className="relative order-last md:order-first">
-                    <Card>
+                    <Card className="bg-primary text-primary-foreground">
                         <CardHeader>
                             <CardTitle>A True "Done-For-You" Partner</CardTitle>
-                            <CardDescription>We go beyond development to become your long-term WordPress partner.</CardDescription>
+                            <CardDescription className="text-primary-foreground/90">We go beyond development to become your long-term WordPress partner.</CardDescription>
                         </CardHeader>
                         <CardContent>
-                            <p className="text-muted-foreground">Whether you purchase a WordPress solution from us or through one of our referrals, we can manage your entire online site. This includes handling all technical updates, security monitoring, performance optimization, and content changes, allowing you to focus completely on running your business.</p>
+                            <p className="text-primary-foreground/90">Whether you purchase a WordPress solution from us or through one of our referrals, we can manage your entire online site. This includes handling all technical updates, security monitoring, performance optimization, and content changes, allowing you to focus completely on running your business.</p>
                         </CardContent>
                     </Card>
                 </div>

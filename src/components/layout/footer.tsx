@@ -39,13 +39,21 @@ const servicesLinks = [
     { href: '/services/games', label: 'Game Development' },
 ];
 
+const partnershipLinks = [
+    { href: 'https://wordpress.com/', label: 'WordPress' },
+    { href: 'https://woocommerce.com/', label: 'WooCommerce' },
+    { href: 'https://jetpack.com/', label: 'Jetpack' },
+    { href: 'https://stripe.com/', label: 'Stripe' },
+    { href: 'https://www.godaddy.com/pro', label: 'GoDaddy Pro' },
+];
+
 export function Footer() {
   return (
     <footer className="bg-secondary text-secondary-foreground">
       <div className="container py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 md:col-span-1">
             <Logo />
             <p className="text-sm">Global IT Solutions & 24/7 Support.</p>
             <p className="text-sm">Global Headquarters</p>
@@ -54,7 +62,7 @@ export function Footer() {
             </a>
           </div>
 
-          <div className="md:col-span-3 grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="md:col-span-4 grid grid-cols-2 md:grid-cols-5 gap-8">
             <div>
               <h3 className="font-semibold mb-4 text-primary">Quick Links</h3>
               <ul className="space-y-2">
@@ -84,6 +92,16 @@ export function Footer() {
                   </li>
                 ))}
               </ul>
+            </div>
+            <div>
+                <h3 className="font-semibold mb-4 text-primary">Our Partnerships</h3>
+                <ul className="space-y-2">
+                    {partnershipLinks.map((item) => (
+                    <li key={item.label}>
+                        <a href={item.href} target="_blank" rel="noopener noreferrer" className="text-sm hover:text-primary transition-colors">{item.label}</a>
+                    </li>
+                    ))}
+                </ul>
             </div>
              <div>
               <h3 className="font-semibold mb-4 text-primary">Legal & Admin</h3>

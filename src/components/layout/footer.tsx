@@ -36,7 +36,7 @@ const servicesLinks = [
     { href: '/services/cybersecurity', label: 'Cybersecurity' },
     { href: '/services/digital-growth-seo', label: 'Digital Growth & SEO' },
     { href: '/services/games', label: 'Game Development' },
-    { href: '/services/wordpress', label: 'WordPress' },
+    { href: '/services/wordpress', label: 'WordPress Development' },
 ];
 
 const partnershipLinks = [

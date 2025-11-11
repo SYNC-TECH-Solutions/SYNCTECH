@@ -30,6 +30,7 @@ const legalLinks = [
 
 const servicesLinks = [
     { href: '/services/web-development', label: 'Web Design & Development' },
+    { href: '/services/wordpress', label: 'WordPress Development' },
     { href: '/services/ai-machine-learning', label: 'AI & ML' },
     { href: '/services/managed-cloud', label: 'Cloud Management & Optimization' },
     { href: '/services/finops-cost-management', label: 'FinOps & Cost Management' },

@@ -7,6 +7,7 @@ import { useInView } from "react-intersection-observer";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const services = [
   {
@@ -14,6 +15,12 @@ const services = [
     title: "Web Design & Development",
     description: "Build high-performing, mobile-first websites for eCommerce and corporate clients across Ireland.",
     link: "/services/web-development",
+  },
+   {
+    icon: <Image src="https://cdn.worldvectorlogo.com/logos/wordpress-icon.svg" alt="WordPress Logo" width={32} height={32} />,
+    title: "WordPress Development",
+    description: "Custom themes, plugins, and managed hosting to harness the full power of the world's most popular CMS.",
+    link: "/services/wordpress",
   },
   {
     icon: <Cloud className="w-8 h-8 text-primary" />,
@@ -86,7 +93,9 @@ export function ServicesClient() {
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <CardHeader className="flex flex-col items-center">
-                {service.icon}
+                <div className="flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 mb-4">
+                    {service.icon}
+                </div>
                 <CardTitle className="mt-4">{service.title}</CardTitle>
               </CardHeader>
               <CardContent className="flex-grow">

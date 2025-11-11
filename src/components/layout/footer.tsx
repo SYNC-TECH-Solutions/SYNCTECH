@@ -30,7 +30,6 @@ const legalLinks = [
 
 const servicesLinks = [
     { href: '/services/web-development', label: 'Web Design & Development' },
-    { href: '/services/wordpress', label: 'WordPress Development' },
     { href: '/services/ai-machine-learning', label: 'AI & ML' },
     { href: '/services/managed-cloud', label: 'Cloud Management & Optimization' },
     { href: '/services/finops-cost-management', label: 'FinOps & Cost Management' },
@@ -40,7 +39,7 @@ const servicesLinks = [
 ];
 
 const partnershipLinks = [
-    { href: 'https://wordpress.com/', label: 'WordPress' },
+    { href: '/services/wordpress', label: 'WordPress Development' },
     { href: 'https://woocommerce.com/', label: 'WooCommerce' },
     { href: 'https://jetpack.com/', label: 'Jetpack' },
     { href: 'https://stripe.com/', label: 'Stripe' },

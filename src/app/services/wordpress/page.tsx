@@ -1,6 +1,6 @@
 
 import type { Metadata } from 'next';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle, Palette, Code, Server, Globe } from 'lucide-react';
 import Link from 'next/link';
@@ -12,29 +12,6 @@ export const metadata: Metadata = {
   description: "SYNC TECH is a leading WordPress agency in Dublin, offering affordable, custom WordPress development, theme design, and managed hosting services globally. Get world-class WordPress solutions at the best prices.",
   keywords: ["WordPress development Dublin", "custom WordPress themes Ireland", "WordPress agency Dublin", "affordable WordPress services", "managed WordPress hosting", "hire WordPress developers Ireland", "WordPress experts", "global WordPress agency", "SYNC TECH WordPress", "WooCommerce development"],
 };
-
-const coreServices = [
-    {
-        icon: <Palette className="h-10 w-10 text-primary" />,
-        title: "Phase 1: Bespoke Theme Design & Customization",
-        description: "We start by designing a professionally crafted, custom WordPress theme that reflects your unique brand identity. We ensure you stand out from the crowd and engage your target audience from the first click."
-    },
-    {
-        icon: <Code className="h-10 w-10 text-primary" />,
-        title: "Phase 2: Custom Plugin & Feature Development",
-        description: "Next, we build out your bespoke WordPress website and any custom plugins required. This ensures your site is perfectly tailored to your business needs, creating a unique and highly functional online presence that goes beyond templates."
-    },
-    {
-        icon: <Server className="h-10 w-10 text-primary" />,
-        title: "Phase 3: Managed Hosting & 24/7 Support",
-        description: "Once development is complete, we provide secure, high-performance managed hosting. This ensures your site is fast, secure, and always online, backed by our 24/7 global support team."
-    },
-    {
-        icon: <Globe className="h-10 w-10 text-primary" />,
-        title: "Phase 4: Global Service at an Unbeatable Value",
-        description: "Our efficient, global model allows us to offer these world-class WordPress services at highly competitive prices, providing you with unmatched value and a long-term partnership for success."
-    }
-];
 
 export default function WordpressPage() {
   return (
@@ -100,26 +77,49 @@ export default function WordpressPage() {
       {/* Core Services Workflow Section */}
       <section className="py-20 md:py-28 bg-secondary">
         <div className="container">
-           <div className="text-center mb-16">
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold">Our End-to-End WordPress Development Workflow</h2>
             <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
               We offer a complete, four-phase process to build, launch, and manage your successful online presence, ensuring a seamless journey from concept to reality.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {coreServices.map((service, index) => (
-                <Card key={service.title} className="bg-card text-center hover:shadow-lg transition-shadow">
-                    <CardHeader>
-                        <div className="mx-auto bg-primary/10 p-3 rounded-full w-fit mb-4">
-                            {service.icon}
-                        </div>
-                        <CardTitle className="text-lg">{service.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <p className="text-muted-foreground text-sm">{service.description}</p>
-                    </CardContent>
-                </Card>
-            ))}
+            <Card className="text-center p-6 bg-card hover:shadow-lg transition-shadow">
+                <CardHeader className="items-center">
+                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 mb-4 text-3xl font-bold text-primary">1</div>
+                    <CardTitle>Bespoke Theme Design & Customization</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-muted-foreground text-sm">We start by designing a professionally crafted, custom WordPress theme that reflects your unique brand identity to engage your audience from the first click.</p>
+                </CardContent>
+            </Card>
+             <Card className="text-center p-6 bg-card hover:shadow-lg transition-shadow">
+                <CardHeader className="items-center">
+                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 mb-4 text-3xl font-bold text-primary">2</div>
+                    <CardTitle>Custom Plugin & Feature Development</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-muted-foreground text-sm">We build out your bespoke website and any custom plugins required, ensuring your site is perfectly tailored to your business needs and goes beyond templates.</p>
+                </CardContent>
+            </Card>
+            <Card className="text-center p-6 bg-card hover:shadow-lg transition-shadow">
+                <CardHeader className="items-center">
+                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 mb-4 text-3xl font-bold text-primary">3</div>
+                    <CardTitle>Managed Hosting & 24/7 Support</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-muted-foreground text-sm">We provide secure, high-performance managed hosting to ensure your site is fast, secure, and always online, backed by our 24/7 global support team.</p>
+                </CardContent>
+            </Card>
+             <Card className="text-center p-6 bg-card hover:shadow-lg transition-shadow">
+                <CardHeader className="items-center">
+                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 mb-4 text-3xl font-bold text-primary">4</div>
+                    <CardTitle>Global Service at an Unbeatable Value</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-muted-foreground text-sm">Our efficient, global model allows us to offer these world-class WordPress services at highly competitive prices, providing you with unmatched value.</p>
+                </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -152,7 +152,7 @@ export default function WordpressPage() {
           <div className="container">
               <h2 className="text-3xl md:text-4xl font-bold">Ready to Harness the Full Power of WordPress?</h2>
               <p className="mt-4 max-w-2xl mx-auto opacity-90">
-                 Let's build a WordPress solution that is powerful, scalable, and perfectly aligned with your business goals. Contact us today for a free, no-obligation consultation and quote from a team that understands your needs.
+                 Let's build a WordPress solution that is powerful, scalable, and perfectly aligned with your business goals. Contact us today for a no-obligation consultation and quote from a team that understands your needs.
               </p>
               <div className="mt-8">
                   <Button asChild size="lg" variant="secondary">

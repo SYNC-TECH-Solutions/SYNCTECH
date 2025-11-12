@@ -107,7 +107,7 @@ export default function WoocommercePage() {
           <div className="container grid md:grid-cols-2 gap-12 items-center">
               <div>
                   <h2 className="text-3xl md:text-4xl font-bold">What is <span className="text-primary">WooCommerce</span>?</h2>
-                  <p className="mt-4 text-muted-foreground text-lg">WooCommerce is a free, open-source e-commerce plugin built specifically for WordPress. It seamlessly transforms any WordPress site into a powerful, fully-functional online store. It's the engine behind millions of successful online businesses, from small boutiques to large enterprises.</p>
+                  <p className="mt-4 text-muted-foreground text-lg">WooCommerce is a powerful and flexible e-commerce plugin built specifically for WordPress. It seamlessly transforms any WordPress site into a robust, fully-functional online store. It's the engine behind millions of successful online businesses, from small boutiques to large enterprises.</p>
                   <ul className="mt-6 space-y-4">
                       <li className="flex items-start gap-4">
                           <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
@@ -131,7 +131,7 @@ export default function WoocommercePage() {
                     alt="Official WooCommerce Logo"
                     width={800}
                     height={600}
-                    className="rounded-lg shadow-lg"
+                    className="rounded-lg"
                     data-ai-hint="woocommerce logo"
                 />
               </div>

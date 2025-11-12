@@ -208,12 +208,12 @@ export default function WoocommercePage() {
         <div className="container grid md:grid-cols-2 gap-12 items-center">
             <div className="relative order-last md:order-first">
                 <Image 
-                    src="/project/bblogo.png"
-                    alt="SYNC TECH developers working on custom code"
+                    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.EXzUkTnpDaDwRZroeMVLLgHaHa%3Fcb%3Ducfimgc2%26pid%3DApi&f=1&ipt=66d15056c9da0e63f9c5a044e63a9670263f6438538c97f16e4095c3ece62c2e"
+                    alt="Developer workspace with code on screens"
                     width={800}
                     height={600}
                     className="rounded-lg shadow-lg"
-                    data-ai-hint="developer coding"
+                    data-ai-hint="developer coding workspace"
                 />
             </div>
             <div className="order-first md:order-last">

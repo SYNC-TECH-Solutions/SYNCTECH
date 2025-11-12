@@ -70,6 +70,7 @@ const extensionCategories = {
 
 const allExtensions = Object.values(extensionCategories)
     .flatMap(category => category.extensions)
+    .concat(["Distance Rate Shipping", "Min/Max Quantities", "One Page Checkout", "Order Barcodes", "Points and rewards", "Pre-Orders", "Product Add-ons", "Product Bundles", "Product Filters", "Purchase Order Gateway", "Shipping", "Subscription Downloads", "Subscriptions", "Tax", "WooPayments"])
     .filter((value, index, self) => self.indexOf(value) === index) // Unique values
     .sort();
 

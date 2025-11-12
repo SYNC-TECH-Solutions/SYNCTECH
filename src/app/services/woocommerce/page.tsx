@@ -2,10 +2,11 @@
 import type { Metadata } from 'next';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CheckCircle, ShoppingCart, Settings, Package, Code } from 'lucide-react';
+import { ArrowRight, CheckCircle, ShoppingCart, Settings, Package, Code, CreditCard, Truck, Tag, Calendar, BarChart, Store } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Logo } from '@/components/logo';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 export const metadata: Metadata = {
   title: "Expert WooCommerce Development Services | SYNC TECH",
@@ -36,9 +37,33 @@ const coreFeatures = [
     }
 ];
 
-const supportedExtensions = [
-    "Accommodations Bookings", "Advanced Notications", "Affirm Payments", "AfterPay", "All Products for Woo Subscriptions", "AutomateWoo", "AutomateWoo - Birthday Add-on", "AutomateWoo - Refer a Friend Add-on", "Back in Stock Notifications", "Booking Acaliability", "Bookings", "Box Office", "Brands", "Bulk Stock Management", "Checkout Field Editor", "Composite Products", "Conditional Shipping and Payments", "Constellation", "Coupons Campaign", "Deposits", "Distance Rate Shipping", "Dynamic Pricing", "EU VAT Number", "Flat Rate Box Shipping", "Gift Cards", "Klarna for WooCommerce", "Klaviyo for WooCommerce", "Min/Max Quantities", "Mollie Payments", "One Page Checkout", "Order Barcodes", "PayPal Payments for WooCommerce", "Per Product Shipping", "Points and rewards", "Pre-Orders", "Product Add-ons", "Product Bundles", "Product CSV Import Suite", "Product Filters", "Product Recommendations", "Product Vendors", "Purchase Order Gateway", "Rental Products", "Returns and Warranty Requests", "Shipment Tracking", "Shipping", "Shipping Multiple Addresses", "Smart Coupons", "Square for WooCommerce", "Stripe for WooCommerce", "Subscription Downloads", "Subscriptions", "Table Rate Shipping", "Tax", "Variation Swatches and Photos", "WooPayments"
-];
+const extensionCategories = {
+    Payments: {
+        icon: <CreditCard className="h-5 w-5" />,
+        extensions: ["Affirm Payments", "AfterPay", "Klarna for WooCommerce", "Mollie Payments", "PayPal Payments for WooCommerce", "Square for WooCommerce", "Stripe for WooCommerce", "WooPayments"]
+    },
+    Shipping: {
+        icon: <Truck className="h-5 w-5" />,
+        extensions: ["Conditional Shipping and Payments", "Distance Rate Shipping", "Flat Rate Box Shipping", "Per Product Shipping", "Shipment Tracking", "Shipping", "Shipping Multiple Addresses", "Table Rate Shipping"]
+    },
+    "Products & Pricing": {
+        icon: <Tag className="h-5 w-5" />,
+        extensions: ["Composite Products", "Product Add-ons", "Product Bundles", "Dynamic Pricing", "Min/Max Quantities", "Variation Swatches and Photos", "Product Filters", "Product Recommendations", "Product CSV Import Suite", "Bulk Stock Management", "Constellation"]
+    },
+    "Bookings & Subscriptions": {
+        icon: <Calendar className="h-5 w-5" />,
+        extensions: ["Accommodations Bookings", "All Products for Woo Subscriptions", "Booking Acaliability", "Bookings", "Pre-Orders", "Rental Products", "Subscription Downloads", "Subscriptions"]
+    },
+    "Marketing & Promotions": {
+        icon: <BarChart className="h-5 w-5" />,
+        extensions: ["AutomateWoo", "AutomateWoo - Birthday Add-on", "AutomateWoo - Refer a Friend Add-on", "Back in Stock Notifications", "Coupons Campaign", "Gift Cards", "Klaviyo for WooCommerce", "Points and rewards", "Smart Coupons"]
+    },
+    "Store Management": {
+        icon: <Store className="h-5 w-5" />,
+        extensions: ["Advanced Notications", "Box Office", "Brands", "Checkout Field Editor", "Deposits", "EU VAT Number", "One Page Checkout", "Order Barcodes", "Product Vendors", "Purchase Order Gateway", "Returns and Warranty Requests", "Tax"]
+    }
+};
+
 
 export default function WoocommercePage() {
   return (
@@ -137,18 +162,31 @@ export default function WoocommercePage() {
             </div>
             <Card>
                 <CardHeader>
-                    <CardTitle>A Selection of Our Supported Extensions</CardTitle>
-                    <CardDescription>We have experience with hundreds of extensions. Here are just a few.</CardDescription>
+                    <CardTitle>Explore Our Supported Extensions</CardTitle>
+                    <CardDescription>Browse by category to see how we can enhance your store's capabilities.</CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <ul className="columns-2 md:columns-3 lg:columns-4 gap-x-8 text-sm text-muted-foreground">
-                        {supportedExtensions.sort().map(ext => (
-                            <li key={ext} className="mb-2 flex items-start gap-2">
-                                <CheckCircle className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-                                <span>{ext}</span>
-                            </li>
+                    <Tabs defaultValue="Payments" className="w-full">
+                        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 h-auto">
+                           {Object.entries(extensionCategories).map(([category, { icon }]) => (
+                               <TabsTrigger key={category} value={category} className="flex items-center gap-2">
+                                   {icon} {category}
+                                </TabsTrigger>
+                           ))}
+                        </TabsList>
+                        {Object.entries(extensionCategories).map(([category, { extensions }]) => (
+                            <TabsContent key={category} value={category} className="mt-6">
+                                <ul className="columns-1 md:columns-2 lg:columns-3 gap-x-8 text-sm text-muted-foreground">
+                                    {extensions.sort().map(ext => (
+                                        <li key={ext} className="mb-2 flex items-start gap-2">
+                                            <CheckCircle className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+                                            <span>{ext}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </TabsContent>
                         ))}
-                    </ul>
+                    </Tabs>
                 </CardContent>
             </Card>
         </div>
@@ -209,3 +247,5 @@ export default function WoocommercePage() {
     </div>
   );
 }
+
+    

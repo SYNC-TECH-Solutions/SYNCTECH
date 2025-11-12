@@ -127,12 +127,12 @@ export default function WoocommercePage() {
               </div>
               <div className="relative">
                   <Image 
-                    src="https://picsum.photos/seed/woocommerce/800/600"
-                    alt="A professional WooCommerce online store interface"
+                    src="https://cdn.worldvectorlogo.com/logos/woocommerce.svg"
+                    alt="Official WooCommerce Logo"
                     width={800}
                     height={600}
                     className="rounded-lg shadow-lg"
-                    data-ai-hint="ecommerce website interface"
+                    data-ai-hint="woocommerce logo"
                 />
               </div>
           </div>

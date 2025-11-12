@@ -37,6 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/services/digital-growth-seo',
     '/services/games',
     '/services/wordpress',
+    '/services/woocommerce',
   ];
 
   const serviceRoutes = servicePages.map((route) => ({

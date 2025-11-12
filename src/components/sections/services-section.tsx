@@ -23,6 +23,12 @@ const allServices = [
     link: "/services/wordpress",
   },
   {
+    icon: <Image src="https://cdn.worldvectorlogo.com/logos/woocommerce.svg" alt="WooCommerce Logo" width={32} height={32} className="grayscale" />,
+    title: "WooCommerce Development",
+    description: "Powerful, flexible e-commerce solutions for WordPress.",
+    link: "/services/woocommerce",
+  },
+  {
     icon: <Cloud className="w-8 h-8 text-primary" />,
     title: "Managed Cloud",
     description: "Offload cloud complexities with 24/7 global support.",

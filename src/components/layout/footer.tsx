@@ -40,7 +40,7 @@ const servicesLinks = [
 
 const partnershipLinks = [
     { href: '/services/wordpress', label: 'WordPress' },
-    { href: 'https://woocommerce.com/', label: 'WooCommerce' },
+    { href: '/services/woocommerce', label: 'WooCommerce' },
     { href: 'https://jetpack.com/', label: 'Jetpack' },
     { href: 'https://stripe.com/', label: 'Stripe' },
     { href: 'https://www.godaddy.com/pro', label: 'GoDaddy Pro' },

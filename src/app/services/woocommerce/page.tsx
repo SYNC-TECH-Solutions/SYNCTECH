@@ -2,7 +2,7 @@
 import type { Metadata } from 'next';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CheckCircle, ShoppingCart, Settings, Package, Code, CreditCard, Truck, Tag, Calendar, BarChart, Store } from 'lucide-react';
+import { ArrowRight, CheckCircle, ShoppingCart, Settings, Package, Code, CreditCard, Truck, Tag, Calendar, BarChart, Store, Grid3X3 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Logo } from '@/components/logo';
@@ -38,6 +38,10 @@ const coreFeatures = [
 ];
 
 const extensionCategories = {
+    All: {
+        icon: <Grid3X3 className="h-5 w-5" />,
+        extensions: []
+    },
     Payments: {
         icon: <CreditCard className="h-5 w-5" />,
         extensions: ["Affirm Payments", "AfterPay", "Klarna for WooCommerce", "Mollie Payments", "PayPal Payments for WooCommerce", "Square for WooCommerce", "Stripe for WooCommerce", "WooPayments"]
@@ -63,6 +67,13 @@ const extensionCategories = {
         extensions: ["Advanced Notications", "Box Office", "Brands", "Checkout Field Editor", "Deposits", "EU VAT Number", "One Page Checkout", "Order Barcodes", "Product Vendors", "Purchase Order Gateway", "Returns and Warranty Requests", "Tax"]
     }
 };
+
+const allExtensions = Object.values(extensionCategories)
+    .flatMap(category => category.extensions)
+    .filter((value, index, self) => self.indexOf(value) === index) // Unique values
+    .sort();
+
+extensionCategories.All.extensions = allExtensions;
 
 
 export default function WoocommercePage() {
@@ -166,8 +177,8 @@ export default function WoocommercePage() {
                     <CardDescription>Browse by category to see how we can enhance your store's capabilities.</CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <Tabs defaultValue="Payments" className="w-full">
-                        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 h-auto">
+                    <Tabs defaultValue="All" className="w-full">
+                        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 h-auto">
                            {Object.entries(extensionCategories).map(([category, { icon }]) => (
                                <TabsTrigger key={category} value={category} className="flex items-center gap-2">
                                    {icon} {category}

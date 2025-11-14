@@ -211,9 +211,9 @@ export default function StripePage() {
         <div className="container grid md:grid-cols-2 gap-12 items-center">
             <div className="relative order-last md:order-first flex justify-center items-center p-8 bg-card rounded-lg">
                 <div className="flex justify-center items-center gap-4 md:gap-6">
-                    <Image src="https://cdn.worldvectorlogo.com/logos/stripe-4.svg" alt="Stripe Logo" width={80} height={80} />
-                    <span className="text-5xl md:text-6xl font-bold text-muted-foreground">x</span>
-                    <Logo className="text-5xl md:text-6xl" />
+                    <Image src="https://cdn.worldvectorlogo.com/logos/stripe-4.svg" alt="Stripe Logo" width={60} height={60} />
+                    <span className="text-4xl md:text-5xl font-bold text-muted-foreground">x</span>
+                    <Logo className="text-4xl md:text-5xl" />
                 </div>
             </div>
             <div className="order-first md:order-last">

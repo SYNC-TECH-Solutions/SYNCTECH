@@ -102,12 +102,12 @@ export default function JetpackPage() {
               </div>
               <div className="relative">
                   <Image 
-                    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.webhoster.de%2Ffiles%2FWissensdatenbank%2FWordPress%2Fjetpack_logo.jpg&f=1&nofb=1&ipt=d20eb5807498c8cde0c5980e03e45ed44c478a87b640e7912d09724137c8702f"
-                    alt="Jetpack for WordPress logo and branding"
-                    width={800}
-                    height={600}
-                    className="rounded-lg shadow-lg"
-                    data-ai-hint="jetpack wordpress logo"
+                    src="https://cdn.worldvectorlogo.com/logos/jetpack.svg"
+                    alt="Official Jetpack for WordPress Logo"
+                    width={500}
+                    height={500}
+                    className="rounded-lg shadow-lg mx-auto"
+                    data-ai-hint="jetpack logo"
                 />
               </div>
           </div>

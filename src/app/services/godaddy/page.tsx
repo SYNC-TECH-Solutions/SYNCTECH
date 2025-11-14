@@ -142,12 +142,12 @@ export default function GoDaddyPage() {
         <div className="container grid md:grid-cols-2 gap-12 items-center">
             <div className="relative order-last md:order-first">
                 <Image 
-                    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.elegantthemes.com%2Fblog%2Fwp-content%2Fuploads%2F2018%2F01%2FDivi-Leads-GoDaddy-Pro.jpg&f=1&nofb=1&ipt=b8f526372e399580b001a1c97a2245b7367cd325492d9f48ac8f041ff34e2c2f"
-                    alt="Web developer managing client sites in a dashboard"
+                    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.mos.cms.futurecdn.net%2FGDsuutErQWptkPENouXACo-1009-80.png&f=1&nofb=1&ipt=95179e3eb17fb8901f3e5f2588acea813e2cddb62e96d26facf79b95c26f6e6b"
+                    alt="GoDaddy Point-of-Sale (POS) system in a retail environment"
                     width={800}
                     height={600}
                     className="rounded-lg shadow-lg"
-                    data-ai-hint="developer dashboard"
+                    data-ai-hint="GoDaddy POS system"
                 />
             </div>
             <div className="order-first md:order-last">

@@ -74,7 +74,7 @@ export default function GameHubPage() {
 
         <div className="container text-center z-10">
           <Gamepad2 className="h-16 w-16 text-primary mx-auto mb-4" />
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground">
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-foreground">
             The SYNC TECH <span className="text-primary">GameHub</span>
           </h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
@@ -85,20 +85,30 @@ export default function GameHubPage() {
 
       {/* Ad Banner Section */}
       <section className="py-8 flex justify-center">
-        <div className="ad-container">
+        <div className="ad-container w-[300px] h-[100px] md:w-[728px] md:h-[90px] flex items-center justify-center">
             <Script id="ad-config" strategy="lazyOnload">
               {`
-                atOptions = {
-                  'key' : '7a3c0f5d756f13fa19a5fb53e6968715',
-                  'format' : 'iframe',
-                  'height' : 60,
-                  'width' : 468,
-                  'params' : {}
-                };
+                 if (window.innerWidth < 768) {
+                    atOptions = {
+                        'key' : '9c3905e9408544a04ca2123d2427a1b5',
+                        'format' : 'iframe',
+                        'height' : 100,
+                        'width' : 300,
+                        'params' : {}
+                    };
+                } else {
+                    atOptions = {
+                        'key' : '5c3a37a93551c89f5a898b3cf17d23f7',
+                        'format' : 'iframe',
+                        'height' : 90,
+                        'width' : 728,
+                        'params' : {}
+                    };
+                }
               `}
             </Script>
             <Script 
-              src="//www.highperformanceformat.com/7a3c0f5d756f13fa19a5fb53e6968715/invoke.js" 
+              src="//www.profitablecreativeformat.com/5c3a37a93551c89f5a898b3cf17d23f7/invoke.js"
               strategy="lazyOnload" 
             />
         </div>

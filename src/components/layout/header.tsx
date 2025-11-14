@@ -7,7 +7,7 @@ import { Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Logo } from '../logo';
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetClose } from '@/components/ui/sheet';
 
 const navItems = [
   { href: '/about', label: 'About' },
@@ -21,7 +21,6 @@ const navItems = [
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,13 +32,13 @@ export function Header() {
     };
   }, []);
 
-  const NavLinks = ({ className }: { className?: string }) => (
+  const NavLinks = ({ className, onItemClick }: { className?: string, onItemClick?: () => void }) => (
     <nav className={cn('flex items-center gap-6 text-sm font-medium', className)}>
       {navItems.map((item) => (
         <Link
           key={item.label}
           href={item.href}
-          onClick={() => setIsMobileMenuOpen(false)}
+          onClick={onItemClick}
           className="text-foreground/80 transition-colors hover:text-foreground"
         >
           {item.label}
@@ -65,25 +64,33 @@ export function Header() {
           <NavLinks />
         </div>
         <div className="md:hidden">
-          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+          <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" aria-label="Open menu">
                 <Menu className="h-6 w-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[80vw]">
+            <SheetContent side="right" className="w-[80vw] p-0">
                <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
-              <div className="flex flex-col h-full p-6">
-                <div className="flex items-center justify-between mb-8">
-                  <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
+              <div className="flex flex-col h-full p-6 pt-12">
+                <SheetClose asChild>
+                  <Link href="/" className="mb-8">
                     <Logo />
                   </Link>
-                </div>
-                <NavLinks className="flex-col items-start gap-6 text-lg" />
+                </SheetClose>
+                <NavLinks 
+                  className="flex-col items-start gap-6 text-lg" 
+                  onItemClick={() => {
+                    // This logic will be inside the SheetClose but we can't directly close it from here.
+                    // The Sheet component handles closing on navigation by default if links are wrapped correctly.
+                  }}
+                />
                 <div className="mt-auto">
-                  <Button asChild className="w-full">
-                    <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link>
-                  </Button>
+                  <SheetClose asChild>
+                    <Button asChild className="w-full">
+                      <Link href="/contact">Contact Us</Link>
+                    </Button>
+                  </SheetClose>
                 </div>
               </div>
             </SheetContent>

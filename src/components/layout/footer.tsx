@@ -49,7 +49,7 @@ const partnershipLinks = [
 export function Footer() {
   return (
     <footer className="bg-secondary text-secondary-foreground">
-      <div className="container py-12">
+      <div className="container py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           
           <div className="flex flex-col gap-4 md:col-span-1">
@@ -61,7 +61,7 @@ export function Footer() {
             </a>
           </div>
 
-          <div className="md:col-span-4 grid grid-cols-2 md:grid-cols-5 gap-8">
+          <div className="md:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
             <div>
               <h3 className="font-semibold mb-4 text-primary">Quick Links</h3>
               <ul className="space-y-2">
@@ -119,7 +119,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between mt-8 border-t pt-8 gap-4">
+        <div className="flex flex-col md:flex-row items-center justify-between mt-8 border-t pt-8 gap-6 md:gap-4">
             <div className="flex items-center gap-3">
               <p className="text-sm font-semibold">Follow us on:</p>
               <div className="flex flex-wrap gap-2">

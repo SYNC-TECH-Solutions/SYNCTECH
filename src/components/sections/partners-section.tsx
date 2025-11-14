@@ -44,7 +44,7 @@ export default function PartnersSection() {
             <div
               className="relative w-full overflow-hidden"
               style={{
-                maskImage: "linear-gradient(to right, transparent, black 20%, black 80%, transparent)"
+                maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)"
               }}
               aria-label="A scrolling slideshow of partner logos"
             >
@@ -52,13 +52,13 @@ export default function PartnersSection() {
                 {[...logos, ...logos].map((logo, index) => (
                   <Tooltip key={`${logo.name}-${index}`}>
                     <TooltipTrigger asChild>
-                      <div className="flex-shrink-0 w-48 flex justify-center items-center" aria-label={logo.name}>
+                      <div className="flex-shrink-0 w-36 sm:w-48 flex justify-center items-center" aria-label={logo.name}>
                         <Image 
                           src={logo.src}
                           alt={`${logo.name} partner logo`}
                           width={logo.width}
                           height={logo.height}
-                          className="object-contain transition-all duration-300"
+                          className="object-contain transition-all duration-300 h-10 w-auto"
                         />
                       </div>
                     </TooltipTrigger>

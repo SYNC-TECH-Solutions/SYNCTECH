@@ -16,7 +16,7 @@ export function Hero() {
     <section 
         id="home" 
         ref={ref}
-        className="relative w-full h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden"
+        className="relative w-full h-[calc(100vh-5rem)] min-h-[500px] flex items-center justify-center overflow-hidden"
     >
       <div className="absolute inset-0 -z-10 h-full w-full bg-background">
          <div 
@@ -33,7 +33,7 @@ export function Hero() {
             inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         )}
       >
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground">
+        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-foreground">
           Elite Tech Solutions.
           <br />
           <span className="text-primary">Accessible Price.</span>
@@ -41,11 +41,11 @@ export function Hero() {
         <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
           We deliver enterprise-grade IT services—from AI strategy and custom development to 24/7 global support—at a value that empowers your business to compete and win.
         </p>
-        <div className="mt-8 flex justify-center gap-4">
-          <Button asChild size="lg">
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Button asChild size="lg" className="w-full sm:w-auto">
             <Link href="/contact">Get Your Free Quote</Link>
           </Button>
-          <Button asChild variant="outline" size="lg">
+          <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
             <Link href="/services">Explore Our Services</Link>
           </Button>
         </div>

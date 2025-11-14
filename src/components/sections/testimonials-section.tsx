@@ -56,12 +56,12 @@ export default function TestimonialsSection() {
             align: "start",
             loop: true,
           }}
-          className="w-full max-w-5xl mx-auto"
+          className="w-full max-w-sm sm:max-w-xl md:max-w-3xl lg:max-w-5xl mx-auto"
         >
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-4 h-full">
+              <CarouselItem key={index} className="sm:basis-1/2 lg:basis-1/3">
+                <div className="p-2 sm:p-4 h-full">
                   <Card className="bg-secondary h-full flex flex-col justify-between">
                     <CardContent className="p-6">
                         <div className="flex gap-1 mb-4">
@@ -84,8 +84,8 @@ export default function TestimonialsSection() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="left-[-50px]" />
-          <CarouselNext className="right-[-50px]" />
+          <CarouselPrevious className="hidden sm:inline-flex -left-4 md:-left-12" />
+          <CarouselNext className="hidden sm:inline-flex -right-4 md:-right-12" />
         </Carousel>
       </div>
     </section>

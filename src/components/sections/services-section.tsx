@@ -28,6 +28,12 @@ const allServices = [
     description: "Powerful, flexible e-commerce solutions for WordPress.",
     link: "/services/woocommerce",
   },
+   {
+    icon: <Image src="https://cdn.worldvectorlogo.com/logos/jetpack.svg" alt="Jetpack Logo" width={32} height={32} />,
+    title: "Jetpack for WordPress",
+    description: "Enhance your site with top-tier security, performance, and growth tools.",
+    link: "/services/jetpack",
+  },
   {
     icon: <Cloud className="w-8 h-8 text-primary" />,
     title: "Managed Cloud",

@@ -29,6 +29,12 @@ const services = [
     link: "/services/woocommerce",
   },
   {
+    icon: <Image src="https://cdn.worldvectorlogo.com/logos/jetpack.svg" alt="Jetpack Logo" width={32} height={32} />,
+    title: "Jetpack for WordPress",
+    description: "Enhance your site with top-tier security, performance, and growth tools.",
+    link: "/services/jetpack",
+  },
+  {
     icon: <Cloud className="w-8 h-8 text-primary" />,
     title: "Managed Cloud & Optimization",
     description: "Offload cloud complexities with 24/7 global support. We handle security, scalability, and data protection so you can focus on your core mission.",

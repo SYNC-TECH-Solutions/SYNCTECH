@@ -19,14 +19,11 @@ const secondaryLinks = [
     { href: '/become-a-partner', label: 'Become a Partner' },
     { href: '/gamehub', label: 'Game Hub' },
     { href: '/game-business-strategy', label: 'Game Monetization' },
-];
-
-const legalLinks = [
     { href: '/faq', label: 'FAQ' },
     { href: '/privacy-policy', label: 'Privacy Policy' },
     { href: '/terms-and-conditions', label: 'Terms & Conditions' },
     { href: '/accessibility-statement', label: 'Accessibility' },
-]
+];
 
 const servicesLinks = [
     { href: '/services/web-development', label: 'Web Design & Development' },
@@ -61,7 +58,7 @@ export function Footer() {
             </a>
           </div>
 
-          <div className="md:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+          <div className="md:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8">
             <div>
               <h3 className="font-semibold mb-4 text-primary">Quick Links</h3>
               <ul className="space-y-2">
@@ -105,16 +102,6 @@ export function Footer() {
                     </li>
                     ))}
                 </ul>
-            </div>
-             <div>
-              <h3 className="font-semibold mb-4 text-primary">Legal & Admin</h3>
-              <ul className="space-y-2">
-                 {legalLinks.map((item) => (
-                  <li key={item.label}>
-                    <Link href={item.href} className="text-sm hover:text-primary transition-colors">{item.label}</Link>
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
         </div>

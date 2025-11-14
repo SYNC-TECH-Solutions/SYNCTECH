@@ -41,6 +41,7 @@ export default function CybersecurityPage() {
       {/* Hero Section */}
       <section className="py-20 md:py-32 bg-secondary text-center">
         <div className="container">
+          <p className="mb-4 text-sm font-bold uppercase tracking-widest text-primary">SYNC TECH & CYBERSECURITY</p>
           <ShieldCheck className="h-16 w-16 text-primary mx-auto mb-4" />
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">Cybersecurity Services in Ireland</h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">

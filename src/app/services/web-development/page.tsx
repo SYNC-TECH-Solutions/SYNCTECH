@@ -41,6 +41,7 @@ export default function WebDevelopmentPage() {
       {/* Hero Section */}
       <section className="py-20 md:py-32 bg-secondary text-center">
         <div className="container">
+          <p className="mb-4 text-sm font-bold uppercase tracking-widest text-primary">SYNC TECH & WEBSITES</p>
           <Code className="h-16 w-16 text-primary mx-auto mb-4" />
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">Web Design & Development Services</h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
@@ -86,7 +87,7 @@ export default function WebDevelopmentPage() {
         <div className="container grid md:grid-cols-2 gap-12 items-center">
             <div className="relative">
                 <Image 
-                    src="/webdev.png" 
+                    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid%2FOIP.6qUY2v2xObbACnA1e0g0dwHaHa%3Fpid%3DApi&f=1&ipt=c34496a7879f90245b2fc5b2b293032e6cf8fe5ba4a1c8960616eb5d0949a44c&ipo=images" 
                     alt="Responsive web design shown on multiple devices in Dublin"
                     width={800}
                     height={600}

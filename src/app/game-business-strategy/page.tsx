@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -7,10 +8,10 @@ import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/
 import { Bar, ResponsiveContainer, XAxis, YAxis, Tooltip as RechartsTooltip } from 'recharts';
 
 export const metadata: Metadata = {
-  title: "Game Monetization & Development Strategy | SYNC TECH",
-  description: "Leverage SYNC TECH's expertise to build, scale, and monetize your game. We specialize in developing robust backends, in-game economies, and implementing effective ad-based and premium monetization strategies.",
+  title: "Game Monetization & Development Strategy in Dublin | SYNC TECH",
+  description: "Leverage SYNC TECH's expertise in Dublin to build, scale, and monetize your game. We specialize in developing robust backends, in-game economies, and implementing effective ad-based and premium monetization strategies for Irish game developers.",
   keywords: [
-    "game monetization", "game development strategy", "in-game economy", "rewarded video ads", "freemium games", "game backend development", "scalable game architecture", "SYNC TECH gaming", "mobile game development"
+    "game monetization Ireland", "game development strategy Dublin", "in-game economy", "rewarded video ads Ireland", "freemium games Dublin", "game backend development Ireland", "scalable game architecture", "SYNC TECH gaming", "mobile game development Dublin"
   ],
 };
 

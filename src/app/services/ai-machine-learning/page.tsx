@@ -7,8 +7,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: "AI & Machine Learning Consulting Services Ireland | Sync Tech",
-  description: "Sync Tech offers cutting-edge AI and ML solutions in Ireland. Drive innovation, enhance efficiency, and unlock your business potential with our expert consulting.",
+  title: "AI & Machine Learning Consulting Services in Dublin, Ireland | Sync Tech",
+  description: "Sync Tech offers cutting-edge AI and ML solutions in Dublin, Ireland. Drive innovation, enhance efficiency, and unlock your business potential with our expert AI consulting for Irish businesses.",
+  keywords: ["AI consulting Dublin", "Machine Learning Ireland", "AI solutions Dublin", "business automation AI", "data-driven insights Ireland", "predictive analytics Dublin", "AI developer Dublin", "Sync Tech AI"],
 };
 
 const technicalDisciplines = [
@@ -43,7 +44,7 @@ export default function AiMlPage() {
           <Bot className="h-16 w-16 text-primary mx-auto mb-4" />
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">AI & Machine Learning Services</h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
-            Harness the power of AI to drive innovation, enhance operational efficiency, and unlock your business's full potential. Sync Tech delivers tailored AI solutions for enterprises in Ireland.
+            Harness the power of AI to drive innovation, enhance operational efficiency, and unlock your business's full potential. Sync Tech delivers tailored AI solutions for enterprises in Ireland and worldwide.
           </p>
           <div className="mt-8">
             <Button asChild size="lg">
@@ -81,7 +82,7 @@ export default function AiMlPage() {
               <div className="relative">
                   <Image 
                     src="/aiml.png" 
-                    alt="Abstract visualization of Artificial Intelligence and Machine Learning"
+                    alt="Abstract visualization of Artificial Intelligence and Machine Learning in Dublin"
                     width={800}
                     height={600}
                     className="rounded-lg shadow-lg"
@@ -123,7 +124,7 @@ export default function AiMlPage() {
                  <div className="relative order-last md:order-first">
                     <Image 
                         src="/cloud.png" 
-                        alt="Cloud platforms integration"
+                        alt="Cloud platforms integration for AI services in Ireland"
                         width={800}
                         height={600}
                         className="rounded-lg shadow-lg"

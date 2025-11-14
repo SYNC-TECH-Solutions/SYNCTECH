@@ -7,8 +7,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: "Cloud FinOps & Cost Management Services Ireland | Sync Tech",
-  description: "Sync Tech offers expert FinOps and cloud cost management services in Ireland for AWS, Azure, and GCP. Maximize ROI and gain financial accountability with our help.",
+  title: "Cloud FinOps & Cost Management Services in Dublin, Ireland | Sync Tech",
+  description: "Sync Tech offers expert FinOps and cloud cost management services in Dublin for AWS, Azure, and GCP. Maximize ROI and gain financial accountability with our local Irish expertise.",
+  keywords: ["FinOps services Dublin", "cloud cost management Ireland", "AWS cost optimization Dublin", "Azure billing Ireland", "GCP cost savings", "FinOps consulting Dublin", "cloud financial management"],
 };
 
 const coreServices = [
@@ -81,7 +82,7 @@ export default function FinOpsPage() {
               <div className="relative">
                   <Image 
                     src="/finops.png" 
-                    alt="Chart showing financial operations and cost management"
+                    alt="Chart showing financial operations and cost management for Dublin businesses"
                     width={800}
                     height={600}
                     className="rounded-lg shadow-lg"

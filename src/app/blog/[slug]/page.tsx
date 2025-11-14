@@ -24,8 +24,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://synctech.ie';
 
   return {
-    title: post.title,
+    title: `${post.title} | SYNC TECH Blog`,
     description: post.excerpt,
+    keywords: post.title.split(' ').concat(post.excerpt.split(' ')).slice(0,10),
     openGraph: {
       title: post.title,
       description: post.excerpt,

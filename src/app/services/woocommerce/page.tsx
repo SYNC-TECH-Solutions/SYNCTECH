@@ -9,9 +9,9 @@ import { Logo } from '@/components/logo';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 export const metadata: Metadata = {
-  title: "Expert WooCommerce Development Services | SYNC TECH",
-  description: "SYNC TECH offers custom WooCommerce development in Dublin and worldwide. We build and customize high-performance online stores with advanced features like subscriptions, bookings, and dynamic pricing.",
-  keywords: ["WooCommerce development Dublin", "custom WooCommerce services", "WooCommerce agency Ireland", "hire WooCommerce developers", "WooCommerce experts", "e-commerce solutions", "SYNC TECH WooCommerce", "Stripe for WooCommerce", "WooCommerce Subscriptions", "WooCommerce Bookings"],
+  title: "Expert WooCommerce Development Services in Dublin | SYNC TECH",
+  description: "SYNC TECH offers custom WooCommerce development in Dublin and worldwide. We build and customize high-performance online stores with advanced features like subscriptions, bookings, and dynamic pricing for Irish businesses.",
+  keywords: ["WooCommerce development Dublin", "custom WooCommerce services Ireland", "WooCommerce agency Dublin", "hire WooCommerce developers Ireland", "WooCommerce experts Dublin", "e-commerce solutions Ireland", "SYNC TECH WooCommerce", "Stripe for WooCommerce Dublin", "WooCommerce Subscriptions Ireland", "WooCommerce Bookings"],
 };
 
 const coreFeatures = [
@@ -102,7 +102,7 @@ export default function WoocommercePage() {
         </div>
       </section>
 
-      {/* What is WooCommerce? Section */}
+      {/* What is WooCommerce Section */}
       <section className="py-20 md:py-28">
           <div className="container grid md:grid-cols-2 gap-12 items-center">
               <div>
@@ -128,7 +128,7 @@ export default function WoocommercePage() {
               <div className="relative">
                   <Image 
                     src="https://cdn.worldvectorlogo.com/logos/woocommerce.svg"
-                    alt="Official WooCommerce Logo"
+                    alt="Official WooCommerce Logo, representing e-commerce solutions in Dublin"
                     width={800}
                     height={600}
                     className="rounded-lg"
@@ -210,7 +210,7 @@ export default function WoocommercePage() {
             <div className="relative order-last md:order-first">
                 <Image 
                     src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.EXzUkTnpDaDwRZroeMVLLgHaHa%3Fcb%3Ducfimgc2%26pid%3DApi&f=1&ipt=66d15056c9da0e63f9c5a044e63a9670263f6438538c97f16e4095c3ece62c2e"
-                    alt="Developer workspace with code on screens"
+                    alt="Developer workspace with code on screens in a Dublin office"
                     width={800}
                     height={600}
                     className="rounded-lg shadow-lg"

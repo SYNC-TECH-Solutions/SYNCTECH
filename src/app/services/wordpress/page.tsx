@@ -8,9 +8,9 @@ import Image from 'next/image';
 import { Logo } from '@/components/logo';
 
 export const metadata: Metadata = {
-  title: "Expert WordPress Development Services in Dublin & Worldwide | SYNC TECH",
-  description: "SYNC TECH is a leading WordPress agency in Dublin, offering affordable, custom WordPress development, theme design, and managed hosting services globally. Get world-class WordPress solutions at the best prices.",
-  keywords: ["WordPress development Dublin", "custom WordPress themes Ireland", "WordPress agency Dublin", "affordable WordPress services", "managed WordPress hosting", "hire WordPress developers Ireland", "WordPress experts", "global WordPress agency", "SYNC TECH WordPress", "WooCommerce development"],
+  title: "Expert WordPress Development Services in Dublin, Ireland | SYNC TECH",
+  description: "SYNC TECH is a leading WordPress agency in Dublin, offering affordable, custom WordPress development, theme design, and managed hosting services for businesses in Ireland and worldwide.",
+  keywords: ["WordPress development Dublin", "custom WordPress themes Ireland", "WordPress agency Dublin", "affordable WordPress services", "managed WordPress hosting Ireland", "hire WordPress developers Ireland", "WordPress experts Dublin", "global WordPress agency", "SYNC TECH WordPress", "WooCommerce development Dublin"],
 };
 
 export default function WordpressPage() {
@@ -64,7 +64,7 @@ export default function WordpressPage() {
               <div className="relative">
                   <Image 
                     src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.mos.cms.futurecdn.net%2F7ehqrjkNyoaWQ9eN7A65sC.jpg&f=1&nofb=1&ipt=7b791e4a6337402600e736e6efc1254d047b3be8af430559dff18404b64aad68"
-                    alt="A professional WordPress website interface shown on a laptop"
+                    alt="A professional WordPress website interface shown on a laptop in an office in Dublin"
                     width={800}
                     height={600}
                     className="rounded-lg shadow-lg"

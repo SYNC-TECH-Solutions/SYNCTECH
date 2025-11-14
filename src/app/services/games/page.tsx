@@ -7,9 +7,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: "Custom Game Development Studio in Ireland | Sync Tech",
-  description: "Sync Tech is a leading game development company in Dublin, offering full-cycle development, co-development, and game design services for mobile, PC, and console.",
-  keywords: ["Game development Ireland", "Custom game development", "Game design services Dublin", "Hire game developers Ireland", "Unity development", "Unreal Engine developers", "Mobile game development", "Game development studio Dublin", "SYNC TECH games"],
+  title: "Custom Game Development Studio in Dublin, Ireland | Sync Tech",
+  description: "Sync Tech is a leading game development company in Dublin, Ireland offering full-cycle development, co-development, and game design services for mobile, PC, and console.",
+  keywords: ["Game development Ireland", "Game development studio Dublin", "Custom game development Dublin", "Game design services Dublin", "Hire game developers Ireland", "Unity development Ireland", "Unreal Engine developers Dublin", "Mobile game development Ireland", "SYNC TECH games"],
 };
 
 const coreServices = [
@@ -82,7 +82,7 @@ export default function GameDevelopmentPage() {
               <div className="relative">
                   <Image 
                     src="/game.png" 
-                    alt="Game development process with code and graphics"
+                    alt="Game development process with code and graphics in Dublin"
                     width={800}
                     height={600}
                     className="rounded-lg shadow-lg"

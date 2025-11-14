@@ -7,8 +7,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: "Expert Managed Cloud Services in Ireland | Sync Tech",
-  description: "Sync Tech offers expert Managed Cloud services for peak performance, scalability, and cost efficiency. Future-proof your business with our proactive monitoring and optimization.",
+  title: "Expert Managed Cloud Services in Dublin, Ireland | Sync Tech",
+  description: "Sync Tech offers expert Managed Cloud services in Dublin for peak performance, scalability, and cost efficiency. Future-proof your Irish business with our proactive cloud monitoring and optimization.",
+  keywords: ["Managed cloud services Dublin", "cloud optimization Ireland", "cloud management Dublin", "AWS managed services Ireland", "Azure consulting Dublin", "GCP support Ireland", "cloud solutions Dublin"],
 };
 
 const infrastructureServices = [
@@ -118,7 +119,7 @@ export default function ManagedCloudPage() {
               <div className="relative">
                   <Image 
                     src="/cloud.png" 
-                    alt="Abstract visualization of cloud computing services"
+                    alt="Abstract visualization of cloud computing services in Dublin"
                     width={800}
                     height={600}
                     className="rounded-lg shadow-lg"
@@ -229,5 +230,3 @@ export default function ManagedCloudPage() {
     </div>
   );
 }
-
-    

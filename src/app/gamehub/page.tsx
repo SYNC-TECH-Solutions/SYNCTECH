@@ -10,10 +10,10 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: "SYNC TECH GameHub | Play Free Online Wordle, Crosswords & Brain Games",
-  description: "Challenge your mind with the SYNC TECH GameHub. Play free online mini-games like Wordle, daily Crosswords, and Sudoku. Perfect for a quick break, our brain-teasing puzzles are fun, free, and waiting for you!",
+  title: "SYNC TECH GameHub | Play Free Online Puzzles & Brain Games in Dublin",
+  description: "Challenge your mind with the SYNC TECH GameHub. Play free online mini-games like Wordle, daily Crosswords, and Sudoku. Perfect for a quick break in Dublin, our brain-teasing puzzles are fun, free, and waiting for you!",
   keywords: [
-    "online mini-games", "play wordle online", "free online puzzles", "brain games", "crossword puzzles online", "free sudoku", "SYNC TECH games", "daily puzzles", "word games", "logic puzzles", "office break games", "free games to play", "mind games online"
+    "online mini-games Dublin", "play wordle online Ireland", "free online puzzles Dublin", "brain games Ireland", "crossword puzzles online", "free sudoku Dublin", "SYNC TECH games", "daily puzzles Ireland", "word games", "logic puzzles", "office break games Dublin", "free games to play", "mind games online"
   ],
 };
 

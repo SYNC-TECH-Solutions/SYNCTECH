@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: [
-    'AI Strategy Dublin', 'Global IT Services', 'Worldwide Tech Support', 'Affordable IT Solutions', '24/7 Tech Support', 'Comprehensive IT Solutions', 'Secure Cloud Solutions', 'Your Digital Partner', 'SYNC TECH', 'IT Experts', 'Scalable IT', 'Trusted by Businesses', 'Tech Made Simple', 'Drive Growth with IT', 'cybersecurity', 'cloud services', 'AI automation', 'digital transformation', 'International IT Support', 'Future-Ready Tech Services', 'IT Solutions Made Simple', 'global IT consulting'
+    'IT services Dublin', 'AI Strategy Dublin', 'Global IT Services', 'Worldwide Tech Support', 'Affordable IT Solutions', '24/7 Tech Support', 'Comprehensive IT Solutions', 'Secure Cloud Solutions', 'Your Digital Partner', 'SYNC TECH', 'IT Experts', 'Scalable IT', 'Trusted by Businesses', 'Tech Made Simple', 'Drive Growth with IT', 'cybersecurity', 'cloud services', 'AI automation', 'digital transformation', 'International IT Support', 'Future-Ready Tech Services', 'IT Solutions Made Simple', 'global IT consulting', 'web development Ireland', 'Next.js developer Dublin'
   ],
   authors: [{ name: 'Sheraz Hussain', url: siteConfig.url }],
   creator: 'Sheraz Hussain',

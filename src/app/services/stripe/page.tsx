@@ -8,9 +8,9 @@ import Image from 'next/image';
 import { Logo } from '@/components/logo';
 
 export const metadata: Metadata = {
-  title: "Expert Stripe Integration & Development Services | SYNC TECH",
-  description: "SYNC TECH offers expert Stripe integration services in Dublin and worldwide. We handle everything from Stripe Payments and Billing to Connect, Identity, and Issuing for a seamless financial infrastructure.",
-  keywords: ["Stripe integration Ireland", "Stripe developers Dublin", "payment gateway services", "Stripe Connect", "Stripe Billing", "e-commerce payments", "SaaS payments", "SYNC TECH Stripe"],
+  title: "Expert Stripe Integration & Development Services in Dublin | SYNC TECH",
+  description: "SYNC TECH offers expert Stripe integration services in Dublin and worldwide. We handle everything from Stripe Payments and Billing to Connect, Identity, and Issuing for a seamless financial infrastructure for your Irish business.",
+  keywords: ["Stripe integration Ireland", "Stripe developers Dublin", "payment gateway services Dublin", "Stripe Connect Ireland", "Stripe Billing Dublin", "e-commerce payments Ireland", "SaaS payments Dublin", "SYNC TECH Stripe"],
 };
 
 const paymentServices = [
@@ -134,7 +134,7 @@ export default function StripePage() {
               <div className="relative flex justify-center items-center">
                   <Image 
                     src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fb.stripecdn.com%2Fdocs-statics-srv%2Fassets%2Fmobile-app-metrics.8a84e7d07defcdf19b3074011cdfcf59.png&f=1&nofb=1&ipt=d2988839b81036a7a22f211793f43935bb6f499df9c2dec8f9534b7c19b46650"
-                    alt="Stripe payment metrics on a mobile app interface"
+                    alt="Stripe payment metrics on a mobile app interface in Dublin"
                     width={500}
                     height={400}
                     className="rounded-lg shadow-lg"

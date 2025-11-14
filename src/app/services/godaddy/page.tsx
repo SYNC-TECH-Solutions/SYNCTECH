@@ -8,9 +8,9 @@ import Image from 'next/image';
 import { Logo } from '@/components/logo';
 
 export const metadata: Metadata = {
-  title: "Managed GoDaddy Pro Services | SYNC TECH",
-  description: "SYNC TECH offers expert management of GoDaddy Pro services, including web hosting, domains, security, and professional email. Let us handle the infrastructure so you can focus on your business.",
-  keywords: ["GoDaddy Pro", "managed web hosting", "domain management", "website security", "professional email", "SYNC TECH GoDaddy", "WordPress hosting Ireland"],
+  title: "Managed GoDaddy Pro Services in Dublin | SYNC TECH",
+  description: "SYNC TECH offers expert management of GoDaddy Pro services in Dublin, including web hosting, domains, security, and professional email. Let our Irish team handle the infrastructure so you can focus on your business.",
+  keywords: ["GoDaddy Pro Dublin", "managed web hosting Ireland", "domain management Dublin", "website security Ireland", "professional email Dublin", "SYNC TECH GoDaddy", "WordPress hosting Ireland"],
 };
 
 const godaddyServices = [
@@ -91,7 +91,7 @@ export default function GoDaddyPage() {
               <div className="relative flex justify-center items-center">
                   <Image 
                     src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.mos.cms.futurecdn.net%2FGDsuutErQWptkPENouXACo-1009-80.png&f=1&nofb=1&ipt=95179e3eb17fb8901f3e5f2588acea813e2cddb62e96d26facf79b95c26f6e6b"
-                    alt="GoDaddy Point-of-Sale (POS) system in a retail environment"
+                    alt="GoDaddy Point-of-Sale (POS) system in a retail environment in Dublin"
                     width={400}
                     height={200}
                     className="rounded-lg shadow-lg"
@@ -141,14 +141,11 @@ export default function GoDaddyPage() {
       <section className="py-20 md:py-28">
         <div className="container grid md:grid-cols-2 gap-12 items-center">
             <div className="relative order-last md:order-first">
-                <Image 
-                    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.mos.cms.futurecdn.net%2FGDsuutErQWptkPENouXACo-1009-80.png&f=1&nofb=1&ipt=95179e3eb17fb8901f3e5f2588acea813e2cddb62e96d26facf79b95c26f6e6b"
-                    alt="GoDaddy Point-of-Sale (POS) system in a retail environment"
-                    width={800}
-                    height={600}
-                    className="rounded-lg shadow-lg"
-                    data-ai-hint="GoDaddy POS system"
-                />
+                <div className="flex justify-center items-center gap-4 md:gap-6 p-8 bg-card rounded-lg">
+                    <Image src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.godaddy.com%2Fresources%2Flatam%2Fwp-content%2Fuploads%2Fsites%2F4%2Flogo-godaddy-2023-e1698334197459.png%3Fsize%3D3840x0&f=1&nofb=1&ipt=fdcfea116ed683f4a2db30b244b13a67c1364904c8d4c972a9a7e372ca1d597d" alt="GoDaddy Pro Logo" width={80} height={48} className="object-contain" />
+                    <span className="text-3xl md:text-4xl font-bold text-muted-foreground">x</span>
+                    <Logo className="text-3xl md:text-4xl" />
+                </div>
             </div>
             <div className="order-first md:order-last">
                 <h2 className="text-3xl md:text-4xl font-bold">Why SYNC TECH for Your GoDaddy Needs?</h2>

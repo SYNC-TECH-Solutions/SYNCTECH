@@ -8,8 +8,8 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: "SEO & Digital Growth Services in Dublin, Ireland | Sync Tech",
-  description: "Sync Tech is a top digital marketing agency in Dublin, offering expert SEO, content marketing, and conversion rate optimization (CRO) to increase your website traffic and generate more leads.",
-  keywords: ["SEO services Dublin", "Digital Growth Ireland", "Digital marketing agency Dublin", "Increase website traffic", "Lead generation services", "Conversion Rate Optimization", "Local SEO experts Ireland", "Content marketing strategy", "Sync Tech SEO"],
+  description: "Sync Tech is a top digital marketing agency in Dublin, offering expert SEO, content marketing, and conversion rate optimization (CRO) to increase your website traffic and generate more leads for your Irish business.",
+  keywords: ["SEO services Dublin", "Digital Growth Ireland", "Digital marketing agency Dublin", "increase website traffic", "lead generation services Ireland", "Conversion Rate Optimization Dublin", "Local SEO experts Ireland", "Content marketing strategy Dublin", "Sync Tech SEO"],
 };
 
 const coreServices = [
@@ -82,7 +82,7 @@ export default function DigitalGrowthPage() {
               <div className="relative">
                   <Image 
                     src="/seo.png" 
-                    alt="Chart showing digital growth and SEO success"
+                    alt="Chart showing digital growth and SEO success for an Irish business"
                     width={800}
                     height={600}
                     className="rounded-lg shadow-lg"

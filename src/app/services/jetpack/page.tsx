@@ -8,9 +8,9 @@ import Image from 'next/image';
 import { Logo } from '@/components/logo';
 
 export const metadata: Metadata = {
-  title: "Jetpack for WordPress Services | SYNC TECH",
-  description: "SYNC TECH offers expert integration and management of Jetpack for WordPress. Enhance your site with top-tier security, performance boosts, AI tools, and real-time backups. Dublin-based, global service.",
-  keywords: ["Jetpack for WordPress", "WordPress security", "WordPress performance", "VaultPress backup", "Akismet anti-spam", "Jetpack AI", "VideoPress hosting", "SYNC TECH Jetpack", "managed WordPress Ireland"],
+  title: "Jetpack for WordPress Services in Dublin, Ireland | SYNC TECH",
+  description: "SYNC TECH offers expert integration and management of Jetpack for WordPress in Dublin. Enhance your site with top-tier security, performance boosts, AI tools, and real-time backups. Dublin-based, global service.",
+  keywords: ["Jetpack for WordPress Dublin", "WordPress security Ireland", "WordPress performance Dublin", "VaultPress backup", "Akismet anti-spam", "Jetpack AI Dublin", "VideoPress hosting", "SYNC TECH Jetpack", "managed WordPress Ireland"],
 };
 
 const jetpackServices = [
@@ -103,7 +103,7 @@ export default function JetpackPage() {
               <div className="relative flex justify-center items-center">
                   <Image 
                     src="https://cdn.worldvectorlogo.com/logos/jetpack.svg"
-                    alt="Official Jetpack for WordPress Logo"
+                    alt="Official Jetpack for WordPress Logo representing services in Dublin"
                     width={250}
                     height={250}
                     className="rounded-lg"
@@ -155,7 +155,7 @@ export default function JetpackPage() {
             <div className="relative order-last md:order-first">
                 <Image 
                     src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjetpack.com%2Fwp-content%2Fuploads%2F2024%2F10%2Fscreenshot-2024-10-30-at-10.01.41e280afam.png&f=1&nofb=1&ipt=6b8eb837e87e482700cb7615bbfbc7c2338ddef37dfd01f6b4f7ac17c1d7da01"
-                    alt="Jetpack dashboard shown on a laptop screen"
+                    alt="Jetpack dashboard shown on a laptop screen in a Dublin office"
                     width={800}
                     height={600}
                     className="rounded-lg shadow-lg"

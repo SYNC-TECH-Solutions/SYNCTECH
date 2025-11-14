@@ -11,10 +11,10 @@ import { Button } from '@/components/ui/button';
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
-  title: "SYNC TECH Brand Guide & Founder Story | Our Identity",
-  description: "Explore the official brand guide of SYNC TECH. Discover our logo, color palette, typography, and the vision of our founder, Sheraz Hussain. Your resource for SYNC TECH's corporate identity and design principles.",
+  title: "SYNC TECH Brand Guide & Founder Story | Our Identity in Dublin",
+  description: "Explore the official brand guide of SYNC TECH, a Dublin-based IT company. Discover our logo, color palette, typography, and the vision of our founder, Sheraz Hussain. Your resource for SYNC TECH's corporate identity and design principles in Ireland.",
   keywords: [
-    "SYNC TECH brand guide", "Sheraz Hussain founder", "tech company branding", "corporate identity", "SYNC TECH logo", "brand assets", "color palette", "typography guidelines", "IT company vision"
+    "SYNC TECH brand guide", "Sheraz Hussain founder", "tech company branding Dublin", "corporate identity Ireland", "SYNC TECH logo", "brand assets Dublin", "color palette", "typography guidelines", "IT company vision Dublin"
   ],
 };
 
@@ -51,7 +51,7 @@ export default function BrandPage() {
               <div className="md:col-span-1">
                 <Image 
                   src="/dublinsync.png" 
-                  alt="Sheraz Hussain, founder of SYNC TECH" 
+                  alt="Sheraz Hussain, founder of SYNC TECH in Dublin, Ireland" 
                   width={400} 
                   height={400} 
                   className="rounded-lg object-cover w-full h-auto"
@@ -156,5 +156,3 @@ export default function BrandPage() {
     </div>
   );
 }
-
-    

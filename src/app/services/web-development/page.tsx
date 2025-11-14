@@ -7,8 +7,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: "Web Design & Development Services in Ireland | Sync Tech",
-  description: "Professional Web Design and Custom Web Development services by Sync Tech. Build high-performing, mobile-first websites for eCommerce and corporate clients across Ireland.",
+  title: "Web Design & Development Services in Dublin, Ireland | Sync Tech",
+  description: "Professional Web Design and Custom Web Development services in Dublin by Sync Tech. Build high-performing, mobile-first websites for eCommerce and corporate clients across Ireland. Contact us for top web development solutions.",
+  keywords: ["Web design Dublin", "Web development Ireland", "custom web development Dublin", "eCommerce websites Ireland", "Next.js developer Dublin", "React developer Ireland", "corporate websites Dublin", "mobile-first design"],
 };
 
 const benefits = [
@@ -86,10 +87,11 @@ export default function WebDevelopmentPage() {
             <div className="relative">
                 <Image 
                     src="/webdev.png" 
-                    alt="Responsive web design shown on multiple devices"
+                    alt="Responsive web design shown on multiple devices in Dublin"
                     width={800}
                     height={600}
                     className="rounded-lg shadow-lg"
+                    data-ai-hint="responsive web design"
                 />
             </div>
             <div>

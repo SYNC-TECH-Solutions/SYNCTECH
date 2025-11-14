@@ -133,8 +133,8 @@ export default function StripePage() {
               </div>
               <div className="relative flex justify-center items-center">
                   <Image 
-                    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.hfxmYyv2jcY13L56yvC29AHaEK%26pid%3DApi&f=1&ipt=e827b5f585324d5d996e382e70583b49e6f3eb120df0175b9f939e6a9f14e7a0"
-                    alt="Stripe payment interface on a phone"
+                    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fb.stripecdn.com%2Fdocs-statics-srv%2Fassets%2Fmobile-app-metrics.8a84e7d07defcdf19b3074011cdfcf59.png&f=1&nofb=1&ipt=d2988839b81036a7a22f211793f43935bb6f499df9c2dec8f9534b7c19b46650"
+                    alt="Stripe payment metrics on a mobile app interface"
                     width={500}
                     height={400}
                     className="rounded-lg shadow-lg"
@@ -209,15 +209,12 @@ export default function StripePage() {
       {/* Why SYNC TECH section */}
       <section className="py-20 md:py-28">
         <div className="container grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative order-last md:order-first">
-                <Image 
-                    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.ctfassets.net%2Ffzn2n1nzq965%2F3t2EtmJd86NTwPFlfFfXgB%2F8f6e2b96316715f79b18a442e6c54782%2FStripe_Press_Image_4.png&f=1&nofb=1&ipt=b70743f554ac83f1cd56c429d20c52119c6298514930b8b2fc9736c28f6f59c8"
-                    alt="Stripe terminal and code"
-                    width={800}
-                    height={600}
-                    className="rounded-lg shadow-lg"
-                    data-ai-hint="stripe integration code"
-                />
+            <div className="relative order-last md:order-first flex justify-center items-center p-8 bg-card rounded-lg">
+                <div className="flex justify-center items-center gap-4 md:gap-6">
+                    <Image src="https://cdn.worldvectorlogo.com/logos/stripe-4.svg" alt="Stripe Logo" width={80} height={80} />
+                    <span className="text-5xl md:text-6xl font-bold text-muted-foreground">x</span>
+                    <Logo className="text-5xl md:text-6xl" />
+                </div>
             </div>
             <div className="order-first md:order-last">
                 <h2 className="text-3xl md:text-4xl font-bold">Why SYNC TECH for Stripe?</h2>

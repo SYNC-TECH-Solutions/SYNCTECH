@@ -90,12 +90,12 @@ export default function GoDaddyPage() {
               </div>
               <div className="relative flex justify-center items-center">
                   <Image 
-                    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.godaddy.com%2Fgarage%2Fwp-content%2Fuploads%2F2018%2F09%2FGoDaddy-Pro-Dashboard.jpg&f=1&nofb=1&ipt=b8ddc67b93c834a36f42b6a2fc7c525f20610cc492576b2c286915f013d31fc3"
-                    alt="GoDaddy Pro dashboard interface"
-                    width={800}
-                    height={600}
-                    className="rounded-lg shadow-lg"
-                    data-ai-hint="dashboard interface"
+                    src="https://images.ctfassets.net/23aumh6u8s0i/5ZpG3sR2a9x30sX3Sj3u9I/27c24f605a90d96d747d7c50a112f43c/godaddy-pro_logo"
+                    alt="GoDaddy Pro Logo"
+                    width={400}
+                    height={200}
+                    className="rounded-lg"
+                    data-ai-hint="GoDaddy Pro Logo"
                 />
               </div>
           </div>

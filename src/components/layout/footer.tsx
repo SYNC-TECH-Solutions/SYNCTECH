@@ -43,7 +43,7 @@ const partnershipLinks = [
     { href: '/services/woocommerce', label: 'WooCommerce' },
     { href: '/services/jetpack', label: 'Jetpack' },
     { href: '/services/stripe', label: 'Stripe' },
-    { href: 'https://www.godaddy.com/pro', label: 'GoDaddy Pro' },
+    { href: '/services/godaddy', label: 'GoDaddy Pro' },
 ];
 
 export function Footer() {

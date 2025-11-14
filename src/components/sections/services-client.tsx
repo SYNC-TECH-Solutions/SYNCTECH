@@ -41,6 +41,12 @@ const services = [
     link: "/services/stripe",
   },
   {
+    icon: <Image src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.L8d3nzrXGpafB9Ldy-D4TgHaE8%3Fpid%3DApi&f=1&ipt=f637bc6621c7a7b271d109bba511cffeacf541bcf8de3413af118803761043d5" alt="GoDaddy Pro Logo" width={32} height={32} />,
+    title: "GoDaddy Pro",
+    description: "Managed hosting, domains, and security through the GoDaddy Pro platform, providing a single point of contact for your web infrastructure.",
+    link: "/services/godaddy",
+  },
+  {
     icon: <Cloud className="w-8 h-8 text-primary" />,
     title: "Managed Cloud & Optimization",
     description: "Offload cloud complexities with 24/7 global support. We handle security, scalability, and data protection so you can focus on your core mission.",

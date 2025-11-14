@@ -40,6 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/services/woocommerce',
     '/services/jetpack',
     '/services/stripe',
+    '/services/godaddy',
   ];
 
   const serviceRoutes = servicePages.map((route) => ({

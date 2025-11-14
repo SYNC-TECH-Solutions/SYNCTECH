@@ -25,20 +25,26 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
       {
-        protocol: 'https',
-        hostname: 'external-content.duckduckgo.com',
+        protocol: 'https' ,
+        hostname: 'external-content.duckduckgo.com' ,
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https' ,
+        hostname: 'cdn.worldvectorlogo.com' ,
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https' ,
+        hostname: 'static.vecteezy.com' ,
         port: '',
         pathname: '/**',
       },
       {
         protocol: 'https',
-        hostname: 'cdn.worldvectorlogo.com',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'static.vecteezy.com',
+        hostname: 'images.ctfassets.net',
         port: '',
         pathname: '/**',
       }

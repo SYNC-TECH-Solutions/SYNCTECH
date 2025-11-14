@@ -34,6 +34,12 @@ const services = [
     description: "Enhance your site with top-tier security, performance, and growth tools.",
     link: "/services/jetpack",
   },
+   {
+    icon: <Image src="https://cdn.worldvectorlogo.com/logos/stripe-4.svg" alt="Stripe Logo" width={32} height={32} />,
+    title: "Stripe Integration",
+    description: "Expert integration of Stripe's financial tools to build a robust payment infrastructure for your business.",
+    link: "/services/stripe",
+  },
   {
     icon: <Cloud className="w-8 h-8 text-primary" />,
     title: "Managed Cloud & Optimization",

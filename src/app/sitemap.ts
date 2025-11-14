@@ -39,6 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/services/wordpress',
     '/services/woocommerce',
     '/services/jetpack',
+    '/services/stripe',
   ];
 
   const serviceRoutes = servicePages.map((route) => ({

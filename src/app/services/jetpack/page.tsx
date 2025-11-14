@@ -100,13 +100,13 @@ export default function JetpackPage() {
                       </li>
                   </ul>
               </div>
-              <div className="relative">
+              <div className="relative flex justify-center items-center">
                   <Image 
                     src="https://cdn.worldvectorlogo.com/logos/jetpack.svg"
                     alt="Official Jetpack for WordPress Logo"
-                    width={500}
-                    height={500}
-                    className="rounded-lg shadow-lg mx-auto"
+                    width={250}
+                    height={250}
+                    className="rounded-lg"
                     data-ai-hint="jetpack logo"
                 />
               </div>
@@ -154,7 +154,7 @@ export default function JetpackPage() {
         <div className="container grid md:grid-cols-2 gap-12 items-center">
             <div className="relative order-last md:order-first">
                 <Image 
-                    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.elegantthemes.com%2Fblog%2Fwp-content%2Fuploads%2F2021%2F03%2Fjetpack-plugin-featured-image.png&f=1&nofb=1&ipt=515a0cdd7d29b28b7e28406f52f3607f240bb749d7f00d36746fd8169992c90a"
+                    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjetpack.com%2Fwp-content%2Fuploads%2F2024%2F10%2Fscreenshot-2024-10-30-at-10.01.41e280afam.png&f=1&nofb=1&ipt=6b8eb837e87e482700cb7615bbfbc7c2338ddef37dfd01f6b4f7ac17c1d7da01"
                     alt="Jetpack dashboard shown on a laptop screen"
                     width={800}
                     height={600}

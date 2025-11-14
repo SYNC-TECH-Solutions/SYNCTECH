@@ -1,6 +1,6 @@
 
 import type { Metadata } from 'next';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle, Code, Layers, Smartphone, Zap, TrendingUp } from 'lucide-react';
 import Link from 'next/link';

@@ -1,6 +1,6 @@
 
 import type { Metadata } from 'next';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle, Palette, Code, Server, Globe } from 'lucide-react';
 import Link from 'next/link';
@@ -43,7 +43,7 @@ export default function WordpressPage() {
           <div className="container grid md:grid-cols-2 gap-12 items-center">
               <div>
                   <h2 className="text-3xl md:text-4xl font-bold">What is <span className="text-primary">WordPress</span>?</h2>
-                  <p className="mt-4 text-muted-foreground text-lg">WordPress is the world's most popular and powerful tool for creating websites, powering over 43% of the entire internet. It's a versatile Content Management System (CMS) that serves as a flexible foundation for everything from personal blogs to complex, enterprise-level e-commerce stores and corporate websites.</p>
+                  <p className="mt-4 text-muted-foreground text-lg">WordPress is the world's most popular tool for creating websites, powering over 43% of the entire internet. It's a versatile Content Management System (CMS) that serves as a flexible foundation for everything from personal blogs to complex, enterprise-level e-commerce stores and corporate websites.</p>
                   <ul className="mt-6 space-y-4">
                       <li className="flex items-start gap-4">
                           <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />

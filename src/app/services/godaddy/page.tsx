@@ -47,7 +47,7 @@ export default function GoDaddyPage() {
       <section className="py-20 md:py-32 bg-secondary text-center">
         <div className="container">
             <div className="flex justify-center items-center gap-4 md:gap-6 mb-8">
-                <Image src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.L8d3nzrXGpafB9Ldy-D4TgHaE8%3Fpid%3DApi&f=1&ipt=f637bc6621c7a7b271d109bba511cffeacf541bcf8de3413af118803761043d5" alt="GoDaddy Pro Logo" width={100} height={60} className="object-contain" />
+                <Image src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.godaddy.com%2Fresources%2Flatam%2Fwp-content%2Fuploads%2Fsites%2F4%2Flogo-godaddy-2023-e1698334197459.png%3Fsize%3D3840x0&f=1&nofb=1&ipt=fdcfea116ed683f4a2db30b244b13a67c1364904c8d4c972a9a7e372ca1d597d" alt="GoDaddy Pro Logo" width={100} height={60} className="object-contain" />
                 <span className="text-4xl md:text-5xl font-bold text-muted-foreground">x</span>
                 <Logo className="text-4xl md:text-5xl" />
             </div>

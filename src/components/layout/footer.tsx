@@ -47,9 +47,9 @@ export function Footer() {
   return (
     <footer className="bg-secondary text-secondary-foreground">
       <div className="container py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
           
-          <div className="flex flex-col gap-4 md:col-span-1">
+          <div className="flex flex-col gap-4 md:col-span-2">
             <Logo />
             <p className="text-sm">Global IT Solutions & 24/7 Support.</p>
             <p className="text-sm">Global Headquarters</p>

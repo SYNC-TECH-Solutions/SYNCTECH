@@ -42,7 +42,7 @@ export default function AgentShowcaseSection() {
             <div className="container text-center">
                 <div className="flex justify-center items-center gap-4 mb-4">
                     <h2 className="text-3xl md:text-4xl font-bold">
-                        SYNC TECH Marketplace
+                        SYNC<span className="text-primary">TECH</span> Marketplace
                     </h2>
                 </div>
                 <p className="max-w-2xl mx-auto text-muted-foreground mb-8">

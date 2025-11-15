@@ -7,6 +7,7 @@ import { Github, Linkedin, Instagram, Facebook } from 'lucide-react';
 const mainLinks = [
   { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
+  { href: '/ai-marketplace', label: 'AI Marketplace' },
   { href: '/portfolio', label: 'Portfolio' },
   { href: '/blog', label: 'Blog' },
   { href: '/news-and-events', label: 'Updates' },

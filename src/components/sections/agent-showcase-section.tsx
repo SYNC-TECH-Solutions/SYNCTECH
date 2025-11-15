@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { TypingAnimation } from "@/components/ui/typing-animation";
 import { Button } from "../ui/button";
 import Link from "next/link";
-import { ArrowRight, Bot } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Logo } from "../logo";
 
 const textTransitions = [
@@ -41,9 +41,8 @@ export default function AgentShowcaseSection() {
         >
             <div className="container text-center">
                 <div className="flex justify-center items-center gap-4 mb-4">
-                    <Bot className="h-10 w-10 text-primary" />
                     <h2 className="text-3xl md:text-4xl font-bold">
-                        <Logo className="text-3xl md:text-4xl" /> Marketplace
+                        <Logo className="text-3xl md:text-4xl" />
                     </h2>
                 </div>
                 <p className="max-w-2xl mx-auto text-muted-foreground mb-8">

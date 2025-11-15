@@ -6,7 +6,7 @@ import PortfolioSection from '@/components/sections/portfolio-section';
 import TestimonialsSection from '@/components/sections/testimonials-section';
 import ContactSection from '@/components/sections/contact-section';
 import PartnersSection from '@/components/sections/partners-section';
-import NewSection from '@/components/sections/new-section';
+import AgentShowcaseSection from '@/components/sections/agent-showcase-section';
 
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
       <PartnersSection />
       <AboutSection />
       <ServicesSection />
-      <NewSection />
+      <AgentShowcaseSection />
       <PortfolioSection />
       <TestimonialsSection />
       <ContactSection />

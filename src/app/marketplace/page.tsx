@@ -28,7 +28,9 @@ export default function MarketplacePage() {
       <section className="py-20 md:py-32 bg-secondary text-center">
         <div className="container">
           <Bot className="h-16 w-16 text-primary mx-auto mb-4" />
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">Agent & Workflow Marketplace</h1>
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
+            SYNC<span className="text-primary">TECH</span> Marketplace
+          </h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
             Empower your business with intelligent automation. Browse our collection of pre-built AI agents designed to streamline processes, enhance productivity, and drive growth.
           </p>

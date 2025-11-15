@@ -1,0 +1,36 @@
+
+[
+  {
+    "id": "lead-finder",
+    "icon": "BrainCircuit",
+    "title": "AI Lead Finder & Qualifier",
+    "category": "Sales & Marketing",
+    "description": "Automatically scans the web to find potential business leads based on your specified industry and location. It analyzes each lead's website to determine their potential needs and suggests relevant services.",
+    "price": 499,
+    "demoUrl": "/marketplace/demos/lead-finder"
+  },
+  {
+    "id": "proposal-writer",
+    "icon": "FileText",
+    "title": "Automated Proposal & Email Writer",
+    "category": "Sales & Marketing",
+    "description": "Takes qualified lead data and automatically generates a personalized cold outreach email and a structured business proposal outline. Drastically reduces the time spent on sales prep.",
+    "price": 399
+  },
+  {
+    "id": "keyword-generator",
+    "icon": "Lightbulb",
+    "title": "SEO Keyword Generator",
+    "category": "Content & SEO",
+    "description": "Generates comprehensive, relevant, and high-intent keyword lists for any type of business or industry to supercharge your SEO strategy.",
+    "price": 149
+  },
+  {
+    "id": "inquiry-validator",
+    "icon": "Bot",
+    "title": "Customer Inquiry Validator",
+    "category": "Operations & Security",
+    "description": "An AI agent that automatically analyzes incoming contact form submissions to filter out spam, ads, and malicious content, ensuring your sales team only sees legitimate inquiries.",
+    "price": 199
+  }
+]

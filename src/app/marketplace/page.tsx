@@ -4,13 +4,23 @@ import type { Metadata } from 'next';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ArrowRight, Bot, BrainCircuit, FileText, Lightbulb } from 'lucide-react';
-import { aiAgents } from '@/lib/ai-agents';
+import { ArrowRight, Bot, BrainCircuit, FileText, Lightbulb, PlayCircle } from 'lucide-react';
+import aiAgents from '@/lib/data/ai-agents.json';
 
 export const metadata: Metadata = {
   title: "Agent & Workflow Marketplace | SYNC TECH",
   description: "Explore and acquire powerful AI agents and automated workflows from SYNC TECH. Boost productivity with solutions for lead generation, content creation, and business intelligence.",
   keywords: ["AI agents", "AI marketplace", "automated workflows", "business AI", "lead generation AI", "content automation", "SYNC TECH AI"],
+};
+
+type AiAgent = {
+  id: string;
+  icon: string;
+  title: string;
+  category: string;
+  description: string;
+  price: number;
+  demoUrl?: string;
 };
 
 const iconMap: { [key: string]: React.ComponentType<{ className?: string }> } = {
@@ -20,8 +30,43 @@ const iconMap: { [key: string]: React.ComponentType<{ className?: string }> } = 
   Bot,
 };
 
-
 export default function MarketplacePage() {
+  const agentsWithDemos = aiAgents.filter(agent => agent.demoUrl);
+  const otherAgents = aiAgents.filter(agent => !agent.demoUrl);
+
+  const AgentCard = ({ agent }: { agent: AiAgent }) => {
+    const IconComponent = iconMap[agent.icon];
+    return (
+      <Card className="flex flex-col text-center hover:shadow-lg transition-shadow duration-300">
+        <CardHeader className="items-center">
+          <div className="bg-primary/10 p-4 rounded-full mb-4">
+            {IconComponent && <IconComponent className="h-8 w-8 text-primary" />}
+          </div>
+          <CardTitle>{agent.title}</CardTitle>
+          <CardDescription>{agent.category}</CardDescription>
+        </CardHeader>
+        <CardContent className="flex-grow">
+          <p className="text-muted-foreground text-sm">{agent.description}</p>
+        </CardContent>
+        <CardFooter className="flex-col gap-4">
+          {agent.demoUrl && (
+            <Button asChild className="w-full" variant="secondary">
+              <Link href={agent.demoUrl}>
+                Try Live Demo <PlayCircle className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+          )}
+          <Button asChild className="w-full">
+            <a href={`mailto:synctechire@gmail.com?subject=Quote%20Request:%20AI%20Agent%20-%20${encodeURIComponent(agent.title)}`}>
+              Get a Quote
+            </a>
+          </Button>
+          <p className="text-xs text-muted-foreground">Starting from ${agent.price}</p>
+        </CardFooter>
+      </Card>
+    );
+  };
+
   return (
     <div className="bg-background">
       {/* Hero Section */}
@@ -37,35 +82,38 @@ export default function MarketplacePage() {
         </div>
       </section>
 
-      {/* Agents Grid Section */}
-      <section className="py-20 md:py-28">
+      {/* Live Demos Section */}
+      {agentsWithDemos.length > 0 && (
+        <section className="py-20 md:py-28">
+          <div className="container">
+            <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-4xl font-bold">Try a Live Demo</h2>
+                <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
+                    Experience the power of our AI agents firsthand. These interactive demos showcase the value and efficiency our solutions can bring to your business.
+                </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center max-w-4xl mx-auto">
+              {agentsWithDemos.map((agent) => (
+                <AgentCard key={agent.id} agent={agent} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Other Agents Section */}
+      <section className="py-20 md:py-28 bg-secondary">
         <div className="container">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold">Explore Our Full Suite of AI Agents</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
+              Browse our complete catalog of AI-powered solutions designed for sales, marketing, operations, and more.
+            </p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {aiAgents.map((agent) => {
-              const IconComponent = iconMap[agent.icon];
-              return (
-                <Card key={agent.title} className="flex flex-col text-center hover:shadow-lg transition-shadow duration-300">
-                  <CardHeader className="items-center">
-                    <div className="bg-primary/10 p-4 rounded-full mb-4">
-                      {IconComponent ? <IconComponent className="h-8 w-8 text-primary" /> : null}
-                    </div>
-                    <CardTitle>{agent.title}</CardTitle>
-                    <CardDescription>{agent.category}</CardDescription>
-                  </CardHeader>
-                  <CardContent className="flex-grow">
-                    <p className="text-muted-foreground text-sm">{agent.description}</p>
-                  </CardContent>
-                  <CardFooter className="flex-col gap-4">
-                    <Button asChild className="w-full">
-                       <a href={`mailto:synctechire@gmail.com?subject=Quote%20Request:%20AI%20Agent%20-%20${encodeURIComponent(agent.title)}`}>
-                          Get a Quote
-                       </a>
-                    </Button>
-                     <p className="text-xs text-muted-foreground">Starting from ${agent.price}</p>
-                  </CardFooter>
-                </Card>
-              );
-            })}
+            {otherAgents.map((agent) => (
+              <AgentCard key={agent.id} agent={agent} />
+            ))}
           </div>
         </div>
       </section>

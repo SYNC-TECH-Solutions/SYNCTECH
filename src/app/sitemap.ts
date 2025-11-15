@@ -71,7 +71,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...serviceRoutes,
     {
-      url: `${baseUrl}/ai-marketplace`,
+      url: `${baseUrl}/marketplace`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,

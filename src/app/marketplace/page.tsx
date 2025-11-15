@@ -21,7 +21,7 @@ const iconMap: { [key: string]: React.ComponentType<{ className?: string }> } = 
 };
 
 
-export default function AiMarketplacePage() {
+export default function MarketplacePage() {
   return (
     <div className="bg-background">
       {/* Hero Section */}

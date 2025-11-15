@@ -12,7 +12,7 @@ import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetClose } from '@/com
 const navItems = [
   { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
-  { href: '/ai-marketplace', label: 'Marketplace' },
+  { href: '/marketplace', label: 'Marketplace' },
   { href: '/portfolio', label: 'Portfolio' },
   { href: '/blog', label: 'Blog' },
   { href: '/news-and-events', label: 'Updates' },

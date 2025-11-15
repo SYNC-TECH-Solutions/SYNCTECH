@@ -24,10 +24,10 @@ export const aiAgents: AiAgent[] = [
   },
   {
     icon: "Lightbulb",
-    title: "SEO-Optimized Blog Post Generator",
+    title: "SEO Keyword Generator",
     category: "Content & SEO",
-    description: "Generates high-quality, SEO-friendly blog posts from a simple topic and keyword list. Produces a title, excerpt, and full HTML content ready for publishing.",
-    price: 299,
+    description: "Generates comprehensive, relevant, and high-intent keyword lists for any type of business or industry to supercharge your SEO strategy.",
+    price: 149,
   },
    {
     icon: "Bot",

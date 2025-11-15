@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ArrowRight, Bot } from 'lucide-react';
+import { ArrowRight, Bot, BrainCircuit, FileText, Lightbulb } from 'lucide-react';
 import { aiAgents } from '@/lib/ai-agents';
 
 export const metadata: Metadata = {
@@ -11,6 +11,14 @@ export const metadata: Metadata = {
   description: "Explore and acquire powerful AI agents and automated workflows from SYNC TECH. Boost productivity with solutions for lead generation, content creation, and business intelligence.",
   keywords: ["AI agents", "AI marketplace", "automated workflows", "business AI", "lead generation AI", "content automation", "SYNC TECH AI"],
 };
+
+const iconMap: { [key: string]: React.ComponentType<{ className?: string }> } = {
+  BrainCircuit,
+  FileText,
+  Lightbulb,
+  Bot,
+};
+
 
 export default function AiMarketplacePage() {
   return (
@@ -30,28 +38,31 @@ export default function AiMarketplacePage() {
       <section className="py-20 md:py-28">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {aiAgents.map((agent) => (
-              <Card key={agent.title} className="flex flex-col text-center hover:shadow-lg transition-shadow duration-300">
-                <CardHeader className="items-center">
-                  <div className="bg-primary/10 p-4 rounded-full mb-4">
-                    {agent.icon}
-                  </div>
-                  <CardTitle>{agent.title}</CardTitle>
-                  <CardDescription>{agent.category}</CardDescription>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <p className="text-muted-foreground text-sm">{agent.description}</p>
-                </CardContent>
-                <CardFooter className="flex-col gap-4">
-                  <Button asChild className="w-full">
-                     <a href={`mailto:synctechire@gmail.com?subject=Quote%20Request:%20AI%20Agent%20-%20${encodeURIComponent(agent.title)}`}>
-                        Get a Quote
-                     </a>
-                  </Button>
-                   <p className="text-xs text-muted-foreground">Starting from ${agent.price}</p>
-                </CardFooter>
-              </Card>
-            ))}
+            {aiAgents.map((agent) => {
+              const IconComponent = iconMap[agent.icon];
+              return (
+                <Card key={agent.title} className="flex flex-col text-center hover:shadow-lg transition-shadow duration-300">
+                  <CardHeader className="items-center">
+                    <div className="bg-primary/10 p-4 rounded-full mb-4">
+                      {IconComponent ? <IconComponent className="h-8 w-8 text-primary" /> : null}
+                    </div>
+                    <CardTitle>{agent.title}</CardTitle>
+                    <CardDescription>{agent.category}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="flex-grow">
+                    <p className="text-muted-foreground text-sm">{agent.description}</p>
+                  </CardContent>
+                  <CardFooter className="flex-col gap-4">
+                    <Button asChild className="w-full">
+                       <a href={`mailto:synctechire@gmail.com?subject=Quote%20Request:%20AI%20Agent%20-%20${encodeURIComponent(agent.title)}`}>
+                          Get a Quote
+                       </a>
+                    </Button>
+                     <p className="text-xs text-muted-foreground">Starting from ${agent.price}</p>
+                  </CardFooter>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>

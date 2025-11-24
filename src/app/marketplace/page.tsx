@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ArrowRight, Bot, BrainCircuit, FileText, Lightbulb, PlayCircle } from 'lucide-react';
+import { ArrowRight, Bot, BrainCircuit, FileText, Lightbulb, PlayCircle, ShoppingCart } from 'lucide-react';
 import aiAgents from '@/lib/data/ai-agents.json';
 
 export const metadata: Metadata = {
@@ -72,7 +72,7 @@ export default function MarketplacePage() {
       {/* Hero Section */}
       <section className="py-20 md:py-32 bg-secondary text-center">
         <div className="container">
-          <Bot className="h-16 w-16 text-primary mx-auto mb-4" />
+          <ShoppingCart className="h-16 w-16 text-primary mx-auto mb-4" />
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
             SYNC<span className="text-primary">TECH</span> Marketplace
           </h1>

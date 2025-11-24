@@ -61,7 +61,6 @@ export default function MarketplacePage() {
               Get a Quote
             </a>
           </Button>
-          <p className="text-xs text-muted-foreground">Starting from ${agent.price}</p>
         </CardFooter>
       </Card>
     );

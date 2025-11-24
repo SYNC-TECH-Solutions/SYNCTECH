@@ -71,7 +71,33 @@ export default function MarketplacePage() {
       {/* Hero Section */}
       <section className="py-20 md:py-32 bg-secondary text-center">
         <div className="container">
-          <ShoppingCart className="h-16 w-16 text-primary mx-auto mb-4" />
+          <div className="mx-auto mb-4 h-20 w-20 text-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+              {/* Cart body */}
+              <path d="M80 85H25c-2.76 0-5-2.24-5-5V40h60v40c0 2.76-2.24 5-5 5z" stroke="currentColor" strokeWidth="4" strokeLinejoin="round" />
+              <path d="M20 40h60v-5c0-8.28-6.72-15-15-15H35c-8.28 0-15 6.72-15 15v5z" stroke="currentColor" strokeWidth="4" strokeLinejoin="round" />
+              <circle cx="30" cy="92.5" r="4.5" stroke="currentColor" strokeWidth="3"/>
+              <circle cx="70" cy="92.5" r="4.5" stroke="currentColor" strokeWidth="3"/>
+
+              {/* Items in cart - slightly smaller and positioned */}
+              {/* Laptop */}
+              <g transform="translate(30 22) scale(0.35)">
+                <rect x="2" y="2" width="44" height="28" rx="2" stroke="currentColor" strokeWidth="6" />
+                <path d="M2 30v2a2 2 0 002 2h40a2 2 0 002-2v-2H2z" stroke="currentColor" strokeWidth="6" />
+              </g>
+              {/* AI Brain */}
+              <g transform="translate(50 12) scale(0.3)">
+                <path d="M36.4,28a10,10,0,0,0-12.8,0M25,41.42A20,20,0,1,0,59.1,28" stroke="currentColor" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M42,21a2,2,0,1,0-4,0V15a2,2,0,1,0,4,0Z" fill="currentColor" />
+                <path d="M50,31a2,2,0,1,0-4,0V25a2,2,0,1,0,4,0Z" fill="currentColor" />
+              </g>
+              {/* Smartphone */}
+               <g transform="translate(18 18) scale(0.3)">
+                <rect x="5" y="2" width="24" height="44" rx="4" stroke="currentColor" strokeWidth="6" />
+                <line x1="12" y1="40" x2="22" y2="40" stroke="currentColor" strokeWidth="6" strokeLinecap="round" />
+              </g>
+            </svg>
+          </div>
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
             SYNC<span className="text-primary">TECH</span> Marketplace
           </h1>
